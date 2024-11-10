@@ -20,4 +20,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PathFinder.Data.Models\PathFinder.Data.Models.csproj" />
+  </ItemGroup>
+
 </Project>

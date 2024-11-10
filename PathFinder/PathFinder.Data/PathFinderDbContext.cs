@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PathFinder.Data.Models;
 
 namespace PathFinder.Data
 {
-    public class PathFinderDbContext : IdentityDbContext
+    public class PathFinderDbContext : IdentityDbContext<ApplicationUser>
     {
         public PathFinderDbContext()
         {
