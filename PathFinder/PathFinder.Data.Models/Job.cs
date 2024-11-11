@@ -1,18 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
-using PathFinder.Data.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using static PathFinder.Common.ApplicationConstraints.JobConstraints;
+using PathFinder.Data.Models.Enums;
 
 namespace PathFinder.Data.Models
 {
-    public class JobOffer
+    public class Job
     {
-        [Comment("Job offer's idetifier")]
+        [Comment("Job's idetifier")]
         [Key]
         public int Id { get; set; }
 
-        [Comment("Job title")]
+        [Comment("Job' title")]
         [Required]
         public Sphere Title { get; set; }
 
@@ -20,7 +19,7 @@ namespace PathFinder.Data.Models
         [MaxLength(JobDescriptionMaxLength)]
         public string? Description { get; set; }
 
-        [Comment("The type of the job(Online/In-person/Intership)")]
+        [Comment("The type of the job")]
         [Required]
         public JobType JobType { get; set; }
 
@@ -34,29 +33,12 @@ namespace PathFinder.Data.Models
         [MaxLength(CompanyNameMaxLength)]
         public string CompanyName { get; set; } = null!;
 
-        [Comment("Job's requiements")]
-        [Required]
-        public string Requirement { get; set; } = null!;
-
         [Comment("Job position")]
         [Required]
         [MaxLength(JobPositionMaxLength)]
         public string Position { get; set; } = null!;
 
-        [Comment("Job salary")]
-        [Required]
-        public decimal Salary { get; set; }
-
-        [Comment("Job average star rating")]
-        public double? AverageStarRating { get; set; }
-
-        [Comment("Job reviews")]
-        public virtual ICollection<Review>? Reviews { get; set; }
-            = new List<Review>();
-
-
-        /// <summary>
-        /// TODO Relationship between ApplicationUser and Job
-        /// </summary>
+        public List<UserJob> UsersJobs { get; set; }
+            = new List<UserJob>();
     }
 }

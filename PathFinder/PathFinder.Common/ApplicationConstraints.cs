@@ -29,6 +29,8 @@
             public const int CourseStarRatingMaxValue = 5;
             public const int CourseStarRatingMinValue = 1;
 
+            public const string StartDateDateTimeFormat = "yyyy-MM-dd";
+
         }
 
         public static class JobConstraints
@@ -56,5 +58,7 @@
         {
             public const string SuggestedOnDateTimeFormat = "yyyy-MM-dd";
         }
+
+      
     }
 }

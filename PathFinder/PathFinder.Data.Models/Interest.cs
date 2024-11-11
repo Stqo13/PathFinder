@@ -16,5 +16,8 @@ namespace PathFinder.Data.Models
 
         [Comment("User's preferred sphere")]
         public Sphere PreferredSphere { get; set; }
+
+        public ICollection<UserInterest> UsersInterests { get; set; }
+            = new List<UserInterest>();
     }
 }

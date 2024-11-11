@@ -8,6 +8,7 @@ namespace PathFinder.Data.Models
 {
     public class Review
     {
+        [Comment("Review's idetifier")]
         [Key]
         public int Id { get; set; }
 
