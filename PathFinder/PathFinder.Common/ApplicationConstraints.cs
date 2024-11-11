@@ -12,6 +12,8 @@
 
             public const int UserAddressMinLength = 20;
             public const int UserAddressMaxLength = 100;
+
+            public const string UserBirthDateDateTimeFormat = "yyyy-MM-dd";
         }
 
         public static class CourseConstraints
@@ -46,7 +48,13 @@
         public static class ReviewConstraints
         {
             public const int ReviewCommentMaxLength = 750;
+
+            public const string ReviewDateDateTimeFormat = "yyyy-MM-dd";
         }
 
+        public static class RecommendationConstraints
+        {
+            public const string SuggestedOnDateTimeFormat = "yyyy-MM-dd";
+        }
     }
 }

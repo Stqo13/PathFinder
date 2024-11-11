@@ -5,7 +5,7 @@ using static PathFinder.Common.ApplicationConstraints.CourseConstraints;
 
 namespace PathFinder.Data.Models
 {
-    public class Course
+    public class CourseOffer
     {
         [Key]
         public int Id { get; set; }
