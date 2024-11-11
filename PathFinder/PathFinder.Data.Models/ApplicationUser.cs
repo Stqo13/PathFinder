@@ -21,8 +21,8 @@ namespace PathFinder.Data.Models
         [Required]
         public DateTime DateOfBirth { get; set; }
 
-        [Comment("User's intersests")]
-        public virtual ICollection<UserInterest>? Interests { get; set; }
+        [Comment("User's interests")]
+        public virtual ICollection<UserInterest>? UsersInterests { get; set; }
             = new List<UserInterest>();
 
         [Comment("Use's address")]
@@ -32,6 +32,11 @@ namespace PathFinder.Data.Models
 
         public virtual ICollection<Review> Reviews { get; set; }
             = new List<Review>();
-            
+
+        public ICollection<UserJob> UsersJobs { get; set; }
+            = new List<UserJob>();
+
+        public ICollection<UserCourse> UsersCourses { get; set; }
+           = new List<UserCourse>();
     }
 }
