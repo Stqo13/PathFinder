@@ -38,7 +38,7 @@ namespace PathFinder.Data.Models
         [Required]
         public DateTime StartDate { get; set; }
 
-        public ICollection<UserCourse> UsersCourses { get; set; }
+        public virtual ICollection<UserCourse> UsersCourses { get; set; }
             = new List<UserCourse>();
     }
 }

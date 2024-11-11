@@ -10,7 +10,7 @@ namespace PathFinder.Data.Models
     {
         [Comment("User's foreign key")]
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; } = null!;
 
         [Comment("User's navigation property")]
         [ForeignKey(nameof(UserId))]
@@ -18,7 +18,7 @@ namespace PathFinder.Data.Models
 
         [Comment("Course's foreign key")]
         [Required]
-        public string CourseId { get; set; } = null!;
+        public int CourseId { get; set; }
 
         [Comment("Course's navigation property")]
         [ForeignKey(nameof(CourseId))]

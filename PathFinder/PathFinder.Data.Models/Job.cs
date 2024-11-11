@@ -38,7 +38,8 @@ namespace PathFinder.Data.Models
         [MaxLength(JobPositionMaxLength)]
         public string Position { get; set; } = null!;
 
-        public List<UserJob> UsersJobs { get; set; }
+        [Comment("User's jobs")]
+        public virtual ICollection<UserJob> UsersJobs { get; set; }
             = new List<UserJob>();
     }
 }
