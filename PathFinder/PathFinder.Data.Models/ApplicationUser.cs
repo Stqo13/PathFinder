@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using PathFinder.Data.Models.Enums;
 using static PathFinder.Common.ApplicationConstraints.UserConstraints;
-using System.ComponentModel.DataAnnotations.Schema;
-
 
 namespace PathFinder.Data.Models
 {
@@ -20,12 +17,13 @@ namespace PathFinder.Data.Models
         [MaxLength(UserLastNameMaxLength)]
         public string LastName { get; set; } = null!;
 
+        [Comment("User's date of birth")]
+        [Required]
+        public DateTime DateOfBirth { get; set; }
+
         [Comment("User's intersests")]
         public virtual ICollection<UserInterest>? Interests { get; set; }
             = new List<UserInterest>();
-
-        [Comment("User's preferred sphere")]
-        public Sphere PreferredSphere { get; set; }
 
         [Comment("Use's address")]
         [Required]

@@ -6,7 +6,7 @@ using static PathFinder.Common.ApplicationConstraints.JobConstraints;
 
 namespace PathFinder.Data.Models
 {
-    public class Job
+    public class JobOffer
     {
         [Key]
         public int Id { get; set; }
