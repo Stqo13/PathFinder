@@ -1,18 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
-using PathFinder.Data.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using static PathFinder.Common.ApplicationConstraints.JobConstraints;
 
 namespace PathFinder.Data.Models
 {
-    public class JobOffer
+    public class JobOffer : Job
     {
-        public int JobId { get; set; }
+        //public int JobId { get; set; }
 
-        [ForeignKey(nameof(JobId))]
-        public virtual Job Job { get; set; } = null!;
+        //[ForeignKey(nameof(JobId))]
+        //public virtual Job Job { get; set; } = null!;
         //[Comment("Job offer's idetifier")]
         //[Key]
         //public int Id { get; set; }
@@ -38,15 +35,14 @@ namespace PathFinder.Data.Models
         //[Required]
         //[MaxLength(CompanyNameMaxLength)]
         //public string CompanyName { get; set; } = null!;
-
-        [Comment("Job's requiements")]
-        [Required]
-        public string Requirement { get; set; } = null!;
-
         //[Comment("Job position")]
         //[Required]
         //[MaxLength(JobPositionMaxLength)]
         //public string Position { get; set; } = null!;
+
+        [Comment("Job's requiements")]
+        [Required]
+        public string Requirement { get; set; } = null!;
 
         [Comment("Job salary")]
         [Required]
