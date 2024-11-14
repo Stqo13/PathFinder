@@ -1,17 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using PathFinder.Data.Models.Enums;
-using static PathFinder.Common.ApplicationConstraints.CourseConstraints;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PathFinder.Data.Models
 {
-    public class CourseOffer
+    public class CourseOffer : Course
     {
-        public int CourseId { get; set; }
+        //public int CourseId { get; set; }
 
-        [ForeignKey(nameof(CourseId))]
-        public virtual Course Course { get; set; } = null!;
+        //[ForeignKey(nameof(CourseId))]
+        //public virtual Course Course { get; set; } = null!;
 
         //[Comment("Course offer's idetifier")]
         //[Key]
@@ -45,12 +42,12 @@ namespace PathFinder.Data.Models
         [Comment("Course average star rating")]
         public double? AverageStarRating { get; set; }
 
-        [Comment("Course reviews")]
-        public virtual ICollection<Review>? Reviews { get; set; }
-            = new List<Review>();
-
         [Comment("Course monthly price")]
         [Required]
         public decimal MonthlyPrice { get; set; }
+
+        [Comment("Course reviews")]
+        public virtual ICollection<Review>? Reviews { get; set; }
+            = new List<Review>();
     }
 }
