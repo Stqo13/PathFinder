@@ -3,23 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathFinder", "PathFinder\PathFinder.csproj", "{3E39F29E-434B-4F41-B3FF-32269D0CDF36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathFinder", "PathFinder\PathFinder.csproj", "{3E39F29E-434B-4F41-B3FF-32269D0CDF36}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{78236C82-53F0-49E4-A87B-7456C4BE5E71}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{622F1EBF-22E3-49D3-9ABD-6F6A91E06602}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathFinder.Common", "PathFinder.Common\PathFinder.Common.csproj", "{30AFA69C-8D7D-4556-84F2-A7A6EEF42DB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathFinder.Common", "PathFinder.Common\PathFinder.Common.csproj", "{30AFA69C-8D7D-4556-84F2-A7A6EEF42DB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathFinder.Data", "PathFinder.Data\PathFinder.Data.csproj", "{2DBDE275-C2D6-4C5F-A5EF-7A2E3E96966A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathFinder.Data", "PathFinder.Data\PathFinder.Data.csproj", "{2DBDE275-C2D6-4C5F-A5EF-7A2E3E96966A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathFinder.ViewModels", "PathFinder.ViewModels\PathFinder.ViewModels.csproj", "{BCA7C7DD-B333-4DC8-BE12-02615FADEAF9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathFinder.Data.Models", "PathFinder.Data.Models\PathFinder.Data.Models.csproj", "{9129935D-DAB3-4045-8371-C94285C13163}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathFinder.ViewModels", "PathFinder.ViewModels\PathFinder.ViewModels.csproj", "{BCA7C7DD-B333-4DC8-BE12-02615FADEAF9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5A76370C-94B6-48BA-8AAC-C041A9926765}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathFinder.Services.Data", "PathFinder.Services.Data\PathFinder.Services.Data.csproj", "{43BB6A37-0ADB-4E89-B71E-0287148B9D8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathFinder.Services.Data", "PathFinder.Services.Data\PathFinder.Services.Data.csproj", "{43BB6A37-0ADB-4E89-B71E-0287148B9D8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +41,6 @@ Global
 		{BCA7C7DD-B333-4DC8-BE12-02615FADEAF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCA7C7DD-B333-4DC8-BE12-02615FADEAF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCA7C7DD-B333-4DC8-BE12-02615FADEAF9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9129935D-DAB3-4045-8371-C94285C13163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9129935D-DAB3-4045-8371-C94285C13163}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9129935D-DAB3-4045-8371-C94285C13163}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9129935D-DAB3-4045-8371-C94285C13163}.Release|Any CPU.Build.0 = Release|Any CPU
 		{43BB6A37-0ADB-4E89-B71E-0287148B9D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{43BB6A37-0ADB-4E89-B71E-0287148B9D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43BB6A37-0ADB-4E89-B71E-0287148B9D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,7 +53,6 @@ Global
 		{3E39F29E-434B-4F41-B3FF-32269D0CDF36} = {78236C82-53F0-49E4-A87B-7456C4BE5E71}
 		{2DBDE275-C2D6-4C5F-A5EF-7A2E3E96966A} = {622F1EBF-22E3-49D3-9ABD-6F6A91E06602}
 		{BCA7C7DD-B333-4DC8-BE12-02615FADEAF9} = {78236C82-53F0-49E4-A87B-7456C4BE5E71}
-		{9129935D-DAB3-4045-8371-C94285C13163} = {622F1EBF-22E3-49D3-9ABD-6F6A91E06602}
 		{43BB6A37-0ADB-4E89-B71E-0287148B9D8B} = {5A76370C-94B6-48BA-8AAC-C041A9926765}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

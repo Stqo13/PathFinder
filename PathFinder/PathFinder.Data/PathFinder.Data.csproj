@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PathFinder.Data.Models\PathFinder.Data.Models.csproj" />
+    <ProjectReference Include="..\PathFinder.Common\PathFinder.Common.csproj" />
   </ItemGroup>
 
 </Project>
