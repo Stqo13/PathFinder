@@ -38,7 +38,7 @@ namespace PathFinder.Data.Models
         public virtual ICollection<UserCourse> UsersCourses { get; set; }
            = new List<UserCourse>();
 
-        [Comment("User's sheres")]
+        [Comment("User's spheres")]
         public virtual ICollection<UserSphere> UsersSpheres { get; set; }
             = new List<UserSphere>();
     }

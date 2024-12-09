@@ -17,23 +17,23 @@ namespace PathFinder.Data.Models
         [MaxLength(CourseNameMaxLength)]
         public string Name { get; set; } = null!;
 
-        [Comment("Course mode(Online/In-person)")]
+        [Comment("Course's mode(Online/In-person)")]
         public Mode Mode { get; set; }
 
-        [Comment("Course description")]
+        [Comment("Course's description")]
         [MaxLength(CourseDescriptionMaxLength)]
         public string? Description { get; set; }
 
-        [Comment("Course duration in minutes")]
+        [Comment("Course's duration in minutes")]
         [Required]
         public int DurationInMinutes { get; set; }
 
-        [Comment("Course location")]
+        [Comment("Course's location")]
         [Required]
         [MaxLength(CourseLocationMaxLength)]
         public string Location { get; set; } = null!;
 
-        [Comment("Start date")]
+        [Comment("Couse's start date")]
         [Required]
         public DateTime StartDate { get; set; }
 
