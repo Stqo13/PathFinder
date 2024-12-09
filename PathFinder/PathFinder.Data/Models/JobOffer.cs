@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PathFinder.Data.Models
 {
@@ -11,6 +12,7 @@ namespace PathFinder.Data.Models
 
         [Comment("Job salary")]
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Salary { get; set; }
 
         [Comment("Job average star rating")]

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PathFinder.Data.Models
 {
@@ -13,6 +14,7 @@ namespace PathFinder.Data.Models
 
         [Comment("Course monthly price")]
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal MonthlyPrice { get; set; }
 
         [Comment("Course reviews")]
