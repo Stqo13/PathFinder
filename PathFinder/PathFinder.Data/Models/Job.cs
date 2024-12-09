@@ -11,11 +11,11 @@ namespace PathFinder.Data.Models
         [Key]
         public int Id { get; set; }
 
-        [Comment("Job' title")]
+        [Comment("Job's title")]
         [Required]
         public string Title { get; set; } = null!;
 
-        [Comment("Job details")]
+        [Comment("Job's details")]
         [MaxLength(JobDescriptionMaxLength)]
         public string? Description { get; set; }
 
@@ -23,7 +23,7 @@ namespace PathFinder.Data.Models
         [Required]
         public JobType JobType { get; set; }
 
-        [Comment("Job location")]
+        [Comment("Job's location")]
         [Required]
         [MaxLength(JobLocationMaxLength)]
         public string Location { get; set; } = null!;
@@ -33,7 +33,7 @@ namespace PathFinder.Data.Models
         [MaxLength(CompanyNameMaxLength)]
         public string CompanyName { get; set; } = null!;
 
-        [Comment("Job position")]
+        [Comment("Job's position")]
         [Required]
         [MaxLength(JobPositionMaxLength)]
         public string Position { get; set; } = null!;
