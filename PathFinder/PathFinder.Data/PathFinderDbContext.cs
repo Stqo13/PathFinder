@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PathFinder.Data.Models;
+using System.Reflection;
 
 namespace PathFinder.Data
 {
-    public class PathFinderDbContext : IdentityDbContext<ApplicationUser>
+    public class PathFinderDbContext 
+        : IdentityDbContext<ApplicationUser>
     {
         public PathFinderDbContext()
         {
@@ -44,11 +46,7 @@ namespace PathFinder.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
