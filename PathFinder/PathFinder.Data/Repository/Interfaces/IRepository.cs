@@ -5,9 +5,9 @@
     {
         TType GetById(TId id);
         Task<TType> GetByIdAsync(TId id);
-        IEnumerable<TType> GetAll();
-        Task<IEnumerable<TType>> GetAllAsync();
-        IEnumerable<TType> GetAllAttached();
+        ICollection<TType> GetAll();
+        Task<ICollection<TType>> GetAllAsync();
+        IQueryable<TType> GetAllAttached();
         void Add(TType item);
         Task AddAsync(TType item);
         bool Delete(TId id);

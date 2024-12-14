@@ -1,63 +1,133 @@
-﻿using PathFinder.Data.Repository.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using PathFinder.Data.Repository.Interfaces;
 
 namespace PathFinder.Data.Repository
 {
-    public class Repository<TType, TId> :IRepository<TType, TId>
+    public class Repository<TType, TId> : IRepository<TType, TId>
         where TType : class
     {
-        public void Add(TType item)
-        {
-            throw new NotImplementedException();
-        }
+        private readonly PathFinderDbContext context;
+        private readonly DbSet<TType> dbSet;
 
-        public Task AddAsync(TType item)
+        public Repository(PathFinderDbContext context)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(TId id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> DeleteAsync(TId id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<TType> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<TType>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<TType> GetAllAttached()
-        {
-            throw new NotImplementedException();
+            this.context = context;
+            this.dbSet = this.context.Set<TType>();
         }
 
         public TType GetById(TId id)
         {
-            throw new NotImplementedException();
+            TType? entity = this.dbSet
+                .Find(id);
+
+            if (entity == null)
+            {
+                throw new NullReferenceException("Entity was null!");
+            }
+
+            return entity;
         }
 
-        public Task<TType> GetByIdAsync(TId id)
+        public async Task<TType> GetByIdAsync(TId id)
         {
-            throw new NotImplementedException();
+            TType? entity = await this.dbSet
+                .FindAsync(id);
+
+            if (entity == null)
+            {
+                throw new NullReferenceException("Entity was null!");
+            }
+
+            return entity;
+        }
+
+        public ICollection<TType> GetAll()
+        {
+            return this.dbSet.ToList();
+        }
+
+        public async Task<ICollection<TType>> GetAllAsync()
+        {
+            return await this.dbSet.ToListAsync();
+        }
+
+        public IQueryable<TType> GetAllAttached()
+        {
+            return this.dbSet.AsQueryable();
+        }
+
+        public void Add(TType item)
+        {
+            this.dbSet.Add(item);
+            this.context.SaveChanges();
+        }
+
+        public async Task AddAsync(TType item)
+        {
+            await this.dbSet.AddAsync(item);
+            await this.context.SaveChangesAsync();
+        }
+
+        public bool Delete(TId id)
+        {
+            TType entity = this.GetById(id);
+
+            if (entity == null)
+            {
+                return false;
+            }
+
+            this.dbSet.Remove(entity);
+            this.context.SaveChanges();
+
+            return true;
+        }
+
+        public async Task<bool> DeleteAsync(TId id)
+        {
+            TType entity = await this.GetByIdAsync(id);
+
+            if (entity == null)
+            {
+                return false;
+            }
+
+            this.dbSet.Remove(entity);
+            await this.context.SaveChangesAsync();
+
+            return true;
         }
 
         public bool Update(TType item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                this.dbSet.Attach(item);
+                this.context.Entry(item).State = EntityState.Modified;
+                this.context.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public Task<bool> UpdateAsync(TType item)
+        public async Task<bool> UpdateAsync(TType item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                this.dbSet.Attach(item);
+                this.context.Entry(item).State = EntityState.Modified;
+                await this.context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
