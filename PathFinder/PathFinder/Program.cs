@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PathFinder.Data;
 using PathFinder.Data.Models;
+using PathFinder.Extensions;
 
 namespace PathFinder
 {
@@ -19,7 +20,7 @@ namespace PathFinder
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => 
             {
-                options.SignIn.RequireConfirmedAccount = true;
+                options.SignIn.RequireConfirmedAccount = false;
             })
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<PathFinderDbContext>()
@@ -29,6 +30,10 @@ namespace PathFinder
             {
                 cfg.LoginPath = "/Identity/Account/Login";
             });
+
+            builder.Services
+                .RegisterUserDefinedServices()
+                .RegisterRepositories();
 
             builder.Services.AddRazorPages();
             builder.Services.AddControllersWithViews();
