@@ -23,6 +23,51 @@ namespace PathFinder.Data.Configurations
 
                 new ()
                 {
+                    Id = "6a358b17-ffbe-4ac9-8d20-92544e3b739d",
+                    FirstName = "ArtAcademy",
+                    LastName = "OOD",
+                    Email = "artacademy@gmail.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0897902119",
+                    UserName = "artacademy123",
+                    NormalizedUserName = "ARTACADEMY123",
+                    NormalizedEmail = "ARTACADEMY@GMAIL.COM",
+                    DateOfBirth = new DateTime(1994, 5, 17),
+                    Address = "Bulgaria, Ruse, ul. \"Hristo Yasenov\" 7",
+                    PasswordHash = passwordHasher.HashPassword(null!, "ArtAcademy_123")
+                },
+                new () 
+                {
+                    Id = "fc7c5678-22b4-4650-af6e-4c5f90fa494d",
+                    FirstName = "GlobalLingua",
+                    LastName = "OOD",
+                    Email = "globallingua@gmail.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0897662398",
+                    UserName = "globallingua123",
+                    NormalizedUserName = "GLOBALLINGUA123",
+                    NormalizedEmail = "GLOBALLINGUA@GMAIL.COM",
+                    DateOfBirth = new DateTime(1994, 5, 17),
+                    Address = "Bulgaria, Sofia, ul. \"Tsar Asen\" 112",
+                    PasswordHash = passwordHasher.HashPassword(null!, "GlobalLingua_123")
+                },
+                new ()
+                {
+                    Id = "723444b3-9434-4465-9044-f7e04fdcca2f",
+                    FirstName = "Marketing Academy",
+                    LastName = "OOD",
+                    Email = "marketingacademy@gmail.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0877742199",
+                    UserName = "marketingacademy123",
+                    NormalizedUserName = "MARKETINGACADEMY123",
+                    NormalizedEmail = "MARKETINGACADEMY@GMAIL.COM",
+                    DateOfBirth = new DateTime(1990, 6, 27),
+                    Address = "Bulgaria, Sofia, ul. \"Petar B. Velichkov\" 43",
+                    PasswordHash = passwordHasher.HashPassword(null!, "MarketingAcademy_123")
+                },
+                new ()
+                {
                     Id = "428bcf46-40f2-47b2-ac4a-a49f570178ad",
                     FirstName = "SoftSchool",
                     LastName = "AD",
@@ -85,6 +130,66 @@ namespace PathFinder.Data.Configurations
                     DateOfBirth = new DateTime(2002, 8, 1),
                     Address = "Bulgaria, Pleven, ul. \"Vasil Petleshkov\" 6",
                     PasswordHash = passwordHasher.HashPassword(null!, "CutAndStyles_123")
+                },
+                new ()
+                {
+                    Id = "eb1f5c9f-186b-4a93-a9bd-64a6055c61cd",
+                    FirstName = "The Urban Grill & Bar",
+                    LastName = "ET",
+                    Email = "theurbangrillandbar@gmail.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0878439866",
+                    UserName = "theurbangrillandbar123",
+                    NormalizedUserName = "THEURBANGRILLANDBAR123",
+                    NormalizedEmail = "THEURBANGRILLANDBAR@GMAIL.COM",
+                    DateOfBirth = new DateTime(2003, 5, 21),
+                    Address = "Bulgaria, Sliven,bul. \"Tsar Osvoboditel\" 15А",
+                    PasswordHash = passwordHasher.HashPassword(null!, "TheUrbanGrillAndBar_123")
+                },
+                new ()
+                {
+                    Id = "7dbc12c7-18ec-4af2-a5b7-877ff0df3faf",
+                    FirstName = "Imagination Academy",
+                    LastName = "OOD",
+                    Email = "imaginationacademy@gmail.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0878433392",
+                    UserName = "imaginationacandemy123",
+                    NormalizedUserName = "IMAGINATIONACADEMY123",
+                    NormalizedEmail = "IMAGINATIONACADEMY@GMAIL.COM",
+                    DateOfBirth = new DateTime(2006, 1, 2),
+                    Address = "Bulgaria, Vrana, ul. \"Kozloduy\" 4",
+                    PasswordHash = passwordHasher.HashPassword(null!, "TheUrbanGrillAndBar_123")
+                },
+                new ()
+                {
+                    Id = "17585a62-c173-4c68-9e4a-2ba93a419b21",
+                    FirstName = "HealthCare Center",
+                    LastName = "OD",
+                    Email = "healthcarecentre@gmail.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0870063844",
+                    UserName = "healthcarecentre123",
+                    NormalizedUserName = "HEALTHCARECENTRE123",
+                    NormalizedEmail = "HEALTHCARECENTRE@GMAIL.COM",
+                    DateOfBirth = new DateTime(1986, 4, 10),
+                    Address = "Bulgaria, Ruse, bul. \"Lipnik\" 8",
+                    PasswordHash = passwordHasher.HashPassword(null!, "HealthCareCentre_123")
+                },
+                new ()
+                {
+                    Id = "596c6add-eaae-4890-8d4d-38aa5a0671bd",
+                    FirstName = "Primary Inovative School",
+                    LastName = "ET",
+                    Email = "primaryinovativeschool.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0890811871",
+                    UserName = "primaryinovativeschool123",
+                    NormalizedUserName = "PRIMARYINOVATIVESCHOOL123",
+                    NormalizedEmail = "PRIMARYINOVATIVESCHOOL@GMAIL.COM",
+                    DateOfBirth = new DateTime(1985, 5, 3),
+                    Address = "Bulgaria, Pleven, ul. \"Ivan Vazov\"",
+                    PasswordHash = passwordHasher.HashPassword(null!, "PrimaryInovativeSchool_123")
                 },
                 new ()
                 {
