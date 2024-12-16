@@ -21,10 +21,22 @@ namespace PathFinder.Data.Models
         [Required]
         public DateTime DateOfBirth { get; set; }
 
-        [Comment("Use's address")]
+
+        /// <summary>
+        /// FORMAT "Country, City, Street"
+        /// </summary>
+        [Comment("User's address")]
         [Required]
         [MaxLength(UserAddressMaxLength)]
         public string Address { get; set; } = null!;
+
+        [Comment("User's jobs")]
+        public virtual ICollection<Job> Jobs { get; set; }
+            = new List<Job>();
+
+        [Comment("User's course")]
+        public virtual ICollection<Course> Course { get; set; }
+            = new List<Course>();
 
         [Comment("User's reviews")]
         public virtual ICollection<Review> Reviews { get; set; }

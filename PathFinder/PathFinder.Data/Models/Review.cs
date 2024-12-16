@@ -34,13 +34,13 @@ namespace PathFinder.Data.Models
 
         [ForeignKey(nameof(JobId))]
         [Comment("Job's navigation property")]
-        public virtual JobOffer Job { get; set; } = null!;
+        public virtual Job Job { get; set; } = null!;
 
         [Comment("Course's foreign key")]
         public int CourseId { get; set; } 
 
         [ForeignKey(nameof(CourseId))]
         [Comment("Course's navigation property ")]
-        public virtual CourseOffer Course { get; set; } = null!;
+        public virtual Course Course { get; set; } = null!;
     }
 }

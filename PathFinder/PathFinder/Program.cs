@@ -2,13 +2,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PathFinder.Data;
 using PathFinder.Data.Models;
+using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Extensions;
 
 namespace PathFinder
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,7 @@ namespace PathFinder
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options => 
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;
             })
@@ -39,6 +40,15 @@ namespace PathFinder
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                var userRepository = services.GetRequiredService<IRepository<ApplicationUser, string>>();
+                await AssignRoles(userManager, roleManager, userRepository);
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -65,6 +75,41 @@ namespace PathFinder
             app.MapRazorPages();
 
             app.Run();
+        }
+        public static async Task AssignRoles(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IRepository<ApplicationUser, string> userRepository)
+        {
+            var users = await userRepository.GetAllAsync();
+            foreach (var user in users)
+            {
+                if (user.Id == "e0d6328d-f003-4bb1-8daa-21dcf49db469"
+                    || user.Id == "16226cef-b670-447e-99a9-b627cb16ae0b"
+                    || user.Id == "b3693b0c-9c11-48ee-a3be-db37d5439ab0")
+                {
+                    await userManager.AddToRoleAsync(user, "Company");
+                }
+                else if (user.Id == "428bcf46-40f2-47b2-ac4a-a49f570178ad"
+                    || user.Id == "3cf3fb4a-235e-4c93-b66f-c1557006e067"
+                    || user.Id == "fa360a62-9355-474a-824d-aaa85d9fbd65")
+                {
+                    await userManager.AddToRoleAsync(user, "Institution");
+                }
+                else if (user.Id == "e2041514-c5ce-4e68-8956-f92298aa3b74"
+                    || user.Id == "21b4ac01-42ec-4df2-b48c-ebe1cf26adf0")
+                {
+                    await userManager.AddToRoleAsync(user, "Admin");
+                }
+                else if (user.Id == "e47b8b58-2e3a-4f02-aee5-485d3e6db2b2"
+                    || user.Id == "9e547484-9ea8-45e6-a488-d657f6f1c598"
+                    || user.Id == "e8d223af-7285-41c5-8c38-9e6989d4410d"
+                    || user.Id == "d444522c-71c1-4cc9-b815-4ea25a49f17b"
+                    || user.Id == "b93fa043-cdea-4bd9-9d0b-7b16ee7c5355"
+                    || user.Id == "7d089603-dc80-415a-913b-f24b1a90b5f1"
+                    || user.Id == "ca145762-b5db-4836-b963-85eff67fb124"
+                    || user.Id == "8d0c3b82-be4b-4fdf-834a-8e436176d9bd")
+                {
+                    await userManager.AddToRoleAsync(user, "PFUser");
+                }
+            }
         }
     }
 }

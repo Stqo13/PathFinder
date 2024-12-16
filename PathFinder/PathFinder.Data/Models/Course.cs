@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PathFinder.Data.Models.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using static PathFinder.Common.ApplicationConstraints.CourseConstraints;
 
 
@@ -28,6 +29,9 @@ namespace PathFinder.Data.Models
         [Required]
         public int DurationInMinutes { get; set; }
 
+        /// <summary>
+        /// FORMAT "Country, City, Street"
+        /// </summary>
         [Comment("Course's location")]
         [Required]
         [MaxLength(CourseLocationMaxLength)]
@@ -36,6 +40,26 @@ namespace PathFinder.Data.Models
         [Comment("Couse's start date")]
         [Required]
         public DateTime StartDate { get; set; }
+
+        [Comment("Institution's foreign key")]
+        [Required]
+        public string InstitutionId { get; set; } = null!;
+
+        [Comment("Institution's navigation property")]
+        [ForeignKey(nameof(InstitutionId))]
+        public virtual ApplicationUser Institution { get; set; } = null!;
+
+        [Comment("Course's average star rating")]
+        public double? AverageStarRating { get; set; }
+
+        [Comment("Course's monthly price")]
+        [Required]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal MonthlyPrice { get; set; }
+
+        [Comment("Course's reviews")]
+        public virtual ICollection<Review>? Reviews { get; set; }
+           = new List<Review>();
 
         [Comment("Course's users")]
         public virtual ICollection<UserCourse> UsersCourses { get; set; }
