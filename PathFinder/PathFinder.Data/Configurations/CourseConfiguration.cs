@@ -91,7 +91,7 @@ namespace PathFinder.Data.Configurations
                     DurationInMinutes = 120,
                     Location = "Bulgaria, Varna, ul. \"Oborishte\" 13A",
                     StartDate = new DateTime(2025, 5, 1),
-                    InstitutionId = "",
+                    InstitutionId = "35e6291c-73f5-48ef-8f3e-5fda2c4ddee1",
                     AverageStarRating = 4.8,
                     MonthlyPrice = 220
                 },

@@ -1,0 +1,271 @@
+﻿[
+  {
+    "Id": 1,
+    "Name": "Healthcare"
+  },
+  {
+    "Id": 2,
+    "Name": "Technology"
+  },
+  {
+    "Id": 3,
+    "Name": "Business & Finance"
+  },
+  {
+    "Id": 4,
+    "Name": "Education"
+  },
+  {
+    "Id": 5,
+    "Name": "Creative Arts"
+  },
+  {
+    "Id": 6,
+    "Name": "Computer Science"
+  },
+  {
+    "Id": 7,
+    "Name": "Graphic Design"
+  },
+  {
+    "Id": 8,
+    "Name": "Marketing & Management"
+  },
+  {
+    "Id": 9,
+    "Name": "Architecture"
+  },
+  {
+    "Id": 10,
+    "Name": "Facility Management"
+  },
+  {
+    "Id": 11,
+    "Name": "Engineering"
+  },
+  {
+    "Id": 12,
+    "Name": "Web Development"
+  },
+  {
+    "Id": 13,
+    "Name": "Back-End Programming"
+  },
+  {
+    "Id": 14,
+    "Name": "Front-End Programming"
+  },
+  {
+    "Id": 15,
+    "Name": "Adobe Designing"
+  },
+  {
+    "Id": 16,
+    "Name": "Beauty and Personal Care Industry"
+  },
+  {
+    "Id": 17,
+    "Name": "Service Industry"
+  },
+  {
+    "Id": 18,
+    "Name": "Health and Wellness Industry"
+  },
+  {
+    "Id": 19,
+    "Name": "Automotive Industry"
+  },
+  {
+    "Id": 20,
+    "Name": "Mechanical Engineering"
+  },
+  {
+    "Id": 21,
+    "Name": "Transportation and Logistics"
+  },
+  {
+    "Id": 22,
+    "Name": "Skilled Trades"
+  },
+  {
+    "Id": 23,
+    "Name": "Sustainability and Green Technologies"
+  },
+  {
+    "Id": 24,
+    "Name": "Medical Specialties"
+  },
+  {
+    "Id": 25,
+    "Name": "Cosmetic Dermatology"
+  },
+  {
+    "Id": 26,
+    "Name": "Pharmaceutical Industry"
+  },
+  {
+    "Id": 27,
+    "Name": "STEM Education"
+  },
+  {
+    "Id": 28,
+    "Name": "Public Sector"
+  },
+  {
+    "Id": 29,
+    "Name": "Curriculum Development"
+  },
+  {
+    "Id": 30,
+    "Name": "Non-profit Education"
+  },
+  {
+    "Id": 31,
+    "Name": "Cleaning and Maintenance"
+  },
+  {
+    "Id": 32,
+    "Name": "Public Services"
+  },
+  {
+    "Id": 33,
+    "Name": "Environmental Services"
+  },
+  {
+    "Id": 34,
+    "Name": "Education Support Services"
+  },
+  {
+    "Id": 35,
+    "Name": "Food and Beverage Services"
+  },
+  {
+    "Id": 36,
+    "Name": "Customer Service"
+  },
+  {
+    "Id": 37,
+    "Name": "Event Management"
+  },
+  {
+    "Id": 38,
+    "Name": "Nightlife and Entertainment"
+  },
+  {
+    "Id": 39,
+    "Name": "Tourism and Leisure"
+  },
+  {
+    "Id": 40,
+    "Name": "Media and Journalism"
+  },
+  {
+    "Id": 41,
+    "Name": "Marketing & Communications"
+  },
+  {
+    "Id": 42,
+    "Name": "Digital Marketing"
+  },
+  {
+    "Id": 43,
+    "Name": "Freelancing"
+  },
+  {
+    "Id": 44,
+    "Name": "Film Production"
+  },
+  {
+    "Id": 45,
+    "Name": "Media and Entertainment"
+  },
+  {
+    "Id": 46,
+    "Name": "Software Development"
+  },
+  {
+    "Id": 47,
+    "Name": "Security"
+  },
+  {
+    "Id": 48,
+    "Name": "Visual Arts"
+  },
+  {
+    "Id": 49,
+    "Name": "Retail Pharmacy"
+  },
+  {
+    "Id": 50,
+    "Name": "Clinical Care"
+  },
+  {
+    "Id": 51,
+    "Name": "Reproductive Health"
+  },
+  {
+    "Id": 52,
+    "Name": "Women’s Health"
+  },
+  {
+    "Id": 53,
+    "Name": "Cosmetic Surgery"
+  },
+  {
+    "Id": 54,
+    "Name": "Spa and Wellness"
+  },
+  {
+    "Id": 55,
+    "Name": "Personal Grooming"
+  },
+  {
+    "Id": 56,
+    "Name": "Salon Management"
+  },
+  {
+    "Id": 57,
+    "Name": "Hairdressing and Styling"
+  },
+  {
+    "Id": 58,
+    "Name": "Mathematics"
+  },
+  {
+    "Id": 59,
+    "Name": "Restaurant Hospitality"
+  },
+  {
+    "Id": 60,
+    "Name": "Cultural Studies"
+  },
+  {
+    "Id": 61,
+    "Name": "Language & Linguistics"
+  },
+  {
+    "Id": 62,
+    "Name": "Cooking"
+  },
+  {
+    "Id": 63,
+    "Name": "Physical Education"
+  },
+  {
+    "Id": 64,
+    "Name": "Fitness and Personal Training"
+  },
+  {
+    "Id": 65,
+    "Name": "Audio Engineering"
+  },
+  {
+    "Id": 66,
+    "Name": "Music Composition"
+  },
+  {
+    "Id": 67,
+    "Name": "Music Technology"
+  }
+]
+

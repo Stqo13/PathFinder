@@ -1,0 +1,250 @@
+﻿[
+  {
+    "JobId": 1,
+    "SphereId": 2
+  },
+  {
+    "JobId": 1,
+    "SphereId": 6
+  },
+  {
+    "JobId": 1,
+    "SphereId": 12
+  },
+  {
+    "JobId": 1,
+    "SphereId": 13
+  },
+  {
+    "JobId": 1,
+    "SphereId": 46
+  },
+  {
+    "JobId": 2,
+    "SphereId": 5
+  },
+  {
+    "JobId": 2,
+    "SphereId": 7
+  },
+  {
+    "JobId": 2,
+    "SphereId": 15
+  },
+  {
+    "JobId": 3,
+    "SphereId": 16
+  },
+  {
+    "JobId": 3,
+    "SphereId": 17
+  },
+  {
+    "JobId": 3,
+    "SphereId": 18
+  },
+  {
+    "JobId": 3,
+    "SphereId": 59
+  },
+  {
+    "JobId": 4,
+    "SphereId": 17
+  },
+  {
+    "JobId": 4,
+    "SphereId": 19
+  },
+  {
+    "JobId": 5,
+    "SphereId": 16
+  },
+  {
+    "JobId": 5,
+    "SphereId": 1
+  },
+  {
+    "JobId": 5,
+    "SphereId": 18
+  },
+  {
+    "JobId": 5,
+    "SphereId": 2
+  },
+  {
+    "JobId": 5,
+    "SphereId": 24
+  },
+  {
+    "JobId": 5,
+    "SphereId": 50
+  },
+  {
+    "JobId": 5,
+    "SphereId": 25
+  },
+  {
+    "JobId": 6,
+    "SphereId": 4
+  },
+  {
+    "JobId": 6,
+    "SphereId": 58
+  },
+  {
+    "JobId": 7,
+    "SphereId": 17
+  },
+  {
+    "JobId": 7,
+    "SphereId": 18
+  },
+  {
+    "JobId": 7,
+    "SphereId": 31
+  },
+  {
+    "JobId": 8,
+    "SphereId": 17
+  },
+  {
+    "JobId": 8,
+    "SphereId": 35
+  },
+  {
+    "JobId": 8,
+    "SphereId": 38
+  },
+  {
+    "JobId": 9,
+    "SphereId": 17
+  },
+  {
+    "JobId": 9,
+    "SphereId": 59
+  },
+  {
+    "JobId": 10,
+    "SphereId": 5
+  },
+  {
+    "JobId": 10,
+    "SphereId": 45
+  },
+  {
+    "JobId": 10,
+    "SphereId": 40
+  },
+  {
+    "JobId": 10,
+    "SphereId": 36
+  },
+  {
+    "JobId": 11,
+    "SphereId": 5
+  },
+  {
+    "JobId": 11,
+    "SphereId": 7
+  },
+  {
+    "JobId": 11,
+    "SphereId": 36
+  },
+  {
+    "JobId": 11,
+    "SphereId": 2
+  },
+  {
+    "JobId": 11,
+    "SphereId": 40
+  },
+  {
+    "JobId": 11,
+    "SphereId": 44
+  },
+  {
+    "JobId": 11,
+    "SphereId": 45
+  },
+  {
+    "JobId": 11,
+    "SphereId": 48
+  },
+  {
+    "JobId": 12,
+    "SphereId": 2
+  },
+  {
+    "JobId": 12,
+    "SphereId": 6
+  },
+  {
+    "JobId": 12,
+    "SphereId": 12
+  },
+  {
+    "JobId": 12,
+    "SphereId": 13
+  },
+  {
+    "JobId": 13,
+    "SphereId": 5
+  },
+  {
+    "JobId": 13,
+    "SphereId": 7
+  },
+  {
+    "JobId": 13,
+    "SphereId": 12
+  },
+  {
+    "JobId": 13,
+    "SphereId": 6
+  },
+  {
+    "JobId": 14,
+    "SphereId": 24
+  },
+  {
+    "JobId": 14,
+    "SphereId": 18
+  },
+  {
+    "JobId": 14,
+    "SphereId": 26
+  },
+  {
+    "JobId": 14,
+    "SphereId": 1
+  },
+  {
+    "JobId": 14,
+    "SphereId": 49
+  },
+  {
+    "JobId": 15,
+    "SphereId": 52
+  },
+  {
+    "JobId": 15,
+    "SphereId": 18
+  },
+  {
+    "JobId": 15,
+    "SphereId": 50
+  },
+  {
+    "JobId": 15,
+    "SphereId": 51
+  },
+  {
+    "JobId": 15,
+    "SphereId": 24
+  },
+  {
+    "JobId": 15,
+    "SphereId": 1
+  }
+]

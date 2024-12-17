@@ -1,0 +1,214 @@
+﻿[
+  {
+    "CourseId": 1,
+    "SphereId": 42
+  },
+  {
+    "CourseId": 1,
+    "SphereId": 8
+  },
+  {
+    "CourseId": 1,
+    "SphereId": 3
+  },
+  {
+    "CourseId": 2,
+    "SphereId": 12
+  },
+  {
+    "CourseId": 2,
+    "SphereId": 6
+  },
+  {
+    "CourseId": 2,
+    "SphereId": 2
+  },
+  {
+    "CourseId": 3,
+    "SphereId": 2
+  },
+  {
+    "CourseId": 3,
+    "SphereId": 6
+  },
+  {
+    "CourseId": 3,
+    "SphereId": 11
+  },
+  {
+    "CourseId": 3,
+    "SphereId": 58
+  },
+  {
+    "CourseId": 4,
+    "SphereId": 2
+  },
+  {
+    "CourseId": 4,
+    "SphereId": 6
+  },
+  {
+    "CourseId": 4,
+    "SphereId": 46
+  },
+  {
+    "CourseId": 4,
+    "SphereId": 13
+  },
+  {
+    "CourseId": 4,
+    "SphereId": 11
+  },
+  {
+    "CourseId": 5,
+    "SphereId": 4
+  },
+  {
+    "CourseId": 5,
+    "SphereId": 60
+  },
+  {
+    "CourseId": 5,
+    "SphereId": 61
+  },
+  {
+    "CourseId": 6,
+    "SphereId": 5
+  },
+  {
+    "CourseId": 6,
+    "SphereId": 35
+  },
+  {
+    "CourseId": 6,
+    "SphereId": 62
+  },
+  {
+    "CourseId": 7,
+    "SphereId": 18
+  },
+  {
+    "CourseId": 7,
+    "SphereId": 63
+  },
+  {
+    "CourseId": 7,
+    "SphereId": 64
+  },
+  {
+    "CourseId": 8,
+    "SphereId": 4
+  },
+  {
+    "CourseId": 8,
+    "SphereId": 60
+  },
+  {
+    "CourseId": 8,
+    "SphereId": 61
+  },
+  {
+    "CourseId": 9,
+    "SphereId": 5
+  },
+  {
+    "CourseId": 9,
+    "SphereId": 48
+  },
+  {
+    "CourseId": 9,
+    "SphereId": 7
+  },
+  {
+    "CourseId": 10,
+    "SphereId": 2
+  },
+  {
+    "CourseId": 10,
+    "SphereId": 6
+  },
+  {
+    "CourseId": 10,
+    "SphereId": 11
+  },
+  {
+    "CourseId": 11,
+    "SphereId": 9
+  },
+  {
+    "CourseId": 11,
+    "SphereId": 5
+  },
+  {
+    "CourseId": 12,
+    "SphereId": 5
+  },
+  {
+    "CourseId": 12,
+    "SphereId": 40
+  },
+  {
+    "CourseId": 12,
+    "SphereId": 65
+  },
+  {
+    "CourseId": 12,
+    "SphereId": 66
+  },
+  {
+    "CourseId": 12,
+    "SphereId": 67
+  },
+  {
+    "CourseId": 13,
+    "SphereId": 4
+  },
+  {
+    "CourseId": 13,
+    "SphereId": 58
+  },
+  {
+    "CourseId": 14,
+    "SphereId": 12
+  },
+  {
+    "CourseId": 14,
+    "SphereId": 14
+  },
+  {
+    "CourseId": 14,
+    "SphereId": 7
+  },
+  {
+    "CourseId": 14,
+    "SphereId": 46
+  },
+  {
+    "CourseId": 14,
+    "SphereId": 6
+  },
+  {
+    "CourseId": 15,
+    "SphereId": 2
+  },
+  {
+    "CourseId": 15,
+    "SphereId": 6
+  },
+  {
+    "CourseId": 15,
+    "SphereId": 11
+  },
+  {
+    "CourseId": 16,
+    "SphereId": 2
+  },
+  {
+    "CourseId": 16,
+    "SphereId": 6
+  },
+  {
+    "CourseId": 16,
+    "SphereId": 47
+  }
+]
