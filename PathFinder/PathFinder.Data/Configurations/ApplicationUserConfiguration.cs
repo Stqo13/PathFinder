@@ -111,6 +111,21 @@ namespace PathFinder.Data.Configurations
                     Address = "Bulgaria, Stara Zagora, ul. \"Stefan Stambolov\" 38",
                     PasswordHash = passwordHasher.HashPassword(null!, "WittMath_123")
                 },
+                new ()
+                {
+                    Id = "",
+                    FirstName = "TasteCraft Academy",
+                    LastName = "OOD",
+                    Email = "tastecraftacademy@gmail.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0895002619",
+                    UserName = "tastecraftacademy123",
+                    NormalizedUserName = "TASTECRAFTACADEMY123",
+                    NormalizedEmail = "TASTECRAFTACADEMY@GMAIL.COM",
+                    DateOfBirth = new DateTime(1991, 3, 2),
+                    Address = "Bulgaria, Varna, ul. \"Oborishte\" 13A",
+                    PasswordHash = passwordHasher.HashPassword(null!, "TasteCraftAcademy_123")
+                },
 
                 #endregion
 
