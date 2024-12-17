@@ -10,10 +10,8 @@ namespace PathFinder.Extensions
                 this IServiceCollection services)
         {
             services.AddScoped<IRepository<Course, int>, Repository<Course, int>>();
-            services.AddScoped<IRepository<CourseOffer, object>, Repository<CourseOffer, object>>();
             services.AddScoped<IRepository<CourseSphere, object>, Repository<CourseSphere, object>>();
             services.AddScoped<IRepository<Job, int>, Repository<Job, int>>();
-            services.AddScoped<IRepository<JobOffer, object>, Repository<JobOffer, object>>();
             services.AddScoped<IRepository<JobSphere, object>, Repository<JobSphere, object>>();
             services.AddScoped<IRepository<Review, int>, Repository<Review, int>>();
             services.AddScoped<IRepository<Sphere, int>, Repository<Sphere, int>>();

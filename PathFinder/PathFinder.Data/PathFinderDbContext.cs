@@ -23,13 +23,9 @@ namespace PathFinder.Data
 
         public virtual DbSet<Course> Courses { get; set; } = null!;
 
-        public virtual DbSet<CourseOffer> CourseOffers { get; set; } = null!;
-
         public virtual DbSet<CourseSphere> CoursesSpheres { get; set; } = null!;
 
         public virtual DbSet<Job> Jobs { get; set; } = null!;
-
-        public virtual DbSet<JobOffer> JobOffers { get; set; } = null!;
 
         public virtual DbSet<JobSphere> JobsSpheres { get; set; } = null!;
 
@@ -46,7 +42,7 @@ namespace PathFinder.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            //builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
