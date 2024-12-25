@@ -1,0 +1,27 @@
+﻿[
+  {
+    "Id": "a94e9744-895c-4cd0-a450-fb2ca5ea73dc",
+    "Name": "Admin",
+    "ConcurrencyStamp": "eab4d980-d470-4b4b-bb99-6768a6d7a63d",
+    "NormalizedName": "ADMIN"
+  },
+  {
+    "Id": "cbd2b782-e4e3-4f79-84aa-5685d13320cb",
+    "Name": "PFUser",
+    "ConcurrencyStamp": "4eab5cb1-b6fc-42f3-9f01-93b0625f85b6",
+    "NormalizedName": "PFUSER"
+  },
+  {
+    "Id": "b69f39cc-e6e4-4394-b488-0d24c1d546ff",
+    "Name": "Company",
+    "ConcurrencyStamp": "9277a98f-3549-49fd-bb18-9810182b5e8d",
+    "NormalizedName": "COMPANY"
+  },
+  {
+    "Id": "be759a02-939c-4bb6-9063-f25e020d8a56",
+    "Name": "Institution",
+    "ConcurrencyStamp": "5b72d0bc-f750-402f-a330-7ebded6824b3",
+    "NormalizedName": "INSTITUTION"
+  }
+]
+
