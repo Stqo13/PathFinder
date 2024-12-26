@@ -27,7 +27,7 @@ namespace PathFinder.Data.Models
         /// </summary>
         [Comment("User's address")]
         [MaxLength(UserAddressMaxLength)]
-        public string Address { get; set; } = null!;
+        public string? Address { get; set; }
 
         [Comment("User's jobs")]
         public virtual ICollection<Job> Jobs { get; set; }
