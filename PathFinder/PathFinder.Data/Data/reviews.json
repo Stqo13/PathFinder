@@ -61,7 +61,7 @@
     "Comment": "The course lacks personalized attention, and the pace can be too fast for beginners. The materials feel outdated, and there aren't enough interactive elements to keep learners engaged. It didn’t meet my expectations.",
     "ReviewDate": "2024-11-27T00:00:00",
     "PublisherId": "9e547484-9ea8-45e6-a488-d657f6f1c598",
-    "JobId": 8
+    "CourseId": 8
   },
   {
     "Id": 9,
@@ -77,7 +77,7 @@
     "Comment": "The course was too basic for my expectations. It focused a lot on introductory concepts, with very little in-depth coverage of advanced topics. I also found the pacing to be too slow, and some of the exercises were not as challenging as I had hoped.",
     "ReviewDate": "2024-02-11T00:00:00",
     "PublisherId": "9e547484-9ea8-45e6-a488-d657f6f1c598",
-    "JobId": 4
+    "CourseId": 4
   },
   {
     "Id": 11,
@@ -85,7 +85,7 @@
     "Comment": "This Fine Art course was amazing! The instructors were incredibly talented and offered personalized feedback. The course covered a variety of techniques and mediums, which really helped me improve my skills. The hands-on approach and creative atmosphere made learning fun and engaging.",
     "ReviewDate": "2024-06-06T00:00:00",
     "PublisherId": "ca145762-b5db-4836-b963-85eff67fb124",
-    "JobId": 9
+    "CourseId": 9
   },
   {
     "Id": 12,
@@ -93,6 +93,6 @@
     "Comment": "The Spanish class was an incredible experience! The teacher was engaging and patient, making learning enjoyable. The lessons were interactive, and the class size was perfect for personalized attention. I feel much more confident in speaking and understanding Spanish after completing the course.",
     "ReviewDate": "2023-07-08T00:00:00",
     "PublisherId": "ca145762-b5db-4836-b963-85eff67fb124",
-    "JobId": 5
+    "CourseId": 5
   }
 ]

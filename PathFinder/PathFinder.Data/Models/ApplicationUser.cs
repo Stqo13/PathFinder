@@ -26,7 +26,6 @@ namespace PathFinder.Data.Models
         /// FORMAT "Country, City, Street"
         /// </summary>
         [Comment("User's address")]
-        [Required]
         [MaxLength(UserAddressMaxLength)]
         public string Address { get; set; } = null!;
 

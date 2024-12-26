@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Newtonsoft.Json;
+using PathFinder.Data.Models;
 
 namespace PathFinder.Data.Configurations
 {
@@ -14,37 +16,11 @@ namespace PathFinder.Data.Configurations
 
         public IEnumerable<IdentityRole> GenerateRoles()
         {
-            var roles = new HashSet<IdentityRole>
-            {
-                new ()
-                {
-                    Id = "a94e9744-895c-4cd0-a450-fb2ca5ea73dc",
-                    Name = "Admin",
-                    ConcurrencyStamp = Guid.NewGuid().ToString(),
-                    NormalizedName = "ADMIN"
-                },
-                new ()
-                {
-                    Id = "cbd2b782-e4e3-4f79-84aa-5685d13320cb",
-                    Name = "PFUser",
-                    ConcurrencyStamp = Guid.NewGuid().ToString(),
-                    NormalizedName = "PFUSER"
-                },
-                new ()
-                {
-                    Id = "b69f39cc-e6e4-4394-b488-0d24c1d546ff",
-                    Name = "Company",
-                    ConcurrencyStamp = Guid.NewGuid().ToString(),
-                    NormalizedName = "COMPANY"
-                },
-                new ()
-                {
-                    Id = "be759a02-939c-4bb6-9063-f25e020d8a56",
-                    Name = "Institution",
-                    ConcurrencyStamp = Guid.NewGuid().ToString(),
-                    NormalizedName = "INSTITUTION"
-                }
-            };
+            var jsonFilePath = "D:\\Users\\User\\Desktop\\PathFinder\\PathFinder\\PathFinder.Data\\Data\\roles.json";
+            var json = File.ReadAllText(jsonFilePath);
+
+            var roles = JsonConvert.DeserializeObject<List<IdentityRole>>(json)
+                ?? throw new Exception("Invalid json file path");
 
             return roles;
         }

@@ -18,7 +18,7 @@ namespace PathFinder.Data.Configurations
         {
             var passwordHasher = new PasswordHasher<ApplicationUser>();
 
-            var jsonFilePath = "C:\\Users\\Student19\\Desktop\\PathFinder\\PathFinder\\PathFinder.Data\\Data\\users.json";
+            var jsonFilePath = "D:\\Users\\User\\Desktop\\PathFinder\\PathFinder\\PathFinder.Data\\Data\\users.json";
             var json = File.ReadAllText(jsonFilePath);
 
             var users = JsonConvert.DeserializeObject<List<ApplicationUser>>(json)

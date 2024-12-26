@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Newtonsoft.Json;
 using PathFinder.Data.Models;
 
 namespace PathFinder.Data.Configurations
@@ -14,21 +15,13 @@ namespace PathFinder.Data.Configurations
 
         public IEnumerable<UserCourse> GenerateUsersCourses()
         {
-            var usersCourses = new HashSet<UserCourse>
-            {
-                new ()
-                {
-                    UserId = "e47b8b58-2e3a-4f02-aee5-485d3e6db2b2",
-                    CourseId = 5
-                },
-                new ()
-                {
-                    UserId = "9e547484-9ea8-45e6-a488-d657f6f1c598",
-                    CourseId = 16
-                }     
-            };
+            var jsonFilePath = "D:\\Users\\User\\Desktop\\PathFinder\\PathFinder\\PathFinder.Data\\Data\\userCourses.json";
+            var json = File.ReadAllText(jsonFilePath);
 
-            return usersCourses;
+            var userCourses = JsonConvert.DeserializeObject<List<UserCourse>>(json)
+                ?? throw new Exception("Invalid json file path");
+
+            return userCourses;
         }
     }
 }
