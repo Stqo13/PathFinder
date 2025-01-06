@@ -17,13 +17,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PathFinder.Common\PathFinder.Common.csproj" />
     <ProjectReference Include="..\PathFinder.Data\PathFinder.Data.csproj" />
+    <ProjectReference Include="..\PathFinder.Services.Data\PathFinder.Services.Data.csproj" />
     <ProjectReference Include="..\PathFinder.ViewModels\PathFinder.ViewModels.csproj" />
   </ItemGroup>
 

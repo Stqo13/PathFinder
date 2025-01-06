@@ -1,6 +1,8 @@
 ﻿using PathFinder.Data.Models;
 using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Data.Repository;
+using PathFinder.Services.Data.Implementations;
+using PathFinder.Services.Data.Interfaces;
 
 namespace PathFinder.Extensions
 {
@@ -26,6 +28,8 @@ namespace PathFinder.Extensions
         public static IServiceCollection RegisterUserDefinedServices(
             this IServiceCollection services)
         {
+            services.AddScoped<IUserService, UserService>();
+
             return services;
         }
     }
