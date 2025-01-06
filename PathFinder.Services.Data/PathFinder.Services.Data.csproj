@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PathFinder.Data\PathFinder.Data.csproj" />
+    <ProjectReference Include="..\PathFinder.ViewModels\PathFinder.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>
