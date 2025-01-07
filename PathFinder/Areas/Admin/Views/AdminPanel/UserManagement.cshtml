@@ -24,7 +24,7 @@
                             <form method="post" asp-action="AssignRole" class="d-inline-block mb-2">
                                 <input type="hidden" name="userId" value="@user.Id" />
                                 <div class="input-group input-group-sm">
-                                    <select name="roleName" class="form-select form-select-sm">
+                                    <select name="role" class="form-select form-select-sm">
                                         <option value="" disabled selected>Select Role</option>
                                         <option value="PFUser">PFUser</option>
                                         <option value="Admin">Admin</option>
@@ -40,7 +40,7 @@
                             <form method="post" asp-action="RemoveRole" class="d-inline-block mb-2">
                                 <input type="hidden" name="userId" value="@user.Id" />
                                 <div class="input-group input-group-sm">
-                                    <select name="roleName" class="form-select form-select-sm">
+                                    <select name="role" class="form-select form-select-sm">
                                         <option value="" disabled selected>Select Role</option>
                                         @foreach (var role in user.Roles)
                                         {

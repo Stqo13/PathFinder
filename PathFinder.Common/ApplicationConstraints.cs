@@ -40,8 +40,8 @@
             public const int JobLocationMinLength = 20;
             public const int JobLocationMaxLength = 100;
 
-            public const int CompanyNameMinLength = 2;
-            public const int CompanyNameMaxLength = 80;
+            public const int JobTitleMinLength = 2;
+            public const int JobTitleMaxLength = 80;
 
             public const int JobPositionMinLength = 3;
             public const int JobPositionMaxLength = 50;
