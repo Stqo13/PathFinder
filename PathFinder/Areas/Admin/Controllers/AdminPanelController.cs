@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PathFinder.Services.Data.Implementations;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.UserViewModels;
 
@@ -7,7 +6,8 @@ namespace PathFinder.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminPanelController(
-        IUserService userService) : Controller
+        IUserService userService,
+        ILogger<AdminPanelController> logger) : Controller
     {
 
         [HttpGet]
@@ -34,8 +34,9 @@ namespace PathFinder.Areas.Admin.Controllers
 
                 return View(model);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                logger.LogError($"An error occured while fetching the users. {ex.Message}");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -54,7 +55,7 @@ namespace PathFinder.Areas.Admin.Controllers
 
             if (!userExists)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(UserManagement));
             }
 
             bool assignResult = await userService
@@ -62,10 +63,10 @@ namespace PathFinder.Areas.Admin.Controllers
 
             if (!assignResult)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(UserManagement));
             }
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(UserManagement));
         }
 
         [HttpPost]
@@ -76,7 +77,7 @@ namespace PathFinder.Areas.Admin.Controllers
 
             if (!userExists)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(UserManagement));
             }
 
             bool removeResult = await userService
@@ -84,10 +85,10 @@ namespace PathFinder.Areas.Admin.Controllers
 
             if (!removeResult)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(UserManagement));
             }
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(UserManagement));
         }
 
         [HttpPost]
@@ -98,7 +99,7 @@ namespace PathFinder.Areas.Admin.Controllers
 
             if (!userExists)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(UserManagement));
             }
 
             bool removeResult = await userService
@@ -106,10 +107,10 @@ namespace PathFinder.Areas.Admin.Controllers
 
             if (!removeResult)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(UserManagement));
             }
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(UserManagement));
         }
     }
 }
