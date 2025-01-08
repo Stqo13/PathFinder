@@ -21,6 +21,8 @@ namespace PathFinder.Extensions
             services.AddScoped<IRepository<UserJob, object>, Repository<UserJob, object>>();
             services.AddScoped<IRepository<UserSphere, object>, Repository<UserSphere, object>>();
             services.AddScoped<IRepository<ApplicationUser, string>, Repository<ApplicationUser, string>>();
+            services.AddScoped<IRepository<CompanyRoleRequest, int>, Repository<CompanyRoleRequest, int>>();
+            services.AddScoped<IRepository<InstitutionRoleRequest, int>, Repository<InstitutionRoleRequest, int>>();
 
             return services;
         }
@@ -29,6 +31,7 @@ namespace PathFinder.Extensions
             this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRoleRequestService, RoleRequestService>();
 
             return services;
         }

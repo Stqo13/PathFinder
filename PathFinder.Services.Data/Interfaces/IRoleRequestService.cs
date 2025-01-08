@@ -7,5 +7,8 @@ namespace PathFinder.Services.Data.Interfaces
         Task SendComanyRoleRequest(RoleRequestSendViewModel model);
 
         Task SendInstitutionRoleRequest(RoleRequestSendViewModel model);
+
+        Task<IEnumerable<RoleRequestInfoViewModel>> GetAllCompanyRoleRequests();
+        Task<IEnumerable<RoleRequestInfoViewModel>> GetAllInstitutionRoleRequests();
     }
 }
