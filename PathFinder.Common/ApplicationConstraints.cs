@@ -59,6 +59,13 @@
             public const string SuggestedOnDateTimeFormat = "yyyy-MM-dd";
         }
 
-      
+        public static class RoleRequestConstraints
+        {
+            public const int SenderMinLength = 5;
+            public const int SenderMaxLength = 70;
+
+            public const int DescriptionMinLength = 10;
+            public const int DescriptionMaxLength = 450;
+        }
     }
 }
