@@ -4,49 +4,14 @@ using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.RoleRequestViewModel;
 using PathFinder.Data.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using PathFinder.Common;
 
 namespace PathFinder.Services.Data.Implementations
 {
     public class RoleRequestService(
-        IRepository<CompanyRoleRequest, int> comapnyRoleRequestRepository, 
+        IRepository<CompanyRoleRequest, int> companyRoleRequestRepository, 
         IRepository<InstitutionRoleRequest, int> institutionRoleRequestRepository) : IRoleRequestService
     {
-        public async Task<IEnumerable<RoleRequestInfoViewModel>> GetAllCompanyRoleRequests()
-        {
-            var requests = await comapnyRoleRequestRepository
-                .GetAllAttached()
-                .Where(r => r.Status == RequestStatus.Pending)
-                .Select(r => new RoleRequestInfoViewModel()
-                {
-                    Id = r.Id,
-                    Sender = r.Sender,
-                    Description = r.Description,
-                    Status = r.Status.ToString()
-                })
-                .AsNoTracking()
-                .ToListAsync();
-
-            return requests;    
-        }
-
-        public async Task<IEnumerable<RoleRequestInfoViewModel>> GetAllInstitutionRoleRequests()
-        {
-            var requests = await institutionRoleRequestRepository
-                .GetAllAttached()
-                .Where(r => r.Status == RequestStatus.Pending)
-                .Select(r => new RoleRequestInfoViewModel()
-                {
-                    Id = r.Id,
-                    Sender = r.Sender,
-                    Description = r.Description,
-                    Status = r.Status.ToString()
-                })
-                .AsNoTracking()
-                .ToListAsync();
-
-            return requests;
-        }
-
         public async Task SendComanyRoleRequest(RoleRequestSendViewModel model)
         {
             if (model == null)
@@ -62,7 +27,7 @@ namespace PathFinder.Services.Data.Implementations
                 Status = RequestStatus.Pending
             };
 
-            await comapnyRoleRequestRepository.AddAsync(request);
+            await companyRoleRequestRepository.AddAsync(request);
         }
 
         public async Task SendInstitutionRoleRequest(RoleRequestSendViewModel model)
@@ -81,6 +46,92 @@ namespace PathFinder.Services.Data.Implementations
             };
 
             await institutionRoleRequestRepository.AddAsync(request);
+        }
+
+        public async Task<PaginatedList<RoleRequestInfoViewModel>> GetCompanyRoleRequestsAsync(int page, int pageSize)
+        {
+            var query = companyRoleRequestRepository
+                .GetAllAttached()
+                .Where(r => r.Status == RequestStatus.Pending);
+
+            var paginatedList = await PaginatedList<RoleRequestInfoViewModel>.CreateAsync(
+                query.Select(r => new RoleRequestInfoViewModel
+                {
+                    Id = r.Id,
+                    Sender = r.Sender,
+                    Description = r.Description,
+                    Status = r.Status.ToString()
+                }),
+                page,
+                pageSize
+            );
+
+            return paginatedList;
+        }
+
+        public async Task<PaginatedList<RoleRequestInfoViewModel>> GetInstitutionRoleRequestsAsync(int page, int pageSize)
+        {
+            var query = institutionRoleRequestRepository
+                .GetAllAttached()
+                .Where(r => r.Status == RequestStatus.Pending);
+
+            var paginatedList = await PaginatedList<RoleRequestInfoViewModel>.CreateAsync(
+                query.Select(r => new RoleRequestInfoViewModel
+                {
+                    Id = r.Id,
+                    Sender = r.Sender,
+                    Description = r.Description,
+                    Status = r.Status.ToString()
+                }),
+                page,
+                pageSize
+            );
+
+            return paginatedList;
+        }
+
+        public async Task AcceptRequestAsync(int requestId, string requestType)
+        {
+            if (requestType == "Company")
+            {
+                var request = await companyRoleRequestRepository.GetByIdAsync(requestId);
+                if (request != null)
+                {
+                    request.Status = RequestStatus.Accepted;
+                    await companyRoleRequestRepository.UpdateAsync(request);
+                }
+            }
+            else if (requestType == "Institution")
+            {
+                var request = await institutionRoleRequestRepository.GetByIdAsync(requestId);
+                if (request != null)
+                {
+                    request.Status = RequestStatus.Accepted;
+                    await institutionRoleRequestRepository.UpdateAsync(request);
+                }
+            }
+        }
+
+        public async Task DeclineRequestAsync(int requestId, string requestType)
+        {
+            if (requestType == "Company")
+            {
+                var request = await companyRoleRequestRepository.GetByIdAsync(requestId);
+                if (request != null)
+                {
+                    request.Status = RequestStatus.Declined;
+                    await companyRoleRequestRepository.UpdateAsync(request);
+                }
+            }
+            else if (requestType == "Institution")
+            {
+                var request = await institutionRoleRequestRepository.GetByIdAsync(requestId);
+                if (request != null)
+                {
+                    request.Status = RequestStatus.Declined;
+                    await institutionRoleRequestRepository.UpdateAsync(request);
+                }
+            }
         }
     }
 }
