@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using PathFinder.Data.Models.Enums;
 using static PathFinder.Common.ApplicationConstraints.RoleRequestConstraints;
 
 namespace PathFinder.ViewModels.RoleRequestViewModel
@@ -17,6 +18,6 @@ namespace PathFinder.ViewModels.RoleRequestViewModel
         public string Description { get; set; } = null!;
 
         [Required]
-        public string Status { get; set; } = null!;
+        public string Status { get; set; } = RequestStatus.Pending.ToString();
     }
 }

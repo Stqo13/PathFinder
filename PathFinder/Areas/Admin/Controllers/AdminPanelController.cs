@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.UserViewModels;
+using PathFinder.ViewModels.RoleRequestViewModel;
 
 namespace PathFinder.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminPanelController(
         IUserService userService,
+        IRoleRequestService requestService,
         ILogger<AdminPanelController> logger) : Controller
     {
 
@@ -42,9 +44,59 @@ namespace PathFinder.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult RoleRequests(int pageIndex = 1)
+        public async Task<IActionResult> RoleRequests(int companyPage = 1, int institutionPage = 1, int pageSize = 3)
         {
-            return View();
+            try
+            {
+                var companyRequests = await requestService.GetCompanyRoleRequestsAsync(companyPage, pageSize);
+                var institutionRequests = await requestService.GetInstitutionRoleRequestsAsync(institutionPage, pageSize);
+
+                var model = new AdminRoleRequestsViewModel
+                {
+                    CompanyRequests = companyRequests,
+                    InstitutionRequests = institutionRequests
+                };
+
+                ViewBag.CompanyPagination = companyRequests;
+                ViewBag.InstitutionPagination = institutionRequests;
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"An error occurred while fetching the role requests. {ex.Message}");
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AcceptRequest(int requestId, string requestType)
+        {
+            try
+            {
+                await requestService.AcceptRequestAsync(requestId, requestType);
+                return RedirectToAction(nameof(RoleRequests));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"Error accepting request: {ex.Message}");
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeclineRequest(int requestId, string requestType)
+        {
+            try
+            {
+                await requestService.DeclineRequestAsync(requestId, requestType);
+                return RedirectToAction(nameof(RoleRequests));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"Error declining request: {ex.Message}");
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         [HttpPost]
@@ -112,5 +164,6 @@ namespace PathFinder.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(UserManagement));
         }
+
     }
 }

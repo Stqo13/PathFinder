@@ -1,4 +1,5 @@
-﻿using PathFinder.ViewModels.RoleRequestViewModel;
+﻿using PathFinder.Common;
+using PathFinder.ViewModels.RoleRequestViewModel;
 
 namespace PathFinder.Services.Data.Interfaces
 {
@@ -8,7 +9,12 @@ namespace PathFinder.Services.Data.Interfaces
 
         Task SendInstitutionRoleRequest(RoleRequestSendViewModel model);
 
-        Task<IEnumerable<RoleRequestInfoViewModel>> GetAllCompanyRoleRequests();
-        Task<IEnumerable<RoleRequestInfoViewModel>> GetAllInstitutionRoleRequests();
+        Task<PaginatedList<RoleRequestInfoViewModel>> GetCompanyRoleRequestsAsync(int page, int pageSize);
+
+        Task<PaginatedList<RoleRequestInfoViewModel>> GetInstitutionRoleRequestsAsync(int page, int pageSize);
+
+        Task AcceptRequestAsync(int requestId, string requestType);
+
+        Task DeclineRequestAsync(int requestId, string requestType);
     }
 }
