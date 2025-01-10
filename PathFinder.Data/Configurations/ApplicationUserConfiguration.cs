@@ -29,13 +29,21 @@ namespace PathFinder.Data.Configurations
             {
                 if (user.Id == "e0d6328d-f003-4bb1-8daa-21dcf49db469"
                     || user.Id == "16226cef-b670-447e-99a9-b627cb16ae0b"
-                    || user.Id == "b3693b0c-9c11-48ee-a3be-db37d5439ab0")
+                    || user.Id == "b3693b0c-9c11-48ee-a3be-db37d5439ab0"
+                    || user.Id == "17585a62-c173-4c68-9e4a-2ba93a419b21"
+                    || user.Id == "eb1f5c9f-186b-4a93-a9bd-64a6055c61cd"
+                    || user.Id == "7dbc12c7-18ec-4af2-a5b7-877ff0df3faf"
+                    || user.Id == "596c6add-eaae-4890-8d4d-38aa5a0671bd")
                 {
                     user.PasswordHash = passwordHasher.HashPassword(user, "Company_123");
                 }
                 else if (user.Id == "428bcf46-40f2-47b2-ac4a-a49f570178ad"
                     || user.Id == "3cf3fb4a-235e-4c93-b66f-c1557006e067"
-                    || user.Id == "fa360a62-9355-474a-824d-aaa85d9fbd65")
+                    || user.Id == "fa360a62-9355-474a-824d-aaa85d9fbd65"
+                    || user.Id == "35e6291c-73f5-48ef-8f3e-5fda2c4ddee1"
+                    || user.Id == "fc7c5678-22b4-4650-af6e-4c5f90fa494d"
+                    || user.Id == "723444b3-9434-4465-9044-f7e04fdcca2f"
+                    || user.Id == "6a358b17-ffbe-4ac9-8d20-92544e3b739d")
                 {
                     user.PasswordHash = passwordHasher.HashPassword(user, "Institution_123");
                 }
