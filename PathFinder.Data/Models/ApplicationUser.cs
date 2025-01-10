@@ -26,9 +26,8 @@ namespace PathFinder.Data.Models
         /// FORMAT "Country, City, Street"
         /// </summary>
         [Comment("User's address")]
-        [Required]
         [MaxLength(UserAddressMaxLength)]
-        public string Address { get; set; } = null!;
+        public string? Address { get; set; }
 
         [Comment("User's jobs")]
         public virtual ICollection<Job> Jobs { get; set; }
