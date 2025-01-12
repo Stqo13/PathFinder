@@ -21,6 +21,10 @@
     box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
 }
 
+.carousel-item.active {
+    position: center;
+}
+
 .b-example-vr {
     flex-shrink: 0;
     width: 1.5rem;
@@ -39,16 +43,16 @@
     overflow-y: hidden;
 }
 
-    .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-    }
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
 
 .btn-bd-primary {
     --bd-violet-bg: #712cf9;
@@ -70,9 +74,9 @@
     z-index: 1500;
 }
 
-    .bd-mode-toggle .dropdown-menu .active .bi {
-        display: block !important;
-    }
+.bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+}
 
 #home-page {
     padding-top: 3rem;
@@ -91,6 +95,8 @@
 
 .carousel-item {
     height: 32rem;
+    text-align: center;
+    vertical-align: central;
 }
 
 .marketing .col-lg-4 {
@@ -98,10 +104,10 @@
     text-align: center;
 }
 
-    .marketing .col-lg-4 p {
-        margin-right: .75rem;
-        margin-left: .75rem;
-    }
+.marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+}
 
 .featurette-divider {
     margin: 5rem 0;
@@ -119,34 +125,107 @@
     }
 
     .featurette-heading {
-        font-size: 50px;
+        font-size: 70px;
     }
 }
 
 @media (min-width: 62em) {
     .featurette-heading {
-        margin-top: 7rem;
+        padding-bottom: 1em;
     }
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
 }
 
 #home-first-carousel-h1 {
     font-weight: 700;
-    color: black;
+    color: white;
+    text-align: left;
 }
 
 #home-page-container {
-    background-color: #83c5be;
+    background-color: #006d77;
+}
+
+.home-page-carousel-container {
+    position: absolute;
+    height: 40%;
+    width: 50%;
+    text-align: left;
+    margin-bottom: 3.5em;
+    margin-left: 6em;
+    left: 5%;
+    right: 16%;
+    bottom: 5%;
+    padding-top: 1.25rem;
+    padding-top: 1.25rem;
+    padding-left: 2em;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-caption {
+    height: 40%;
+    width: 50%;
+    padding-top: 1.25rem;
+    padding-top: 1.25rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+#second-page-carousel {
+    height: 40%;
+    width: 50%;
+    left: 25%;
+    right: 25%;
+    padding-top: 1.25rem;
+    padding-top: 1.25rem;
+    margin-right: 6em;
+    margin-bottom: 3.5em;
+}
+
+#third-page-carousel {
+    height: 40%;
+    width: 50%;
+    left: 38%;
+    right: 5%;
+    margin-right: 6em;
+    margin-bottom: 3.5em;
+}
+
+.item1 {
+    background: url("../images/set-of-illustrations-men-and-women-workers-from-different-professions.jpg") no-repeat;
+    background-position: 0 -70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item2 {
+    background: url("../images/teaching-course.jpg") no-repeat;
+    background-position: 0 -170px;
+}
+
+.item3 {
+    background: url("../images/talks-colleagues-working-together-modern-office-using-devices-gadgets-creative-meeting.jpg") no-repeat;
+    background-position: 0 -70px;
 }
 
 .item1, .item2, .item3 {
-    /*background: url("../images/people_working_diffrent_jobs-082019.png") no-repeat;*/
-    background-color: #ebb9a9;
+    background-color: rgb(255, 240, 219);
     background-size: cover;
-    border: 2px solid #c7836d;
+    border: 2px solid #365735;
     border-radius: 10px;
+    margin-top: 2em;
 }
-#first-page-carousel-subtitle {
-    font-weight: bold;
+
+#carousel-subtitle {
+    font-weight: 700;
+    color: rgb(255, 240, 219);
+}
+#home-third-carousel-h1, #home-second-carousel-h1 {
+    font-weight: 700;
 }
 
 .navbar-expand-sm {
@@ -154,16 +233,79 @@
 }
 
 #sign-up-today-btn {
-    background-color: #e29578;
-    border: 2px solid #a16650;
+    position: absolute;
+}
+
+.home-page-carousel-btn {
+    background-color: #02929e;
+    text-decoration: none;
+    margin-bottom: 1.5em;
+    padding: 0.6em;
+    border: 2px solid #01575e;
     cursor: pointer;
+    color: white;
     transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
 
-#sign-up-today-btn:hover {
-    background-color: #a16650;
+.home-page-carousel-btn:hover {
+    background-color: #01575e;
+    text-decoration: none;
+    color: white;
 }
 
-#home-second-carousel-h1 {
+.home-names-h2 {
+    font-weight: 700;
+}
 
+.row {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.col-lg-4 {
+    padding: 20px;
+    margin-inline: 30px;
+    text-align: center;
+}
+
+#home-second-person-pic {
+    border: 3px solid white;
+}
+
+.social-links-btn {
+    background-color: rgb(255, 240, 219);
+    color: #006d77;
+    border: 2px solid #015259;
+    font-weight: 700;
+}
+
+.social-links-btn:hover {
+    background-color: #bdb09f;
+}
+
+.lead {
+    line-height: 40px;
+    font-family: Times New Roman, sans-serif;
+}
+
+.featurette-heading {
+    margin-top: 2rem; 
+}
+
+.lead #home-down-text {
+    margin-top: 0px;
+}
+
+#home-first-image {
+    background: url("../images/teamwork-and-team-building.png") no-repeat;
+    background-position: -100px 0px;
+}
+
+#home-second-image {
+    background: url("../images/3d-view-map.jpg") no-repeat;
+    background-size: contain;
 }
