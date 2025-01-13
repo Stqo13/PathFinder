@@ -21,6 +21,25 @@ body {
     margin-bottom: 60px;
 }
 
+#navbar-main {
+    background-color: rgb(255, 240, 219);
+    border-bottom: 2px solid #0056b3;
+    padding: 0.6em;
+}
+
+#navbar-main-text {
+    color: white;
+    background-color: #006d77;
+    border-radius: 5px;
+    padding-inline: 1em;
+    margin: 0.5em;
+    border-image: none;
+    border: 2px solid #025157;
+}
+
+#navbar-main-text:hover {
+    background-color: #02929e;
+}
 
 /* General Styling */
 body {

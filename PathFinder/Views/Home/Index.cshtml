@@ -1,8 +1,166 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div id="home-page-container">
+    <div id="home-page" class="text-center container">
+        <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+            <div class="carousel-inner">
+                <div class="carousel-item active item1">
+                    <div class="home-page-carousel-container">
+                        <h1 id="home-first-carousel-h1">
+                            Welcome to PathFinder
+                        </h1>
+
+                        <p id="carousel-subtitle" >
+                            Find your path, follow your passion.
+                        </p>
+
+                        <p>
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <a asp-area="Identity" asp-page="/Account/Register" class="home-page-carousel-btn" id="sign-up-today-btn">Sign up today</a>
+                            }
+                        </p>
+                    </div>
+                    
+                </div>
+
+                <div class="carousel-item item2">
+                    <div class="container">
+                        <div class="carousel-caption" id="second-page-carousel">
+                            <h1 id="home-second-carousel-h1">
+                                Find the perfect course.
+                            </h1>
+
+                            <p id="carousel-subtitle">
+                                Uncertain about your next step? Explore educational opportunities tailored to your passions.
+                            </p>
+
+                            <p>
+                                <a class="home-page-carousel-btn" id="explore-courses-btn" href="#">
+                                    Explore courses
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item item3">
+                    <div class="container">
+                        <div class="carousel-caption text-end" id="third-page-carousel">
+                            <h1 id="home-second-carousel-h1">
+                                Discover your dream job today!
+                            </h1>
+
+                            <p id="carousel-subtitle">
+                                Ready to land your dream job? Let your passions guide you to opportunities that truly matter.
+                            </p>
+
+                            <p>
+                                <a class="home-page-carousel-btn" id="browse-job-offers-btn" href="#">
+                                    Browse job offers
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                <span class="visually-hidden">
+                    Previous
+                </span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                <span class="visually-hidden">
+                    Next
+                </span>
+            </button>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="container marketing">
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1">
+                        What is PathFinder?
+                    </h2>
+
+                    <p class="lead">
+                        PathFinder is your personalized guide to discovering careers and educational opportunities that align with your interests. Whether you're exploring job options, searching for the perfect course, or planning your next step, PathFinder helps you uncover paths tailored to your skills, passions, and goals. Start building a future you’ll love today!"
+                    </p>
+                </div>
+
+                <div class="col-md-5">
+                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" id="home-first-image" width="500" height="450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    </svg>
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading fw-normal lh-1">
+                        What's more?
+                    </h2>
+
+                    <p class="lead" id="home-down-text">
+                        PathFinder offers a feature where you can set a location to discover possibilities close to you, ensuring that your options are both relevant and convenient.Whether you're seeking a new job nearby or looking for courses in your area, this feature makes it easy to find opportunities that fit your lifestyle and ambitions.
+                    </p>
+                </div>
+
+                <div class="col-md-5 order-md-1">
+                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" id="home-second-image" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    </svg>
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row">
+                <div class="col-lg-4" id="home-first-person">
+                    <img src="../images/profile-avatar-boy.jpg" id="home-first-person-pic" class="rounded-circle" width="140" height="140" alt="Person Picture">
+
+                    <h2 class="home-names-h2">
+                        Stefan Dimitrov
+                    </h2>
+
+                    <p>
+                        <a class="btn btn-secondary social-links-btn" href="#">
+                            Social Links &raquo
+                        </a>
+                    </p>
+                </div>
+
+                <div class="col-lg-4" id="home-second-person">
+                    <img src="../images/profile-avatar-girl.jpg" id="home-second-person-pic" class="rounded-circle" width="140" height="140" alt="Person Picture">
+
+                    <h2 class="home-names-h2">
+                        Teodora Nedkova
+                    </h2>
+
+                    <p>
+                        <a class="btn btn-secondary social-links-btn" href="#">
+                            Social Links &raquo;
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+        </div>
+    </div>
 </div>
