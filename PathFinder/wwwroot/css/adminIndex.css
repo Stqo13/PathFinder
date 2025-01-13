@@ -1,4 +1,4 @@
-﻿.dashboard-container {
+﻿.admin-dashboard-container {
     display: flex;
     justify-content: space-around;
     gap: 20px;
@@ -6,7 +6,7 @@
     flex-wrap: wrap;
 }
 
-.dashboard-item {
+.admin-dashboard-item {
     flex: 1 1 45%;
     height: 300px;
     background: linear-gradient(135deg, #007bff, #0056b3);
@@ -20,23 +20,22 @@
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     text-decoration: none;
+    padding: 20px;
+    min-width: 250px;
+    max-width: 45em;
 }
 
-.dashboard-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
+    .admin-dashboard-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
 
-.dashboard-item:hover .dashboard-icon,
-.dashboard-item:hover h5 {
-    color: white;
-}
+        .admin-dashboard-item:hover .admin-dashboard-icon,
+        .admin-dashboard-item:hover h5 {
+            color: white;
+        }
 
-.dashboard-item:focus, .dashboard-item:active {
-    outline: none;
-}
-
-.dashboard-icon {
+.admin-dashboard-icon {
     font-size: 70px;
     margin-bottom: 10px;
 }

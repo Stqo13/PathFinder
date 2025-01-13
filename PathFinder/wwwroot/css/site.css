@@ -1,24 +1,67 @@
-html {
-    font-size: 14px;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
+#page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+#content-container {
+    flex-grow: 1;
 }
 
-html {
+#footer {
+    background-color: #f1f1f1;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
-    min-height: 100%;
+    z-index: 10;
+}
+
+.pagination-btn {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.pagination-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination-btn.active {
+    background-color: #007bff;
+    color: white;
+    pointer-events: none;
 }
 
 body {
-    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#page-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f1f1f1;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
 }
 
 #navbar-main {
@@ -39,163 +82,4 @@ body {
 
 #navbar-main-text:hover {
     background-color: #02929e;
-}
-
-/* General Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f6f9;
-    color: #333;
-}
-
-/* Card styling */
-.card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.card:hover {
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Admin Dashboard */
-h2.mb-4 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-/* Admin Dashboard Cards */
-.card.shadow-sm {
-    padding: 20px;
-    text-align: center;
-}
-
-/* Card container */
-#user-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Pagination fixes */
-.pagination-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.pagination-btn {
-    padding: 10px 15px;
-    margin: 0 5px;
-    border: 1px solid #ddd;
-    color: #007bff;
-    font-size: 1rem;
-    text-decoration: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.pagination-btn:hover {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.pagination-btn.active {
-    background-color: #007bff;
-    color: #fff;
-    pointer-events: none;
-}
-
-/* Buttons and Links */
-.btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-/* Dropdown Styling */
-.form-select {
-    padding: 6px 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    height: 38px;
-    margin-right: 5px;
-}
-
-.form-select option:disabled {
-    color: #6c757d;
-}
-
-/* Align buttons and dropdowns neatly */
-form.d-inline-block {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-}
-
-/* Button styles */
-.btn {
-    padding: 8px 15px;
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-/* User Management */
-.user-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 15px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.user-card .user-info {
-    margin-bottom: 10px;
-}
-
-.user-card .user-actions {
-    display: flex;
-    justify-content: space-between;
-}
-
-.user-card .user-actions .btn {
-    padding: 5px 10px;
-    font-size: 0.9rem;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-    .row {
-        flex-direction: column;
-    }
-
-    .card {
-        margin-bottom: 20px;
-    }
-
-    .pagination {
-        flex-direction: column;
-    }
-
-    .pagination .page-item {
-        margin: 5px 0;
-    }
 }

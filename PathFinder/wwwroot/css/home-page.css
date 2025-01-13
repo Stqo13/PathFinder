@@ -309,3 +309,7 @@
     background: url("../images/3d-view-map.jpg") no-repeat;
     background-size: contain;
 }
+
+.row.creators{
+    margin-top: 4em;
+}

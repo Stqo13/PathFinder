@@ -1,14 +1,13 @@
-﻿
-.dashboard-container {
+﻿.dashboard-container {
     display: flex;
     justify-content: space-around;
-    gap: 20px;
+    padding: 2px;
     margin-top: 20px;
     flex-wrap: wrap;
 }
 
 .dashboard-item {
-    flex: 1 1 45%;
+    flex: 1 1 calc(45% - 20px); /* Ensures proper spacing between items */
     height: 300px;
     background: linear-gradient(135deg, #007bff, #0056b3);
     color: white;
@@ -21,21 +20,26 @@
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     text-decoration: none;
+    margin-top: 5em;
+    padding: 20px;
+    min-width: 250px;
+    max-width: 45em;
 }
 
-    .dashboard-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    }
+.dashboard-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
 
-        .dashboard-item:hover .dashboard-icon,
-        .dashboard-item:hover h5 {
-            color: white;
-        }
+.dashboard-item:hover .dashboard-icon,
+.dashboard-item:hover h5 {
+    color: white;
+}
 
-    .dashboard-item:focus, .dashboard-item:active {
-        outline: none;
-    }
+.dashboard-item:focus,
+.dashboard-item:active {
+    outline: none;
+}
 
 .dashboard-icon {
     font-size: 70px;
@@ -45,4 +49,25 @@
 h5 {
     font-size: 1.5rem;
     font-weight: bold;
+    text-align: center;
+}
+
+.text-center.mb-4{
+    margin-top: 2em;
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dashboard-item {
+        width: 80%; /* Adjusts width on smaller screens */
+        height: 250px; /* Reduces height for better fit */
+    }
+
+    h5 {
+        font-size: 1.25rem; /* Adjusts font size for mobile */
+    }
 }

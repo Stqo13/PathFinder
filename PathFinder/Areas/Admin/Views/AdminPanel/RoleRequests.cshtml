@@ -8,21 +8,21 @@
 <h2 class="text-center">@ViewData["Title"]</h2>
 
 <div class="role-requests-container">
-    <section class="request-section">
+    <section class="role-requests-section">
         <h3>Company Requests</h3>
-        <div class="request-list">
+        <div class="role-request-list">
             @foreach (var request in Model.CompanyRequests)
             {
-                <div class="request-card">
+                <div class="role-request-card">
                     <h4>@request.Sender</h4>
                     <p>@request.Description</p>
                     <p>Status: @request.Status</p>
-                    <form asp-action="AcceptRequest" method="post" class="request-form">
+                    <form asp-action="AcceptRequest" method="post" class="role-request-form">
                         <input type="hidden" name="requestId" value="@request.Id" />
                         <input type="hidden" name="requestType" value="Company" />
                         <button type="submit" class="btn btn-success">Accept</button>
                     </form>
-                    <form asp-action="DeclineRequest" method="post" class="request-form">
+                    <form asp-action="DeclineRequest" method="post" class="role-request-form">
                         <input type="hidden" name="requestId" value="@request.Id" />
                         <input type="hidden" name="requestType" value="Company" />
                         <button type="submit" class="btn btn-danger">Decline</button>
@@ -30,7 +30,6 @@
                 </div>
             }
         </div>
-
         <div class="pagination-controls">
             @if (ViewBag.CompanyPagination.HasPreviousPage)
             {
@@ -44,21 +43,21 @@
         </div>
     </section>
 
-    <section class="request-section">
+    <section class="role-requests-section">
         <h3>Institution Requests</h3>
-        <div class="request-list">
+        <div class="role-request-list">
             @foreach (var request in Model.InstitutionRequests)
             {
-                <div class="request-card">
+                <div class="role-request-card">
                     <h4>@request.Sender</h4>
                     <p>@request.Description</p>
                     <p>Status: @request.Status</p>
-                    <form asp-action="AcceptRequest" method="post" class="request-form">
+                    <form asp-action="AcceptRequest" method="post" class="role-request-form">
                         <input type="hidden" name="requestId" value="@request.Id" />
                         <input type="hidden" name="requestType" value="Institution" />
                         <button type="submit" class="btn btn-success">Accept</button>
                     </form>
-                    <form asp-action="DeclineRequest" method="post" class="request-form">
+                    <form asp-action="DeclineRequest" method="post" class="role-request-form">
                         <input type="hidden" name="requestId" value="@request.Id" />
                         <input type="hidden" name="requestType" value="Institution" />
                         <button type="submit" class="btn btn-danger">Decline</button>
@@ -66,7 +65,6 @@
                 </div>
             }
         </div>
-
         <div class="pagination-controls">
             @if (ViewBag.InstitutionPagination.HasPreviousPage)
             {
