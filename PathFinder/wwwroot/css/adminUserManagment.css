@@ -1,54 +1,4 @@
-html {
-    font-size: 14px;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    margin-bottom: 60px;
-}
-
-#navbar-main {
-    background-color: rgb(255, 240, 219);
-    border-bottom: 2px solid #0056b3;
-    padding: 0.6em;
-}
-
-#navbar-main-text {
-    color: white;
-    background-color: #006d77;
-    border-radius: 5px;
-    padding-inline: 1em;
-    margin: 0.5em;
-    border-image: none;
-    border: 2px solid #025157;
-}
-
-#navbar-main-text:hover {
-    background-color: #02929e;
-}
-
-/* General Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f6f9;
-    color: #333;
-}
-
-/* Card styling */
+﻿/* Card styling */
 .card {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -137,9 +87,9 @@ h2.mb-4 {
     margin-right: 5px;
 }
 
-.form-select option:disabled {
-    color: #6c757d;
-}
+    .form-select option:disabled {
+        color: #6c757d;
+    }
 
 /* Align buttons and dropdowns neatly */
 form.d-inline-block {
@@ -183,19 +133,15 @@ form.d-inline-block {
 
 /* Responsiveness */
 @media (max-width: 768px) {
-    .row {
-        flex-direction: column;
-    }
-
-    .card {
-        margin-bottom: 20px;
-    }
-
-    .pagination {
-        flex-direction: column;
-    }
-
-    .pagination .page-item {
-        margin: 5px 0;
-    }
+.row {
+    flex-direction: column;
+}
+.card {
+    margin-bottom: 20px;
+}
+.pagination {
+    flex-direction: column;
+}
+.pagination .page-item {
+    margin: 5px 0;
 }

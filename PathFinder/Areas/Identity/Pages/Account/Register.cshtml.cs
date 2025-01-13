@@ -2,14 +2,10 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
+using System.Globalization;
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -19,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using PathFinder.Data.Models;
+using static PathFinder.Common.ApplicationConstraints.UserConstraints;
 
 namespace PathFinder.Areas.Identity.Pages.Account
 {
@@ -80,6 +77,18 @@ namespace PathFinder.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
 
+            [Required]
+            [Display(Name = "First name")]
+            public string FirstName { get; set; }
+
+            [Required]
+            [Display(Name = "Last name")]
+            public string LastName { get; set; }
+
+            [Required]
+            [Display(Name = "Date of birth")]
+            public string DateOfBirth { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -114,6 +123,20 @@ namespace PathFinder.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
+                DateTime dateOfBirth;
+
+                if (DateTime.TryParseExact
+                    (Input.DateOfBirth,
+                    UserBirthDateDateTimeFormat,
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out dateOfBirth) == false)
+                {
+                   user.DateOfBirth = dateOfBirth;
+                }
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

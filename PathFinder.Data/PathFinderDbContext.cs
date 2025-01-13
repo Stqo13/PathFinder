@@ -39,6 +39,10 @@ namespace PathFinder.Data
 
         public virtual DbSet<UserSphere> UsersSpheres { get; set; } = null!;
 
+        public virtual DbSet<CompanyRoleRequest> CompanyRoleRequests { get; set; } = null!;
+
+        public virtual DbSet<InstitutionRoleRequest> InstitutionRoleRequests { get; set; } = null!;
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

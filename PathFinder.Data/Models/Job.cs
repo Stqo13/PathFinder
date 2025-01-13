@@ -13,6 +13,7 @@ namespace PathFinder.Data.Models
         public int Id { get; set; }
 
         [Comment("Job's title")]
+        [MaxLength(JobTitleMaxLength)]
         [Required]
         public string Title { get; set; } = null!;
 

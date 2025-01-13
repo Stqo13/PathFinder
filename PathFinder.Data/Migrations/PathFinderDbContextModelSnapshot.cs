@@ -15,7 +15,7 @@ namespace PathFinder.Data.Migrations
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
-            #pragma warning disable 612, 618
+#pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
@@ -52,28 +52,28 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = "a94e9744-895c-4cd0-a450-fb2ca5ea73dc",
-                            ConcurrencyStamp = "5693d433-58f1-423e-b017-bd2f8aa733a2",
+                            ConcurrencyStamp = "eab4d980-d470-4b4b-bb99-6768a6d7a63d",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "cbd2b782-e4e3-4f79-84aa-5685d13320cb",
-                            ConcurrencyStamp = "3667e136-1ba3-44a6-8730-0c6445975091",
+                            ConcurrencyStamp = "4eab5cb1-b6fc-42f3-9f01-93b0625f85b6",
                             Name = "PFUser",
                             NormalizedName = "PFUSER"
                         },
                         new
                         {
                             Id = "b69f39cc-e6e4-4394-b488-0d24c1d546ff",
-                            ConcurrencyStamp = "91fd4469-4d30-4754-a5be-29ff4eb5613a",
+                            ConcurrencyStamp = "9277a98f-3549-49fd-bb18-9810182b5e8d",
                             Name = "Company",
                             NormalizedName = "COMPANY"
                         },
                         new
                         {
                             Id = "be759a02-939c-4bb6-9063-f25e020d8a56",
-                            ConcurrencyStamp = "04bf9670-b121-4c14-8c82-fc244215188a",
+                            ConcurrencyStamp = "5b72d0bc-f750-402f-a330-7ebded6824b3",
                             Name = "Institution",
                             NormalizedName = "INSTITUTION"
                         });
@@ -198,7 +198,6 @@ namespace PathFinder.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
                         .HasComment("User's address");
@@ -281,7 +280,7 @@ namespace PathFinder.Data.Migrations
                             Id = "6a358b17-ffbe-4ac9-8d20-92544e3b739d",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Ruse, ul. \"Hristo Yasenov\" 7",
-                            ConcurrencyStamp = "e566a92b-ac7b-45aa-94ea-456f8205799d",
+                            ConcurrencyStamp = "638cec2f-f254-48d7-82af-3a1f214bc66a",
                             DateOfBirth = new DateTime(1994, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "artacademy@gmail.com",
                             EmailConfirmed = true,
@@ -290,10 +289,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ARTACADEMY@GMAIL.COM",
                             NormalizedUserName = "ARTACADEMY123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFdIQhvMHUoMA9eQ0WhJc4msI417m+jnRR8RttwYv7YQ8FZflVg726rPMWp8mkUQJg==",
+                            PasswordHash = "passwordHashPlaceholder",
                             PhoneNumber = "0897902119",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "859335af-6853-4273-afe6-2e4d6a2709bd",
+                            SecurityStamp = "6fabafce-252a-4891-aaee-7ac84f13876f",
                             TwoFactorEnabled = false,
                             UserName = "artacademy123"
                         },
@@ -302,7 +301,7 @@ namespace PathFinder.Data.Migrations
                             Id = "fc7c5678-22b4-4650-af6e-4c5f90fa494d",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Sofia, ul. \"Tsar Asen\" 112",
-                            ConcurrencyStamp = "fcfc163f-b63d-4482-87e1-d4719850d487",
+                            ConcurrencyStamp = "47bb40ca-168d-4ff6-8bd6-1b041a266b76",
                             DateOfBirth = new DateTime(1994, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "globallingua@gmail.com",
                             EmailConfirmed = true,
@@ -311,10 +310,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "GLOBALLINGUA@GMAIL.COM",
                             NormalizedUserName = "GLOBALLINGUA123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBbPFWf+FoSeFPTiTKjLOu587T2XkPjM06UDE8LZVRpI3bhhdakBA+j7eR07nOEtxg==",
+                            PasswordHash = "passwordHashPlaceholder",
                             PhoneNumber = "0897662398",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fc0ac354-4543-4f96-8529-04adabc071cf",
+                            SecurityStamp = "0cbb87b8-d320-444b-8c3a-b8e1eba6fb7e",
                             TwoFactorEnabled = false,
                             UserName = "globallingua123"
                         },
@@ -323,7 +322,7 @@ namespace PathFinder.Data.Migrations
                             Id = "723444b3-9434-4465-9044-f7e04fdcca2f",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Sofia, ul. \"Petar B. Velichkov\" 43",
-                            ConcurrencyStamp = "55edf5e7-53a7-4c42-8760-713495e8aee2",
+                            ConcurrencyStamp = "2fad8d68-f15f-4e41-8690-f00906404c2b",
                             DateOfBirth = new DateTime(1990, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "marketingacademy@gmail.com",
                             EmailConfirmed = true,
@@ -332,10 +331,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MARKETINGACADEMY@GMAIL.COM",
                             NormalizedUserName = "MARKETINGACADEMY123",
-                            PasswordHash = "AQAAAAIAAYagAAAAELcMH1v/LMBKwb73a3yZf0lgkbcdNNuP8RaoyldSisAVFe8pdnrtql3U8hGLGHetYA==",
+                            PasswordHash = "passwordHashPlaceholder",
                             PhoneNumber = "0877742199",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e3b41c27-eb0a-48d1-be6d-ad795fc69952",
+                            SecurityStamp = "4c5619d0-ad54-4efa-8a93-6cf8f1f04a63",
                             TwoFactorEnabled = false,
                             UserName = "marketingacademy123"
                         },
@@ -344,7 +343,7 @@ namespace PathFinder.Data.Migrations
                             Id = "428bcf46-40f2-47b2-ac4a-a49f570178ad",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Sofia, bul. \"Alexandur Malinov\" 78",
-                            ConcurrencyStamp = "9155708a-92fc-440b-b0b4-91e4f4cca10c",
+                            ConcurrencyStamp = "e9336265-eec1-4412-bc78-dbe4f4c7361d",
                             DateOfBirth = new DateTime(2000, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "softschool@gmail.com",
                             EmailConfirmed = true,
@@ -353,10 +352,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SOFTSCHOOL@GMAIL.COM",
                             NormalizedUserName = "SOFTSCHOOL123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGAgUo/4nswvkAwxqftAMPJhHR2yRKGtodVP44J4/ntVeITNShwyw1auH2I7mJ//5w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEFftI7TanHb5qWpwIdGqEyO2J4ygxPmdx6r+HuX1KME/HJJSH7mpGAEtA/nuyQZpA==",
                             PhoneNumber = "0878765781",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8d860c05-fa23-46cc-8cab-892b613660d4",
+                            SecurityStamp = "811145ac-58b1-4e3b-b58c-f877e4b31994",
                             TwoFactorEnabled = false,
                             UserName = "softschool123"
                         },
@@ -365,7 +364,7 @@ namespace PathFinder.Data.Migrations
                             Id = "3cf3fb4a-235e-4c93-b66f-c1557006e067",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Plovdiv, bul. \"Tsar Boris 3ti Obedinitel\"",
-                            ConcurrencyStamp = "070a0583-9697-4871-8d8e-28ad37aa9212",
+                            ConcurrencyStamp = "2278e927-50af-43ca-9152-cd7c44db0810",
                             DateOfBirth = new DateTime(1980, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "telerikikus@gmail.com",
                             EmailConfirmed = true,
@@ -374,10 +373,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TELERIKIKUS@GMAIL.COM",
                             NormalizedUserName = "TELERIKIKUS123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJy3nIxqIkyp1OjJRiMqONrmCV7QcQ+yQisuhUGEnoU6VwJFb8Q97j8JztNuTRzKHg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPnLnVDVSFRunNiHDl9Enf+EgmXZ2iLhyJK46kf+5iWV7BvMamyEfTExFG20d14d5g==",
                             PhoneNumber = "0898769871",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5f93105e-f6d1-456d-af58-375535cdeff6",
+                            SecurityStamp = "71d8f5f7-0693-45d6-82b6-98f1cbfca794",
                             TwoFactorEnabled = false,
                             UserName = "telerikikus123"
                         },
@@ -386,7 +385,7 @@ namespace PathFinder.Data.Migrations
                             Id = "fa360a62-9355-474a-824d-aaa85d9fbd65",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Stara Zagora, ul. \"Stefan Stambolov\" 38",
-                            ConcurrencyStamp = "b8b9e76c-9954-41b7-8efe-89440093ef25",
+                            ConcurrencyStamp = "a4d4f0e4-ffb5-4797-9f95-b9f3506d83eb",
                             DateOfBirth = new DateTime(2001, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "wittmath@gmail.com",
                             EmailConfirmed = true,
@@ -395,19 +394,19 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "WITTMATH@GMAIL.COM",
                             NormalizedUserName = "WITTMATH123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJvNRVqcHlDpXFvnYmrE0NanQGtN9vsgrsjMnBDC9cnnuHcUV4l0VQndWismL7PHRg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMYpQw0ojF9wZX3cWsn+kjBc1mDLf8f79V5QR8U2E6VlCfIgHNo1FV2heg7lfzRADw==",
                             PhoneNumber = "0880796431",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2078c2dc-ab0f-46da-8f32-813347a52d71",
+                            SecurityStamp = "48d7a736-2155-44ed-9c2f-e34e3d0b5f65",
                             TwoFactorEnabled = false,
                             UserName = "wittmath123"
                         },
                         new
                         {
-                            Id = "",
+                            Id = "35e6291c-73f5-48ef-8f3e-5fda2c4ddee1",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Varna, ul. \"Oborishte\" 13A",
-                            ConcurrencyStamp = "c04f5b25-f65f-4753-ae78-e1f1e01f903d",
+                            ConcurrencyStamp = "c363b0fb-536e-4d89-8c9b-9ba331451b20",
                             DateOfBirth = new DateTime(1991, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tastecraftacademy@gmail.com",
                             EmailConfirmed = true,
@@ -416,10 +415,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TASTECRAFTACADEMY@GMAIL.COM",
                             NormalizedUserName = "TASTECRAFTACADEMY123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBDcz0zT8WWBhQQ2gwlnFtVOi7ZhzQP1MWDiuKhCN9ZQ7nNK0Qum0irshBSTVL7OEQ==",
+                            PasswordHash = "passwordHashPlaceholder",
                             PhoneNumber = "0895002619",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5ab317e3-4ea5-491b-a071-45c111188ed3",
+                            SecurityStamp = "617ecb22-a41e-4a4e-809c-455a1138e1c7",
                             TwoFactorEnabled = false,
                             UserName = "tastecraftacademy123"
                         },
@@ -428,7 +427,7 @@ namespace PathFinder.Data.Migrations
                             Id = "e0d6328d-f003-4bb1-8daa-21dcf49db469",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Pleven, ul. \"Vasil Petleshkov\" 6",
-                            ConcurrencyStamp = "4b7af896-e43c-41be-bf1b-09da6a75a3d3",
+                            ConcurrencyStamp = "39d425ca-c755-4534-9019-f64962b32051",
                             DateOfBirth = new DateTime(2002, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "chick@gmail.com",
                             EmailConfirmed = true,
@@ -437,10 +436,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CHIC@GMAIL.COM",
                             NormalizedUserName = "CHIC123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEB/P6FHSvr32W2XzkRnTj1rccMhO37OX7aIh1V+eJWy1eO/+Zt1hjACoMHEoCAH6SA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEESmdUTrSVd7KmZPbahzjqEmCZz4mLumnb9fvO2xxNtPFguZqtb5+J12/bTRS6UPrA==",
                             PhoneNumber = "0898769871",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dea9788e-fa67-4b2f-b9f7-cc64209102fc",
+                            SecurityStamp = "b7f41320-8646-4a42-b328-a936d09781d1",
                             TwoFactorEnabled = false,
                             UserName = "chic123"
                         },
@@ -449,7 +448,7 @@ namespace PathFinder.Data.Migrations
                             Id = "eb1f5c9f-186b-4a93-a9bd-64a6055c61cd",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Sliven,bul. \"Tsar Osvoboditel\" 15А",
-                            ConcurrencyStamp = "6ecdac6b-08a8-42ee-bd76-96bb8291a19e",
+                            ConcurrencyStamp = "dcba97c0-1e73-4f97-87c0-44aa498a830b",
                             DateOfBirth = new DateTime(2003, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "theurbangrillandbar@gmail.com",
                             EmailConfirmed = true,
@@ -458,10 +457,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "THEURBANGRILLANDBAR@GMAIL.COM",
                             NormalizedUserName = "THEURBANGRILLANDBAR123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPVy79EXGCD7Invy83Tg8MtTWc6w7kXX1xLw/rYl8etgRM/eKK+oBHgKQyuwown/xA==",
+                            PasswordHash = "passwordHashPlaceholder",
                             PhoneNumber = "0878439866",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d5a7f588-5982-4a91-94c4-7da366324a54",
+                            SecurityStamp = "720dade4-a532-4b5e-90ec-029d5aa5088a",
                             TwoFactorEnabled = false,
                             UserName = "theurbangrillandbar123"
                         },
@@ -470,7 +469,7 @@ namespace PathFinder.Data.Migrations
                             Id = "7dbc12c7-18ec-4af2-a5b7-877ff0df3faf",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Vrana, ul. \"Kozloduy\" 4",
-                            ConcurrencyStamp = "3ed0a3ac-d1f1-4f44-9bcb-774f7e311767",
+                            ConcurrencyStamp = "bd7caf1a-2480-4b99-868c-aac0b1fed237",
                             DateOfBirth = new DateTime(2006, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "imaginationacademy@gmail.com",
                             EmailConfirmed = true,
@@ -479,10 +478,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "IMAGINATIONACADEMY@GMAIL.COM",
                             NormalizedUserName = "IMAGINATIONACADEMY123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEP9lkl3lqagRQTCHsr43+wi+QAx+8EVwfGy+2bNOHEznuRStLhlXkLIO2iAEHg8Qag==",
+                            PasswordHash = "passwordHashPlaceholder",
                             PhoneNumber = "0878433392",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3d0122b7-ed3b-477e-a6fc-a89470ef0f2e",
+                            SecurityStamp = "46374488-c828-4330-b214-d238fb709b9f",
                             TwoFactorEnabled = false,
                             UserName = "imaginationacandemy123"
                         },
@@ -491,7 +490,7 @@ namespace PathFinder.Data.Migrations
                             Id = "17585a62-c173-4c68-9e4a-2ba93a419b21",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Ruse, bul. \"Lipnik\" 8",
-                            ConcurrencyStamp = "cf9f7a76-7d60-4ca0-bcac-18f59fb94610",
+                            ConcurrencyStamp = "f00bd222-2e1d-44ef-8dea-1d7926569d5c",
                             DateOfBirth = new DateTime(1986, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "healthcarecentre@gmail.com",
                             EmailConfirmed = true,
@@ -500,10 +499,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "HEALTHCARECENTRE@GMAIL.COM",
                             NormalizedUserName = "HEALTHCARECENTRE123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFZ/F8Ko6Pipiih61QTGwURTuoTnHQ9G1iVyX+4hMpvI7fQ/d+r452QnWWa3bZw0Mg==",
+                            PasswordHash = "passwordHashPlaceholder",
                             PhoneNumber = "0870063844",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "571e8f52-d463-4463-87b4-03d35f252a48",
+                            SecurityStamp = "6a469df6-2bfd-4efe-9774-1c8a7e001e49",
                             TwoFactorEnabled = false,
                             UserName = "healthcarecentre123"
                         },
@@ -512,7 +511,7 @@ namespace PathFinder.Data.Migrations
                             Id = "596c6add-eaae-4890-8d4d-38aa5a0671bd",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Pleven, ul. \"Ivan Vazov\"",
-                            ConcurrencyStamp = "655dccf9-89e6-41bb-9ee7-b417c5c60cf7",
+                            ConcurrencyStamp = "701db5ac-ef39-452a-9c8c-5ff7f5969a5c",
                             DateOfBirth = new DateTime(1985, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "primaryinovativeschool.com",
                             EmailConfirmed = true,
@@ -521,10 +520,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PRIMARYINOVATIVESCHOOL@GMAIL.COM",
                             NormalizedUserName = "PRIMARYINOVATIVESCHOOL123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDBDCIsFhH+SBE5t/HDtz5ufFhZw+FRM5qKKnBr3sxvHGWQc1Rzu03tNfKIJYzOPgA==",
+                            PasswordHash = "passwordHashPlaceholder",
                             PhoneNumber = "0890811871",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e3d7c33b-758d-4b2c-8fc8-1af9692a49bc",
+                            SecurityStamp = "446d7e93-271f-41b8-a05c-45408cba0091",
                             TwoFactorEnabled = false,
                             UserName = "primaryinovativeschool123"
                         },
@@ -532,8 +531,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "16226cef-b670-447e-99a9-b627cb16ae0b",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Ruse, уul. \"Rila\" 5",
-                            ConcurrencyStamp = "e205105a-a462-40fa-a62a-13fc862ec07b",
+                            Address = "Bulgaria, Ruse, ул. \"Rila\" 5",
+                            ConcurrencyStamp = "4e20027e-eb69-4904-9625-8fcee95bee63",
                             DateOfBirth = new DateTime(2016, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "sttuning@gmail.com",
                             EmailConfirmed = true,
@@ -542,10 +541,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "STTUNING@GMAIL.COM",
                             NormalizedUserName = "STTUNING123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBDNePQq1+FtMohi76aITmRnRaxhteFjKP1i4WegjrIjkTMOfQM3giQM6dXkX++OYg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELXron9zt6Ch0wyu5ufEibJZgu2pp+Mqn/Z/M9Toqr84z5ocgme12sow0DmwDHeAzQ==",
                             PhoneNumber = "0876794891",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c9d7f91f-d80b-439e-89bf-b25d9411dc1b",
+                            SecurityStamp = "aa41e00d-9beb-49d3-9b3b-c6fb8b64463b",
                             TwoFactorEnabled = false,
                             UserName = "sttuning123"
                         },
@@ -554,7 +553,7 @@ namespace PathFinder.Data.Migrations
                             Id = "b3693b0c-9c11-48ee-a3be-db37d5439ab0",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Ruse, ul. \"Рила\" 5",
-                            ConcurrencyStamp = "0ac69c7b-660e-4c13-9a5d-c4f679874dd0",
+                            ConcurrencyStamp = "1973f79a-57cc-4ce4-a899-0f245a155803",
                             DateOfBirth = new DateTime(1990, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "codecrafters@gmail.com",
                             EmailConfirmed = true,
@@ -563,10 +562,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CODECRAFTERS@GMAIL.COM",
                             NormalizedUserName = "CODECRAFTERS123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKi6NSwVKdzjb/EzS78k2EAVL3jEeHA5CjGKjTyKoJi/3+i1wZA9looI02HTgIPhgw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPf7Dy7qeoCBNmiuWcxdvdQF//Cp1AdJoq3i+0ccxn2B6xS3Yb6EczFKxe1e3u8m6A==",
                             PhoneNumber = "0877769431",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4527c61e-59d2-4b49-a4db-1a095b90cffd",
+                            SecurityStamp = "5b99cede-584e-449f-91f6-0b16554005ac",
                             TwoFactorEnabled = false,
                             UserName = "codecrafters123"
                         },
@@ -575,7 +574,7 @@ namespace PathFinder.Data.Migrations
                             Id = "e2041514-c5ce-4e68-8956-f92298aa3b74",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Kazanluk, ul. \"Hemus\" 5",
-                            ConcurrencyStamp = "f793adfc-72bf-47a8-ad0d-2631ab92fdaa",
+                            ConcurrencyStamp = "51ce5bcc-b8fc-4df7-9dad-dfa8b57c870f",
                             DateOfBirth = new DateTime(2004, 12, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "teodoranedkova@gmail.com",
                             EmailConfirmed = true,
@@ -584,10 +583,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEODORANEDKOVA@GMAIL.COM",
                             NormalizedUserName = "TEODORANEDKOVA123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIbc3BLUMOMuiL5tiQv3CMbHkDS9iKDYULW6RSxJxyazI524v2IzPlZdI3hdp2opuw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGcL61p0dzz6zRyIKxt/2wX5/whyX4pCNUtJp4+2aZiRh4w1lsqo8OWDMDfiHrxNbQ==",
                             PhoneNumber = "0879859335",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f75f4dd0-f5ad-4c51-a19c-fd7b9e3e2c0c",
+                            SecurityStamp = "98a41287-8461-467b-a048-e4c096882bdc",
                             TwoFactorEnabled = false,
                             UserName = "teodoranedkova123"
                         },
@@ -596,7 +595,7 @@ namespace PathFinder.Data.Migrations
                             Id = "21b4ac01-42ec-4df2-b48c-ebe1cf26adf0",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Kazanluk, ul. \"Petko Stainov\" 6",
-                            ConcurrencyStamp = "b7ee3860-9e3a-46e9-b4c5-dd19964f4e71",
+                            ConcurrencyStamp = "941938f1-6450-47f9-bc81-9f8176aa5f55",
                             DateOfBirth = new DateTime(2004, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "stefandimitrov@gmail.com",
                             EmailConfirmed = true,
@@ -605,10 +604,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "STEFANDIMITROV@GMAIL.COM",
                             NormalizedUserName = "STEFANDIMITROV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOT1zkS46ISFxC8KtbvHPZ4c9RenOt1QGfeY+TEMxPrl72nwK5en8KtHfhi5INzCcw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEB2WoGcCD7JzAm66qCAcJesCsIWWF0ttKI7hpwsjcRzwKfpinfoasa/JDNb3OapQhQ==",
                             PhoneNumber = "0890854939",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9c2a3c04-abf1-4ef7-951f-ca4d4ccf0568",
+                            SecurityStamp = "c591a811-d390-41f0-83f2-eb5fd3c72f60",
                             TwoFactorEnabled = false,
                             UserName = "stefandimitrov123"
                         },
@@ -617,7 +616,7 @@ namespace PathFinder.Data.Migrations
                             Id = "e47b8b58-2e3a-4f02-aee5-485d3e6db2b2",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Kazanluk, ul. \"Dobri Chintulov\" 5",
-                            ConcurrencyStamp = "16518ab4-e830-4ebc-ab7e-8be1850f0d13",
+                            ConcurrencyStamp = "3d3a0b30-dc82-4385-a6ec-84596fde42d0",
                             DateOfBirth = new DateTime(2005, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "alexstefanov@gmail.com",
                             EmailConfirmed = true,
@@ -626,10 +625,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEXSTEFANOV@GMAIL.COM",
                             NormalizedUserName = "ALEXSTEFANOV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDaqFX5Z2yHn87KhLhictbAq4x033D+iKLvWmYPK3KX5opQafURD0j9AMHYxR5RwZw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEE4bKgGisR8WbOWnm5GWz8wuvINkdNjn4p17eUeITc0jFWnCKYSglntYqZKWn6EYA==",
                             PhoneNumber = "0883856039",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d6c3c37-154c-4f7e-a69e-98908b9884c5",
+                            SecurityStamp = "6407358e-bf2c-49df-8516-66424ddfa362",
                             TwoFactorEnabled = false,
                             UserName = "alexstefanov123"
                         },
@@ -638,7 +637,7 @@ namespace PathFinder.Data.Migrations
                             Id = "9e547484-9ea8-45e6-a488-d657f6f1c598",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Kazanluk, ul. \"General Gurko\" 4",
-                            ConcurrencyStamp = "d68f9ba5-af12-4168-87ae-f65f24162e12",
+                            ConcurrencyStamp = "b90f6459-f374-4d3b-a20e-7c4c244626c7",
                             DateOfBirth = new DateTime(2002, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "monikapetrova@gmail.com",
                             EmailConfirmed = true,
@@ -647,10 +646,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MONIKAPETROVA@GMAIL.COM",
                             NormalizedUserName = "MONIKAPETROVA123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEH9V30PuthRhAIRkiN2GU2cTfIen16oHZC4ApBq2gqFHDo9PWqjkGYwQ5yJU7vCTYg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECVnJ4FvzG2I/FTweZNtkVfYV8XhtJfXmAyHWUpNehF3VjNansi/khjUwbveWvM1Cg==",
                             PhoneNumber = "0898760394",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "180f8e37-5343-410e-a3ed-25300944761e",
+                            SecurityStamp = "aaa51363-2c2b-49c5-a2d9-83fcbb60a059",
                             TwoFactorEnabled = false,
                             UserName = "monikapetrova123"
                         },
@@ -659,7 +658,7 @@ namespace PathFinder.Data.Migrations
                             Id = "e8d223af-7285-41c5-8c38-9e6989d4410d",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Kazanluk, ul. \"General Stoletov\" 3",
-                            ConcurrencyStamp = "90e6e85d-2d03-41de-ba7d-0e69c4a775f5",
+                            ConcurrencyStamp = "4f522155-0578-4923-af33-22a0193d4cea",
                             DateOfBirth = new DateTime(2001, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "iliqmilenov@gmail.com",
                             EmailConfirmed = true,
@@ -668,10 +667,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ILIQMILENOV@GMAIL.COM",
                             NormalizedUserName = "ILIQMILENOV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEF2ORKJt8PTqfsJO+DkOKAvKskv2RPHqf9oKBMp0GNtMwsgCmcgtrhyxQU6rzhgIWA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHLhtS9XKigNoq+PMWm2WXnsOy0AuLv+BM4jNuXM4Wc5bhIj/nimiWqcH2JeXJhPVQ==",
                             PhoneNumber = "0895068785",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9f290e27-fb12-44fa-baf9-15f7c3544735",
+                            SecurityStamp = "c8a1b71d-75ca-450f-831b-b88b44d3cd78",
                             TwoFactorEnabled = false,
                             UserName = "iliqmilenov123"
                         },
@@ -680,7 +679,7 @@ namespace PathFinder.Data.Migrations
                             Id = "d444522c-71c1-4cc9-b815-4ea25a49f17b",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Kazanluk, ul. \"Georgi Sava Rakovski\" 7",
-                            ConcurrencyStamp = "5945dd19-345d-479d-a5e9-55d95211be15",
+                            ConcurrencyStamp = "8dc52fe1-8c15-43bd-86d0-e4083cc62dcf",
                             DateOfBirth = new DateTime(1998, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "atanasgudov@gmail.com",
                             EmailConfirmed = true,
@@ -689,10 +688,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ATANASGUDOV@GMAIL.COM",
                             NormalizedUserName = "ATANASGUDOV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEF/tPJeikhUmTANVjvHKG8BMa3go83Gt58C5seBof5mjdURB7mkwiGApkSXhdpYKmQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFn4WifNWvCdljh+vRELTeJCquphi+eGuJuu3V6+62pKL8CYpUraXSipZtmY3dupyQ==",
                             PhoneNumber = "0885248739",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "da723507-18ba-4a25-9c06-a7d8334f4c89",
+                            SecurityStamp = "d8ec45dc-eb57-43ca-8541-97f5d02fd5dd",
                             TwoFactorEnabled = false,
                             UserName = "atanasgudov123"
                         },
@@ -701,7 +700,7 @@ namespace PathFinder.Data.Migrations
                             Id = "b93fa043-cdea-4bd9-9d0b-7b16ee7c5355",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Plovdiv, ul. \"Georgi Rakovski\" 7",
-                            ConcurrencyStamp = "319568cd-1d1c-40dd-b769-aaefa71d4e78",
+                            ConcurrencyStamp = "e4e6ac6d-7595-4377-bf67-eeedc06e4b5e",
                             DateOfBirth = new DateTime(1989, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "simonamincheva@gmail.com",
                             EmailConfirmed = true,
@@ -710,10 +709,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SIMONAMINCHEVA@GMAIL.COM",
                             NormalizedUserName = "SIMONAMINCHEVA123",
-                            PasswordHash = "AQAAAAIAAYagAAAAENFCKo7K2oHZJZIGu8Pb7Fcs2vMZbn69Mfeh8NK7MI2u6I9BXfePn3s5rUfB85x8lg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGdJEE5IxkdQRZOC+RkL6+SAt30+I0HBpZC762A2e9BmTAxRm/WAlZaPyZi6IkgoHA==",
                             PhoneNumber = "0897448199",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ec62b350-1550-4725-ade1-a652aed42924",
+                            SecurityStamp = "7739b0d8-e62b-46aa-a2d7-aa2c1cc360fb",
                             TwoFactorEnabled = false,
                             UserName = "simonamincheva123"
                         },
@@ -722,7 +721,7 @@ namespace PathFinder.Data.Migrations
                             Id = "7d089603-dc80-415a-913b-f24b1a90b5f1",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Pleven, ul. \"Hadzi Dimitur\" 10",
-                            ConcurrencyStamp = "7f3cf61a-3a74-4277-bf23-cdc2798c1948",
+                            ConcurrencyStamp = "ba5b5fad-c2c0-450d-9fcd-64390d930b1a",
                             DateOfBirth = new DateTime(1995, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "georgivasilev@gmail.com",
                             EmailConfirmed = true,
@@ -731,10 +730,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "GEORGIVASILEV@GMAIL.COM",
                             NormalizedUserName = "GEORGIVASILEV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGfzZAKC76C0Ifnucd4bGHynVOwWujHVeMQJnmFs1lX4l9Q3biPpBjNLisJP34TTLQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIVKNSoE/4AoU2krqX61bDZgIYzCEVztFLoLGejLnmidMm0hUrOFF8yZ67TBOnjKhg==",
                             PhoneNumber = "0804442391",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "161e595f-553d-410e-a8ea-f08d4c286033",
+                            SecurityStamp = "f9a0826e-56a7-4d28-aefa-8d500253ed5b",
                             TwoFactorEnabled = false,
                             UserName = "georgivasilev123"
                         },
@@ -743,7 +742,7 @@ namespace PathFinder.Data.Migrations
                             Id = "ca145762-b5db-4836-b963-85eff67fb124",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Pleven, ul. \"Hristo Botev\" 4",
-                            ConcurrencyStamp = "9236a899-c892-4659-8900-bcf7610d6528",
+                            ConcurrencyStamp = "a55cc665-ee71-4714-aa2e-da313fc8930f",
                             DateOfBirth = new DateTime(1999, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "krasimirdraganov@gmail.com",
                             EmailConfirmed = true,
@@ -752,10 +751,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KRASIMIRDRAGANOV@GMAIL.COM",
                             NormalizedUserName = "KRASIMIRDRAGANOV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFccYkpGy8UQApQAQ14cUluNjSIqyFOqlqrN/60RUEfLHDWBTI7XZEK5vYzJWWSOfg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJNabm+vcHmBpxCwaW3n6YOQUoRBc4cGwDb8h+S7Mss6/XUM9Z1r7i6X3qA7u122jg==",
                             PhoneNumber = "0894555391",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "43584223-edb2-4fca-b5bf-a3a94e199a6c",
+                            SecurityStamp = "aaf9e6a2-b785-4954-b7eb-84df1d05bb13",
                             TwoFactorEnabled = false,
                             UserName = "krasimirdraganov123"
                         },
@@ -764,7 +763,7 @@ namespace PathFinder.Data.Migrations
                             Id = "8d0c3b82-be4b-4fdf-834a-8e436176d9bd",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Pleven, ul. \"Stefan Karadza\" 6",
-                            ConcurrencyStamp = "32cab55f-cb6d-4e45-a3ee-177dcffeca32",
+                            ConcurrencyStamp = "37c3d456-5bc7-4f25-83bc-daaa55da4abc",
                             DateOfBirth = new DateTime(1996, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "svetlingeorgiev@gmail.com",
                             EmailConfirmed = true,
@@ -773,13 +772,43 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SVETLINGEORGIEV@GMAIL.COM",
                             NormalizedUserName = "SVETLINGEORGIEV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEG1ztqHLA6gpa5tdqdVDfbCuVzqspG5QrUdMpHHFGjmWTny6z9q2nE5tzM3NBs/8eA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJnwy6VgthLsOZ5K/8TAGR3C69j7slgKRb2bnU+h5AL0945c+mC4Q2T/MyiOqVuk6A==",
                             PhoneNumber = "0894555881",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fb43d0c4-a01b-4d1c-926e-33a6ce4734f6",
+                            SecurityStamp = "8cdbfdea-25aa-4edf-8845-818fc3f9af77",
                             TwoFactorEnabled = false,
                             UserName = "svetlingeorgiev123"
                         });
+                });
+
+            modelBuilder.Entity("PathFinder.Data.Models.CompanyRoleRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasComment("Company request identifier");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("Reasoning for the role request");
+
+                    b.Property<string>("Sender")
+                        .IsRequired()
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)")
+                        .HasComment("Role request sender username");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasComment("Pending/Accepted/Declined request status");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CompanyRoleRequests");
                 });
 
             modelBuilder.Entity("PathFinder.Data.Models.Course", b =>
@@ -911,7 +940,7 @@ namespace PathFinder.Data.Migrations
                             AverageStarRating = 4.7999999999999998,
                             Description = "Learn the basics of cooking techniques, kitchen safety, and food presentation in this hands-on culinary course.",
                             DurationInMinutes = 120,
-                            InstitutionId = "",
+                            InstitutionId = "35e6291c-73f5-48ef-8f3e-5fda2c4ddee1",
                             Location = "Bulgaria, Varna, ul. \"Oborishte\" 13A",
                             Mode = 1,
                             MonthlyPrice = 220m,
@@ -1337,6 +1366,36 @@ namespace PathFinder.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("PathFinder.Data.Models.InstitutionRoleRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasComment("Company request identifier");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("Reasoning for the role request");
+
+                    b.Property<string>("Sender")
+                        .IsRequired()
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)")
+                        .HasComment("Role request sender username");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasComment("Pending/Accepted/Declined request status");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("InstitutionRoleRequests");
+                });
+
             modelBuilder.Entity("PathFinder.Data.Models.Job", b =>
                 {
                     b.Property<int>("Id")
@@ -1387,7 +1446,8 @@ namespace PathFinder.Data.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)")
                         .HasComment("Job's title");
 
                     b.HasKey("Id");
@@ -2154,7 +2214,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 11,
-                            Name = "Engeneering"
+                            Name = "Engineering"
                         },
                         new
                         {
