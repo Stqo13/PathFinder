@@ -2,14 +2,17 @@
     ViewData["Title"] = "Admin Dashboard";
 }
 
-<h2 class="text-center mb-4">Admin Dashboard</h2>
-<div class="admin-dashboard-container">
-    <a asp-controller="AdminPanel" asp-action="UserManagement" asp-area="Admin" class="admin-dashboard-item">
-        <i class="fas fa-users admin-dashboard-icon"></i>
-        <h5>Manage Users & Roles</h5>
-    </a>
-    <a asp-controller="AdminPanel" asp-action="RoleRequests" asp-area="Admin" class="admin-dashboard-item">
-        <i class="fas fa-user-shield admin-dashboard-icon"></i>
-        <h5>View Role Requests</h5>
-    </a>
+<div id="admin-container" style="overflow: hidden;">
+    <h2 class="text-center mb-4" id="admin-panel-h2">Admin Dashboard</h2>
+
+    <div class="admin-dashboard-container">
+        <a asp-controller="AdminPanel" asp-action="UserManagement" asp-area="Admin" class="admin-dashboard-item">
+            <i class="fas fa-users admin-dashboard-icon"></i>
+            <h5>Manage Users & Roles</h5>
+        </a>
+        <a asp-controller="AdminPanel" asp-action="RoleRequests" asp-area="Admin" class="admin-dashboard-item">
+            <i class="fas fa-user-shield admin-dashboard-icon"></i>
+            <h5>View Role Requests</h5>
+        </a>
+    </div>
 </div>
