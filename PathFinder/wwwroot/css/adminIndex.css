@@ -1,36 +1,37 @@
 ﻿#admin-container {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
+    height: 85vh;
     width: 100%;
-    height: 665px;
-    width: 100%;
-    background-color: #680182;
+    background-color: #3a629c;
 }
 
 .admin-dashboard-container {
     display: flex;
     background-color: rgb(255, 240, 219);
     justify-content: space-around;
-    padding: 7em;
-    height: 500px;
-    width: 90%;
-    gap: 20px;
+    align-items: center;
+    padding: 2em;
+    height: 55vh;
+    width: 170vh;
+    gap: 30px;
     margin-top: 20px;
+    border-radius: 16px;
     flex-wrap: wrap;
 }
 
 #admin-panel-h2 {
-    margin-top: 0;
     color: white;
-    font-weight: 900;
+    margin-top: 28px;
+    font-weight: 700;
 }
 
 .admin-dashboard-item {
     flex: 1 1 45%;
-    height: 300px;
-    background-color: #006d77;
+    height: 40vh;
+    width: 30px;
+    background-color: #1d3557;
     color: white;
     display: flex;
     flex-direction: column;
@@ -42,8 +43,6 @@
     transition: transform 0.2s, box-shadow 0.2s;
     text-decoration: none;
     padding: 20px;
-    min-width: 250px;
-    max-width: 45em;
 }
 
 .admin-dashboard-item:hover {
