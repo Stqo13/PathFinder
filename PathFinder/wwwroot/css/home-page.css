@@ -216,7 +216,7 @@
 .item1, .item2, .item3 {
     background-color: rgb(255, 240, 219);
     background-size: cover;
-    border: 2px solid #365735;
+    border: 2px solid #014f57;
     border-radius: 10px;
     margin-top: 2em;
 }
@@ -259,7 +259,7 @@
     font-weight: 700;
 }
 
-.row {
+#home-page-description-container {
     color: white;
     display: flex;
     justify-content: center;
@@ -267,7 +267,7 @@
     height: 400px;
 }
 
-.col-lg-4 {
+.home-page-sumary {
     padding: 20px;
     margin-inline: 30px;
     text-align: center;
@@ -288,17 +288,16 @@
     background-color: #bdb09f;
 }
 
-.lead {
+#home-down-text {
     line-height: 40px;
-    font-family: Times New Roman, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
 }
 
-.featurette-heading {
-    margin-top: 2rem; 
-}
-
-.lead #home-down-text {
-    margin-top: 0px;
+#home-page-h2-text-description {
+    margin-top: 2rem;
+    margin-bottom: 1em;
+    font-size: 4em;
 }
 
 #home-first-image {
@@ -309,8 +308,4 @@
 #home-second-image {
     background: url("../images/3d-view-map.jpg") no-repeat;
     background-size: contain;
-}
-
-.row.creators{
-    margin-top: 4em;
 }

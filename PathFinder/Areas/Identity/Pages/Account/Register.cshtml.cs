@@ -135,7 +135,7 @@ namespace PathFinder.Areas.Identity.Pages.Account
                     DateTimeStyles.None,
                     out dateOfBirth) == false)
                 {
-                   user.DateOfBirth = dateOfBirth;
+                    user.DateOfBirth = dateOfBirth;
                 }
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);

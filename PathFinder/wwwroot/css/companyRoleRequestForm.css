@@ -1,5 +1,6 @@
 ﻿.form-container {
     max-width: 600px;
+    background-color: black;
     margin: 50px auto;
     padding: 20px;
     background: linear-gradient(135deg, #007bff, #0056b3);
