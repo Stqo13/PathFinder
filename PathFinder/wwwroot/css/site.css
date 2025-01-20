@@ -14,15 +14,6 @@ html, body {
     flex-grow: 1;
 }
 
-#footer {
-    background-color: #f1f1f1;
-    padding: 15px 0;
-    text-align: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 10;
-}
-
 .pagination-btn {
     padding: 10px 15px;
     margin: 0 5px;
@@ -57,11 +48,16 @@ body {
 }
 
 #footer {
-    margin-top: auto;
-    height: 9%;
-    text-align: center;
     background-color: #f1f1f1;
+    padding: 15px 0;
+    text-align: center;
+    z-index: 10;
+    margin-top: auto;
+    height: 8%;
     box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 100%;
+    bottom: 0;
 }
 
 #navbar-main {
