@@ -2,12 +2,17 @@
 @using PathFinder.Data.Models
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@{
+    var applicationUser = await UserManager.GetUserAsync(User);
+}
 
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
+@if (SignInManager.IsSignedIn(User) && applicationUser is not null)
 {
+    string fullName = $"{applicationUser.FirstName} {applicationUser.LastName}";
+
     <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+            <a id="navbar-main-text" class="nav-link btn btn-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @fullName!</a>
     </li>
     <li class="nav-item">
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
@@ -18,10 +23,10 @@
 else
 {
     <li class="nav-item">
-         <a class="nav-link" id="navbar-main-text"  asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a class="nav-link btn btn-link" id="navbar-main-text" asp-area="Identity" asp-page="/Account/Register">Register</a>
     </li>
     <li class="nav-item">
-         <a class="nav-link" id="navbar-main-text" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            <a class="nav-link btn btn-link" id="navbar-main-text" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>
 }
 </ul>
