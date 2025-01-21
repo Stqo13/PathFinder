@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using static PathFinder.Common.ApplicationConstraints.JobConstraints;
 
 namespace PathFinder.ViewModels.JobViewModels
 {
-    public class JobAddViewModel
+    public class JobEditViewModel
     {
         [Required]
         public int Id { get; set; }
