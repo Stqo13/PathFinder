@@ -79,3 +79,7 @@ body {
 #navbar-main-text:hover {
     background-color: #02929e;
 }
+
+.nav-link.btn.btn-link:focus {
+    box-shadow: none;
+}

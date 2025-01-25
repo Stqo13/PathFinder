@@ -46,7 +46,6 @@
     height: 50px;
     display: flex;
     align-items: center;
-/*    padding-left: 10px;*/
     transition: 0.2s ease-in-out;
 }
 
@@ -58,13 +57,13 @@
     height: 100%;
 }
 
-.input:focus {
-    outline: none;
+.inputForm:focus-within {
+    border: 1px solid black;
+    width: 100%;
 }
 
-.inputForm:focus-within {
-    border: 1px solid #2d79f3;
-    width: 100%;
+.form-control:focus {
+    box-shadow: none !important;
 }
 
 .flex-row {
@@ -98,7 +97,8 @@
     font-weight: 500;
     border-radius: 10px;
     height: 50px;
-    width: 100%;
+    width: 90%;
+    margin-left: 2.3em;
     cursor: pointer;
 }
 
@@ -127,4 +127,12 @@
 
 .external-login-btn:hover {
     border: 1px solid #2d79f3;
+}
+
+#register-svg-container {
+    display: flex;
+    height: 2em;
+    width: 2em;
+    align-items: center;
+    justify-content: left;
 }

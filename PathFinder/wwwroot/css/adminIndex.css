@@ -13,24 +13,22 @@
     justify-content: space-around;
     align-items: center;
     padding: 2em;
-    height: 55vh;
+    height: 65vh;
     width: 170vh;
-    gap: 30px;
-    margin-top: 20px;
+    gap: 6em;
     border-radius: 16px;
     flex-wrap: wrap;
 }
 
 #admin-panel-h2 {
     color: white;
-    margin-top: 28px;
+    margin: 30px;
     font-weight: 700;
 }
 
 .admin-dashboard-item {
-    flex: 1 1 45%;
     height: 40vh;
-    width: 30px;
+    width: 40%;
     background-color: #1d3557;
     color: white;
     display: flex;
