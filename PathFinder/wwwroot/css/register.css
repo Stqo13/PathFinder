@@ -8,23 +8,38 @@
 
 #register-h1-text {
     color: white;
-    margin: 0.3em;
+    margin: 0.5em;
 }
 
 #register-container {
     display: flex;
-    flex-direction: column;
     gap: 5px;
     margin-bottom: 30px;
     background-color: #ffffff;
     padding: 30px;
-    width: 50%;
+    width: 80%;
     border-radius: 20px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#register-icon {
+#register-full-input-container {
+    height:50%;
+    width: 50%;
+    padding-left: 1em;
+}
+
+#register-extra-options-container {
+    width: 50%;
+    padding-top: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+#register-input-containers {
     padding-left: 0.5em;
+    width: 80%;
 }
 
 ::placeholder {
@@ -46,7 +61,6 @@
     height: 50px;
     display: flex;
     align-items: center;
-    transition: 0.2s ease-in-out;
 }
 
 .input {
@@ -89,7 +103,6 @@
 }
 
 #register-sign-in-button {
-    margin: 20px 0 10px 0;
     background-color: #151717;
     border: none;
     color: white;
@@ -98,7 +111,6 @@
     border-radius: 10px;
     height: 50px;
     width: 90%;
-    margin-left: 2.3em;
     cursor: pointer;
 }
 
@@ -109,24 +121,42 @@
     margin: 5px 0;
 }
 
-.external-login-btn {
-    margin-top: 10px;
-    width: 100%;
-    height: 50px;
-    border-radius: 10px;
+.signin {
+    float: right;
+    max-width: 320px;
     display: flex;
-    justify-content: center;
+    padding: 0.5rem 1.4rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    vertical-align: middle;
     align-items: center;
-    font-weight: 500;
-    gap: 10px;
-    border: 1px solid #ededef;
-    background-color: white;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    gap: 0.75rem;
+    color: #c4d2dc;
+    background-color: #19242b;
     cursor: pointer;
-    transition: 0.2s ease-in-out;
+    transition: all 0.25s cubic-bezier(0, 0.87, 0.12, 1);
 }
 
-.external-login-btn:hover {
-    border: 1px solid #2d79f3;
+.signin:hover {
+    transform: scale(1.025);
+}
+
+.signin:active {
+    transform: scale(0.975);
+}
+
+button svg {
+    height: 24px;
+    width: auto;
+}
+
+.button:hover {
+    box-shadow: none;
 }
 
 #register-svg-container {
@@ -134,5 +164,25 @@
     height: 2em;
     width: 2em;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
+}
+
+#register-extra-options-text {
+    font-weight: 700;
+    margin-top: 1em;
+}
+
+#register-extra-options-external {
+    height: 30%;
+    width: 50%;
+    margin-bottom: 1em;
+    display:flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.register-horizontal-devider {
+    border-top: 2px solid #013136;
+    width: 90%;
+    margin-bottom: 2em;
 }
