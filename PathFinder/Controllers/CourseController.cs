@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NuGet.Versioning;
-using PathFinder.Services.Data.Implementations;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.CourseViewModels;
+using System.Security.Claims;
 
 namespace PathFinder.Controllers
 {
@@ -56,6 +55,7 @@ namespace PathFinder.Controllers
             try
             {
                 var course = await courseService.GetEditCourseById(id);
+
                 return View(course);
             }
             catch (Exception ex)
@@ -78,7 +78,7 @@ namespace PathFinder.Controllers
             {
                 await courseService.EditCourseInfoAsync(model, id);
 
-                return RedirectToAction(nameof(Edit));
+                return RedirectToAction(nameof(Detail));
             }
             catch (Exception ex)
             {
@@ -90,7 +90,7 @@ namespace PathFinder.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Detail(int id)
+        public async Task<IActionResult> Details(int id)
         {
             try
             {
@@ -100,8 +100,56 @@ namespace PathFinder.Controllers
             }
             catch (Exception ex)
             {
-                //TODO
+                logger.LogError($"An error occured while fetching course offer details. {ex.Message}");
+                return RedirectToAction("Error", "Home");
             }
+        }
+
+        [Authorize(Roles = "Admin, Institution")]
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                string userId = GetCurrentClientId();
+
+                var course = await courseService.GetDeleteCourseAsync(id, userId);
+
+                return View(course);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"An error occured while fetching course offer delete info. {ex.Message}");
+
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
+        [Authorize(Roles = "Admin, Institution")]
+        [HttpPost]
+        public async Task<IActionResult> Delete(CourseDeleteViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model); 
+            }
+
+            try
+            {
+                await courseService.DeleteCourseAsync(model);
+
+                return RedirectToAction(nameof(Detail));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"An error occured while deleting course offer. {ex.Message}");
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
+        private string GetCurrentClientId()
+        {
+            return User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
         }
     }
 }
