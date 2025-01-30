@@ -78,7 +78,7 @@ namespace PathFinder.Controllers
             {
                 await courseService.EditCourseInfoAsync(model, id);
 
-                return RedirectToAction(nameof(Detail));
+                return RedirectToAction(nameof(Details));
             }
             catch (Exception ex)
             {
@@ -138,7 +138,7 @@ namespace PathFinder.Controllers
             {
                 await courseService.DeleteCourseAsync(model);
 
-                return RedirectToAction(nameof(Detail));
+                return RedirectToAction(nameof(Details));
             }
             catch (Exception ex)
             {
