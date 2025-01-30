@@ -139,9 +139,11 @@
                     </h2>
 
                     <p>
-                        <a href="/Home/AboutUs" class="btn btn-secondary social-links-btn" href="#">
+                        <form method="post" asp-action="AboutUsStefan" asp-controller="Home">
+                        <button type="submit" class="btn btn-secondary social-links-btn">
                             Social Links &raquo
-                        </a>
+                        </button>
+                        </form>
                     </p>
                 </div>
 
@@ -153,9 +155,11 @@
                     </h2>
 
                     <p>
-                        <a class="btn btn-secondary social-links-btn" href="#">
-                            Social Links &raquo;
-                        </a>
+                        <form method="post" asp-action="AboutUsTedi" asp-controller="Home">
+                            <button type="submit" class="btn btn-secondary social-links-btn">
+                                Social Links &raquo
+                            </button>
+                        </form>
                     </p>
                 </div>
             </div>

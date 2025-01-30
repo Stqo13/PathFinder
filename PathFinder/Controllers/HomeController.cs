@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PathFinder.ViewModels;
+using PathFinder.ViewModels.AboutUsViewModels;
 using System.Diagnostics;
 
 namespace PathFinder.Controllers
@@ -18,9 +19,30 @@ namespace PathFinder.Controllers
             return View();
         }
 
-        public IActionResult AboutUs()
+        [HttpPost]
+        public IActionResult AboutUsTedi()
         {
-            return View();
+            var model = new FounderViewModel
+            {
+                InstagramLink = "https://www.instagram.com/tedi_nedkova/",
+                GitHubLink = "https://github.com/tedi-nedkova",
+                FacebookLink = "https://www.facebook.com/profile.php?id=100048438143440"
+            };
+
+            return RedirectToAction("AboutUs", "AboutUs", model);
+        }
+
+        [HttpPost]
+        public IActionResult AboutUsStefan()
+        {
+            var model = new FounderViewModel 
+            { 
+                InstagramLink = "https://www.instagram.com/_stefan_dw/",
+                GitHubLink = "https://github.com/Stqo13",
+                FacebookLink = "https://www.facebook.com/profile.php?id=100025660580060"
+            };
+
+            return RedirectToAction("AboutUs", "AboutUs", model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
