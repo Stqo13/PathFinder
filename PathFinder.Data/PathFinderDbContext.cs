@@ -46,7 +46,78 @@ namespace PathFinder.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            #region CourseSphere Delete Behavior
+            builder.Entity<CourseSphere>()
+                .HasOne(cs => cs.Course)
+                .WithMany()
+                .HasForeignKey(cs => cs.CourseId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<CourseSphere>()
+                .HasOne(cs => cs.Sphere)
+                .WithMany()
+                .HasForeignKey(cs => cs.SphereId)
+                .OnDelete(DeleteBehavior.NoAction);
+            #endregion
+
+            #region JobSphere Delete Behavior
+            builder.Entity<JobSphere>()
+                .HasOne(js => js.Job)
+                .WithMany()
+                .HasForeignKey(js => js.JobId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<JobSphere>()
+                .HasOne(js => js.Sphere)
+                .WithMany()
+                .HasForeignKey(js => js.SphereId)
+                .OnDelete(DeleteBehavior.NoAction);
+            #endregion
+
+            #region UserCourse Delete Behavior
+            builder.Entity<UserCourse>()
+                .HasOne(uc => uc.User)
+                .WithMany()
+                .HasForeignKey(uc => uc.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<UserCourse>()
+                .HasOne(uc => uc.Course)
+                .WithMany()
+                .HasForeignKey(uc => uc.CourseId)
+                .OnDelete(DeleteBehavior.NoAction);
+            #endregion
+
+            #region UserJob Delete Behavior
+            builder.Entity<UserJob>()
+                .HasOne(uj => uj.User)
+                .WithMany()
+                .HasForeignKey(uj => uj.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<UserJob>()
+                .HasOne(uj => uj.Job)
+                .WithMany()
+                .HasForeignKey(uj => uj.JobId)
+                .OnDelete(DeleteBehavior.NoAction);
+            #endregion
+
+            #region UserSphere Delete Behavior
+            builder.Entity<UserSphere>()
+                .HasOne(us => us.User)
+                .WithMany()
+                .HasForeignKey(us => us.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<UserSphere>()
+                .HasOne(us => us.Sphere)
+                .WithMany()
+                .HasForeignKey(us => us.SphereId)
+                .OnDelete(DeleteBehavior.NoAction);
+            #endregion
         }
     }
 }
