@@ -45,17 +45,13 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" id="navbar-menu-title" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">
-                                    Admin Panel
-                                </a>
-                            </li>
-                            @* @if (User.IsInRole("Admin"))
+
+                            @if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Admin Panel</a>
+                                    <a class="nav-link text-dark" id="navbar-menu-title" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Admin Panel</a>
                                 </li>
-                            } *@
+                            }
                         </ul>
                     </div>
                     <partial name="_LoginPartial" />
