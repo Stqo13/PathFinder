@@ -5,12 +5,14 @@ using PathFinder.ViewModels.RoleRequestViewModel;
 using PathFinder.Data.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using PathFinder.Common;
+using Microsoft.AspNetCore.Identity;
 
 namespace PathFinder.Services.Data.Implementations
 {
     public class RoleRequestService(
         IRepository<CompanyRoleRequest, int> companyRoleRequestRepository, 
-        IRepository<InstitutionRoleRequest, int> institutionRoleRequestRepository) : IRoleRequestService
+        IRepository<InstitutionRoleRequest, int> institutionRoleRequestRepository,
+        UserManager<ApplicationUser> userManager) : IRoleRequestService
     {
         public async Task SendComanyRoleRequest(RoleRequestSendViewModel model)
         {
@@ -99,6 +101,13 @@ namespace PathFinder.Services.Data.Implementations
                 {
                     request.Status = RequestStatus.Accepted;
                     await companyRoleRequestRepository.UpdateAsync(request);
+
+                    var user = await userManager.FindByEmailAsync(request.Sender);
+                    if (user == null)
+                    {
+                        throw new NullReferenceException("User not found!");
+                    }
+                    await userManager.AddToRoleAsync(user, "Comapny");
                 }
             }
             else if (requestType == "Institution")
@@ -108,6 +117,13 @@ namespace PathFinder.Services.Data.Implementations
                 {
                     request.Status = RequestStatus.Accepted;
                     await institutionRoleRequestRepository.UpdateAsync(request);
+
+                    var user = await userManager.FindByEmailAsync(request.Sender);
+                    if (user == null)
+                    {
+                        throw new NullReferenceException("User not found!");
+                    }
+                    await userManager.AddToRoleAsync(user, "Institution");
                 }
             }
         }
