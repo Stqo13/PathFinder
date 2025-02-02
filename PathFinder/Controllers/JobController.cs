@@ -143,6 +143,23 @@ namespace PathFinder.Controllers
             }
         }
 
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> DisplayShowcase()
+        {
+            try
+            {
+
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"An error occured while fetching job offers. {ex.Message}");
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
         private string GetCurrentClientId()
         {
             return User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
