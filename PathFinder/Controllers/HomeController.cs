@@ -27,9 +27,11 @@ namespace PathFinder.Controllers
         {
             var model = new FounderViewModel
             {
+                Name = "Teodora Nedkova Nedkova",
                 InstagramLink = "https://www.instagram.com/tedi_nedkova/",
                 GitHubLink = "https://github.com/tedi-nedkova",
-                FacebookLink = "https://www.facebook.com/profile.php?id=100048438143440"
+                FacebookLink = "https://www.facebook.com/profile.php?id=100048438143440",
+                Avatar = "../images/profile-avatar-girl.jpg"
             };
 
             return RedirectToAction("AboutUs", "AboutUs", model);
@@ -38,11 +40,13 @@ namespace PathFinder.Controllers
         [HttpPost]
         public IActionResult AboutUsStefan()
         {
-            var model = new FounderViewModel 
-            { 
+            var model = new FounderViewModel
+            {
+                Name = "Stefan Milenov Dimitrov",
                 InstagramLink = "https://www.instagram.com/_stefan_dw/",
                 GitHubLink = "https://github.com/Stqo13",
-                FacebookLink = "https://www.facebook.com/profile.php?id=100025660580060"
+                FacebookLink = "https://www.facebook.com/profile.php?id=100025660580060",
+                Avatar = "../images/profile-avatar-boy.jpg"
             };
 
             return RedirectToAction("AboutUs", "AboutUs", model);

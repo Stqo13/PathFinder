@@ -3,9 +3,58 @@
 @{
     ViewData["Title"] = "About us";
 }
+@* @Model.FacebookLink
+    @Model.GitHubLink
+    @Model.InstagramLink *@
 
 <div id="about-us-main-container">
-    @Model.FacebookLink
-    @Model.GitHubLink
-    @Model.InstagramLink
+    <div id="about-us-secondary-container">
+        <div id="about-us-half-page-container">
+            <div id="about-us-info-container">
+                <h2 id="about-us-name">
+                        @Model.Name
+                </h2>
+
+                <h3 id="about-us-title">
+                    Student in PPMG Nikola Obreshkov
+                </h3>
+            </div>
+
+            <div id="about-us-social-media-container">
+                <ul id="about-us-ul">
+                    <li style="width:17.5%">
+                        <a id="ID-About-Us-facebook" href="@Model.FacebookLink" target="_blank">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <li style="width:17.5%">
+                        <a id="ID-About-Us-github" href="@Model.GitHubLink" target="_blank">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <i class="fab fa-github-square"></i>
+                        </a>
+                    </li>
+                    <li style="width:17.5%">
+                        <a id="ID-About-Us-instagram" href="@Model.InstagramLink" target="_blank">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <img src="@Model.Avatar" id="about-us-avatar-container" class="rounded-circle" width="140" height="140" alt="Person Picture">
+        </div>
+    </div>
 </div>

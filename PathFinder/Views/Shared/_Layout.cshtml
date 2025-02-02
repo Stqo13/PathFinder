@@ -31,31 +31,33 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
-                                Home
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="RoleRequest" asp-action="Index">
-                                Send Role Requests
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">
-                                Admin Panel
-                            </a>
-                        </li>
-                        @* @if (User.IsInRole("Admin"))
-                        {
+                    <div id="navbar-menu-titles-container">
+                        <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Admin Panel</a>
+                                <a class="nav-link text-dark" id="navbar-menu-title" asp-area="" asp-controller="Home" asp-action="Index">
+                                    Home
+                                </a>
                             </li>
-                        } *@
-                    </ul>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" id="navbar-menu-title" asp-area="" asp-controller="RoleRequest" asp-action="Index">
+                                    Send Role Requests
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" id="navbar-menu-title" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">
+                                    Admin Panel
+                                </a>
+                            </li>
+                            @* @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Admin Panel</a>
+                                </li>
+                            } *@
+                        </ul>
+                    </div>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
