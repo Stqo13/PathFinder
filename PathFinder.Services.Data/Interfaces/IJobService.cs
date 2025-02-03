@@ -20,5 +20,7 @@ namespace PathFinder.Services.Data.Interfaces
         Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize);
 
         Task<int> GetTotalPagesAsync(int pageSize);
+
+        Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersByUserIdAsync(string userId);
     }
 }

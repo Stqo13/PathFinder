@@ -216,5 +216,32 @@ namespace PathFinder.Services.Data.Implementations
 
             return (int)Math.Ceiling(totalOffers / (double)pageSize);
         }
+
+        public async Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersByUserIdAsync(string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                throw new NullReferenceException("User not found");
+            }
+
+            var offers = await courseRepository
+                .GetAllAttached()
+                .Where (c => c.IsDeleted == false && c.InstitutionId == userId)
+                .Select(c => new CourseInfoViewModel
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    StartDate = c.StartDate.ToString(StartDateDateTimeFormat),
+                    EndDate = c.EndDate.ToString(EndDateDateTimeFormat),
+                    MonthlyPrice = c.MonthlyPrice,
+                    Mode = c.Mode.ToString(),
+                    CourseDurationInWeeks = c.CourseDuration
+                })
+                .ToListAsync();
+
+            return offers;
+        }
     }
 }

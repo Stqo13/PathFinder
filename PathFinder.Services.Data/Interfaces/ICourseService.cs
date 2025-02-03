@@ -21,5 +21,7 @@ namespace PathFinder.Services.Data.Interfaces
         Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersAsync(int pageNumber, int pageSize);
 
         Task<int> GetTotalPagesAsync(int pageSize);
+
+        Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersByUserIdAsync(string userId);
     }
 }

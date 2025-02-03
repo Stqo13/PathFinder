@@ -163,6 +163,24 @@ namespace PathFinder.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, Company")]
+        [HttpGet]
+        public async Task<IActionResult> MyOffers()
+        {
+            try
+            {
+                string userId = GetCurrentClientId();
+                var models = await jobService.GetAllJobOffersByUserIdAsync(userId);
+
+                return View(models);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"An error occured while fetching personal job offer. {ex.Message}");
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
         private string GetCurrentClientId()
         {
             return User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
