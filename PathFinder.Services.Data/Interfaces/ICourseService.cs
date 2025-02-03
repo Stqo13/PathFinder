@@ -1,5 +1,6 @@
 ﻿using PathFinder.Data.Models;
 using PathFinder.ViewModels.CourseViewModels;
+using PathFinder.ViewModels.JobViewModels;
 
 namespace PathFinder.Services.Data.Interfaces
 {
@@ -16,5 +17,9 @@ namespace PathFinder.Services.Data.Interfaces
         Task<CourseDeleteViewModel> GetDeleteCourseAsync(int id, string userId);
 
         Task DeleteCourseAsync(CourseDeleteViewModel model);
+
+        Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersAsync(int pageNumber, int pageSize);
+
+        Task<int> GetTotalPagesAsync(int pageSize);
     }
 }

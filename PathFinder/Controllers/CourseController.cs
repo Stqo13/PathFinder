@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PathFinder.Services.Data.Implementations;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.CourseViewModels;
+using PathFinder.ViewModels.JobViewModels;
 using System.Security.Claims;
 
 namespace PathFinder.Controllers
@@ -11,10 +13,30 @@ namespace PathFinder.Controllers
         ICourseService courseService,
         ILogger<CourseController> logger) : Controller
     {
+        [Authorize]
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int pageNumber = 1)
         {
-            return View();
+            try
+            {
+                int pageSize = 6;
+                var offers = await courseService.GetAllCourseOffersAsync(pageNumber, pageSize);
+                int totalPages = await courseService.GetTotalPagesAsync(pageSize);
+
+                var model = new CourseIndexViewModel()
+                {
+                    CourseOffers = offers,
+                    CurrentPage = pageNumber,
+                    TotalPages = totalPages
+                };
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"An error occured while fetching job offers. {ex.Message}");
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         [HttpGet]

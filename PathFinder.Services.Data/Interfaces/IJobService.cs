@@ -16,5 +16,9 @@ namespace PathFinder.Services.Data.Interfaces
         Task<JobDeleteViewModel> GetDeleteJobAsync(int id, string userId);
 
         Task DeleteJobAsync(JobDeleteViewModel model);
+
+        Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize);
+
+        Task<int> GetTotalPagesAsync(int pageSize);
     }
 }

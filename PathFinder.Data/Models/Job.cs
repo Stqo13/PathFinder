@@ -29,9 +29,8 @@ namespace PathFinder.Data.Models
         /// FORMAT "Country, City, Street"
         /// </summary>
         [Comment("Job's location")]
-        [Required]
         [MaxLength(JobLocationMaxLength)]
-        public string Location { get; set; } = null!;
+        public string? Location { get; set; }
 
         [Comment("Company's foreign key")]
         [Required]
