@@ -169,6 +169,24 @@ namespace PathFinder.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, Institution")]
+        [HttpGet]
+        public async Task<IActionResult> MyOffers()
+        {
+            try
+            {
+                string userId = GetCurrentClientId();
+                var models = await courseService.GetAllCourseOffersByUserIdAsync(userId);
+
+                return View(models);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"An error occured while fetching personal course offer. {ex.Message}");
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
         private string GetCurrentClientId()
         {
             return User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
