@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using PathFinder.Data.Models;
 using PathFinder.Data.Models.Enums;
 using PathFinder.Data.Repository.Interfaces;
@@ -8,7 +9,7 @@ using System.Numerics;
 
 namespace PathFinder.Services.Data.Implementations
 {
-    internal class JobService(
+    public class JobService(
         IRepository<Job, int> jobRepository,
         UserManager<ApplicationUser> userManager) : IJobService
     {
@@ -173,6 +174,35 @@ namespace PathFinder.Services.Data.Implementations
 
                 await jobRepository.UpdateAsync(job);
             }
+        }
+
+        public async Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize)
+        {
+            var offers = await jobRepository
+                .GetAllAttached()
+                .Where(j => j.IsDeleted == false)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Select(j => new JobInfoViewModel
+                {
+                    Id = j.Id,
+                    Title = j.Title,
+                    JobType = j.JobType.ToString(),
+                    Salary = j.Salary,
+                })
+                .ToListAsync();
+
+            return offers;
+        }
+
+        public async Task<int> GetTotalPagesAsync(int pageSize)
+        {
+            var totalOffers = await jobRepository
+                .GetAllAttached()
+                .Where(p => p.IsDeleted == false)
+                .CountAsync();
+
+            return (int)Math.Ceiling(totalOffers / (double)pageSize);
         }
     }
 }
