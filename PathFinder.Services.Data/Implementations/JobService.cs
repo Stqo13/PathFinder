@@ -8,7 +8,7 @@ using System.Numerics;
 
 namespace PathFinder.Services.Data.Implementations
 {
-    internal class JobService(
+    public class JobService(
         IRepository<Job, int> jobRepository,
         UserManager<ApplicationUser> userManager) : IJobService
     {

@@ -25,9 +25,8 @@ namespace PathFinder.ViewModels.CourseViewModels
         [Required]
         public int DurationInMinutes { get; set; }
 
-        [Required]
         [StringLength(CourseLocationMaxLength, MinimumLength = CourseLocationMinLength, ErrorMessage = "Location must be between 20 and 100 characters!")]
-        public string Location { get; set; } = null!;
+        public string? Location { get; set; }
 
         [Required]
         public DateTime StartDate { get; set; }
