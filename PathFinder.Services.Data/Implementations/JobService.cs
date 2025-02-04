@@ -5,7 +5,6 @@ using PathFinder.Data.Models.Enums;
 using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.JobViewModels;
-using System.Numerics;
 
 namespace PathFinder.Services.Data.Implementations
 {

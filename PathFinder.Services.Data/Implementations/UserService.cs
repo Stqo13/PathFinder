@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using PathFinder.Data.Models;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.UserViewModels;
-using System.Data;
 
 namespace PathFinder.Services.Data.Implementations
 {
