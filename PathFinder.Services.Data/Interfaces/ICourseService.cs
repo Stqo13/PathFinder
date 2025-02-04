@@ -1,6 +1,5 @@
 ﻿using PathFinder.Data.Models;
 using PathFinder.ViewModels.CourseViewModels;
-using PathFinder.ViewModels.JobViewModels;
 
 namespace PathFinder.Services.Data.Interfaces
 {

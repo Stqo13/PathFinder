@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PathFinder.Services.Data.Implementations;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.CourseViewModels;
-using PathFinder.ViewModels.JobViewModels;
 using System.Security.Claims;
 
 namespace PathFinder.Controllers

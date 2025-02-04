@@ -3,7 +3,6 @@ using PathFinder.Data.Models;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.RoleRequestViewModel;
 using PathFinder.Data.Repository.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using PathFinder.Common;
 using Microsoft.AspNetCore.Identity;
 

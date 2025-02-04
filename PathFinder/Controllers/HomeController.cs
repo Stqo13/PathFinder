@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using PathFinder.Data.Models;
 using PathFinder.ViewModels;
 using PathFinder.ViewModels.AboutUsViewModels;
 using System.Diagnostics;
