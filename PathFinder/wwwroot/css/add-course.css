@@ -1,0 +1,24 @@
+﻿#add-course-main-container {
+    height: 90vh;
+    width: 100%;
+    background-color: #10233d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-course-inner-container {
+    height: 70vh;
+    width: 80%;
+    background-color: #fff0db;
+    border-radius: 10px;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.add-course-input-form-container {
+    display: flex;
+    gap: 3em;
+}

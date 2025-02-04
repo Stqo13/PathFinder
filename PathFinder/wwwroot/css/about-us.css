@@ -9,13 +9,13 @@
 #about-us-secondary-container {
     height: 60vh;
     padding: 1em;
-    width: 70%;
+    width: 60%;
     background-color: #cfe6e8;
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 0.5em;
 }
 
 #about-us-ul {
@@ -156,6 +156,7 @@
 
 #about-us-half-page-container {
     display: flex;
+    justify-content: center; 
     flex-direction: column;
     width: 60%;
     margin-left: 2em;
@@ -164,6 +165,6 @@
 #about-us-avatar-container {
     width: 300px;
     height: 300px;
-    margin-right: 2em;
+    margin-right: 3em;
 }
 

@@ -1,1 +1,73 @@
-﻿
+﻿@using PathFinder.Data.Models.Enums;
+@model PathFinder.ViewModels.CourseViewModels.CourseAddViewModel;
+
+@{
+    ViewData["Title"] = "Add Course";
+}
+
+<div id="add-course-main-container">
+    <div id="add-course-inner-container">
+        
+        <div class="add-course-input-form-container">
+            <label asp-for="@Model.Mode">Course Name</label>
+            <input asp-for="@Model.Name" class="form-control" aria-required="true" />
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label asp-for="@Model.Mode">Course Mode</label>
+            <select id="add-course-mode" name="modes">
+                <option value="in-person">@Mode.InPerson</option>
+                <option value="online">@Mode.Online</option>
+            </select>
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label asp-for="@Model.Description">Course Description</label>
+            <input asp-for="@Model.Description" class="form-control" aria-required="true" />
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label asp-for="@Model.CourseDuration">Course Duration in weeks</label>
+            <input asp-for="@Model.CourseDuration" class="form-control" aria-required="true" />
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label asp-for="@Model.DurationInMinutes">Single Class Duration In Minutes</label>
+            <input asp-for="@Model.DurationInMinutes" class="form-control" aria-required="true" />
+        </div>
+
+        <div class="add-course-input-form-container" id="add-course-location-container">
+            <label asp-for="@Model.Location">Course Location</label>
+            <input asp-for="@Model.Location" class="form-control" aria-required="true" />
+        </div>
+
+        <script>
+            let locationContainer = document.getElementById('add-course-location-container');
+            let courseContainer = document.getElementById('add-course-mode');
+            
+            function toggleLocationInput() {
+                let courseMode = courseContainer.value;
+                console.log(courseMode);
+                if (courseMode === 'in-person') {
+                    console.log(locationContainer);
+                    locationContainer.style.display = 'block'; 
+                } else {
+                    locationContainer.style.display = 'none'; 
+                }
+            }
+        
+            courseContainer.addEventListener('change', toggleLocationInput);
+        </script>
+
+        <div class="add-course-input-form-container">
+            <label asp-for="@Model.StartDate">Course Start Date</label>
+            <input asp-for="@Model.StartDate" class="form-control" aria-required="true" />
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label asp-for="@Model.EndDate">Course End Date</label>
+            <input asp-for="@Model.EndDate" class="form-control" aria-required="true" />
+        </div>
+
+    </div>
+</div>

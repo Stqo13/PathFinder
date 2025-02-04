@@ -32,6 +32,8 @@ namespace PathFinder.Extensions
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IRoleRequestService, RoleRequestService>();
+            services.AddScoped<IJobService, JobService>();
+            services.AddScoped<ICourseService, CourseService>();
 
             return services;
         }
