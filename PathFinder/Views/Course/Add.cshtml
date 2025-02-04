@@ -27,7 +27,12 @@
         </div>
 
         <div class="add-course-input-form-container">
-            <label asp-for="@Model.DurationInMinutes">Course Duration In Minutes</label>
+            <label asp-for="@Model.CourseDuration">Course Duration in weeks</label>
+            <input asp-for="@Model.CourseDuration" class="form-control" aria-required="true" />
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label asp-for="@Model.DurationInMinutes">Single Class Duration In Minutes</label>
             <input asp-for="@Model.DurationInMinutes" class="form-control" aria-required="true" />
         </div>
 
@@ -58,6 +63,11 @@
             <label asp-for="@Model.StartDate">Course Start Date</label>
             <input asp-for="@Model.StartDate" class="form-control" aria-required="true" />
         </div>
-        
+
+        <div class="add-course-input-form-container">
+            <label asp-for="@Model.EndDate">Course End Date</label>
+            <input asp-for="@Model.EndDate" class="form-control" aria-required="true" />
+        </div>
+
     </div>
 </div>

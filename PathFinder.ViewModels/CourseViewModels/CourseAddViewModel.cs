@@ -31,6 +31,12 @@ namespace PathFinder.ViewModels.CourseViewModels
         [Required]
         public DateTime StartDate { get; set; }
 
+        [Required]
+        public DateTime EndDate { get; set; }
+
+        [Required]
+        public int CourseDuration {  get; set; }
+
         public double? AverageStarRating { get; set; }
 
         [Required]
