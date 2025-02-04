@@ -30,6 +30,7 @@
             public const int CourseStarRatingMinValue = 1;
 
             public const string StartDateDateTimeFormat = "yyyy-MM-dd";
+            public const string EndDateDateTimeFormat = "yyyy-MM-dd";
 
         }
 

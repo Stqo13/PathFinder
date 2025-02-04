@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Identity.Client;
 using Microsoft.VisualBasic;
@@ -10,6 +11,7 @@ using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.CourseViewModels;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using static PathFinder.Common.ApplicationConstraints.CourseConstraints;
 
 namespace PathFinder.Services.Data.Implementations
 {
@@ -181,6 +183,65 @@ namespace PathFinder.Services.Data.Implementations
             };
 
             return course;
+        }
+
+        public async Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersAsync(int pageNumber, int pageSize)
+        {
+            var offers = await courseRepository
+                .GetAllAttached()
+                .Where(c => c.IsDeleted == false)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Select(c => new CourseInfoViewModel
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Mode = c.Mode.ToString(),
+                    StartDate = c.StartDate.ToString(StartDateDateTimeFormat),
+                    EndDate = c.EndDate.ToString(EndDateDateTimeFormat),
+                    MonthlyPrice = c.MonthlyPrice,
+                    CourseDurationInWeeks = c.CourseDuration
+                })
+                .ToListAsync();
+
+            return offers;
+        }
+
+        public async Task<int> GetTotalPagesAsync(int pageSize)
+        {
+            var totalOffers = await courseRepository
+                .GetAllAttached()
+                .Where(p => p.IsDeleted == false)
+                .CountAsync();
+
+            return (int)Math.Ceiling(totalOffers / (double)pageSize);
+        }
+
+        public async Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersByUserIdAsync(string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                throw new NullReferenceException("User not found");
+            }
+
+            var offers = await courseRepository
+                .GetAllAttached()
+                .Where (c => c.IsDeleted == false && c.InstitutionId == userId)
+                .Select(c => new CourseInfoViewModel
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    StartDate = c.StartDate.ToString(StartDateDateTimeFormat),
+                    EndDate = c.EndDate.ToString(EndDateDateTimeFormat),
+                    MonthlyPrice = c.MonthlyPrice,
+                    Mode = c.Mode.ToString(),
+                    CourseDurationInWeeks = c.CourseDuration
+                })
+                .ToListAsync();
+
+            return offers;
         }
     }
 }

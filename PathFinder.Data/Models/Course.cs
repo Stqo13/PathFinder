@@ -25,21 +25,28 @@ namespace PathFinder.Data.Models
         [MaxLength(CourseDescriptionMaxLength)]
         public string? Description { get; set; }
 
-        [Comment("Course's duration in minutes")]
+        [Comment("Course's lesson duration in minutes")]
         [Required]
         public int DurationInMinutes { get; set; }
+
+        [Comment("Course's duration in weeks")]
+        [Required]
+        public int CourseDuration { get; set; }
 
         /// <summary>
         /// FORMAT "Country, City, Street"
         /// </summary>
         [Comment("Course's location")]
-        [Required]
         [MaxLength(CourseLocationMaxLength)]
-        public string Location { get; set; } = null!;
+        public string? Location { get; set; }
 
         [Comment("Couse's start date")]
         [Required]
         public DateTime StartDate { get; set; }
+
+        [Comment("Couse's end date")]
+        [Required]
+        public DateTime EndDate { get; set; }
 
         [Comment("Institution's foreign key")]
         [Required]

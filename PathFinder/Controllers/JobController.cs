@@ -11,10 +11,30 @@ namespace PathFinder.Controllers
         IJobService jobService,
         ILogger<JobController> logger): Controller
     {
+        [Authorize]
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int pageNumber = 1)
         {
-            return View();
+            try
+            {
+                int pageSize = 6;
+                var offers = await jobService.GetAllJobOffersAsync(pageNumber, pageSize);
+                int totalPages = await jobService.GetTotalPagesAsync(pageSize);
+
+                var model = new JobIndexViewModel()
+                {
+                    JobOffers = offers,
+                    CurrentPage = pageNumber,
+                    TotalPages = totalPages
+                };
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"An error occured while fetching job offers. {ex.Message}");
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         [HttpGet]
@@ -143,19 +163,20 @@ namespace PathFinder.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, Company")]
         [HttpGet]
-        public async Task<IActionResult> DisplayShowcase()
+        public async Task<IActionResult> MyOffers()
         {
             try
             {
+                string userId = GetCurrentClientId();
+                var models = await jobService.GetAllJobOffersByUserIdAsync(userId);
 
-
-                return View();
+                return View(models);
             }
             catch (Exception ex)
             {
-                logger.LogError($"An error occured while fetching job offers. {ex.Message}");
+                logger.LogError($"An error occured while fetching personal job offer. {ex.Message}");
                 return RedirectToAction("Error", "Home");
             }
         }

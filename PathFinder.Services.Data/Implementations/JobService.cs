@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using PathFinder.Data.Models;
 using PathFinder.Data.Models.Enums;
 using PathFinder.Data.Repository.Interfaces;
@@ -110,7 +111,7 @@ namespace PathFinder.Services.Data.Implementations
                 Title = entity.Title,
                 Description = entity.Description ?? string.Empty,
                 JobType = entity.JobType.ToString(),
-                Location = entity.Location,
+                Location = entity.Location ?? string.Empty,
                 Postion = entity.Position,
                 Requirement = entity.Requirement,
                 Salary = entity.Salary,
@@ -173,6 +174,59 @@ namespace PathFinder.Services.Data.Implementations
 
                 await jobRepository.UpdateAsync(job);
             }
+        }
+
+        public async Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize)
+        {
+            var offers = await jobRepository
+                .GetAllAttached()
+                .Where(j => j.IsDeleted == false)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Select(j => new JobInfoViewModel
+                {
+                    Id = j.Id,
+                    Title = j.Title,
+                    JobType = j.JobType.ToString(),
+                    Salary = j.Salary,
+                })
+                .ToListAsync();
+
+            return offers;
+        }
+
+        public async Task<int> GetTotalPagesAsync(int pageSize)
+        {
+            var totalOffers = await jobRepository
+                .GetAllAttached()
+                .Where(p => p.IsDeleted == false)
+                .CountAsync();
+
+            return (int)Math.Ceiling(totalOffers / (double)pageSize);
+        }
+
+        public async Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersByUserIdAsync(string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                throw new NullReferenceException("User not found");
+            }
+
+            var offers = await jobRepository
+                .GetAllAttached()
+                .Where (j => j.IsDeleted == false && j.CompanyId == userId)
+                .Select(j => new JobInfoViewModel 
+                { 
+                    Id =j.Id,
+                    Title = j.Title,
+                    JobType = j.JobType.ToString(),
+                    Salary = j.Salary
+                })
+                .ToListAsync(); 
+
+            return offers;
         }
     }
 }
