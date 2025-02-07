@@ -118,3 +118,34 @@ body {
     width: 100%; 
     left: 0;
 }
+
+#navbarDropdown {
+    display: flex;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5em;
+    padding: 10px 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    gap: 0.1em;
+}
+
+#navbarDropdown::after {
+    content: "";
+    left: 50%;
+    bottom: 0;
+    width: 0%;
+    transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
+}
+
+#navbarDropdown:hover {
+    transform: scale(1.05);
+}
+
+#navbarDropdown:hover::after {
+    width: 100%;
+    left: 0;
+}

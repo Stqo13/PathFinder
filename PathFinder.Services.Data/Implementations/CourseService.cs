@@ -12,7 +12,7 @@ namespace PathFinder.Services.Data.Implementations
         IRepository<Course, int> courseRepository,
         UserManager<ApplicationUser> userManager) : ICourseService
     {
-        public async Task CreateCourseOfferAsync(CourseAddViewModel model)
+        public async Task CreateCourseOfferAsync(CourseAddViewModel model, string userId)
         {
             if (model == null)
             {
@@ -21,15 +21,17 @@ namespace PathFinder.Services.Data.Implementations
 
             var course = new Course()
             {
-                Id = model.Id,
                 Name = model.Name,
                 Mode = model.Mode,
                 Description = model.Description,
-                DurationInMinutes = model.DurationInMinutes,
+                CourseDuration = model.CourseDuration ?? 1,
+                DurationInMinutes = model.DurationInMinutes ?? 1,
                 Location = model.Location,
                 StartDate = model.StartDate,
+                EndDate = model.EndDate,
                 AverageStarRating = model.AverageStarRating,
-                MonthlyPrice = model.MonthlyPrice,
+                MonthlyPrice = model.MonthlyPrice ?? 1,
+                InstitutionId = userId
             };
 
             await courseRepository.AddAsync(course);
