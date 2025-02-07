@@ -54,9 +54,11 @@ namespace PathFinder.Controllers
                 return View(model);
             }
 
+            string userId = GetCurrentClientId();
+
             try
             {
-                await courseService.CreateCourseOfferAsync(model);
+                await courseService.CreateCourseOfferAsync(model, userId);
 
                 return RedirectToAction(nameof(Add));
             }

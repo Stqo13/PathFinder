@@ -19,8 +19,8 @@ namespace PathFinder.ViewModels.JobViewModels
         [Required]
         public string JobType { get; set; } = null!;
 
+        [StringLength(JobLocationMaxLength, MinimumLength = JobLocationMinLength, ErrorMessage = "Location must be between 5 and 100 characters!")]
         [Required]
-        [MaxLength(JobLocationMaxLength)]
         public string Location { get; set; } = null!;
 
         [Required]

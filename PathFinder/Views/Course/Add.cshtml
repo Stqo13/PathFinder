@@ -6,68 +6,129 @@
 }
 
 <div id="add-course-main-container">
-    <div id="add-course-inner-container">
-        
+    <form id="add-course-inner-container" method="post" asp-action="Add" asp-controller="Course">
+        <h2 id="add-course-title">
+            Add Course Offer
+        </h2>
+
         <div class="add-course-input-form-container">
-            <label asp-for="@Model.Mode">Course Name</label>
-            <input asp-for="@Model.Name" class="form-control" aria-required="true" />
+            <label id="add-course-label-container" asp-for="@Model.Name">Course Name</label>
+            <div id="add-course-input-inner-container">   
+                <input id="add-course-input" asp-for="@Model.Name" class="form-control" aria-required="true" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.Mode">Course Mode</label>
+            <div class="custom-dropdown">
+                <div class="selected-option">Select mode...</div>
+                <ul class="dropdown-options">
+                    <li data-value="InPerson">InPerson</li>
+                    <li data-value="Online">Online</li>
+                </ul>
+                <input type="hidden" id="mode-input" name="Mode" />
+                <span asp-validation-for="Mode" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="add-course-input-description-container">
+            <label id="add-course-label-container" asp-for="@Model.Description">Course Description</label>
+            <div class="add-course-description-field">
+                <textarea id="add-course-textarea" asp-for="@Model.Description" class="form-control"></textarea>
+            </div>
         </div>
 
         <div class="add-course-input-form-container">
-            <label asp-for="@Model.Mode">Course Mode</label>
-            <select id="add-course-mode" name="modes">
-                <option value="in-person">@Mode.InPerson</option>
-                <option value="online">@Mode.Online</option>
-            </select>
+            <label id="add-course-label-container" asp-for="@Model.CourseDuration">Course Duration in weeks</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.CourseDuration" class="form-control" aria-required="true"/>
+                <span asp-validation-for="CourseDuration"  class="text-danger"></span>
+            </div>
         </div>
 
         <div class="add-course-input-form-container">
-            <label asp-for="@Model.Description">Course Description</label>
-            <input asp-for="@Model.Description" class="form-control" aria-required="true" />
-        </div>
-
-        <div class="add-course-input-form-container">
-            <label asp-for="@Model.CourseDuration">Course Duration in weeks</label>
-            <input asp-for="@Model.CourseDuration" class="form-control" aria-required="true" />
-        </div>
-
-        <div class="add-course-input-form-container">
-            <label asp-for="@Model.DurationInMinutes">Single Class Duration In Minutes</label>
-            <input asp-for="@Model.DurationInMinutes" class="form-control" aria-required="true" />
+            <label id="add-course-label-container" asp-for="@Model.DurationInMinutes">Single Class Duration In Minutes</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.DurationInMinutes" class="form-control" aria-required="true" />
+                <span asp-validation-for="DurationInMinutes" class="text-danger"></span>
+            </div>
         </div>
 
         <div class="add-course-input-form-container" id="add-course-location-container">
-            <label asp-for="@Model.Location">Course Location</label>
-            <input asp-for="@Model.Location" class="form-control" aria-required="true" />
+            <label id="add-course-label-container" asp-for="@Model.Location">Course Location</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Location" class="form-control" aria-required="true" />
+            </div>
         </div>
+        
 
         <script>
-            let locationContainer = document.getElementById('add-course-location-container');
-            let courseContainer = document.getElementById('add-course-mode');
-            
+            const dropdown = document.querySelector(".custom-dropdown");
+            const selected = document.querySelector(".selected-option");
+            const options = document.querySelector(".dropdown-options");
+            const hiddenInput = document.getElementById("mode-input");
+            const locationContainer = document.getElementById('add-course-location-container');
+
+            dropdown.addEventListener("click", function () {
+                options.style.display = options.style.display === "block" ? "none" : "block";
+            });
+
+            options.addEventListener("click", function (event) {
+                if (event.target.tagName === "LI") {
+                    selected.textContent = event.target.textContent;
+                    hiddenInput.value = event.target.getAttribute("data-value");
+                    options.style.display = "none";
+                    toggleLocationInput();
+                }
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!dropdown.contains(event.target)) {
+                    options.style.display = "none";
+                }
+            });
+
             function toggleLocationInput() {
-                let courseMode = courseContainer.value;
-                console.log(courseMode);
-                if (courseMode === 'in-person') {
-                    console.log(locationContainer);
-                    locationContainer.style.display = 'block'; 
+                let courseMode = hiddenInput.value; 
+
+                if (courseMode === 'InPerson') {
+                    locationContainer.style.display = 'flex';
                 } else {
-                    locationContainer.style.display = 'none'; 
+                    locationContainer.style.display = 'none';
                 }
             }
-        
-            courseContainer.addEventListener('change', toggleLocationInput);
+
+            toggleLocationInput();
         </script>
 
-        <div class="add-course-input-form-container">
-            <label asp-for="@Model.StartDate">Course Start Date</label>
-            <input asp-for="@Model.StartDate" class="form-control" aria-required="true" />
+        <div class="add-course-input-form-container" id="add-course-location-container">
+            <label id="add-course-label-container" asp-for="@Model.MonthlyPrice">Course Monthly Price</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.MonthlyPrice" class="form-control" aria-required="true" />
+            </div>
         </div>
 
         <div class="add-course-input-form-container">
-            <label asp-for="@Model.EndDate">Course End Date</label>
-            <input asp-for="@Model.EndDate" class="form-control" aria-required="true" />
+            <label id="add-course-label-container" asp-for="@Model.StartDate">Course Start Date</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.StartDate" class="form-control" aria-required="true" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
         </div>
 
-    </div>
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.EndDate">Course End Date</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.EndDate" class="form-control" aria-required="true" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <button id="add-course-btn" type="submit">
+            Add Course Offer
+        </button>
+    </form>
 </div>

@@ -21,7 +21,7 @@
             public const int CourseNameMinLength = 4;
             public const int CourseNameMaxLength = 70;
 
-            public const int CourseLocationMinLength = 20;
+            public const int CourseLocationMinLength = 5;
             public const int CourseLocationMaxLength = 100;
 
             public const int CourseDescriptionMaxLength = 800;
@@ -38,7 +38,7 @@
         {
             public const int JobDescriptionMaxLength = 800;
 
-            public const int JobLocationMinLength = 20;
+            public const int JobLocationMinLength = 5;
             public const int JobLocationMaxLength = 100;
 
             public const int JobTitleMinLength = 2;
