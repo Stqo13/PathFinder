@@ -1,0 +1,87 @@
+﻿#my-offers-main-container {
+    height: 300vh;
+    width: 100%;
+    background-color: #1f3d66;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+#my-offers-h2-title {
+    color: white;
+    font-weight: 700;
+}
+#my-offers-container {
+    width: 80%;
+}
+
+#my-offers-inner-container {
+    background-color: #d3e0f2;
+    height: 25vh;
+    width: 100%;
+    margin: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5em;
+    text-decoration: none;
+    padding: 2em;
+    border-radius: 5px;
+}
+
+#my-offers-btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.my-offers-btn {
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+#my-offers-edit-view-details-btn {
+    color: black;
+    background-color: #fff0db;
+    border: solid 2px #632121
+}
+
+#my-offers-edit-view-details-btn:hover {
+    color: black;
+    background-color: #fce1bb;
+}
+
+#my-offers-delete-btn {
+    color: #fff0db;
+    background-color: #872929;
+    border: solid 2px #632121
+}
+
+#my-offers-delete-btn:hover {
+    background-color: #632121;
+    border: solid 2px #872929
+}
+
+#my-offers-h5-name {
+    color: #0d284d
+}
+
+#my-offers-offer-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
+
+#my-offers-info {
+    color: #385782;
+}
+

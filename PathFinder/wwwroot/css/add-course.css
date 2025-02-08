@@ -23,7 +23,7 @@
 .add-course-input-form-container {
     display: flex;
     justify-content: space-between;
-    background-color: #dfe5ed;
+    background-color: #d3e0f2;
     border-radius: 10px;
     width: 100%;
     min-height: 8vh;
@@ -131,7 +131,7 @@
     border-radius: 10px;
     border: solid 2px #1f3d66;
     width: 30%;
-    background-color: #658cc2;
+    background-color: #274a7a;
     color: white;
     font-weight: 700;
     transition: all 0.3s ease-in-out;
