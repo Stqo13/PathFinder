@@ -185,3 +185,19 @@ body {
     width: 100%;
     left: 0;
 }
+
+#offers-navbar-dropdown-menu {
+    padding: 0px;
+    border-radius: 5px;
+    border: solid 0.5px black;
+}
+
+#offers-navbar-dropdown-menu-item {
+    font-weight: 500;
+    border-bottom: solid 0.5px black;
+    height: 5vh;
+}
+
+#offers-navbar-dropdown-menu-item:hover {
+    border-radius: 5px;
+}

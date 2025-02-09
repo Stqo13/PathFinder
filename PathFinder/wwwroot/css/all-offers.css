@@ -1,0 +1,61 @@
+﻿#offers-index-main-container {
+    height: 200vh;
+    width: 100%;
+    padding: 2em;
+    background-color: #86ccd1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.offers-index-inner-container {
+    position: relative;
+    width: 40%;
+    height: 40vh;
+    padding: 3em;
+    background-color: white;
+    border-radius: 5px;
+    border: solid 2px #297075;
+    background-color: #fcf5eb;
+}
+
+#all-offers-container {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+#offers-index-name {
+    height: 6vh;
+    color: white;
+    border-radius: 5px;
+    font-weight: 1000;
+    background-color: #006d77;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#offers-index-description {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+#offers-index-view-details-btn {
+   
+}
+
+#offers-index-view-details-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 6vh;
+}
