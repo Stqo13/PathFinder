@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol.Plugins;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.RoleRequestViewModel;
+using System.Security.Claims;
 
 namespace PathFinder.Controllers
 {
@@ -30,7 +32,9 @@ namespace PathFinder.Controllers
 
             try
             {
-                await requestService.SendComanyRoleRequest(model);
+                string userId = GetCurrentClientId();
+
+                await requestService.SendComanyRoleRequest(model, userId);
             }
             catch (Exception ex)
             {
@@ -58,7 +62,9 @@ namespace PathFinder.Controllers
 
             try
             {
-                await requestService.SendInstitutionRoleRequest(model);
+                string userId = GetCurrentClientId();
+
+                await requestService.SendInstitutionRoleRequest(model, userId);
             }
             catch (Exception ex)
             {
@@ -67,6 +73,11 @@ namespace PathFinder.Controllers
             }
 
             return RedirectToAction(nameof(Index));
+        }
+
+        private string GetCurrentClientId()
+        {
+            return User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
         }
     }
 }
