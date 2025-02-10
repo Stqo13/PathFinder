@@ -11,7 +11,7 @@
     margin: 3em;
     padding: 3em;
     width: 80%;
-    height: 130vh;
+    height: 140vh;
     background-color: #fff0db;
     border-radius: 10px;
     display: flex;
@@ -151,5 +151,13 @@
     margin-right: 20em;
     color: #1f3d66;
     font-weight: 700;
+}
+
+#add-btn-container {
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
