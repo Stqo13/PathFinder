@@ -5,15 +5,17 @@ using PathFinder.ViewModels.RoleRequestViewModel;
 using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Common;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.SqlServer.Server;
 
 namespace PathFinder.Services.Data.Implementations
 {
     public class RoleRequestService(
         IRepository<CompanyRoleRequest, int> companyRoleRequestRepository, 
         IRepository<InstitutionRoleRequest, int> institutionRoleRequestRepository,
+        IEmailSenderService emailSenderService,
         UserManager<ApplicationUser> userManager) : IRoleRequestService
     {
-        public async Task SendComanyRoleRequest(RoleRequestSendViewModel model)
+        public async Task SendComanyRoleRequest(RoleRequestSendViewModel model, string userId)
         {
             if (model == null)
             {
@@ -24,6 +26,7 @@ namespace PathFinder.Services.Data.Implementations
             {
                 Id = model.Id,
                 Sender = model.Sender,
+                SenderId = userId,
                 Description = model.Description,
                 Status = RequestStatus.Pending
             };
@@ -31,7 +34,7 @@ namespace PathFinder.Services.Data.Implementations
             await companyRoleRequestRepository.AddAsync(request);
         }
 
-        public async Task SendInstitutionRoleRequest(RoleRequestSendViewModel model)
+        public async Task SendInstitutionRoleRequest(RoleRequestSendViewModel model, string userId)
         {
             if (model == null)
             {
@@ -42,6 +45,7 @@ namespace PathFinder.Services.Data.Implementations
             {
                 Id = model.Id,
                 Sender = model.Sender,
+                SenderId = userId,
                 Description = model.Description,
                 Status = RequestStatus.Pending
             };
@@ -91,7 +95,7 @@ namespace PathFinder.Services.Data.Implementations
             return paginatedList;
         }
 
-        public async Task AcceptRequestAsync(int requestId, string requestType)
+        public async Task AcceptRequestAsync(int requestId, string requestType, string userId)
         {
             if (requestType == "Company")
             {
@@ -101,12 +105,17 @@ namespace PathFinder.Services.Data.Implementations
                     request.Status = RequestStatus.Accepted;
                     await companyRoleRequestRepository.UpdateAsync(request);
 
-                    var user = await userManager.FindByEmailAsync(request.Sender);
+                    var user = await userManager.FindByIdAsync(request.SenderId);
                     if (user == null)
                     {
                         throw new NullReferenceException("User not found!");
                     }
-                    await userManager.AddToRoleAsync(user, "Comapny");
+                    await userManager.AddToRoleAsync(user, "Company");
+
+                    string subject = "Company Role Request Accepted";
+                    string body = $"Comany role request was accpeted for user {user.UserName}";
+
+                    await emailSenderService.SendEmailAsync(subject, body);
                 }
             }
             else if (requestType == "Institution")
@@ -117,17 +126,22 @@ namespace PathFinder.Services.Data.Implementations
                     request.Status = RequestStatus.Accepted;
                     await institutionRoleRequestRepository.UpdateAsync(request);
 
-                    var user = await userManager.FindByEmailAsync(request.Sender);
+                    var user = await userManager.FindByIdAsync(request.SenderId);
                     if (user == null)
                     {
                         throw new NullReferenceException("User not found!");
                     }
                     await userManager.AddToRoleAsync(user, "Institution");
+
+                    string subject = "Institution Role Request Accepted";
+                    string body = $"Institution role request was accpeted for user {user.UserName}";
+
+                    await emailSenderService.SendEmailAsync(subject, body);
                 }
             }
         }
 
-        public async Task DeclineRequestAsync(int requestId, string requestType)
+        public async Task DeclineRequestAsync(int requestId, string requestType, string userId)
         {
             if (requestType == "Company")
             {
@@ -136,6 +150,17 @@ namespace PathFinder.Services.Data.Implementations
                 {
                     request.Status = RequestStatus.Declined;
                     await companyRoleRequestRepository.UpdateAsync(request);
+
+                    var user = await userManager.FindByIdAsync(request.SenderId);
+                    if (user == null)
+                    {
+                        throw new NullReferenceException("User not found!");
+                    }
+
+                    string subject = "Company Role Request Declined";
+                    string body = $"Comany role request was declined for user {user.UserName}";
+
+                    await emailSenderService.SendEmailAsync(subject, body);
                 }
             }
             else if (requestType == "Institution")
@@ -145,6 +170,17 @@ namespace PathFinder.Services.Data.Implementations
                 {
                     request.Status = RequestStatus.Declined;
                     await institutionRoleRequestRepository.UpdateAsync(request);
+
+                    var user = await userManager.FindByIdAsync(request.SenderId);
+                    if (user == null)
+                    {
+                        throw new NullReferenceException("User not found!");
+                    }
+
+                    string subject = "Institution Role Request Declined";
+                    string body = $"Institution role request was declined for user {user.UserName}";
+
+                    await emailSenderService.SendEmailAsync(subject, body);
                 }
             }
         }

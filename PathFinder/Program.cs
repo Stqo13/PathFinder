@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using PathFinder.Common;
 using PathFinder.Data;
 using PathFinder.Data.Models;
 using PathFinder.Data.Repository.Interfaces;
@@ -16,7 +17,7 @@ namespace PathFinder
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<PathFinderDbContext>(options =>
-                options.UseSqlServer(connectionString));
+                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
@@ -26,6 +27,9 @@ namespace PathFinder
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<PathFinderDbContext>()
             .AddDefaultTokenProviders();
+
+            builder.Services
+                .Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 
             builder.Services.ConfigureApplicationCookie(cfg =>
             {

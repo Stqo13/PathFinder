@@ -2,6 +2,7 @@
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.UserViewModels;
 using PathFinder.ViewModels.RoleRequestViewModel;
+using System.Security.Claims;
 
 namespace PathFinder.Areas.Admin.Controllers
 {
@@ -74,7 +75,9 @@ namespace PathFinder.Areas.Admin.Controllers
         {
             try
             {
-                await requestService.AcceptRequestAsync(requestId, requestType);
+                string userId = GetCurrentClientId();
+
+                await requestService.AcceptRequestAsync(requestId, requestType, userId);
                 return RedirectToAction(nameof(RoleRequests));
             }
             catch (Exception ex)
@@ -89,7 +92,9 @@ namespace PathFinder.Areas.Admin.Controllers
         {
             try
             {
-                await requestService.DeclineRequestAsync(requestId, requestType);
+                string userId = GetCurrentClientId();
+
+                await requestService.DeclineRequestAsync(requestId, requestType, userId);
                 return RedirectToAction(nameof(RoleRequests));
             }
             catch (Exception ex)
@@ -165,5 +170,9 @@ namespace PathFinder.Areas.Admin.Controllers
             return RedirectToAction(nameof(UserManagement));
         }
 
+        private string GetCurrentClientId()
+        {
+            return User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
+        }
     }
 }
