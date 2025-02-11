@@ -71,9 +71,12 @@
             const options = document.querySelector(".dropdown-options");
             const hiddenInput = document.getElementById("mode-input");
             const locationContainer = document.getElementById('add-course-location-container');
+            let dropdownCounter = false;
 
             dropdown.addEventListener("click", function () {
                 options.style.display = options.style.display === "block" ? "none" : "block";
+                dropdownCounter = !dropdownCounter;
+                console.log(dropdownCounter);
             });
 
             options.addEventListener("click", function (event) {
@@ -83,13 +86,14 @@
                     options.style.display = "none";
                     toggleLocationInput();
                 }
-            });
 
-            document.addEventListener("click", function (event) {
-                if (!dropdown.contains(event.target)) {
-                    options.style.display = "none";
+                if (dropdownCounter) { 
+                    options.style.display = 'block';
                 }
-            });
+                else{
+                    options.style.display = 'none';
+                }
+            });     
 
             function toggleLocationInput() {
                 let courseMode = hiddenInput.value; 

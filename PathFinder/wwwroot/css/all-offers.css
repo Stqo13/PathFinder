@@ -17,14 +17,16 @@
     border-radius: 5px;
     border: solid 2px #297075;
     background-color: #fcf5eb;
+    margin-bottom: 0.5em;
 }
 
 #all-offers-container {
     display: flex;
     gap: 2em;
     flex-wrap: wrap;
-    justify-content: center;
     margin-top: 2em;
+    width: 100%;
+    justify-content: center;
 }
 
 #offers-index-name {
@@ -105,6 +107,10 @@
     border-color: #006d77;
     color: #006d77;
     font-weight: bold;
+}
+
+#pagination-nav{
+    width: 100%;
 }
 
 
