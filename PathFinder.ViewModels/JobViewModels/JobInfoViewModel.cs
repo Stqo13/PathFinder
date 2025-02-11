@@ -9,5 +9,7 @@
         public required string JobType { get; set; } = null!;
 
         public required decimal Salary { get; set; }
+
+        public List<string> Spheres { get; set; } = new List<string>();
     }
 }
