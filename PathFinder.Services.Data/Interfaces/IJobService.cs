@@ -17,10 +17,12 @@ namespace PathFinder.Services.Data.Interfaces
 
         Task DeleteJobAsync(JobDeleteViewModel model);
 
-        Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize);
+        Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null);
 
-        Task<int> GetTotalPagesAsync(int pageSize);
+        Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null);
 
         Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersByUserIdAsync(string userId);
+
+        Task<IEnumerable<Sphere>> GetAllSpheresAsync();
     }
 }

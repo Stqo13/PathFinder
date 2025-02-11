@@ -10,6 +10,8 @@ namespace PathFinder.Services.Data.Implementations
 {
     public class JobService(
         IRepository<Job, int> jobRepository,
+        IRepository<JobSphere, object> jobSphereRepository,
+        IRepository<Sphere, int> sphereRepository,
         UserManager<ApplicationUser> userManager) : IJobService
     {
         public async Task CreateJobOfferAsync(JobAddViewModel model)
@@ -175,11 +177,27 @@ namespace PathFinder.Services.Data.Implementations
             }
         }
 
-        public async Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize)
+        public async Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null)
         {
-            var offers = await jobRepository
-                .GetAllAttached()
-                .Where(j => j.IsDeleted == false)
+            var query = jobSphereRepository.GetAllAttached();
+            IQueryable<Job> jobs;
+
+            if (sphereIds != null && sphereIds.Any())
+            {
+                jobs = query
+                    .Where(js => sphereIds.Contains(js.SphereId))
+                    .Include(js => js.Job)
+                    .Select(x => x.Job)
+                    .Distinct();
+            }
+            else
+            {
+                jobs = query
+                    .Include(js => js.Job)
+                    .Select(x => x.Job);
+            }
+
+            var offers = await jobs
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .Select(j => new JobInfoViewModel
@@ -188,21 +206,39 @@ namespace PathFinder.Services.Data.Implementations
                     Title = j.Title,
                     JobType = j.JobType.ToString(),
                     Salary = j.Salary,
+                    Spheres = j.JobsSpheres.Select(js => js.Sphere.Name).ToList()
                 })
                 .ToListAsync();
 
             return offers;
         }
 
-        public async Task<int> GetTotalPagesAsync(int pageSize)
-        {
-            var totalOffers = await jobRepository
-                .GetAllAttached()
-                .Where(p => p.IsDeleted == false)
-                .CountAsync();
 
-            return (int)Math.Ceiling(totalOffers / (double)pageSize);
+
+        public async Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null)
+        {
+            var query = jobSphereRepository.GetAllAttached();
+
+            IQueryable<Job> jobs;
+
+            if (sphereIds != null && sphereIds.Any())
+            {
+                jobs = query
+                    .Where(js => sphereIds.Contains(js.SphereId))
+                    .Select(js => js.Job)
+                    .Distinct();
+            }
+            else
+            {
+                jobs = query
+                    .Select(js => js.Job)
+                    .Distinct();
+            }
+
+            int totalJobs = await jobs.CountAsync();
+            return (int)Math.Ceiling(totalJobs / (double)pageSize);
         }
+
 
         public async Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersByUserIdAsync(string userId)
         {
@@ -226,6 +262,14 @@ namespace PathFinder.Services.Data.Implementations
                 .ToListAsync(); 
 
             return offers;
+        }
+
+        public async Task<IEnumerable<Sphere>> GetAllSpheresAsync()
+        {
+            var spheres = await sphereRepository
+                .GetAllAsync();
+
+            return spheres;
         }
     }
 }
