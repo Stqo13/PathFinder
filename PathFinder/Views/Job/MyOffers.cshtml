@@ -22,9 +22,9 @@
                             </p>
                         </div>
                         <div id="my-offers-btn-container">
-                            <a asp-area="" asp-controller="Job" asp-action="Details" class="my-offers-btn" id="my-offers-edit-view-details-btn">View Details</a>
-                            <a asp-area="" asp-controller="Job" asp-action="Details" class="my-offers-btn" id="my-offers-edit-view-details-btn">Edit</a>
-                            <a asp-area="" asp-controller="Job" asp-action="Delete" class="my-offers-btn" id="my-offers-delete-btn">Delete</a>
+                            <a asp-area="" asp-route-id="@job.Id" asp-controller="Job" asp-action="Details" class="my-offers-btn" id="my-offers-edit-view-details-btn">View Details</a>
+                            <a asp-area="" asp-route-id="@job.Id" asp-controller="Job" asp-action="Edit" class="my-offers-btn" id="my-offers-edit-view-details-btn">Edit</a>
+                            <a asp-area="" asp-route-id="@job.Id" asp-controller="Job" asp-action="Delete" class="my-offers-btn" id="my-offers-delete-btn">Delete</a>
                         </div>
                     </div>
                 }

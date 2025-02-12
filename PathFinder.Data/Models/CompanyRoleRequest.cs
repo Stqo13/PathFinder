@@ -16,6 +16,10 @@ namespace PathFinder.Data.Models
         [Required]
         public string Sender { get; set; } = null!;
 
+        [Comment("Role request sender id")]
+        [Required]
+        public string SenderId { get; set; } = null!;
+
         [Comment("Reasoning for the role request")]
         [MaxLength(DescriptionMaxLength)]
         [Required]

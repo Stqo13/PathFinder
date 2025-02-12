@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using PathFinder.Common;
 using PathFinder.Data;
 using PathFinder.Data.Models;
 using PathFinder.Data.Repository.Interfaces;
@@ -26,6 +27,9 @@ namespace PathFinder
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<PathFinderDbContext>()
             .AddDefaultTokenProviders();
+
+            builder.Services
+                .Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 
             builder.Services.ConfigureApplicationCookie(cfg =>
             {

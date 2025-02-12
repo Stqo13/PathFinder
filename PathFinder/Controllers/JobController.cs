@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.JobViewModels;
 using System.Security.Claims;
@@ -13,26 +14,33 @@ namespace PathFinder.Controllers
     {
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> Index(int pageNumber = 1)
+        public async Task<IActionResult> Index(int pageNumber = 1, List<int>? selectedSpheres = null, string? searchKeyword = null)
         {
             try
             {
                 int pageSize = 6;
-                var offers = await jobService.GetAllJobOffersAsync(pageNumber, pageSize);
-                int totalPages = await jobService.GetTotalPagesAsync(pageSize);
+
+                var offers = await jobService.GetAllJobOffersAsync(pageNumber, pageSize, selectedSpheres, searchKeyword);
+
+                int totalPages = await jobService.GetTotalPagesAsync(pageSize, selectedSpheres, searchKeyword);
+
+                var allSpheres = await jobService.GetAllSpheresAsync();
 
                 var model = new JobIndexViewModel()
                 {
                     JobOffers = offers,
                     CurrentPage = pageNumber,
-                    TotalPages = totalPages
+                    TotalPages = totalPages,
+                    SelectedSpheres = selectedSpheres ?? new List<int>(),
+                    AvailableSpheres = allSpheres.ToList(),
+                    SearchKeyword = searchKeyword ?? string.Empty
                 };
 
                 return View(model);
             }
             catch (Exception ex)
             {
-                logger.LogError($"An error occured while fetching job offers. {ex.Message}");
+                logger.LogError($"An error occurred while fetching job offers. {ex.Message}");
                 return RedirectToAction("Error", "Home");
             }
         }

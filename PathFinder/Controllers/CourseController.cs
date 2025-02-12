@@ -13,19 +13,25 @@ namespace PathFinder.Controllers
     {
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> Index(int pageNumber = 1)
+        public async Task<IActionResult> Index(int pageNumber = 1, List<int>? selectedSpheres = null)
         {
             try
             {
                 int pageSize = 6;
-                var offers = await courseService.GetAllCourseOffersAsync(pageNumber, pageSize);
-                int totalPages = await courseService.GetTotalPagesAsync(pageSize);
+
+                var offers = await courseService.GetAllCourseOffersAsync(pageNumber, pageSize, selectedSpheres);
+
+                int totalPages = await courseService.GetTotalPagesAsync(pageSize, selectedSpheres);
+
+                var allSpheres = await courseService.GetAllSpheresAsync();
 
                 var model = new CourseIndexViewModel()
                 {
                     CourseOffers = offers,
                     CurrentPage = pageNumber,
-                    TotalPages = totalPages
+                    TotalPages = totalPages,
+                    SelectedSpheres = selectedSpheres ?? new List<int>(),
+                    AvailableSpheres = allSpheres.ToList()
                 };
 
                 return View(model);
