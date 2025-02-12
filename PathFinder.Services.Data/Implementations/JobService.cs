@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using PathFinder.Data.Models;
 using PathFinder.Data.Models.Enums;
 using PathFinder.Data.Repository.Interfaces;
@@ -177,7 +178,7 @@ namespace PathFinder.Services.Data.Implementations
             }
         }
 
-        public async Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null)
+        public async Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null, string? searchKeyword = null)
         {
             var query = jobSphereRepository.GetAllAttached();
             IQueryable<Job> jobs;
@@ -196,6 +197,11 @@ namespace PathFinder.Services.Data.Implementations
                     .Include(js => js.Job)
                     .Select(x => x.Job)
                     .Distinct();
+            }
+
+            if (!String.IsNullOrEmpty(searchKeyword))
+            {
+                jobs = jobs.Where(j => EF.Functions.Like(j.Title.ToLower(), $"%{searchKeyword.ToLower()}%"));
             }
 
             var offers = await jobs
@@ -216,7 +222,7 @@ namespace PathFinder.Services.Data.Implementations
 
 
 
-        public async Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null)
+        public async Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null, string? searchKeyword = null)
         {
             var query = jobSphereRepository.GetAllAttached();
 
@@ -234,6 +240,11 @@ namespace PathFinder.Services.Data.Implementations
                 jobs = query
                     .Select(js => js.Job)
                     .Distinct();
+            }
+
+            if (!String.IsNullOrEmpty(searchKeyword))
+            {
+                jobs = jobs.Where(j => EF.Functions.Like(j.Title.ToLower(), $"%{searchKeyword.ToLower()}%"));
             }
 
             int totalJobs = await jobs.CountAsync();

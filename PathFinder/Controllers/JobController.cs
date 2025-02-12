@@ -14,15 +14,15 @@ namespace PathFinder.Controllers
     {
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> Index(int pageNumber = 1, List<int>? selectedSpheres = null)
+        public async Task<IActionResult> Index(int pageNumber = 1, List<int>? selectedSpheres = null, string? searchKeyword = null)
         {
             try
             {
                 int pageSize = 6;
 
-                var offers = await jobService.GetAllJobOffersAsync(pageNumber, pageSize, selectedSpheres);
+                var offers = await jobService.GetAllJobOffersAsync(pageNumber, pageSize, selectedSpheres, searchKeyword);
 
-                int totalPages = await jobService.GetTotalPagesAsync(pageSize, selectedSpheres);
+                int totalPages = await jobService.GetTotalPagesAsync(pageSize, selectedSpheres, searchKeyword);
 
                 var allSpheres = await jobService.GetAllSpheresAsync();
 
@@ -32,7 +32,8 @@ namespace PathFinder.Controllers
                     CurrentPage = pageNumber,
                     TotalPages = totalPages,
                     SelectedSpheres = selectedSpheres ?? new List<int>(),
-                    AvailableSpheres = allSpheres.ToList()
+                    AvailableSpheres = allSpheres.ToList(),
+                    SearchKeyword = searchKeyword ?? string.Empty
                 };
 
                 return View(model);
@@ -43,8 +44,6 @@ namespace PathFinder.Controllers
                 return RedirectToAction("Error", "Home");
             }
         }
-
-
 
         [HttpGet]
         public IActionResult Add()
