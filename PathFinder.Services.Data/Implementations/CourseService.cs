@@ -11,6 +11,7 @@ namespace PathFinder.Services.Data.Implementations
     public class CourseService(
         IRepository<Course, int> courseRepository,
         IRepository<CourseSphere, object> courseSphereRepository,
+        IRepository<Sphere, int> sphereRepository,
         UserManager<ApplicationUser> userManager) : ICourseService
     {
         public async Task CreateCourseOfferAsync(CourseAddViewModel model, string userId)
@@ -270,6 +271,14 @@ namespace PathFinder.Services.Data.Implementations
                 .ToListAsync();
 
             return offers;
+        }
+
+        public async Task<IEnumerable<Sphere>> GetAllSpheresAsync()
+        {
+            var spheres = await sphereRepository
+                .GetAllAsync();
+
+            return spheres;
         }
     }
 }
