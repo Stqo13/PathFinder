@@ -20,6 +20,6 @@ namespace PathFinder.ViewModels.CourseViewModels
 
         public required double? AverageStarRating { get; set; }
 
-        public required decimal MonthlyPrice { get; set; }
+        public required decimal Price { get; set; }
     }
 }

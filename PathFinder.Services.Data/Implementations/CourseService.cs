@@ -32,7 +32,7 @@ namespace PathFinder.Services.Data.Implementations
                 StartDate = model.StartDate,
                 EndDate = model.EndDate,
                 AverageStarRating = model.AverageStarRating,
-                MonthlyPrice = model.MonthlyPrice ?? 1,
+                Price = model.Price ?? 1,
                 InstitutionId = userId
             };
 
@@ -82,7 +82,7 @@ namespace PathFinder.Services.Data.Implementations
             course.Location = model.Location;
             course.StartDate = model.StartDate;
             course.AverageStarRating = model.AverageStarRating;
-            course.MonthlyPrice = model.MonthlyPrice;
+            course.Price = model.Price;
 
             await courseRepository.UpdateAsync(course);
             
@@ -146,7 +146,7 @@ namespace PathFinder.Services.Data.Implementations
                 Location = entity.Location,
                 StartDate = entity.StartDate,
                 AverageStarRating = entity.AverageStarRating,
-                MonthlyPrice = entity.MonthlyPrice,
+                Price = entity.Price,
             };
 
             return course;
@@ -163,7 +163,7 @@ namespace PathFinder.Services.Data.Implementations
 
             if (entity.IsDeleted)
             {
-                throw new ArgumentException("entity is already deleted");
+                throw new ArgumentException("Entity is already deleted");
             }
 
             var course = new CourseDetailsViewModel()
@@ -176,7 +176,7 @@ namespace PathFinder.Services.Data.Implementations
                 Location = entity.Location,
                 StartDate = entity.StartDate,
                 AverageStarRating = entity.AverageStarRating,
-                MonthlyPrice = entity.MonthlyPrice,
+                Price = entity.Price,
             };
 
             return course;
@@ -213,8 +213,8 @@ namespace PathFinder.Services.Data.Implementations
                     Mode = c.Mode.ToString(),
                     StartDate = c.StartDate.ToString(StartDateDateTimeFormat),
                     EndDate = c.EndDate.ToString(EndDateDateTimeFormat),
-                    MonthlyPrice = c.MonthlyPrice,
-                    CourseDurationInWeeks = c.CourseDuration,
+                    Price = c.Price,
+                    CourseDurationInWeeks = c.CourseDuration
                     Spheres = c.CoursesSpheres.Select(js => js.Sphere.Name).ToList()
                 })
                 .ToListAsync();
@@ -264,7 +264,7 @@ namespace PathFinder.Services.Data.Implementations
                     Name = c.Name,
                     StartDate = c.StartDate.ToString(StartDateDateTimeFormat),
                     EndDate = c.EndDate.ToString(EndDateDateTimeFormat),
-                    MonthlyPrice = c.MonthlyPrice,
+                    Price = c.Price,
                     Mode = c.Mode.ToString(),
                     CourseDurationInWeeks = c.CourseDuration
                 })

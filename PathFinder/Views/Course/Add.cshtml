@@ -71,9 +71,12 @@
             const options = document.querySelector(".dropdown-options");
             const hiddenInput = document.getElementById("mode-input");
             const locationContainer = document.getElementById('add-course-location-container');
+            let dropdownCounter = false;
 
             dropdown.addEventListener("click", function () {
                 options.style.display = options.style.display === "block" ? "none" : "block";
+                dropdownCounter = !dropdownCounter;
+                console.log(dropdownCounter);
             });
 
             options.addEventListener("click", function (event) {
@@ -83,13 +86,14 @@
                     options.style.display = "none";
                     toggleLocationInput();
                 }
-            });
 
-            document.addEventListener("click", function (event) {
-                if (!dropdown.contains(event.target)) {
-                    options.style.display = "none";
+                if (dropdownCounter) { 
+                    options.style.display = 'block';
                 }
-            });
+                else{
+                    options.style.display = 'none';
+                }
+            });     
 
             function toggleLocationInput() {
                 let courseMode = hiddenInput.value; 
@@ -105,9 +109,9 @@
         </script>
 
         <div class="add-course-input-form-container" id="add-course-location-container">
-            <label id="add-course-label-container" asp-for="@Model.MonthlyPrice">Course Monthly Price</label>
+            <label id="add-course-label-container" asp-for="@Model.Price">Course Monthly Price</label>
             <div id="add-course-input-inner-container">
-                <input id="add-course-input" asp-for="@Model.MonthlyPrice" class="form-control" aria-required="true" />
+                <input id="add-course-input" asp-for="@Model.Price" class="form-control" aria-required="true" />
             </div>
         </div>
 
@@ -127,8 +131,10 @@
             </div>
         </div>
 
-        <button id="add-course-btn" type="submit">
-            Add Course Offer
-        </button>
+        <div id="add-btn-container">
+            <button id="add-course-btn" type="submit">
+                Add Course Offer
+            </button>
+        </div>
     </form>
 </div>

@@ -14,7 +14,7 @@
 
         public required int CourseDurationInWeeks { get; set; }
 
-        public required decimal MonthlyPrice { get; set; }
+        public required decimal Price { get; set; }
 
         public List<string> Spheres { get; set; } = new List<string>();
     }
