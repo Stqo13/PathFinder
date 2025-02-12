@@ -23,11 +23,15 @@ namespace PathFinder.Controllers
 
                 int totalPages = await courseService.GetTotalPagesAsync(pageSize, selectedSpheres);
 
+                var allSpheres = await courseService.GetAllSpheresAsync();
+
                 var model = new CourseIndexViewModel()
                 {
                     CourseOffers = offers,
                     CurrentPage = pageNumber,
-                    TotalPages = totalPages
+                    TotalPages = totalPages,
+                    SelectedSpheres = selectedSpheres ?? new List<int>(),
+                    AvailableSpheres = allSpheres.ToList()
                 };
 
                 return View(model);

@@ -22,5 +22,7 @@ namespace PathFinder.Services.Data.Interfaces
         Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null);
 
         Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersByUserIdAsync(string userId);
+
+        Task<IEnumerable<Sphere>> GetAllSpheresAsync();
     }
 }
