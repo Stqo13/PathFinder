@@ -2,22 +2,30 @@
     height: 200vh;
     width: 100%;
     padding: 2em;
-    background-color: #86ccd1;
+    background-color: #aed3d6;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .offers-index-inner-container {
+    text-decoration: none;
     position: relative;
     width: 40%;
     height: 40vh;
-    padding: 3em;
+    padding: 2em;
     background-color: white;
     border-radius: 5px;
     border: solid 2px #297075;
     background-color: #fcf5eb;
     margin-bottom: 0.5em;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+}
+
+.offers-index-inner-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
 #all-offers-container {
@@ -30,7 +38,7 @@
 }
 
 #offers-index-name {
-    height: 6vh;
+    min-height: 6vh;
     color: white;
     border-radius: 5px;
     font-weight: 1000;
@@ -38,6 +46,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0.3em;
 }
 
 #offers-index-description {
@@ -45,6 +54,8 @@
     flex-direction: column;
     gap: 1em;
     margin-top: 2em;
+    color: black;
+    font-style: italic;
 }
 
 #offers-index-view-details-btn {
@@ -112,5 +123,21 @@
 #pagination-nav{
     width: 100%;
 }
+
+#offers-index-price {
+    height: 7vh;
+    width: 25%;
+    background-color: #ffcc66;
+    color: black;
+    font-weight: 700;
+    position: absolute;
+    right: 2em;
+    bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
 
 

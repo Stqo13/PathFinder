@@ -62,7 +62,7 @@ namespace PathFinder.Data.Models
         [Comment("Course's monthly price")]
         [Required]
         [Column(TypeName = "decimal(18,2)")]
-        public decimal MonthlyPrice { get; set; }
+        public decimal Price { get; set; }
 
         public bool IsDeleted { get; set; }
 

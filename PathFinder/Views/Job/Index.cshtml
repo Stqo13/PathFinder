@@ -16,7 +16,7 @@
             @foreach (var job in Model.JobOffers)
 
             {
-                <div class="offers-index-inner-container">
+                <a asp-area="" asp-route-id="@job.Id" asp-controller="Job" asp-action="Details" class="offers-index-inner-container">
                     <div>
                         <h5 id="offers-index-name">@job.Title</h5>
                         <div id="offers-index-description">
@@ -29,13 +29,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div id="offers-index-view-details-container">
-                        <a id="offers-index-view-details-btn">
-                            View Details >>
-                        </a>
-                    </div>
-                </div>
+                </a>
             }
         </div>
 
