@@ -17,9 +17,9 @@ namespace PathFinder.Services.Data.Interfaces
 
         Task DeleteCourseAsync(CourseDeleteViewModel model);
 
-        Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersAsync(int pageNumber, int pageSize);
+        Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null);
 
-        Task<int> GetTotalPagesAsync(int pageSize);
+        Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null);
 
         Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersByUserIdAsync(string userId);
     }

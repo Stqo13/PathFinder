@@ -10,6 +10,7 @@ namespace PathFinder.Services.Data.Implementations
 {
     public class CourseService(
         IRepository<Course, int> courseRepository,
+        IRepository<CourseSphere, object> courseSphereRepository,
         UserManager<ApplicationUser> userManager) : ICourseService
     {
         public async Task CreateCourseOfferAsync(CourseAddViewModel model, string userId)
@@ -180,11 +181,28 @@ namespace PathFinder.Services.Data.Implementations
             return course;
         }
 
-        public async Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersAsync(int pageNumber, int pageSize)
+        public async Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null)
         {
-            var offers = await courseRepository
-                .GetAllAttached()
-                .Where(c => c.IsDeleted == false)
+            var query = courseSphereRepository.GetAllAttached();
+            IQueryable<Course> courses;
+
+            if (sphereIds != null && sphereIds.Any())
+            {
+                courses = query
+                    .Where(js => sphereIds.Contains(js.SphereId))
+                    .Include(js => js.Course)
+                    .Select(x => x.Course)
+                    .Distinct();
+            }
+            else
+            {
+                courses = query
+                    .Include(js => js.Course)
+                    .Select(x => x.Course)
+                    .Distinct();
+            }
+
+            var offers = await courses
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .Select(c => new CourseInfoViewModel
@@ -195,21 +213,36 @@ namespace PathFinder.Services.Data.Implementations
                     StartDate = c.StartDate.ToString(StartDateDateTimeFormat),
                     EndDate = c.EndDate.ToString(EndDateDateTimeFormat),
                     MonthlyPrice = c.MonthlyPrice,
-                    CourseDurationInWeeks = c.CourseDuration
+                    CourseDurationInWeeks = c.CourseDuration,
+                    Spheres = c.CoursesSpheres.Select(js => js.Sphere.Name).ToList()
                 })
                 .ToListAsync();
 
             return offers;
         }
 
-        public async Task<int> GetTotalPagesAsync(int pageSize)
+        public async Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null)
         {
-            var totalOffers = await courseRepository
-                .GetAllAttached()
-                .Where(p => p.IsDeleted == false)
-                .CountAsync();
+            var query = courseSphereRepository.GetAllAttached();
 
-            return (int)Math.Ceiling(totalOffers / (double)pageSize);
+            IQueryable<Course> courses;
+
+            if (sphereIds != null && sphereIds.Any())
+            {
+                courses = query
+                    .Where(cs => sphereIds.Contains(cs.SphereId))
+                    .Select(cs => cs.Course)
+                    .Distinct();
+            }
+            else
+            {
+                courses = query
+                    .Select(js => js.Course)
+                    .Distinct();
+            }
+
+            int totalJobs = await courses.CountAsync();
+            return (int)Math.Ceiling(totalJobs / (double)pageSize);
         }
 
         public async Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersByUserIdAsync(string userId)

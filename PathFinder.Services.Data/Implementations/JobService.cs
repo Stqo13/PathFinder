@@ -194,7 +194,8 @@ namespace PathFinder.Services.Data.Implementations
             {
                 jobs = query
                     .Include(js => js.Job)
-                    .Select(x => x.Job);
+                    .Select(x => x.Job)
+                    .Distinct();
             }
 
             var offers = await jobs
