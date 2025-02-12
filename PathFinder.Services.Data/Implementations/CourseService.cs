@@ -182,7 +182,7 @@ namespace PathFinder.Services.Data.Implementations
             return course;
         }
 
-        public async Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null)
+        public async Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null, string? searchKeyword = null)
         {
             var query = courseSphereRepository.GetAllAttached();
             IQueryable<Course> courses;
@@ -203,6 +203,11 @@ namespace PathFinder.Services.Data.Implementations
                     .Distinct();
             }
 
+            if (!String.IsNullOrEmpty(searchKeyword))
+            {
+                courses = courses.Where(c => EF.Functions.Like(c.Name.ToLower(), $"%{searchKeyword.ToLower()}%"));
+            }
+
             var offers = await courses
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
@@ -214,7 +219,7 @@ namespace PathFinder.Services.Data.Implementations
                     StartDate = c.StartDate.ToString(StartDateDateTimeFormat),
                     EndDate = c.EndDate.ToString(EndDateDateTimeFormat),
                     Price = c.Price,
-                    CourseDurationInWeeks = c.CourseDuration
+                    CourseDurationInWeeks = c.CourseDuration,
                     Spheres = c.CoursesSpheres.Select(js => js.Sphere.Name).ToList()
                 })
                 .ToListAsync();
@@ -222,7 +227,7 @@ namespace PathFinder.Services.Data.Implementations
             return offers;
         }
 
-        public async Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null)
+        public async Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null, string? searchKeyword = null)
         {
             var query = courseSphereRepository.GetAllAttached();
 
@@ -242,8 +247,13 @@ namespace PathFinder.Services.Data.Implementations
                     .Distinct();
             }
 
-            int totalJobs = await courses.CountAsync();
-            return (int)Math.Ceiling(totalJobs / (double)pageSize);
+            if (!String.IsNullOrEmpty(searchKeyword))
+            {
+                courses = courses.Where(c => EF.Functions.Like(c.Name.ToLower(), $"%{searchKeyword.ToLower()}%"));
+            }
+
+            int totalCourses = await courses.CountAsync();
+            return (int)Math.Ceiling(totalCourses / (double)pageSize);
         }
 
         public async Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersByUserIdAsync(string userId)

@@ -14,5 +14,7 @@ namespace PathFinder.ViewModels.CourseViewModels
         public List<Sphere> AvailableSpheres { get; set; } = new List<Sphere>();
 
         public List<int> SelectedSpheres { get; set; } = new List<int>();
+
+        public string SearchKeyword { get; set; } = null!;
     }
 }

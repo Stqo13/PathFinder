@@ -220,8 +220,6 @@ namespace PathFinder.Services.Data.Implementations
             return offers;
         }
 
-
-
         public async Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null, string? searchKeyword = null)
         {
             var query = jobSphereRepository.GetAllAttached();
