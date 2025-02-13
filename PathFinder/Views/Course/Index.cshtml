@@ -11,7 +11,7 @@
 
     @if (Model.CourseOffers.Any())
     {
-        <form method="get" asp-controller="Course" asp-action="Index" class="mb-4">
+        <form method="get" asp-controller="Course" asp-action="Index" asp-route-pageNumber="@Model.CurrentPage" class="mb-4" id="filterForm">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <label class="form-label"><strong>Filter by Sphere:</strong></label>
@@ -42,74 +42,82 @@
                 </div>
 
                 <div class="col-md-8 d-flex justify-content-center mt-3">
-                    <button type="submit" class="btn btn-primary me-2">Apply Filters</button>
+                    <button id="applyFiltersButton" class="btn btn-primary me-2">Apply Filters</button>
                     <a href="@Url.Action("Index", "Course")" class="btn btn-secondary">Clear Filters</a>
                 </div>
             </div>
+
+            <div id="all-offers-container">
+                @foreach (var course in Model.CourseOffers)
+
+                {
+                    <a asp-area="" asp-route-id="@course.Id" asp-controller="Course" asp-action="Details" class="offers-index-inner-container">
+                        <div>
+                            <h5 id="offers-index-name">@course.Name</h5>
+                            <div id="offers-index-description">
+                                <div id="offers-index-type">
+                                    <strong>Type:</strong> @course.Mode
+                                </div>
+
+                                <div id="offers-index-start-date">
+                                    <strong>Start Date:</strong> @course.StartDate
+                                </div>
+
+                                <div id="offers-index-end-date">
+                                    <strong>End Date:</strong> @course.EndDate
+                                </div>
+
+                                <div id="offers-index-duration">
+                                    <strong>Duration:</strong> @course.CourseDurationInWeeks weeks
+                                </div>
+                            </div>
+
+                            <div id="offers-index-price">
+                                $@course.Price
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+
+            <div id="pagination-nav">
+                <nav aria-label="Page navigation">
+                    <input type="hidden" name="pageNumber" value="@Model.CurrentPage" id="pageNumber" />
+                    <ul class="pagination justify-content-center" id="offers-index-pagination">
+                        @if (Model.CurrentPage > 1)
+
+                        {
+                            <li class="page-item-btn">
+                                <button class="page-link" id="previousPageButton"
+                                @* asp-controller="Job" asp-action="Index" asp-route-pageNumber="@(Model.CurrentPage - 1)" *@>
+                                    Previous
+                                </button>
+                            </li>
+                        }
+
+                        @for (int i = 1; i <= Model.TotalPages; i++)
+
+                        {
+                            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                                <a class="page-link pageNumberButtons"
+                                @* asp-controller="Job" asp-action="Index" asp-route-pageNumber="@i"*@>@i</a>
+                            </li>
+                        }
+
+                        @if (Model.CurrentPage < Model.TotalPages)
+
+                        {
+                            <li class="page-item-btn">
+                                <button class="page-link" id="nextPageButton"
+                                @* asp-controller="Job" asp-action="Index" asp-route-pageNumber="@(Model.CurrentPage + 1)" asp-route-selectedSpheres="@Model.SelectedSpheres" *@>
+                                    Next
+                                </button>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            </div>
         </form>
-
-        <div id="all-offers-container">
-            @foreach (var course in Model.CourseOffers)
-
-            {
-                <a asp-area="" asp-route-id="@course.Id" asp-controller="Course" asp-action="Details" class="offers-index-inner-container">
-                    <div>
-                        <h5 id="offers-index-name">@course.Name</h5>
-                        <div id="offers-index-description">
-                            <div id="offers-index-type">
-                                <strong>Type:</strong> @course.Mode
-                            </div>
-
-                            <div id="offers-index-start-date">
-                                <strong>Start Date:</strong> @course.StartDate
-                            </div>
-
-                            <div id="offers-index-end-date">
-                                <strong>End Date:</strong> @course.EndDate
-                            </div>
-
-                            <div id="offers-index-duration">
-                                <strong>Duration:</strong> @course.CourseDurationInWeeks weeks
-                            </div>
-                        </div>
-
-                        <div id="offers-index-price">
-                            $@course.Price
-                        </div>
-                    </div>
-                </a>
-            }
-        </div>
-
-        <div id="pagination-nav">
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center" id="offers-index-pagination">
-                    @if (Model.CurrentPage > 1)
-
-                    {
-                        <li class="page-item-btn">
-                            <a class="page-link" asp-controller="Course" asp-action="Index" asp-route-pageNumber="@(Model.CurrentPage - 1)">Previous</a>
-                        </li>
-                    }
-
-                    @for (int i = 1; i <= Model.TotalPages; i++)
-
-                    {
-                        <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                            <a class="page-link" asp-controller="Course" asp-action="Index" asp-route-pageNumber="@i">@i</a>
-                        </li>
-                    }
-
-                    @if (Model.CurrentPage < Model.TotalPages)
-
-                    {
-                        <li class="page-item-btn">
-                            <a class="page-link" asp-controller="Course" asp-action="Index" asp-route-pageNumber="@(Model.CurrentPage + 1)">Next</a>
-                        </li>
-                    }
-                </ul>
-            </nav>
-        </div>
     }
 
     else
@@ -118,3 +126,43 @@
         <p class="text-center text-muted">No course offers available at the moment.</p>
     }
 </div>
+
+<script>
+    const hiddenInput = document.getElementById('pageNumber');
+    const pageNumbers = document.querySelectorAll(".pageNumberButtons");
+    const filterForm = document.getElementById('filterForm');
+    const applyFiltersButton = document.getElementById('applyFiltersButton');
+    const nextPageButton = document.getElementById('nextPageButton');
+    const previousPageButton = document.getElementById('previousPageButton');
+
+    if (nextPageButton != undefined) {
+        nextPageButton.addEventListener("click", function () {
+            hiddenInput.value = Number(hiddenInput.value) + 1;
+            filterForm.submit();
+        });
+    }
+
+
+    if (previousPageButton != undefined) {
+        previousPageButton.addEventListener("click", function () {
+            hiddenInput.value = Number(hiddenInput.value) - 1;
+            console.log(Number(hiddenInput.value) - 1);
+            filterForm.submit();
+        });
+    }
+
+
+    applyFiltersButton.addEventListener("click", function () {
+        hiddenInput.value = 1;
+        filterForm.submit();
+    });
+
+
+    for (var i = 0; i < pageNumbers.length; i++) {
+        pageNumbers[i].addEventListener("click", function () {
+            hiddenInput.value = this.textContent;
+            filterForm.submit();
+        });
+    }
+
+</script>
