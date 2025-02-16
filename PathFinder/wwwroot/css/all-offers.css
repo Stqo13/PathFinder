@@ -110,7 +110,7 @@
 
 .pagination .page-item-btn:first-child .page-link:hover,
 .pagination .page-item-btn:last-child .page-link:hover {
-    background-color: #005555; 
+    background-color: #005555;
 }
 
 .pagination .page-item.active .page-link {
@@ -120,7 +120,7 @@
     font-weight: bold;
 }
 
-#pagination-nav{
+#pagination-nav {
     width: 100%;
 }
 
@@ -139,5 +139,83 @@
     border-radius: 5px;
 }
 
+#all-offers-filter-container {
+    display: flex;
+    gap: 2.5em;
+    width: 100%;
+    margin-left: 0em;
+    margin-top: 3em;
+}
 
+#dropdown {
+    width: 40%;
+}
+
+#dropdownMenuButton {
+    width: 100%;
+}
+
+#dropdownMenuButton:hover {
+    background-color: #006d77;
+    border: solid 2px #006d77;
+    outline: none;
+}
+
+    #dropdownMenuButton:focus {
+        box-shadow: 0 0 0 0;
+    }
+
+primary.dropdown-toggle.show, .btn-outline-primary:active {
+    color: #fff;
+    background-color: #006d77;
+    border-color: #006d77;
+}
+
+#all-offers-filter-by-spheres {
+    width: 40%;
+}
+
+#all-offers-search-by-title {
+    width: 40%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#all-offers-search-bar {
+    width: 100%;
+}
+
+#all-offers-filter-button {
+    display: flex;
+    gap: 2em;
+    padding-left: 0px;
+    padding-right: 0.5em;
+}
+
+#all-offers-filter-by-spheres{
+    padding: 0;
+}
+
+.btn-check:focus + .btn, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+#filterForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#all-offers-filter-search-container {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+.btn-outline-primary {
+    font-weight: 700;
+    color: #006d77;
+    border: solid 2px #006d77;
+}
 
