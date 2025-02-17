@@ -213,6 +213,8 @@ namespace PathFinder.Services.Data.Implementations
                     Title = j.Title,
                     JobType = j.JobType.ToString(),
                     Salary = j.Salary,
+                    Position = j.Position,
+                    Company = j.Company,
                     Spheres = j.JobsSpheres.Select(js => js.Sphere.Name).ToList()
                 })
                 .ToListAsync();
@@ -267,7 +269,9 @@ namespace PathFinder.Services.Data.Implementations
                     Id =j.Id,
                     Title = j.Title,
                     JobType = j.JobType.ToString(),
-                    Salary = j.Salary
+                    Salary = j.Salary,
+                    Position = j.Position,
+                    Company = j.Company
                 })
                 .ToListAsync(); 
 
