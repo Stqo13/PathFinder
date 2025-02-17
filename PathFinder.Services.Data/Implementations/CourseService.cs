@@ -173,9 +173,12 @@ namespace PathFinder.Services.Data.Implementations
                 Mode = entity.Mode,
                 Description = entity.Description,
                 DurationInMinutes = entity.DurationInMinutes,
+                CourseDuration = entity.CourseDuration,
                 Location = entity.Location,
                 StartDate = entity.StartDate,
+                EndDate = entity.EndDate,
                 AverageStarRating = entity.AverageStarRating,
+                Reviews = entity.Reviews.ToList(),
                 Price = entity.Price,
             };
 
@@ -220,7 +223,7 @@ namespace PathFinder.Services.Data.Implementations
                     EndDate = c.EndDate.ToString(EndDateDateTimeFormat),
                     Price = c.Price,
                     CourseDurationInWeeks = c.CourseDuration,
-                    Spheres = c.CoursesSpheres.Select(js => js.Sphere.Name).ToList()
+                    Spheres = c.CoursesSpheres.Select(cs => cs.Sphere.Name).ToList()
                 })
                 .ToListAsync();
 

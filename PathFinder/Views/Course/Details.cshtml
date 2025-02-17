@@ -1,1 +1,66 @@
-﻿
+﻿@using PathFinder.Data.Models.Enums;
+@using static PathFinder.Common.ApplicationConstraints.CourseConstraints;
+@model PathFinder.ViewModels.CourseViewModels.CourseDetailsViewModel;
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div id="details-main-container">
+    <div id="details-inner-container">
+        <div id="details-name-container">
+            <h2 id="details-name">
+                @Model.Name
+            </h2>
+        </div>
+
+        <div id="details-course-info-container">
+            <div id="details-part-info-container">
+                <div>
+                    <strong>Type:</strong> @Model.Mode
+                </div>
+
+                <div>
+                    <strong>Start Date: </strong> @Model.StartDate.ToString(StartDateDateTimeFormat)
+                </div>
+
+                <div>
+                    <strong>End Date: </strong> @Model.EndDate.ToString(EndDateDateTimeFormat)
+                </div>
+
+                <div>
+                    <strong>Location: </strong> @Model.Location
+                </div>
+            </div>
+
+            <div id="details-course-price-container">
+                <strong>Price: </strong> $@Model.Price
+            </div>
+        </div>
+
+        <div id="details-course-description">
+            <div id="details-course-description-title">
+                <strong>Description: </strong>
+            </div>
+
+            <div id="details-course-description-text-container">
+                <p id="details-course-description-text">
+                    @Model.Description This course is @Model.CourseDuration weeks in total of @Model.DurationInMinutes minutes.
+                </p>
+            </div>
+        </div>
+
+        @foreach (var review in Model.Reviews)
+        {
+            <div id="details-course-reviews-container">
+                <div id="details-course-review-info-container">
+                    <h4>@review.ReviewDate</h4>
+                    
+                    <p>@review.Comment</p>
+
+                    <h4>@review.Publisher</h4>
+                </div>
+            </div>
+        }
+    </div>
+</div>

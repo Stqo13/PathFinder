@@ -1,0 +1,83 @@
+﻿#details-main-container {
+    min-height: 90vh;
+    width: 100%;
+    background-color: #aed3d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#details-inner-container {
+    position: absolute;
+    height: 80vh;
+    width: 95%;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+#details-name-container {
+    margin: 1em;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#details-name {
+    margin: 1em;
+    font-weight: 700;
+    font-size: 50px;
+    color: #006d77;
+    text-align: center;
+}
+
+#details-part-info-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+    font-size: 25px;
+}
+
+#details-course-price-container {
+    height: 10vh;
+    width: 90%;
+    border: solid 2px #006d77;
+    color: #006d77;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+#details-course-info-container {
+    position: absolute;
+    top: 16%;
+    right: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3em;
+    width: 30%;
+}
+
+#details-course-description-title {
+    margin-left: 1.7em;
+    margin-top: 1em;
+    font-size: 30px;
+}
+
+#details-course-description-text-container {
+    width: 50%;
+    height: 50%;
+    font-size: 25px;
+    margin: 0.5em 0 2em 2em;
+}
+
+#details-course-reviews-container {
+
+}
