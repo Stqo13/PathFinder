@@ -15,7 +15,7 @@
             <div id="all-offers-filter-container" class="row justify-content-center">
                 <div id="all-offers-filter-search-container">
                     <div id="all-offers-filter-by-spheres">
-                    <label class="form-label"><strong>Filter by Sphere:</strong></label>
+                    <label class="form-label"><strong id="filter-text">Filter by Sphere:</strong></label>
                     <div class="dropdown">
                         <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,14 +37,14 @@
                 </div>
 
                     <div id="all-offers-search-by-title">
-                    <label class="form-label"><strong>Search by Title:</strong></label>
+                        <label class="form-label"><strong id="filter-text">Search by Title:</strong></label>
                     <input type="text" id="all-offers-search-bar" name="searchKeyword" value="@Context.Request.Query["searchKeyword"]"
                            class="form-control custom-search" placeholder="Enter course title..." />
                 </div>
                 </div>
                 <div id="all-offers-filter-button" class="d-flex justify-content-center">
                     <button id="applyFiltersButton" class="btn btn-primary">Apply Filters</button>
-                    <a href="@Url.Action("Index", "Course")" class="btn btn-secondary">Clear Filters</a>
+                    <a href="@Url.Action("Index", "Course")" class="btn btn-secondary" id="clearFiltersButton">Clear Filters</a>
                 </div>
             </div>
 
