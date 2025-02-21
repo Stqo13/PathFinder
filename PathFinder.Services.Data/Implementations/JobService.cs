@@ -39,6 +39,20 @@ namespace PathFinder.Services.Data.Implementations
             };
 
             await jobRepository.AddAsync(job);
+
+            if (model.SphereIds != null && model.SphereIds.Any())
+            {
+                foreach (var sphereId in model.SphereIds)
+                {
+                    var jobSphere = new JobSphere()
+                    {
+                        JobId = job.Id,
+                        SphereId = sphereId,
+                    };
+
+                    await jobSphereRepository.AddAsync(jobSphere);
+                }
+            }
         }
 
         public async Task<Job> EditJobInfoAsync(JobEditViewModel model, int id)
@@ -88,7 +102,7 @@ namespace PathFinder.Services.Data.Implementations
                 Title = entity.Title,
                 Description = entity.Description,
                 JobType = entity.JobType.ToString(),
-                Location = entity.Location,
+                Location = entity.Location ?? string.Empty,
                 Position = entity.Position,
                 Requirement= entity.Requirement,
                 Salary = entity.Salary

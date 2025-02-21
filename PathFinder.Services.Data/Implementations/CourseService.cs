@@ -39,6 +39,20 @@ namespace PathFinder.Services.Data.Implementations
             };
 
             await courseRepository.AddAsync(course);
+
+            if (model.SphereIds != null && model.SphereIds.Any())
+            {
+                foreach (var sphereId in model.SphereIds)
+                {
+                    var courseSphere = new CourseSphere()
+                    {
+                        CourseId = course.Id,
+                        SphereId = sphereId,
+                    };
+
+                    await courseSphereRepository.AddAsync(courseSphere);
+                }
+            }
         }
 
         public async Task DeleteCourseAsync(CourseDeleteViewModel model)
