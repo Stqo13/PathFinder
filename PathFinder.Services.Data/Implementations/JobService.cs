@@ -1,11 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using Microsoft.EntityFrameworkCore.Storage.Json;
 using PathFinder.Data.Models;
 using PathFinder.Data.Models.Enums;
 using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Services.Data.Interfaces;
+using PathFinder.ViewModels.CourseViewModels;
 using PathFinder.ViewModels.JobViewModels;
+using PathFinder.ViewModels.Review;
+using static PathFinder.Common.ApplicationConstraints.ReviewConstraints;
 
 namespace PathFinder.Services.Data.Implementations
 {
@@ -109,30 +113,38 @@ namespace PathFinder.Services.Data.Implementations
 
         public async Task<JobDetailsViewModel> GetJobDetailsAsync(int id)
         {
-            var entity = await jobRepository.GetByIdAsync(id);
+            JobDetailsViewModel? job = await jobRepository
+                .GetAllAttached()
+                .Where(j => j.Id == id && j.IsDeleted == false)
+                .Include(j => j.Reviews)
+                .Select(j => new JobDetailsViewModel()
+                {
+                    Id = j.Id,
+                    Title = j.Title,
+                    JobType = j.JobType.ToString(),
+                    Description = j.Description,
+                    Position = j.Position,
+                    Salary = j.Salary,
+                    Location = j.Location ?? string.Empty,
+                    Requirement = j.Requirement,
+                    AverageStarRating = j.AverageStarRating,
+                    Reviews = j.Reviews
+                        .Select(r => new ReviewInfoViewModel
+                        {
+                            Id = r.Id,
+                            StarRating = r.StarRating,
+                            Comment = r.Comment,
+                            ReviewDate = r.ReviewDate.ToString(ReviewDateDateTimeFormat),
+                            Publisher = $"{r.Publisher.FirstName} {r.Publisher.LastName}"
+                        })
+                        .ToList(),
+                })
+                .FirstOrDefaultAsync();
 
-            if (entity == null)
+            if (job == null)
             {
                 throw new NullReferenceException("Entity not found");
             }
-
-            if (entity.IsDeleted)
-            {
-                throw new ArgumentException("Entity is already deleted");
-            }
-
-            var job = new JobDetailsViewModel()
-            {
-                Id = entity.Id,
-                Title = entity.Title,
-                Description = entity.Description ?? string.Empty,
-                JobType = entity.JobType.ToString(),
-                Location = entity.Location ?? string.Empty,
-                Postion = entity.Position,
-                Requirement = entity.Requirement,
-                Salary = entity.Salary,
-                AverageStarRating= entity.AverageStarRating
-            };
 
             return job;
         }

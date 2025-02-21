@@ -4,7 +4,9 @@ using PathFinder.Data.Models;
 using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.CourseViewModels;
+using PathFinder.ViewModels.Review;
 using static PathFinder.Common.ApplicationConstraints.CourseConstraints;
+using static PathFinder.Common.ApplicationConstraints.ReviewConstraints;
 
 namespace PathFinder.Services.Data.Implementations
 {
@@ -166,32 +168,49 @@ namespace PathFinder.Services.Data.Implementations
             return course;
         }
 
-        public async Task<CourseDetailsViewModel> GetJobDetailsAsync(int id)
+        public async Task<CourseDetailsViewModel> GetCourseDetailsAsync(int id, string userId)
         {
-           var entity  = await courseRepository.GetByIdAsync(id);
+            ApplicationUser? user = await userManager.Users.FirstOrDefaultAsync(u => u.Id == userId);
 
-            if (entity == null)
+            if (user == null)
             {
-                throw new NullReferenceException("Enttity not found");
+                throw new NullReferenceException("Invalid user id");
             }
 
-            if (entity.IsDeleted)
-            {
-                throw new ArgumentException("Entity is already deleted");
-            }
+            CourseDetailsViewModel? course  = await courseRepository
+                .GetAllAttached()
+                .Where(c => c.Id == id && c.IsDeleted == false)
+                .Include(c => c.Reviews)
+                .Select(c => new CourseDetailsViewModel()
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Mode = c.Mode.ToString(),
+                    Description = c.Description,
+                    DurationInMinutes = c.DurationInMinutes,
+                    CourseDuration = c.CourseDuration,
+                    Location = c.Location ?? string.Empty,
+                    StartDate = c.StartDate,
+                    EndDate = c.EndDate,
+                    AverageStarRating = c.AverageStarRating,
+                    Reviews = c.Reviews
+                        .Select(r => new ReviewInfoViewModel
+                        {
+                            Id = r.Id,
+                            StarRating = r.StarRating,
+                            Comment = r.Comment,
+                            ReviewDate = r.ReviewDate.ToString(ReviewDateDateTimeFormat),
+                            Publisher = $"{r.Publisher.FirstName} {r.Publisher.LastName}"
+                        })
+                        .ToList(),
+                    Price = c.Price,
+                })
+                .FirstOrDefaultAsync();
 
-            var course = new CourseDetailsViewModel()
+            if (course == null)
             {
-                Id = entity.Id,
-                Name = entity.Name,
-                Mode = entity.Mode,
-                Description = entity.Description,
-                DurationInMinutes = entity.DurationInMinutes,
-                Location = entity.Location ?? string.Empty,
-                StartDate = entity.StartDate,
-                AverageStarRating = entity.AverageStarRating,
-                Price = entity.Price,
-            };
+                throw new NullReferenceException("Entity not found");
+            }
 
             return course;
         }
@@ -234,7 +253,7 @@ namespace PathFinder.Services.Data.Implementations
                     EndDate = c.EndDate.ToString(EndDateDateTimeFormat),
                     Price = c.Price,
                     CourseDurationInWeeks = c.CourseDuration,
-                    Spheres = c.CoursesSpheres.Select(js => js.Sphere.Name).ToList()
+                    Spheres = c.CoursesSpheres.Select(cs => cs.Sphere.Name).ToList()
                 })
                 .ToListAsync();
 

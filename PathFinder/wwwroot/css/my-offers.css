@@ -1,10 +1,11 @@
 ﻿#my-offers-main-container {
-    height: 300vh;
+    min-height: 130vh;
     width: 100%;
     background-color: #1f3d66;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 2em;
 }
 
@@ -33,7 +34,8 @@
 #my-offers-btn-container {
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 1em;
+    width: 15%;
 }
 
 .my-offers-btn {
