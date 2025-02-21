@@ -1,5 +1,6 @@
 ﻿using PathFinder.Data.Models;
 using PathFinder.Data.Models.Enums;
+using PathFinder.ViewModels.Review;
 
 namespace PathFinder.ViewModels.CourseViewModels
 {
@@ -9,7 +10,7 @@ namespace PathFinder.ViewModels.CourseViewModels
 
         public required string Name { get; set; } = null!;
 
-        public required Mode Mode { get; set; }
+        public required string Mode { get; set; }
 
         public required string? Description { get; set; }
 
@@ -27,7 +28,7 @@ namespace PathFinder.ViewModels.CourseViewModels
 
         public required decimal Price { get; set; }
 
-        public List<Review> Reviews { get; set; }
-           = new List<Review>();
+        public List<ReviewInfoViewModel> Reviews { get; set; }
+           = new List<ReviewInfoViewModel>();
     }
 }

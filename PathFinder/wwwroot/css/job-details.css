@@ -1,0 +1,114 @@
+﻿#details-title {
+    font-weight: 700;
+    font-size: 48px;
+    color: #006d77;
+    text-align: center;
+    width: 90%;
+    margin-right: 1em;
+}
+
+#job-info-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.job-info-box {
+    background-color: #f1f8f9;
+    padding: 1em 1.5em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    width: 48%;
+}
+
+#job-salary-container {
+    background-color: #006d77;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 1em;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    margin-top: 1em;
+}
+
+#job-requirement-container {
+    width: 100%;
+    margin-top: 2em;
+    text-align: left;
+}
+
+#job-requirement-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #006d77;
+    margin-bottom: 1em;
+}
+
+#job-requirement-text {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+#job-rating-container {
+    margin-top: 1.5em;
+    font-size: 20px;
+    font-weight: bold;
+    color: #006d77;
+}
+
+#job-apply-btn {
+    height: 2.2em;
+    width: 8em;
+    color: white;
+    background-color: rgb(255, 240, 219);
+    font-size: 30px;
+    font-weight: 700;
+    border-radius: 5px;
+    outline: none;
+    color: #DAA06D;
+    padding: 1em;
+    border: solid 2px #DAA06D;
+    border-radius: 5px;
+    box-shadow: 0 0 0 4px #EADDCA, 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+    transition: .1s ease-in-out, .4s color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+#job-apply-btn:active {
+    transform: translateX(0.1em) translateY(0.1em);
+    box-shadow: 0 0 0 4px rgb(255, 240, 219), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
+}
+
+#job-apply-btn:hover {
+    transform: scale(1.02);
+}
+
+#no-reviews-text {
+    font-weight: 500;
+    font-size: 20px;
+    color: #DAA06D;
+}
+
+#details-svg-btn-and-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em; 
+    padding: 20px;
+    width: 100%;
+}
+
+#svg-back-btn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    fill: #00757a; 
+}

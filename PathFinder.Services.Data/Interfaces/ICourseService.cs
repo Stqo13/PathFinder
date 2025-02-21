@@ -7,7 +7,7 @@ namespace PathFinder.Services.Data.Interfaces
     {
         Task CreateCourseOfferAsync(CourseAddViewModel model, string userId);
 
-        Task<CourseDetailsViewModel> GetJobDetailsAsync(int id);
+        Task<CourseDetailsViewModel> GetCourseDetailsAsync(int id, string userId);
 
         Task<CourseEditViewModel> GetEditCourseById(int id);
 

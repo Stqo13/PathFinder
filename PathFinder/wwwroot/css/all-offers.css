@@ -11,7 +11,7 @@
 .offers-index-inner-container {
     text-decoration: none;
     position: relative;
-    width: 40%;
+    width: 34em;
     height: 40vh;
     padding: 2em;
     background-color: white;
@@ -220,7 +220,8 @@
 
 #clearFiltersButton {
     background-color: #fccc6d;
-    width: 9%;
+    width: 8em;
+    height: 3em;
     color: black;
     border: solid 1px #fccc6d;
     transition: all 0.3s ease, box-shadow 0.3s ease;
@@ -235,7 +236,8 @@
 
 #applyFiltersButton {
     background-color: #006d77;
-    width: 9%;
+    width: 8em;
+    height: 3em;
     color: white;
     border: solid 1px #006d77;
     transition: all 0.3s ease, box-shadow 0.3s ease;
