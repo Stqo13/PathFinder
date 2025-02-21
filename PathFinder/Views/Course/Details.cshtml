@@ -1,1 +1,67 @@
-﻿
+﻿@using PathFinder.Data.Models.Enums;
+@using static PathFinder.Common.ApplicationConstraints.CourseConstraints;
+@model PathFinder.ViewModels.CourseViewModels.CourseDetailsViewModel;
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div id="details-main-container">
+    <div id="details-inner-container">
+        <div id="details-svg-btn-and-title">
+            <a id="svg-back-link" href="../">
+                <svg id="svg-back-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" /></svg>
+            </a>
+
+            <h2 id="details-title">@Model.Name</h2>
+        </div>
+
+        <div id="details-info-container">
+            <div class="details-info-box"><strong>Type:</strong> @Model.Mode</div>
+            <div class="details-info-box"><strong>Start Date:</strong> @Model.StartDate.ToString(StartDateDateTimeFormat)</div>
+            <div class="details-info-box"><strong>Location:</strong> @Model.Location</div>
+            <div class="details-info-box"><strong>End Date:</strong> @Model.EndDate.ToString(EndDateDateTimeFormat)</div>
+        </div>
+
+        <div id="details-course-price-container">
+            <strong>Price:</strong> $@Model.Price
+        </div>
+
+        <button id="course-details-enroll-btn">Enroll</button>
+
+        <div id="details-description">
+            <div id="details-description-title">Description</div>
+            <p id="details-description-text">
+                @Model.Description This course is @Model.CourseDuration weeks in total of @Model.DurationInMinutes minutes.
+            </p>
+        </div>
+
+        <hr id="details-devider">
+
+        @if (Model.Reviews.Count == 0)
+        {
+            <p id="no-reviews-text">No reviews at the moment.</p>
+        }
+        else
+        {
+            <h1 id="reviews-title">
+                Reviews
+            </h1>
+
+            <div id="reviews-main-container">
+                @foreach (var review in Model.Reviews)
+                {
+                    <div class="review-box">
+                        <div id="reviews-publisher-and-date">
+                            <h5 id="reviews-publisher-name">@review.Publisher</h5>
+                            <h6 id="reviews-publisher-reviewDate">@review.ReviewDate</h6>
+                        </div>
+
+                        <p id="reviews-publisher-comment">@review.Comment</p>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+

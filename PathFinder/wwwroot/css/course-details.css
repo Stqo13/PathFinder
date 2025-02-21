@@ -1,0 +1,169 @@
+﻿#details-main-container {
+    min-height: 90vh;
+    width: 100%;
+    background-color: #aed3d6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 0;
+}
+
+#details-inner-container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#details-name {
+    font-weight: 700;
+    font-size: 48px;
+    color: #006d77;
+    text-align: center;
+}
+
+#details-info-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 3em;
+    gap: 1em;
+}
+
+.details-info-box {
+    background-color: #ebfafc;
+    padding: 1em 1.5em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    width: 48%;
+}
+
+#details-course-price-container {
+    background-color: #006d77;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 1em;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    margin-top: 1em;
+}
+
+#course-details-enroll-btn {
+    height: 2.5em;
+    width: 9em;
+    color: white;
+    background-color: rgb(255, 240, 219);
+    font-size: 30px;
+    font-weight: 700;
+    border-radius: 5px;
+    outline: none;
+    color: #DAA06D;
+    padding: 1em;
+    border: solid 2px #DAA06D;
+    border-radius: 5px;
+    box-shadow: 0 0 0 4px #EADDCA, 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+    transition: .1s ease-in-out, .4s color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+#course-details-enroll-btn:active {
+    transform: translateX(0.1em) translateY(0.1em);
+    box-shadow: 0 0 0 4px rgb(255, 240, 219), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
+}
+
+#course-details-enroll-btn:hover {
+    transform: scale(1.02);
+}
+
+#details-description {
+    width: 100%;
+    margin-top: 2em;
+    text-align: left;
+    margin-left: 1em;
+}
+
+#details-description-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #DAA06D;
+    margin-bottom: 0.5em;
+}
+
+#details-description-text {
+    font-size: 23px;
+    font-weight: 500;
+    color: black;
+    line-height: 1.6;
+}
+
+#details-reviews-container {
+    width: 100%;
+    margin-top: 2em;
+}
+
+.review-box {
+    background-color: #fff3e3;
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 0 4px #eddcc2, 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+}
+
+#reviews-publisher-name {
+    color: #006d77;
+}
+
+#reviews-publisher-reviewDate {
+    color: #6fa8ad;
+    margin-bottom: 1.3em;
+}
+
+#reviews-publisher-and-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#reviews-title {
+    margin: 1em;
+    font-weight: 700;
+    color: #006d77;
+}
+
+#reviews-publisher-comment {
+    font-weight: 600;  
+    font-size: 18px;
+}
+
+#details-devider {
+    background-color: #2f696e;
+    height: 2px;
+    width: 90%;
+    border: solid 2px #2f696e;
+    margin-top: 5em;
+    margin-bottom: 3em;
+    border-radius: 15px;
+}
+
+#reviews-main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+

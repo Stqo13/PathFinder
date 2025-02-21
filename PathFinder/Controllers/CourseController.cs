@@ -123,7 +123,9 @@ namespace PathFinder.Controllers
         {
             try
             {
-                var course = await courseService.GetJobDetailsAsync(id);
+                string userId = GetCurrentClientId();
+
+                var course = await courseService.GetCourseDetailsAsync(id, userId);
 
                 return View(course);
             }

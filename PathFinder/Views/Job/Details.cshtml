@@ -1,1 +1,70 @@
-﻿
+﻿@using PathFinder.Data.Models.Enums;
+@using static PathFinder.Common.ApplicationConstraints.JobConstraints;
+@model PathFinder.ViewModels.JobViewModels.JobDetailsViewModel;
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div id="details-main-container">
+    <div id="details-inner-container">
+        <div id="details-svg-btn-and-title">
+            <a id="svg-back-link" href="../">
+            <svg id="svg-back-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" /></svg>
+            </a>
+
+            <h2 id="details-title">@Model.Title</h2>
+            </div>
+
+        <div id="details-info-container">
+            <div class="details-info-box"><strong>Type:</strong> @Model.JobType</div>
+            <div class="details-info-box"><strong>Position:</strong> @Model.Position</div>
+            <div class="details-info-box"><strong>Location:</strong> @Model.Location</div>
+            <div class="details-info-box"><strong>Salary:</strong> @Model.Salary</div>
+        </div>
+
+        <div id="job-requirement-container">
+            <div id="job-requirement-title">Requirements</div>
+            <p id="job-requirement-text">
+                @Model.Requirement
+            </p>
+        </div>
+
+        <button id="job-apply-btn">Apply Now</button>
+
+        <div id="details-description">
+            <div id="details-description-title">Description</div>
+            <p id="details-description-text">
+                @Model.Description
+            </p>
+        </div>
+
+        <hr id="details-devider">
+
+        @if (Model.Reviews.Count == 0)
+        {
+            <p id="no-reviews-text">No reviews at the moment.</p>
+        }
+        else
+        {
+            <h1 id="reviews-title">
+                Reviews
+            </h1>
+
+            <div id="reviews-main-container">
+                @foreach (var review in Model.Reviews)
+                {
+                    <div class="review-box">
+                        <div id="reviews-publisher-and-date">
+                            <h5 id="reviews-publisher-name">@review.Publisher</h5>
+                            <h6 id="reviews-publisher-reviewDate">@review.ReviewDate</h6>
+                        </div>
+
+                        <p id="reviews-publisher-comment">@review.Comment</p>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
