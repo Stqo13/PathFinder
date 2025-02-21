@@ -1,0 +1,97 @@
+﻿.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+}
+
+.btn-submit {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .btn-submit:hover {
+        background-color: #218838;
+        transform: scale(1.05);
+    }
+
+textarea.form-control {
+    resize: none;
+}
+
+
+#send-request-main-container {
+    height: 81vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #1d3557;
+    flex-direction: column;
+}
+
+#send-request-sender-info-container {
+    width: 45%;
+    height: 50vh;
+    background-color: #b8d4fc;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+#send-request-title {
+    color: white;
+    font-weight: 700;
+    margin: 2em 0 1em 0;
+}
+
+.send-request-btn {
+    background-color: #fff0db; 
+    width: 9em;
+    height: 6.5vh;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 0.5em;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.send-request-btn:hover {
+    background-color: #ffe4b5;
+    transform: scale(1.05);
+}
+
+.send-request-btn:active {
+    background-color: #ffd699; 
+    transform: scale(0.95); 
+}
+
+#send-requests-text {
+    font-weight: 100;
+    margin-left: 0.5em;
+}
