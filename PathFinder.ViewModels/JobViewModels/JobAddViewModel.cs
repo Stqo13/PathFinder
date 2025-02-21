@@ -33,5 +33,8 @@ namespace PathFinder.ViewModels.JobViewModels
         [Required]
         [Column(TypeName = "decimal(18,2)")]
         public decimal Salary { get; set; }
+
+        public List<int> SphereIds { get; set; }
+            = new List<int>();
     }
 }

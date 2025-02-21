@@ -13,7 +13,7 @@
 
         <div class="add-course-input-form-container">
             <label id="add-course-label-container" asp-for="@Model.Name">Course Name</label>
-            <div id="add-course-input-inner-container">   
+            <div id="add-course-input-inner-container">
                 <input id="add-course-input" asp-for="@Model.Name" class="form-control" aria-required="true" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
@@ -44,8 +44,8 @@
         <div class="add-course-input-form-container">
             <label id="add-course-label-container" asp-for="@Model.CourseDuration">Course Duration in weeks</label>
             <div id="add-course-input-inner-container">
-                <input id="add-course-input" asp-for="@Model.CourseDuration" class="form-control" aria-required="true"/>
-                <span asp-validation-for="CourseDuration"  class="text-danger"></span>
+                <input id="add-course-input" asp-for="@Model.CourseDuration" class="form-control" aria-required="true" />
+                <span asp-validation-for="CourseDuration" class="text-danger"></span>
             </div>
         </div>
 
@@ -63,7 +63,7 @@
                 <input id="add-course-input" asp-for="@Model.Location" class="form-control" aria-required="true" />
             </div>
         </div>
-        
+
 
         <script>
             const dropdown = document.querySelector(".custom-dropdown");
@@ -87,16 +87,16 @@
                     toggleLocationInput();
                 }
 
-                if (dropdownCounter) { 
+                if (dropdownCounter) {
                     options.style.display = 'block';
                 }
-                else{
+                else {
                     options.style.display = 'none';
                 }
-            });     
+            });
 
             function toggleLocationInput() {
-                let courseMode = hiddenInput.value; 
+                let courseMode = hiddenInput.value;
 
                 if (courseMode === 'InPerson') {
                     locationContainer.style.display = 'flex';

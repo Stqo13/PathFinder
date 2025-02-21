@@ -37,6 +37,20 @@ namespace PathFinder.Services.Data.Implementations
             };
 
             await courseRepository.AddAsync(course);
+
+            if (model.SphereIds != null && model.SphereIds.Any())
+            {
+                foreach (var sphereId in model.SphereIds)
+                {
+                    var courseSphere = new CourseSphere()
+                    {
+                        CourseId = course.Id,
+                        SphereId = sphereId,
+                    };
+
+                    await courseSphereRepository.AddAsync(courseSphere);
+                }
+            }
         }
 
         public async Task DeleteCourseAsync(CourseDeleteViewModel model)
@@ -143,7 +157,7 @@ namespace PathFinder.Services.Data.Implementations
                 Mode = entity.Mode,
                 Description = entity.Description,
                 DurationInMinutes = entity.DurationInMinutes,
-                Location = entity.Location,
+                Location = entity.Location ?? string.Empty,
                 StartDate = entity.StartDate,
                 AverageStarRating = entity.AverageStarRating,
                 Price = entity.Price,
@@ -173,7 +187,7 @@ namespace PathFinder.Services.Data.Implementations
                 Mode = entity.Mode,
                 Description = entity.Description,
                 DurationInMinutes = entity.DurationInMinutes,
-                Location = entity.Location,
+                Location = entity.Location ?? string.Empty,
                 StartDate = entity.StartDate,
                 AverageStarRating = entity.AverageStarRating,
                 Price = entity.Price,

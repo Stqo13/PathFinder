@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PathFinder.Data.Models;
+using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.CourseViewModels;
 using System.Security.Claims;
@@ -45,9 +47,11 @@ namespace PathFinder.Controllers
         }
 
         [HttpGet]
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
             var courseOffer = new CourseAddViewModel();
+
+            ViewData["Spheres"] = await courseService.GetAllSpheresAsync();
 
             return View(courseOffer);
         }

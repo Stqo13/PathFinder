@@ -36,5 +36,8 @@ namespace PathFinder.ViewModels.CourseViewModels
 
         [Required]
         public decimal? Price { get; set; }
+
+        public List<int> SphereIds { get; set; }
+            = new List<int>();
     }
 }
