@@ -69,6 +69,8 @@ namespace PathFinder.Services.Data.Implementations
                 userViewModels.Add(new AllUsersViewModel()
                 {
                     Id = user.Id,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
                     Email = user.Email,
                     Roles = roles.ToList()
                 });
