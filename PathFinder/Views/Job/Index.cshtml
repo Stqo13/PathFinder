@@ -7,7 +7,7 @@
 
 
 <div id="offers-index-main-container">
-    <h2 id="offers-index-title">Job Offers</h2>
+    <h2 id="offers-index-title">Обяви за работа</h2>
 
     @if (Model.JobOffers.Any())
     {
@@ -15,11 +15,11 @@
             <div id="all-offers-filter-container" class="row justify-content-center">
                 <div id="all-offers-filter-search-container">
                     <div id="all-offers-filter-by-spheres">
-                        <label class="form-label"><strong id="filter-text">Filter by Sphere:</strong></label>
+                        <label class="form-label"><strong id="filter-text">Филтрирай по сфери:</strong></label>
                         <div class="dropdown">
                             <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                Select Spheres
+                                Избери сфери
                             </button>
 
                             <ul class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton" style="max-height: 300px; overflow-y: auto;">
@@ -37,15 +37,15 @@
                     </div>
 
                     <div id="all-offers-search-by-title">
-                        <label class="form-label"><strong id="filter-text">Search by Title:</strong></label>
+                        <label class="form-label"><strong id="filter-text">Търси по име на обявата:</strong></label>
                         <input id="all-offers-search-bar" type="text" name="searchKeyword" value="@Context.Request.Query["searchKeyword"]"
-                               class="form-control custom-search" placeholder="Enter job title..." />
+                               class="form-control custom-search" placeholder="Въведи име..." />
                     </div>
                 </div>
 
                 <div id="all-offers-filter-button" class="d-flex justify-content-center">
-                    <button id="applyFiltersButton" class="btn btn-primary">Apply Filters</button>
-                    <a href="@Url.Action("Index", "Job")" class="btn btn-secondary" id="clearFiltersButton">Clear Filters</a>
+                    <button id="applyFiltersButton" class="btn btn-primary">Приложи филтри</button>
+                    <a href="@Url.Action("Index", "Job")" class="btn btn-secondary" id="clearFiltersButton">Изчисти филтри</a>
                 </div>
             </div>
             <div id="all-offers-container">
@@ -56,19 +56,19 @@
                             <h5 id="offers-index-name">@job.Title</h5>
                             <div id="offers-index-description">
                                 <div id="offers-index-type">
-                                    <strong>Type:</strong> @job.JobType
+                                    <strong>Начин на работа:</strong> @job.JobType
                                 </div>
 
                                 <div id="offers-index-salary">
-                                    <strong>Salary:</strong> $@job.Salary
+                                    <strong>Заплата:</strong> @job.Salary лв.
                                 </div>
 
                                 <div id="offers-index-salary">
-                                    <strong>Position:</strong> @job.Position
+                                    <strong>Работна позиция:</strong> @job.Position
                                 </div>
 
                                 <div id="offers-index-salary">
-                                    <strong>Company:</strong> @job.Company.FirstName
+                                    <strong>Наименование на компания:</strong> @job.Company.FirstName
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                         {
                             <li class="page-item-btn">
                                 <button class="page-link" id="previousPageButton">
-                                    Previous
+                                    Назад
                                 </button>
                             </li>
                         }
@@ -104,7 +104,7 @@
                         {
                             <li class="page-item-btn">
                                 <button class="page-link" id="nextPageButton">
-                                    Next
+                                    Напред
                                 </button>
                             </li>
                         }
@@ -116,7 +116,7 @@
 
     else
     {
-        <p class="text-center text-muted">No job offers available at the moment.</p>
+        <p class="text-center text-muted">Няма налични оферти за работа в момента.</p>
     }
 </div>
 

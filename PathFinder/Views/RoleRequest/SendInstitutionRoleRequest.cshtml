@@ -6,23 +6,23 @@
 }
 
 <div id="send-request-main-container">
-    <h2 id="send-request-title">Send Institution Role Request</h2>
+    <h2 id="send-request-title">Заявка за роля "Институция"</h2>
 
     <div id="send-request-sender-info-container">
         <form asp-action="SendInstitutionRoleRequest" method="post" class="role-request-form">
             <div class="form-group">
-                <label asp-for="Sender" id="send-requests-text">Sender</label>
-                <input asp-for="Sender" class="form-control" placeholder="Enter your name" />
+                <label asp-for="Sender" id="send-requests-text">Подател</label>
+                <input asp-for="Sender" class="form-control" placeholder="Въведи име" />
                 <span asp-validation-for="Sender" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="Description" id="send-requests-text">Description</label>
-                <textarea asp-for="Description" class="form-control" rows="5" placeholder="Enter description"></textarea>
+                <label asp-for="Description" id="send-requests-text">Описание</label>
+                <textarea asp-for="Description" class="form-control" rows="5" placeholder="Защо искаш тази роля?"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
 
-            <button type="submit" class="send-request-btn">Send Request</button>
+            <button type="submit" class="send-request-btn">Изпрати заявката</button>
         </form>
     </div>
 </div>

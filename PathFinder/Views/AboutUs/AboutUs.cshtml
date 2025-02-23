@@ -1,4 +1,5 @@
-﻿@model PathFinder.ViewModels.AboutUsViewModels.FounderViewModel
+﻿@inject IViewLocalizer Localizer;
+@model PathFinder.ViewModels.AboutUsViewModels.FounderViewModel
 
 @{
     ViewData["Title"] = "About us";
@@ -9,11 +10,11 @@
         <div id="about-us-half-page-container">
             <div id="about-us-info-container">
                 <h2 id="about-us-name">
-                        @Model.Name
+                    @Model.Name
                 </h2>
 
                 <h3 id="about-us-title">
-                    Student in PPMG Nikola Obreshkov
+                    @Localizer["AboutUsSchool"]
                 </h3>
             </div>
 

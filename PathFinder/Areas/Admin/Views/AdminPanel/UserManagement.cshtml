@@ -2,7 +2,7 @@
 @model UsersIndexViewModel
 
 @{
-    ViewData["Title"] = "User Management";
+    ViewData["Title"] = "Управление на потребители";
 }
 
 <div id="user-management-main-container">
@@ -16,43 +16,43 @@
 
             <div class="user-card" id="user-card-@user.Id">
                 <div class="user-info">
-                    <h4 id="user-name-h4">Name: @userName</h4>
-                    <h6>Email: @user.Email</h6>
+                    <h4 id="user-name-h4">Име: @userName</h4>
+                    <h6>Имейл: @user.Email</h6>
                     <small>ID: @user.Id</small>
-                    <p><strong>Roles:</strong> @string.Join(", ", user.Roles)</p>
+                    <p><strong>Роли:</strong> @string.Join(", ", user.Roles)</p>
                 </div>
                 <div class="user-actions">
                     <form method="post" asp-action="AssignRole" class="user-role-form">
                         <input type="hidden" name="userId" value="@user.Id" />
                         <div class="form-group">
                             <select name="role" class="form-select">
-                                <option value="" disabled selected>Select Role</option>
+                                <option value="" disabled selected>Избери роля</option>
                                 <option value="PFUser">PFUser</option>
                                 <option value="Admin">Admin</option>
                                 <option value="Institution">Institution</option>
                                 <option value="Company">Company</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-success">Assign</button>
+                        <button type="submit" class="btn btn-success">Добави</button>
                     </form>
 
                     <form method="post" asp-action="RemoveRole" class="user-role-form">
                         <input type="hidden" name="userId" value="@user.Id" />
                         <div class="form-group">
                             <select name="role" class="form-select">
-                                <option value="" disabled selected>Select Role</option>
+                                <option value="" disabled selected>Избери роля</option>
                                 @foreach (var role in user.Roles)
                                 {
                                     <option value="@role">@role</option>
                                 }
                             </select>
                         </div>
-                        <button id="remove-role-btn" type="submit" class="btn btn-warning">Remove</button>
+                        <button id="remove-role-btn" type="submit" class="btn btn-warning">Изтрий</button>
                     </form>
 
                     <form method="post" asp-action="DeleteUser" class="user-action-form">
                         <input type="hidden" name="userId" value="@user.Id" />
-                        <button id="delete-user-btn" type="submit" class="btn btn-danger">Delete User</button>
+                        <button id="delete-user-btn" type="submit" class="btn btn-danger">Изрий потребителя</button>
                     </form>
                 </div>
             </div>

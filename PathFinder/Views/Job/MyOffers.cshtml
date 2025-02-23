@@ -5,7 +5,7 @@
 }
 
 <div id="my-offers-main-container">
-    <h2 id="my-offers-h2-title">My Job Offers</h2>
+    <h2 id="my-offers-h2-title">Моите оферти</h2>
 
     @if (Model.Any())
     {
@@ -17,13 +17,13 @@
                         <div id="my-offers-offer-info-container">
                             <h5 id="my-offers-h5-name">@job.Title</h5>
                             <p id="my-offers-info">
-                                <strong id="my-offers-info">Mode:</strong> @job.JobType
-                                <strong id="my-offers-info">Start:</strong> @job.Salary
+                                <strong id="my-offers-info">Начин на работа:</strong> @job.JobType
+                                <strong id="my-offers-info">Начало:</strong> @job.Salary
                             </p>
                         </div>
                         <div id="my-offers-btn-container">
-                            <a asp-area="" asp-route-id="@job.Id" asp-controller="Job" asp-action="Edit" class="my-offers-btn" id="my-offers-edit-view-details-btn">Edit</a>
-                            <a asp-area="" asp-route-id="@job.Id" asp-controller="Job" asp-action="Delete" class="my-offers-btn" id="my-offers-delete-btn">Delete</a>
+                            <a asp-area="" asp-route-id="@job.Id" asp-controller="Job" asp-action="Edit" class="my-offers-btn" id="my-offers-edit-view-details-btn">Редактирай</a>
+                            <a asp-area="" asp-route-id="@job.Id" asp-controller="Job" asp-action="Delete" class="my-offers-btn" id="my-offers-delete-btn">Изтрий</a>
                         </div>
                     </div>
                 }
@@ -32,6 +32,6 @@
     }
     else
     {
-        <p class="text-center text-muted">You haven't posted any job offers yet.</p>
+        <p class="text-center text-muted">Все още не си качил оферти.</p>
     }
 </div>

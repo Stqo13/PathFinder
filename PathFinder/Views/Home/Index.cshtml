@@ -1,6 +1,10 @@
-﻿@{
+﻿@inject IViewLocalizer Localizer;
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+
 <div id="home-page-container">
     <div id="home-page" class="text-center container">
         <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
@@ -14,17 +18,19 @@
                 <div class="carousel-item active item1">
                     <div class="home-page-carousel-container">
                         <h1 id="home-first-carousel-h1">
-                            Welcome to PathFinder
+                            @Localizer["WelcomeMessage"] 
                         </h1>
 
                         <p id="carousel-subtitle" >
-                            Find your path, follow your passion.
+                            @Localizer["FirstPageCarouselSlogan"]
                         </p>
 
                         <p>
                             @if (!User.Identity.IsAuthenticated)
                             {
-                                <a asp-area="Identity" asp-page="/Account/Register" class="home-page-carousel-btn" id="sign-up-today-btn">Sign up today</a>
+                                <a asp-area="Identity" asp-page="/Account/Register" class="home-page-carousel-btn" id="sign-up-today-btn">
+                                    @Localizer["WelcomeSignUpMessage"]
+                                </a>
                             }
                         </p>
                     </div>
@@ -35,16 +41,16 @@
                     <div class="container">
                         <div class="carousel-caption" id="second-page-carousel">
                             <h1 id="home-second-carousel-h1">
-                                Find the perfect course.
+                                @Localizer["WelcomeCarouselSecondPageTitle"]
                             </h1>
 
                             <p id="carousel-subtitle">
-                                Uncertain about your next step? Explore educational opportunities tailored to your passions.
+                                @Localizer["WelcomeCarouselSecondPageSlogan"]
                             </p>
 
                             <p>
                                 <a asp-area="" asp-controller="Course" asp-action="Index" class="home-page-carousel-btn" id="explore-courses-btn">
-                                    Explore courses
+                                    @Localizer["WelcomeCarouselSecondPageButton"]
                                 </a>
                             </p>
                         </div>
@@ -55,16 +61,16 @@
                     <div class="container">
                         <div class="carousel-caption text-end" id="third-page-carousel">
                             <h1 id="home-second-carousel-h1">
-                                Discover your dream job today!
+                                @Localizer["WelcomeCarouselThirdPageTitle"]
                             </h1>
 
                             <p id="carousel-subtitle">
-                                Ready to land your dream job? Let your passions guide you to opportunities that truly matter.
+                                @Localizer["WelcomeCarouselThirdPageSlogan"]
                             </p>
 
                             <p>
                                 <a asp-area="" asp-controller="Job" asp-action="Index" class="home-page-carousel-btn" id="browse-job-offers-btn">
-                                    Browse job offers
+                                    @Localizer["WelcomeCarouselThirdPageButton"]                                   
                                 </a>
                             </p>
                         </div>
@@ -95,11 +101,11 @@
             <div id="home-page-description-container">
                 <div class="home-page-sumary">
                     <h2 id="home-page-h2-text-description">
-                        What is PathFinder?
+                        @Localizer["WelcomeHeading"]
                     </h2>
 
                     <p id="home-down-text">
-                        PathFinder is your personalized guide to discovering careers and educational opportunities that align with your interests. Whether you're exploring job options, searching for the perfect course, or planning your next step, PathFinder helps you uncover paths tailored to your skills, passions, and goals. Start building a future you’ll love today!"
+                        @Localizer["WelcomeText"]
                     </p>
                 </div>
 
@@ -114,11 +120,11 @@
             <div id="home-page-description-container">
                 <div class="home-page-sumary order-md-2">
                     <h2 id="home-page-h2-text-description">
-                        What's more?
+                        @Localizer["WelcomeMoreHeading"]
                     </h2>
 
                     <p id="home-down-text">
-                        PathFinder offers a feature where you can set a location to discover possibilities close to you, ensuring that your options are both relevant and convenient.Whether you're seeking a new job nearby or looking for courses in your area, this feature makes it easy to find opportunities that fit your lifestyle and ambitions.
+                        @Localizer["WelcomeMoreText"]
                     </p>
                 </div>
 
@@ -131,7 +137,7 @@
             <hr class="featurette-divider">
 
             <h2 id="home-page-h2-text-description" style="color: white;">
-                About Us
+                @Localizer["AboutUs"]
             </h2>
 
             <div id="home-page-description-container">
@@ -139,13 +145,13 @@
                     <img src="../images/profile-avatar-boy.jpg" id="home-first-person-pic" class="rounded-circle" width="140" height="140" alt="Person Picture">
 
                     <h2 class="home-names-h2">
-                        Stefan Dimitrov
+                        @Localizer["AboutUsStefan"]
                     </h2>
 
                     <p>
                         <form method="post" asp-action="AboutUsStefan" asp-controller="Home">
                         <button type="submit" class="btn btn-secondary social-links-btn">
-                            Social Links &raquo
+                            @Localizer["SocialLinks"]
                         </button>
                         </form>
                     </p>
@@ -155,13 +161,13 @@
                     <img src="../images/profile-avatar-girl.jpg" id="home-second-person-pic" class="rounded-circle" width="140" height="140" alt="Person Picture">
 
                     <h2 class="home-names-h2">
-                        Teodora Nedkova
+                        @Localizer["AboutUsTedi"]
                     </h2>
 
                     <p>
                         <form method="post" asp-action="AboutUsTedi" asp-controller="Home">
                             <button type="submit" class="btn btn-secondary social-links-btn">
-                                Social Links &raquo
+                                @Localizer["SocialLinks"]
                             </button>
                         </form>
                     </p>

@@ -7,7 +7,7 @@
 
 
 <div id="offers-index-main-container">
-    <h2 id="offers-index-title">Course Offers</h2>
+    <h2 id="offers-index-title">Оферти за курсове</h2>
 
     @if (Model.CourseOffers.Any())
     {
@@ -15,11 +15,11 @@
             <div id="all-offers-filter-container" class="row justify-content-center">
                 <div id="all-offers-filter-search-container">
                     <div id="all-offers-filter-by-spheres">
-                    <label class="form-label"><strong id="filter-text">Filter by Sphere:</strong></label>
+                    <label class="form-label"><strong id="filter-text">Филтрирай по сфери:</strong></label>
                     <div class="dropdown">
                         <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                            Select Spheres
+                            Избери сфери
                         </button>
 
                         <ul class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton" style="max-height: 300px; overflow-y: auto;">
@@ -37,14 +37,14 @@
                 </div>
 
                     <div id="all-offers-search-by-title">
-                        <label class="form-label"><strong id="filter-text">Search by Title:</strong></label>
+                        <label class="form-label"><strong id="filter-text">Търси по име на обявата:</strong></label>
                     <input type="text" id="all-offers-search-bar" name="searchKeyword" value="@Context.Request.Query["searchKeyword"]"
-                           class="form-control custom-search" placeholder="Enter course title..." />
+                           class="form-control custom-search" placeholder="Въведи име..." />
                 </div>
                 </div>
                 <div id="all-offers-filter-button" class="d-flex justify-content-center">
-                    <button id="applyFiltersButton" class="btn btn-primary">Apply Filters</button>
-                    <a href="@Url.Action("Index", "Course")" class="btn btn-secondary" id="clearFiltersButton">Clear Filters</a>
+                    <button id="applyFiltersButton" class="btn btn-primary">Приложи филтри</button>
+                    <a href="@Url.Action("Index", "Course")" class="btn btn-secondary" id="clearFiltersButton">Изчисти филтри</a>
                 </div>
             </div>
 
@@ -56,24 +56,24 @@
                             <h5 id="offers-index-name">@course.Name</h5>
                             <div id="offers-index-description">
                                 <div id="offers-index-type">
-                                    <strong>Type:</strong> @course.Mode
+                                    <strong>Начин на провеждане:</strong> @course.Mode
                                 </div>
 
                                 <div id="offers-index-start-date">
-                                    <strong>Start Date:</strong> @course.StartDate
+                                    <strong>Начало:</strong> @course.StartDate
                                 </div>
 
                                 <div id="offers-index-end-date">
-                                    <strong>End Date:</strong> @course.EndDate
+                                    <strong>Край:</strong> @course.EndDate
                                 </div>
 
                                 <div id="offers-index-duration">
-                                    <strong>Duration:</strong> @course.CourseDurationInWeeks weeks
+                                    <strong>Продължителност:</strong> @course.CourseDurationInWeeks седмици
                                 </div>
                             </div>
 
                             <div id="offers-index-price">
-                                $@course.Price
+                                @course.Price лв.
                             </div>
                         </div>
                     </a>
@@ -90,7 +90,7 @@
                             <li class="page-item-btn">
                                 <button class="page-link" id="previousPageButton"
                                 @* asp-controller="Job" asp-action="Index" asp-route-pageNumber="@(Model.CurrentPage - 1)" *@>
-                                    Previous
+                                    Назад
                                 </button>
                             </li>
                         }
@@ -110,7 +110,7 @@
                             <li class="page-item-btn">
                                 <button class="page-link" id="nextPageButton"
                                 @* asp-controller="Job" asp-action="Index" asp-route-pageNumber="@(Model.CurrentPage + 1)" asp-route-selectedSpheres="@Model.SelectedSpheres" *@>
-                                    Next
+                                    Напред
                                 </button>
                             </li>
                         }
@@ -123,7 +123,7 @@
     else
 
     {
-        <p class="text-center text-muted">No course offers available at the moment.</p>
+        <p class="text-center text-muted">Няма налични оферти за курсове в момента.</p>
     }
 </div>
 

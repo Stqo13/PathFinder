@@ -17,23 +17,26 @@
             </div>
 
         <div id="details-info-container">
-            <div class="details-info-box"><strong>Type:</strong> @Model.JobType</div>
-            <div class="details-info-box"><strong>Position:</strong> @Model.Position</div>
-            <div class="details-info-box"><strong>Location:</strong> @Model.Location</div>
-            <div class="details-info-box"><strong>Salary:</strong> @Model.Salary</div>
+            <div class="details-info-box"><strong>Начин на работа:</strong> @Model.JobType</div>
+            <div class="details-info-box"><strong>Работна позиция:</strong> @Model.Position</div>
+            <div class="details-info-box"><strong>Местоположение:</strong> @Model.Location</div>
+            <div class="details-info-box"><strong>Заплата:</strong> @Model.Salary</div>
         </div>
 
         <div id="job-requirement-container">
-            <div id="job-requirement-title">Requirements</div>
+            <div id="job-requirement-title">
+                Изисквания за работа
+            </div>
+
             <p id="job-requirement-text">
                 @Model.Requirement
             </p>
         </div>
 
-        <button id="job-apply-btn">Apply Now</button>
+        <button id="job-apply-btn">Кандидатствай</button>
 
         <div id="details-description">
-            <div id="details-description-title">Description</div>
+            <div id="details-description-title">Описание</div>
             <p id="details-description-text">
                 @Model.Description
             </p>
@@ -43,12 +46,12 @@
 
         @if (Model.Reviews.Count == 0)
         {
-            <p id="no-reviews-text">No reviews at the moment.</p>
+            <p id="no-reviews-text">Няма публикувани ревюта.</p>
         }
         else
         {
             <h1 id="reviews-title">
-                Reviews
+                Ревюта
             </h1>
 
             <div id="reviews-main-container">

@@ -2,37 +2,37 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Влез";
 }
 
 <div id="log-in-main-container">
 <h1 id="log-in-h1-container">@ViewData["Title"]</h1>
     <form id="log-in-account" method="post">
-        <h2 id="log-in-h2-title">Log In To Your Account</h2>
+        <h2 id="log-in-h2-title">Влез в своя акаунт</h2>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
         <div class="flex-column">
-            <label>Email</label>
+            <label>Имейл</label>
         </div>
 
         <div class="inputForm" id="login-input-form-container">
             <div id="log-in-svg-container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 32 32" height="20"><g data-name="Layer 3" id="Layer_3"><path d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"></path></g></svg>
             </div>
-            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Email" />
+            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Имейл" />
         </div>
         <span asp-validation-for="Input.Email" class="text-danger"></span>
 
         <div class="flex-column">
-            <label>Password</label>
+            <label>Парола</label>
         </div>
 
         <div class="inputForm" id="login-input-form-container">
             <div id="log-in-svg-container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="-64 0 512 512" height="20"><path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path><path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path></svg>
             </div>
-            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Password" />
+            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Парола" />
         </div>
         <span asp-validation-for="Input.Password" class="text-danger"></span>
         <div class="checkbox mb-3" id="log-in-remember-me-container">
@@ -42,14 +42,14 @@
             </label>
         </div>
         <div>
-            <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+            <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Влез</button>
         </div>
         <div id="log-in-bottom-text">
             <p>
-                <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                <a id="forgot-password" asp-page="./ForgotPassword">Забравена парола?</a>
             </p>
             <p>
-                <a id="register-as-a-new-user" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Don't have an account?</a>
+                <a id="register-as-a-new-user" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Нямаш акаунт?</a>
             </p>
            @*  <p>
                 <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>

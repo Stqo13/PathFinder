@@ -6,7 +6,7 @@
 }
 
 <div id="my-offers-main-container">
-    <h2 id="my-offers-h2-title">My Course Offers</h2>
+    <h2 id="my-offers-h2-title">Моите оферти</h2>
     
     @if (Model.Any())
     {
@@ -18,16 +18,16 @@
                         <div id="my-offers-offer-info-container">
                             <h5 id="my-offers-h5-name">@course.Name</h5>
                             <p id="my-offers-info">
-                                <strong id="my-offers-info">Mode:</strong> @course.Mode |
-                                <strong id="my-offers-info">Start:</strong> @course.StartDate |
-                                <strong id="my-offers-info">End:</strong> @course.EndDate |
-                                <strong id="my-offers-info">Duration:</strong> @course.CourseDurationInWeeks weeks |
-                                <strong id="my-offers-info">Price:</strong> $@course.Price
+                                <strong id="my-offers-info">Начин на провеждане:</strong> @course.Mode |
+                                <strong id="my-offers-info">Начало:</strong> @course.StartDate |
+                                <strong id="my-offers-info">Край:</strong> @course.EndDate |
+                                <strong id="my-offers-info">Продължителност:</strong> @course.CourseDurationInWeeks седмици |
+                                <strong id="my-offers-info">Цена:</strong> $@course.Price
                             </p>
                         </div>
                         <div id="my-offers-btn-container">
-                            <a asp-area="" asp-route-id="@course.Id" asp-controller="Course" asp-action="Edit" class="my-offers-btn" id="my-offers-edit-view-details-btn">Edit</a>
-                            <a asp-area="" asp-route-id="@course.Id" asp-controller="Course" asp-action="Delete" class="my-offers-btn" id="my-offers-delete-btn">Delete</a>
+                            <a asp-area="" asp-route-id="@course.Id" asp-controller="Course" asp-action="Edit" class="my-offers-btn" id="my-offers-edit-view-details-btn">Редактирай</a>
+                            <a asp-area="" asp-route-id="@course.Id" asp-controller="Course" asp-action="Delete" class="my-offers-btn" id="my-offers-delete-btn">Изртий</a>
                         </div>
                     </div>
                 }
@@ -36,7 +36,7 @@
     }
     else
     {
-        <p class="text-center text-muted">You haven't posted any course offers yet.</p>
+        <p class="text-center text-muted">Все още не си качил оферти.</p>
     }
 </div>
 

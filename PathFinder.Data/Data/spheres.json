@@ -1,271 +1,270 @@
 ﻿[
   {
     "Id": 1,
-    "Name": "Healthcare"
+    "Name": "Здравеопазване"
   },
   {
     "Id": 2,
-    "Name": "Technology"
+    "Name": "Технологии"
   },
   {
     "Id": 3,
-    "Name": "Business & Finance"
+    "Name": "Бизнес и финанси"
   },
   {
     "Id": 4,
-    "Name": "Education"
+    "Name": "Образование"
   },
   {
     "Id": 5,
-    "Name": "Creative Arts"
+    "Name": "Творчески изкуства"
   },
   {
     "Id": 6,
-    "Name": "Computer Science"
+    "Name": "Компютърни науки"
   },
   {
     "Id": 7,
-    "Name": "Graphic Design"
+    "Name": "Графичен дизайн"
   },
   {
     "Id": 8,
-    "Name": "Marketing & Management"
+    "Name": "Маркетинг и управление"
   },
   {
     "Id": 9,
-    "Name": "Architecture"
+    "Name": "Архитектура"
   },
   {
     "Id": 10,
-    "Name": "Facility Management"
+    "Name": "Управление на съоръжения"
   },
   {
     "Id": 11,
-    "Name": "Engineering"
+    "Name": "Инженерство"
   },
   {
     "Id": 12,
-    "Name": "Web Development"
+    "Name": "Уеб разработка"
   },
   {
     "Id": 13,
-    "Name": "Back-End Programming"
+    "Name": "Back-End програмиране"
   },
   {
     "Id": 14,
-    "Name": "Front-End Programming"
+    "Name": "Front-End програмиране"
   },
   {
     "Id": 15,
-    "Name": "Adobe Designing"
+    "Name": "Adobe дизайн"
   },
   {
     "Id": 16,
-    "Name": "Beauty and Personal Care Industry"
+    "Name": "Индустрия за красота и лична грижа"
   },
   {
     "Id": 17,
-    "Name": "Service Industry"
+    "Name": "Услуги"
   },
   {
     "Id": 18,
-    "Name": "Health and Wellness Industry"
+    "Name": "Здраве и социални грижи"
   },
   {
     "Id": 19,
-    "Name": "Automotive Industry"
+    "Name": "Автомобилна индустрия"
   },
   {
     "Id": 20,
-    "Name": "Mechanical Engineering"
+    "Name": "Механично инженерство"
   },
   {
     "Id": 21,
-    "Name": "Transportation and Logistics"
+    "Name": "Транспорт и логистика"
   },
   {
     "Id": 22,
-    "Name": "Skilled Trades"
+    "Name": "Квалифицирани занаяти"
   },
   {
     "Id": 23,
-    "Name": "Sustainability and Green Technologies"
+    "Name": "Устойчивост и зелени технологии"
   },
   {
     "Id": 24,
-    "Name": "Medical Specialties"
+    "Name": "Медицински специалности"
   },
   {
     "Id": 25,
-    "Name": "Cosmetic Dermatology"
+    "Name": "Естетична дерматология"
   },
   {
     "Id": 26,
-    "Name": "Pharmaceutical Industry"
+    "Name": "Фармация"
   },
   {
     "Id": 27,
-    "Name": "STEM Education"
+    "Name": "STEM образование"
   },
   {
     "Id": 28,
-    "Name": "Public Sector"
+    "Name": "Публичен сектор"
   },
   {
     "Id": 29,
-    "Name": "Curriculum Development"
+    "Name": "Разработка на учебни програми"
   },
   {
     "Id": 30,
-    "Name": "Non-profit Education"
+    "Name": "Неправителствено образование"
   },
   {
     "Id": 31,
-    "Name": "Cleaning and Maintenance"
+    "Name": "Почистване и поддръжка"
   },
   {
     "Id": 32,
-    "Name": "Public Services"
+    "Name": "Обществени услуги"
   },
   {
     "Id": 33,
-    "Name": "Environmental Services"
+    "Name": "Екологични услуги"
   },
   {
     "Id": 34,
-    "Name": "Education Support Services"
+    "Name": "Образователни услуги"
   },
   {
     "Id": 35,
-    "Name": "Food and Beverage Services"
+    "Name": "Хранителни и напиткови услуги"
   },
   {
     "Id": 36,
-    "Name": "Customer Service"
+    "Name": "Обслужване на клиенти"
   },
   {
     "Id": 37,
-    "Name": "Event Management"
+    "Name": "Управление на събития"
   },
   {
     "Id": 38,
-    "Name": "Nightlife and Entertainment"
+    "Name": "Нощен живот и развлекателна индустрия"
   },
   {
     "Id": 39,
-    "Name": "Tourism and Leisure"
+    "Name": "Туризъм и отдих"
   },
   {
     "Id": 40,
-    "Name": "Media and Journalism"
+    "Name": "Медии и журналистика"
   },
   {
     "Id": 41,
-    "Name": "Marketing & Communications"
+    "Name": "Маркетинг и комуникации"
   },
   {
     "Id": 42,
-    "Name": "Digital Marketing"
+    "Name": "Цифров маркетинг"
   },
   {
     "Id": 43,
-    "Name": "Freelancing"
+    "Name": "Фрилансинг"
   },
   {
     "Id": 44,
-    "Name": "Film Production"
+    "Name": "Продукция на филми"
   },
   {
     "Id": 45,
-    "Name": "Media and Entertainment"
+    "Name": "Медии"
   },
   {
     "Id": 46,
-    "Name": "Software Development"
+    "Name": "Разработка на софтуер"
   },
   {
     "Id": 47,
-    "Name": "Security"
+    "Name": "Сигурност"
   },
   {
     "Id": 48,
-    "Name": "Visual Arts"
+    "Name": "Визуални изкуства"
   },
   {
     "Id": 49,
-    "Name": "Retail Pharmacy"
+    "Name": "Търговия с лекарства"
   },
   {
     "Id": 50,
-    "Name": "Clinical Care"
+    "Name": "Клинични грижи"
   },
   {
     "Id": 51,
-    "Name": "Reproductive Health"
+    "Name": "Репродуктивно здраве"
   },
   {
     "Id": 52,
-    "Name": "Women’s Health"
+    "Name": "Женско здраве"
   },
   {
     "Id": 53,
-    "Name": "Cosmetic Surgery"
+    "Name": "Козметична хирургия"
   },
   {
     "Id": 54,
-    "Name": "Spa and Wellness"
+    "Name": "СПА и уелнес"
   },
   {
     "Id": 55,
-    "Name": "Personal Grooming"
+    "Name": "Лични грижи"
   },
   {
     "Id": 56,
-    "Name": "Salon Management"
+    "Name": "Управление на салони"
   },
   {
     "Id": 57,
-    "Name": "Hairdressing and Styling"
+    "Name": "Козметика и фризьорство"
   },
   {
     "Id": 58,
-    "Name": "Mathematics"
+    "Name": "Математика"
   },
   {
     "Id": 59,
-    "Name": "Restaurant Hospitality"
+    "Name": "Хотелиерство и ресторантьорство"
   },
   {
     "Id": 60,
-    "Name": "Cultural Studies"
+    "Name": "Културни изследвания"
   },
   {
     "Id": 61,
-    "Name": "Language & Linguistics"
+    "Name": "Езици и лингвистика"
   },
   {
     "Id": 62,
-    "Name": "Cooking"
+    "Name": "Готварство"
   },
   {
     "Id": 63,
-    "Name": "Physical Education"
+    "Name": "Физическо възпитание"
   },
   {
     "Id": 64,
-    "Name": "Fitness and Personal Training"
+    "Name": "Фитнес и лични тренировки"
   },
   {
     "Id": 65,
-    "Name": "Audio Engineering"
+    "Name": "Аудио инженерство"
   },
   {
     "Id": 66,
-    "Name": "Music Composition"
+    "Name": "Музикална композиция"
   },
   {
     "Id": 67,
-    "Name": "Music Technology"
+    "Name": "Музикални технологии"
   }
 ]
-

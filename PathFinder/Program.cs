@@ -31,6 +31,11 @@ namespace PathFinder
             builder.Services
                 .Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 
+            IConfigurationSection localizationSection = builder.Configuration.GetSection(LocalizationSettings.SectionName);
+
+            builder.Services.Configure<LocalizationSettings>(localizationSection);
+            builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
             builder.Services.ConfigureApplicationCookie(cfg =>
             {
                 cfg.LoginPath = "/Identity/Account/Login";
@@ -41,9 +46,27 @@ namespace PathFinder
                 .RegisterRepositories();
 
             builder.Services.AddRazorPages();
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews()
+                .AddViewLocalization();
 
             var app = builder.Build();
+
+            var localizationSettings = builder.Configuration
+                .GetSection(LocalizationSettings.SectionName)
+                .Get<LocalizationSettings>();
+
+            var supportedCultures = localizationSettings.SupportedCultures
+                .Select(c => new System.Globalization.CultureInfo(c))
+                .ToList();
+
+            var localizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture(localizationSettings.DefaultCulture),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            };
+
+            app.UseRequestLocalization(localizationOptions);
 
             using (var scope = app.Services.CreateScope())
             {

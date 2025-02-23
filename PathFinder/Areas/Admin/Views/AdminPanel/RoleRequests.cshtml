@@ -2,14 +2,14 @@
 @model AdminRoleRequestsViewModel
 
 @{
-    ViewData["Title"] = "Role Requests";
+    ViewData["Title"] = "Заявки за роли";
 }
 
 <h2 class="text-center">@ViewData["Title"]</h2>
 
 <div class="role-requests-container">
     <section class="role-requests-section">
-        <h3>Company Requests</h3>
+        <h3>Заявки за "Компания"</h3>
         <div class="role-request-list">
             @foreach (var request in Model.CompanyRequests)
             {
@@ -44,7 +44,7 @@
     </section>
 
     <section class="role-requests-section">
-        <h3>Institution Requests</h3>
+        <h3>Заявки за "Институция"</h3>
         <div class="role-request-list">
             @foreach (var request in Model.InstitutionRequests)
             {

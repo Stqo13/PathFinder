@@ -12,7 +12,7 @@ using PathFinder.Data;
 namespace PathFinder.Data.Migrations
 {
     [DbContext(typeof(PathFinderDbContext))]
-    [Migration("20250212200843_InitialMigration")]
+    [Migration("20250223215002_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -282,8 +282,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "6a358b17-ffbe-4ac9-8d20-92544e3b739d",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Ruse, ul. \"Hristo Yasenov\" 7",
-                            ConcurrencyStamp = "dbbec562-1cd9-41c2-876c-974eb6f3a1e3",
+                            Address = "България, Русе, ул. \"Христо Ясенов\" 7",
+                            ConcurrencyStamp = "7a32881b-45ef-4b3f-9329-6e994a073638",
                             DateOfBirth = new DateTime(1994, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "artacademy@gmail.com",
                             EmailConfirmed = true,
@@ -292,10 +292,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ARTACADEMY@GMAIL.COM",
                             NormalizedUserName = "ARTACADEMY123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEArDraM83HnLeiKSK9LI1ZC1LjfTt0fEESKEV3h2qHcOqAMhhRSK2LQck8LdENRrmg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELlIVvIpjS0faKQQvhkR7s4tkWAuSibJJrtJz5cg4JzT4QORIa11sVVGW/7G0jjaCA==",
                             PhoneNumber = "0897902119",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "1ceef9cc-3aa9-4a8e-a14e-aa61fc947853",
+                            SecurityStamp = "0494f8f5-3e19-4314-aa0b-9636b4440acd",
                             TwoFactorEnabled = true,
                             UserName = "artacademy123"
                         },
@@ -303,8 +303,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "fc7c5678-22b4-4650-af6e-4c5f90fa494d",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Sofia, ul. \"Tsar Asen\" 112",
-                            ConcurrencyStamp = "c3a562f3-1a54-4556-8c32-e4d721b0217f",
+                            Address = "България, София, ул. \"Цар Асен\" 112",
+                            ConcurrencyStamp = "7f5a1917-5834-4f60-9216-8d24aafee36c",
                             DateOfBirth = new DateTime(1994, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "globallingua@gmail.com",
                             EmailConfirmed = true,
@@ -313,10 +313,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "GLOBALLINGUA@GMAIL.COM",
                             NormalizedUserName = "GLOBALLINGUA123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBaPEIyPCBPJPfQ8mT05zy3inbcXvvdx08Gdr2qZgKxNoTWfJ5HUhFZjXzw1DgtWGQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFPcnSiMkudU5Ddp97w1kErAyu3BGhTgPXm6bI/fRIKAc7PT8PjfW1hNBmY3YSInkA==",
                             PhoneNumber = "0897662398",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "0aaf6745-f38a-48e7-986c-d1361c6e032f",
+                            SecurityStamp = "622d0707-6aab-4e25-9ed1-04d99417483d",
                             TwoFactorEnabled = true,
                             UserName = "globallingua123"
                         },
@@ -324,8 +324,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "723444b3-9434-4465-9044-f7e04fdcca2f",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Sofia, ul. \"Petar B. Velichkov\" 43",
-                            ConcurrencyStamp = "7fe2b73e-f304-42b8-83cb-4f5dcae4d70f",
+                            Address = "България, София, ул. \"Петър Б. Величков\" 43",
+                            ConcurrencyStamp = "6b42ee4d-fff8-4e0b-a7fd-387235a3730c",
                             DateOfBirth = new DateTime(1990, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "marketingacademy@gmail.com",
                             EmailConfirmed = true,
@@ -334,10 +334,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MARKETINGACADEMY@GMAIL.COM",
                             NormalizedUserName = "MARKETINGACADEMY123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFH2Pu5csIyh37L0d4esAJtNaLtqmCQpNEVxu4p1dol3QRtcGqdXa3LDEHknxuOhnA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPkcCGei77Rtva04VxfCQ42fmcIdYNu8oDa1GmLYsXY9MmwJLEJSRB0ZEufq6VIoJw==",
                             PhoneNumber = "0877742199",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "292111d0-b991-4430-86af-00a9a1fa6f28",
+                            SecurityStamp = "97cb03af-a0ef-4202-a0f1-0098514acb7a",
                             TwoFactorEnabled = true,
                             UserName = "marketingacademy123"
                         },
@@ -345,8 +345,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "428bcf46-40f2-47b2-ac4a-a49f570178ad",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Sofia, bul. \"Alexandur Malinov\" 78",
-                            ConcurrencyStamp = "951437f1-6984-4258-b162-08b4e4b38789",
+                            Address = "България, София, бул. \"Александър Малинов\" 78",
+                            ConcurrencyStamp = "964234d3-d7b1-400c-b29f-52aa18bc532e",
                             DateOfBirth = new DateTime(2000, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "softschool@gmail.com",
                             EmailConfirmed = true,
@@ -355,10 +355,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SOFTSCHOOL@GMAIL.COM",
                             NormalizedUserName = "SOFTSCHOOL123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMUxWxBcHXfzG/4pv8A6ExQrVyVZiLePSXwuLjZ49sRLpDRX51TZBIWn81LNwmc0Tg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEANQN6m1Q2r+oper0j9SuiunoG8vvJRk2VkphquW0BUO4c6lJgzzeoDm7keyM91LRw==",
                             PhoneNumber = "0878765781",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "11a7b035-ac56-48fb-940f-65c1ba4ef4c7",
+                            SecurityStamp = "165cead2-76b6-4502-933b-df8da922deb8",
                             TwoFactorEnabled = true,
                             UserName = "softschool123"
                         },
@@ -366,8 +366,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "3cf3fb4a-235e-4c93-b66f-c1557006e067",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Plovdiv, bul. \"Tsar Boris 3ti Obedinitel\"",
-                            ConcurrencyStamp = "82985539-9ab5-437c-92ea-4ec04f88d20c",
+                            Address = "България, Пловдив, бул. \"Цар Борис 3ти Обединител\"",
+                            ConcurrencyStamp = "270469c3-673f-4fe7-8bf7-5d176ff388b3",
                             DateOfBirth = new DateTime(1980, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "telerikikus@gmail.com",
                             EmailConfirmed = true,
@@ -376,10 +376,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TELERIKIKUS@GMAIL.COM",
                             NormalizedUserName = "TELERIKIKUS123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJ7tXxtUdDs/J9+cKEG3lWQe7NfpP6tn0Dq4Gv+6YHR40F8rfMCh6f9WJTbtv0ESBA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFqFIVB2O5fUfL6IB8TQolu0UO6zh90p30X/gnrTAZgku6afpczP/4RbogarqbneUQ==",
                             PhoneNumber = "0898769871",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "7011eae9-77bc-4db6-bdce-535dc941b156",
+                            SecurityStamp = "9c4cc962-9455-42d7-a7ed-88efe4d8e490",
                             TwoFactorEnabled = true,
                             UserName = "telerikikus123"
                         },
@@ -387,8 +387,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "fa360a62-9355-474a-824d-aaa85d9fbd65",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Stara Zagora, ul. \"Stefan Stambolov\" 38",
-                            ConcurrencyStamp = "68232dd0-a7e2-4cc5-9831-185e7135bf57",
+                            Address = "България, Стара Загора, ул. \"Стефан Стамболов\" 38",
+                            ConcurrencyStamp = "4279fb71-0c37-43c2-93ac-92ac396d52c0",
                             DateOfBirth = new DateTime(2001, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "wittmath@gmail.com",
                             EmailConfirmed = true,
@@ -397,10 +397,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "WITTMATH@GMAIL.COM",
                             NormalizedUserName = "WITTMATH123",
-                            PasswordHash = "AQAAAAIAAYagAAAAECkImnV0YMY5RURWpX0+/DpJ+S3m4LK6TQfrCsKiHy6+WChyC9GiQXzV8Z6N56Aqnw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDnt+V84MtaaZ1F168VW+rYFBht/fS0Ib2fhPxDKr04YH1hlEGREdRvWPInUmkStCQ==",
                             PhoneNumber = "0880796431",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "f9f2ccd3-a954-4348-afae-863a983353aa",
+                            SecurityStamp = "5998dca3-d23e-4074-9e7c-607392e48d7b",
                             TwoFactorEnabled = true,
                             UserName = "wittmath123"
                         },
@@ -408,8 +408,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "35e6291c-73f5-48ef-8f3e-5fda2c4ddee1",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Varna, ul. \"Oborishte\" 13A",
-                            ConcurrencyStamp = "a934d774-7c8d-4872-8e71-0837b2e0c277",
+                            Address = "България, Варна, ул. \"Оборище\" 13А",
+                            ConcurrencyStamp = "382f10ef-769f-486a-b297-162167831ce4",
                             DateOfBirth = new DateTime(1991, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tastecraftacademy@gmail.com",
                             EmailConfirmed = true,
@@ -418,10 +418,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TASTECRAFTACADEMY@GMAIL.COM",
                             NormalizedUserName = "TASTECRAFTACADEMY123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEH5M1RJdOYYUcwU9zdkdJqnDY1dVYaLEFCfHg7ZJ5DoGTKnlUv/tL6NaN/+Je+2hIA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEN9mgzFK6/pvDldbHy3fXtDQcEyiV4elOe/69mUHLH2EuU4hoJYPkYATmlOEdRUCLg==",
                             PhoneNumber = "0895002619",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "4c77695b-a43a-4181-8438-4ba4041f2123",
+                            SecurityStamp = "e16e4eb9-1098-4bab-a6e0-0417c2b54189",
                             TwoFactorEnabled = true,
                             UserName = "tastecraftacademy123"
                         },
@@ -429,8 +429,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "e0d6328d-f003-4bb1-8daa-21dcf49db469",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Pleven, ul. \"Vasil Petleshkov\" 6",
-                            ConcurrencyStamp = "c6b6af2b-6147-4fa1-8f8f-be22f5143fba",
+                            Address = "България, Плевен, ул. \"Васил Петлешков\" 6",
+                            ConcurrencyStamp = "909c3e91-780a-49e0-acdf-285573e5d0ef",
                             DateOfBirth = new DateTime(2002, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "chick@gmail.com",
                             EmailConfirmed = true,
@@ -439,10 +439,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CHIC@GMAIL.COM",
                             NormalizedUserName = "CHIC123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBi+BKdLTeOPAk/KwRQC/T7kAUoZis4k5qAuIdb0BSA+ToFY/emUMrYYeExQHKOdiQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGpO2RmgQDbPGWN+d+ki595YGjqi/ZeJvMiRPa0az3bRlrdpTIQRe++GsaY3K5TEGA==",
                             PhoneNumber = "0898769871",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "9099f4c8-1508-4a30-88a3-d046cec9c366",
+                            SecurityStamp = "bb353dc9-3e5d-440f-b9e1-20913f1a1125",
                             TwoFactorEnabled = true,
                             UserName = "chic123"
                         },
@@ -450,8 +450,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "eb1f5c9f-186b-4a93-a9bd-64a6055c61cd",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Sliven,bul. \"Tsar Osvoboditel\" 15А",
-                            ConcurrencyStamp = "f6a56547-71ef-4ba7-a439-774dc344a9a5",
+                            Address = "България, Сливен, бул. \"Цар Освободител\" 15А",
+                            ConcurrencyStamp = "547407b6-b93b-43ac-9555-adfc7fc7940c",
                             DateOfBirth = new DateTime(2003, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "theurbangrillandbar@gmail.com",
                             EmailConfirmed = true,
@@ -460,10 +460,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "THEURBANGRILLANDBAR@GMAIL.COM",
                             NormalizedUserName = "THEURBANGRILLANDBAR123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEM16/iTEhjNwynC8vYftABD7g+mjPTWF/VPmqVXqmY7GcvAU/5lSF+BMfBhYMJ4Z0Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEORrdH9f2rhvqEvfOz/0DY18vA1mAbnr8/MrOb6mRWMZ+/buJ32Jt+v9EIfZrxSqMA==",
                             PhoneNumber = "0878439866",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "23b79b28-0e77-4479-8d72-e90156813dc4",
+                            SecurityStamp = "ed986a8e-95f3-4707-882e-67ae0a65fd0c",
                             TwoFactorEnabled = true,
                             UserName = "theurbangrillandbar123"
                         },
@@ -471,8 +471,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "7dbc12c7-18ec-4af2-a5b7-877ff0df3faf",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Vrana, ul. \"Kozloduy\" 4",
-                            ConcurrencyStamp = "fcf2752f-221e-4e98-a4e5-78920acd32a9",
+                            Address = "България, Врана, ул. \"Козлодуй\" 4",
+                            ConcurrencyStamp = "fed474ff-12e7-4ce6-9d3e-f1000c9faefb",
                             DateOfBirth = new DateTime(2006, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "imaginationacademy@gmail.com",
                             EmailConfirmed = true,
@@ -481,10 +481,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "IMAGINATIONACADEMY@GMAIL.COM",
                             NormalizedUserName = "IMAGINATIONACADEMY123",
-                            PasswordHash = "AQAAAAIAAYagAAAAECaKwUnEB29o4LHyusVCDoUMvHhRTFEVWG02Dj0Y7kh59nAHuNDYfUu742mJejSxMQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGE7U6xuX00TcscIq0I6Cd/tbcg+QIIYd6QOQzhzxu7eqlQeiylp0svOdzT8Sj2oVQ==",
                             PhoneNumber = "0878433392",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "ba8108ba-9cf9-4ba6-8150-2fe5b2d78b4e",
+                            SecurityStamp = "7ce88b26-9b72-481f-a17f-cd4b98f2712b",
                             TwoFactorEnabled = true,
                             UserName = "imaginationacandemy123"
                         },
@@ -492,8 +492,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "17585a62-c173-4c68-9e4a-2ba93a419b21",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Ruse, bul. \"Lipnik\" 8",
-                            ConcurrencyStamp = "f7af9ab0-5ab4-4cf0-8761-a2152c22e504",
+                            Address = "България, Русе, бул. \"Липник\" 8",
+                            ConcurrencyStamp = "3e321087-5dce-4ec1-a97c-0301bb24d0e9",
                             DateOfBirth = new DateTime(1986, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "healthcarecentre@gmail.com",
                             EmailConfirmed = true,
@@ -502,10 +502,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "HEALTHCARECENTRE@GMAIL.COM",
                             NormalizedUserName = "HEALTHCARECENTRE123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEILZKgulFJfKbwtD3lP4DFvy9fgnTz/PHVa6heFBrs4XIC77o14GwRmXpUB4mareAQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDOLPV2FwFCS0BAWw/mMAHzYdW/JTkjPS0DIkfjR7qSr2D4e7sZr89urWSgH8lJMDA==",
                             PhoneNumber = "0870063844",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "a69df97f-3ba8-4a18-8fc1-73a41ca7fa78",
+                            SecurityStamp = "7674ef63-56e6-42e1-b6a2-cc894a725f0f",
                             TwoFactorEnabled = true,
                             UserName = "healthcarecentre123"
                         },
@@ -513,8 +513,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "596c6add-eaae-4890-8d4d-38aa5a0671bd",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Pleven, ul. \"Ivan Vazov\"",
-                            ConcurrencyStamp = "60fbd6b3-5689-48e4-a422-2d82773dc346",
+                            Address = "България, Плевен, ул. \"Иван Вазов\"",
+                            ConcurrencyStamp = "f14ebbc9-a2fb-4c35-bb0f-fe1aaddb415e",
                             DateOfBirth = new DateTime(1985, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "primaryinovativeschool.com",
                             EmailConfirmed = true,
@@ -523,10 +523,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PRIMARYINOVATIVESCHOOL@GMAIL.COM",
                             NormalizedUserName = "PRIMARYINOVATIVESCHOOL123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJr2Wm0Tybb84YPsH2BzeBuplF5E/VJjq4n1nhdyHZVv1hS1CmHySjjt7ao+QDqFSA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEExVBRlJUDJUYS9HOTdAfZh8rlO2zRVr7x/AAa9tHFuS/haWnxaodQ5gq0b4TNfzvg==",
                             PhoneNumber = "0890811871",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "6d1df223-96f3-4dd4-8eda-3a9036996856",
+                            SecurityStamp = "c3165457-c3c8-4a25-a943-2a7611c6a540",
                             TwoFactorEnabled = true,
                             UserName = "primaryinovativeschool123"
                         },
@@ -535,7 +535,7 @@ namespace PathFinder.Data.Migrations
                             Id = "16226cef-b670-447e-99a9-b627cb16ae0b",
                             AccessFailedCount = 0,
                             Address = "Bulgaria, Ruse, ул. \"Rila\" 5",
-                            ConcurrencyStamp = "a3f9ec63-49d2-466b-ab80-443699520697",
+                            ConcurrencyStamp = "ecee7afa-1194-48ff-98cb-3ee63ecf493f",
                             DateOfBirth = new DateTime(2016, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "sttuning@gmail.com",
                             EmailConfirmed = true,
@@ -544,10 +544,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "STTUNING@GMAIL.COM",
                             NormalizedUserName = "STTUNING123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFQV1sMFmdzy9rvGlSbp1lZnyIIS3+hvDlBFp+OrNMpWs0YjWrgya7GUGvzZhk5bgw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEN1O25n/lwrwb4XmEPe4RSIMMuwNVNFL3ukovd9xpOMk2ceQovnRkHvuJn49kLE98Q==",
                             PhoneNumber = "0876794891",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "5b58c09b-1d17-4eb7-9ab0-9432fcd92590",
+                            SecurityStamp = "9ac9e904-a076-4401-92b6-31d8ab5d8ab3",
                             TwoFactorEnabled = true,
                             UserName = "sttuning123"
                         },
@@ -555,8 +555,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "b3693b0c-9c11-48ee-a3be-db37d5439ab0",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Ruse, ul. \"Рила\" 5",
-                            ConcurrencyStamp = "8012eca4-a958-4fde-8204-2f68c43f9e4b",
+                            Address = "България, Русе, ул. \"Рила\" 5",
+                            ConcurrencyStamp = "b6aeda73-6cfb-47a1-8a7c-9fb667e1c299",
                             DateOfBirth = new DateTime(1990, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "codecrafters@gmail.com",
                             EmailConfirmed = true,
@@ -565,10 +565,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CODECRAFTERS@GMAIL.COM",
                             NormalizedUserName = "CODECRAFTERS123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHWCZKZEZfibhsBXtd+2kzlcfOQkw/h4sCiTZH9DU6hntsL/ND34StpnYsvjfsVm1A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDokRmKZ2onGwWfBaxiRv2tdJAO9Oe0kiUkrv7eKHtXIUjxtyF570Z21vit580EzSg==",
                             PhoneNumber = "0877769431",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "d5404829-abff-4add-8fa4-662f55799315",
+                            SecurityStamp = "94377c9a-718c-4828-95d8-624058c81b75",
                             TwoFactorEnabled = true,
                             UserName = "codecrafters123"
                         },
@@ -576,20 +576,20 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "e2041514-c5ce-4e68-8956-f92298aa3b74",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Kazanluk, ul. \"Hemus\" 5",
-                            ConcurrencyStamp = "b6804a99-1aa1-4422-a03a-86f870568392",
+                            Address = "България, Казанлък, ул. \"Хемус\" 5",
+                            ConcurrencyStamp = "34ae6a09-d39c-4ad5-982a-75971c80bcd3",
                             DateOfBirth = new DateTime(2004, 12, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "teodoranedkova@gmail.com",
                             EmailConfirmed = true,
-                            FirstName = "Teodora",
-                            LastName = "Nedkova",
+                            FirstName = "Теодора",
+                            LastName = "Недкова",
                             LockoutEnabled = false,
                             NormalizedEmail = "TEODORANEDKOVA@GMAIL.COM",
                             NormalizedUserName = "TEODORANEDKOVA123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEK9fJ7DZlxiEbaFlE5UQrgwQorQyqDkDzbttztDuF/6ouk5jeSGYylt9aQLbzv/ioA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJMo1HAs0//jKiyGG4ibf7qL5Ld5v1NZ/6YX24FCy8NtV/lVSJyCig2yppKH0Ll2Qw==",
                             PhoneNumber = "0879859335",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "48391566-a0cb-4138-992a-ff6edc27ae1a",
+                            SecurityStamp = "3aa69434-96db-44e6-b43f-d0b32b96eef4",
                             TwoFactorEnabled = true,
                             UserName = "teodoranedkova123"
                         },
@@ -597,20 +597,20 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "21b4ac01-42ec-4df2-b48c-ebe1cf26adf0",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Kazanluk, ul. \"Petko Stainov\" 6",
-                            ConcurrencyStamp = "468cd33a-2531-4921-ae2a-7248eadc1b34",
+                            Address = "България, Казанлък, ул. \"Петко Стайнов\" 6",
+                            ConcurrencyStamp = "6edc1034-fc8d-440c-87e4-5e5ab92dd834",
                             DateOfBirth = new DateTime(2004, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "stefandimitrov@gmail.com",
                             EmailConfirmed = true,
-                            FirstName = "Stefan",
-                            LastName = "Dimitrov",
+                            FirstName = "Стефан",
+                            LastName = "Димитров",
                             LockoutEnabled = false,
                             NormalizedEmail = "STEFANDIMITROV@GMAIL.COM",
                             NormalizedUserName = "STEFANDIMITROV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEML/nV5IbN9mV2EorFrmC/blyBek78Y80GoC44X/d+3+yPbsp8I3vG+tOblPe9VH3Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH34iVlMhJvOhJOGpiPkz8GXPwCpPMIJV8mp6Two30VYYLe9wNEK4daL0LpSM1d6cQ==",
                             PhoneNumber = "0890854939",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "c9d3b979-133c-48ea-82e9-4dca80334713",
+                            SecurityStamp = "84a1389d-4683-43c2-b596-d5e43cdd7d4c",
                             TwoFactorEnabled = true,
                             UserName = "stefandimitrov123"
                         },
@@ -618,20 +618,20 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "e47b8b58-2e3a-4f02-aee5-485d3e6db2b2",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Kazanluk, ul. \"Dobri Chintulov\" 5",
-                            ConcurrencyStamp = "aa9225a5-1010-44de-a3b3-e69c8a3d9da9",
+                            Address = "България, Казанлък, ул. \"Добри Чинтулов\" 5",
+                            ConcurrencyStamp = "7fcf373c-e4fe-4160-9f55-03100cf4c226",
                             DateOfBirth = new DateTime(2005, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "alexstefanov@gmail.com",
                             EmailConfirmed = true,
-                            FirstName = "Alex",
-                            LastName = "Stefanov",
+                            FirstName = "Алекс",
+                            LastName = "Стефанов",
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEXSTEFANOV@GMAIL.COM",
                             NormalizedUserName = "ALEXSTEFANOV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAENGfvAMl+lQLhEoa70gsxygX3TFHF51EJJV2KO9s7xT5/DFiVghxT6WSbfuIC5gn0Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPahyCb5fYY7gOAkWtj8zAcYSowDIdkRVUpj/zTdoel/1iR4k1Sgq7bjpEG19kGX6g==",
                             PhoneNumber = "0883856039",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "dacd0e52-060f-4e32-8b5c-a6b8d6de1e57",
+                            SecurityStamp = "78537c46-7c5f-4a6e-945a-d7849d2c8d60",
                             TwoFactorEnabled = true,
                             UserName = "alexstefanov123"
                         },
@@ -639,20 +639,20 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "9e547484-9ea8-45e6-a488-d657f6f1c598",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Kazanluk, ul. \"General Gurko\" 4",
-                            ConcurrencyStamp = "beb5469b-747c-499f-b713-92e5d5f7a6b5",
+                            Address = "България, Казанлък, ул. \"Генерал Гурко\" 4",
+                            ConcurrencyStamp = "19bc5728-d2e8-410e-862c-3635cb4148cd",
                             DateOfBirth = new DateTime(2002, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "monikapetrova@gmail.com",
                             EmailConfirmed = true,
-                            FirstName = "Monika",
-                            LastName = "Petrova",
+                            FirstName = "Моника",
+                            LastName = "Петрова",
                             LockoutEnabled = false,
                             NormalizedEmail = "MONIKAPETROVA@GMAIL.COM",
                             NormalizedUserName = "MONIKAPETROVA123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJYfMgk6LdHzRaDOGNtfXDBVe7daw72GFh1RPyZKbcwEBHH6WpSB+rOGkf063DMTag==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEB1Kib2n4oxCE5dxSDmyyxH52sDGSvZ5FAkAETzxGqBjw7e4CHy/08t6d9nEJKMH0g==",
                             PhoneNumber = "0898760394",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "6f612ec2-74fc-4c7f-8ac7-fd6d9f3d4fe9",
+                            SecurityStamp = "26aaf9f7-f58f-44b7-89d4-264f8a535003",
                             TwoFactorEnabled = true,
                             UserName = "monikapetrova123"
                         },
@@ -660,20 +660,20 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "e8d223af-7285-41c5-8c38-9e6989d4410d",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Kazanluk, ul. \"General Stoletov\" 3",
-                            ConcurrencyStamp = "f145e535-5df4-4858-8ef3-98ffdd80d453",
+                            Address = "България, Казанлък, ул. \"Генерал Стоянов\" 3",
+                            ConcurrencyStamp = "d38f77f8-8d9e-4de3-9331-42859b968e82",
                             DateOfBirth = new DateTime(2001, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "iliqmilenov@gmail.com",
                             EmailConfirmed = true,
-                            FirstName = "Iliq",
-                            LastName = "Milenov",
+                            FirstName = "Илия",
+                            LastName = "Миленов",
                             LockoutEnabled = false,
                             NormalizedEmail = "ILIQMILENOV@GMAIL.COM",
                             NormalizedUserName = "ILIQMILENOV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBVLS50R5yjK1K1PLf4VSywk7FvMP3xdEG35dZGRKVpQQ5+ztGdC/JHp8/LsNeGsFA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMI+S0GZRrYgBr56txTjnFR1EVbUhZdWGnCeQUL1gFBYLER3vEki+452vuRRm9Sadg==",
                             PhoneNumber = "0895068785",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "04a284c4-e946-4d11-9073-d08f6c89bf5d",
+                            SecurityStamp = "e8facd9f-1c69-473e-bc7c-f34ef0c59963",
                             TwoFactorEnabled = true,
                             UserName = "iliqmilenov123"
                         },
@@ -681,20 +681,20 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "d444522c-71c1-4cc9-b815-4ea25a49f17b",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Kazanluk, ul. \"Georgi Sava Rakovski\" 7",
-                            ConcurrencyStamp = "bb295ba8-e592-43d9-b831-fb452afd86bd",
+                            Address = "България, Казанлък, ул. \"Георги Сава Раковски\" 7",
+                            ConcurrencyStamp = "b0a6ca42-55d9-45cb-b98e-02eb8cc2e986",
                             DateOfBirth = new DateTime(1998, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "atanasgudov@gmail.com",
                             EmailConfirmed = true,
-                            FirstName = "Atanas",
-                            LastName = "Gudov",
+                            FirstName = "Атанас",
+                            LastName = "Гудов",
                             LockoutEnabled = false,
                             NormalizedEmail = "ATANASGUDOV@GMAIL.COM",
                             NormalizedUserName = "ATANASGUDOV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEB3BZcS6ySez+b3B9gNenGuvc1w0UNMGjGgbeFYoBfbL2vgz90gdSMQitqY9TnJIQQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIDOgLTpsAg/kIkCgOaRCXuNzjAJLyt5xNUp6lFmMJDK5NSBUKH3PkGWDE7Hk/8I2g==",
                             PhoneNumber = "0885248739",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "8fe58529-1dd2-401c-8a2b-b5b401e0d2fe",
+                            SecurityStamp = "1ce60d55-a3f7-4221-8c09-d80f7ad209c1",
                             TwoFactorEnabled = true,
                             UserName = "atanasgudov123"
                         },
@@ -702,20 +702,20 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "b93fa043-cdea-4bd9-9d0b-7b16ee7c5355",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Plovdiv, ul. \"Georgi Rakovski\" 7",
-                            ConcurrencyStamp = "9538d21f-393e-4563-a49c-ea3de8bc16e6",
+                            Address = "България, Пловдив, ул. \"Георги Раковски\" 7",
+                            ConcurrencyStamp = "33b5922d-8e17-4393-aa24-b10db3467534",
                             DateOfBirth = new DateTime(1989, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "simonamincheva@gmail.com",
                             EmailConfirmed = true,
-                            FirstName = "Simona",
-                            LastName = "Mincheva",
+                            FirstName = "Симона",
+                            LastName = "Минчева",
                             LockoutEnabled = false,
                             NormalizedEmail = "SIMONAMINCHEVA@GMAIL.COM",
                             NormalizedUserName = "SIMONAMINCHEVA123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEF2nSc0QGXwgo3QclZFAqrMW/dOie3X9W3gCpqu7yGt2VK6pzXQcEcFVjAcCfQzwAw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECXF2age43WfsTPqSCK0Fkx8hGdJosfr6IzamdpRC2Me0wMWn2uiaOrIJSLbOO5Khw==",
                             PhoneNumber = "0897448199",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "f0119f62-88d0-4baa-acc5-772fb7bacd44",
+                            SecurityStamp = "a4586e54-4bb0-4aad-b4bd-258f56ab687f",
                             TwoFactorEnabled = true,
                             UserName = "simonamincheva123"
                         },
@@ -723,20 +723,20 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "7d089603-dc80-415a-913b-f24b1a90b5f1",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Pleven, ul. \"Hadzi Dimitur\" 10",
-                            ConcurrencyStamp = "75eb7abf-dab4-4831-95ff-697f5e4a4462",
+                            Address = "България, Плевен, ул. \"Хаджи Димитър\" 10",
+                            ConcurrencyStamp = "1a72882d-9cd2-4cd7-bbff-795290dbb1fb",
                             DateOfBirth = new DateTime(1995, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "georgivasilev@gmail.com",
                             EmailConfirmed = true,
-                            FirstName = "Georgi",
-                            LastName = "Vasilev",
+                            FirstName = "Георги",
+                            LastName = "Василев",
                             LockoutEnabled = false,
                             NormalizedEmail = "GEORGIVASILEV@GMAIL.COM",
                             NormalizedUserName = "GEORGIVASILEV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAELCoQwlgnRd8cL5KCrPoI0E9UC/8KzzVXRGcsU79bvHWJal+C66vr+g6xhtGyWHE7Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAupNb4KdWjBkszjr3R5M8qfWt0JuVZ0mIihNe4QWAaUcLYI9i1SmiABOVJXWu9FLg==",
                             PhoneNumber = "0804442391",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "c59e7625-db80-4ae8-a5ac-c48173a87838",
+                            SecurityStamp = "d86a655d-29a5-4a8d-9e75-7fa2e583056c",
                             TwoFactorEnabled = true,
                             UserName = "georgivasilev123"
                         },
@@ -744,8 +744,8 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "ca145762-b5db-4836-b963-85eff67fb124",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Pleven, ul. \"Hristo Botev\" 4",
-                            ConcurrencyStamp = "1950eb34-df0f-4b4d-84c0-dda6ba0d2b63",
+                            Address = "България, Плевен, ул. \"Христо Ботев\" 4",
+                            ConcurrencyStamp = "0be520eb-8e88-4d67-a960-b5346b23f411",
                             DateOfBirth = new DateTime(1999, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "krasimirdraganov@gmail.com",
                             EmailConfirmed = true,
@@ -754,10 +754,10 @@ namespace PathFinder.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KRASIMIRDRAGANOV@GMAIL.COM",
                             NormalizedUserName = "KRASIMIRDRAGANOV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIqw+pQwYfDDKPhFbZGePYigdNZr8PeXhVFo6K1CYk6B3zd1md36DFgNm3NnrkZa5w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELAS9UWSl8PWjmMdyszIGMy56FJzRF2r33ASECsadCe46EN2aRA7MRCcB0O0mFYXsA==",
                             PhoneNumber = "0894555391",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "8f7bf771-c01b-4d9e-98fe-f45f99a962ab",
+                            SecurityStamp = "811b92e5-bafb-4fc6-a569-2d06c656e1c4",
                             TwoFactorEnabled = true,
                             UserName = "krasimirdraganov123"
                         },
@@ -765,20 +765,20 @@ namespace PathFinder.Data.Migrations
                         {
                             Id = "8d0c3b82-be4b-4fdf-834a-8e436176d9bd",
                             AccessFailedCount = 0,
-                            Address = "Bulgaria, Pleven, ul. \"Stefan Karadza\" 6",
-                            ConcurrencyStamp = "8eb2570b-568d-469d-a1d2-fec786ff64c8",
+                            Address = "България, Плевен, ул. \"Стефан Караджа\" 6",
+                            ConcurrencyStamp = "86210286-e0cd-44bd-943f-8a17e5a4b235",
                             DateOfBirth = new DateTime(1996, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "svetlingeorgiev@gmail.com",
                             EmailConfirmed = true,
-                            FirstName = "Svetlin",
-                            LastName = "Georgiev",
+                            FirstName = "Светлин",
+                            LastName = "Георгиев",
                             LockoutEnabled = false,
                             NormalizedEmail = "SVETLINGEORGIEV@GMAIL.COM",
                             NormalizedUserName = "SVETLINGEORGIEV123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHCEkpwPvMZig74Z9X7YbvOjvMV+Olf7hSu5Vjm+4L9iYo4ehOsBvEroXPqOTtk05w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEO5hoaY2wndOienrVxijiRB1LHRWUSjbWZsSuPlg0snXNF1Z7ZmvVSczljHpueaMw==",
                             PhoneNumber = "0894555881",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "b33b8e10-7911-411a-b9ed-f7a19d8aced3",
+                            SecurityStamp = "c655be04-027e-467e-a41a-c778fba27708",
                             TwoFactorEnabled = true,
                             UserName = "svetlingeorgiev123"
                         });
@@ -892,14 +892,14 @@ namespace PathFinder.Data.Migrations
                             Id = 1,
                             AverageStarRating = 4.0,
                             CourseDuration = 6,
-                            Description = "Learn the fundamentals of digital marketing, including SEO, PPC, and social media strategies.",
+                            Description = "Научете основите на дигиталния маркетинг, включително SEO, PPC и стратегии за социални медии.",
                             DurationInMinutes = 120,
                             EndDate = new DateTime(2027, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "723444b3-9434-4465-9044-f7e04fdcca2f",
                             IsDeleted = false,
-                            Location = "Remote",
+                            Location = "Отдалечено",
                             Mode = 0,
-                            Name = "Introduction to Digital Marketing",
+                            Name = "Въведение в дигиталния маркетинг",
                             Price = 1900m,
                             StartDate = new DateTime(2025, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -908,14 +908,14 @@ namespace PathFinder.Data.Migrations
                             Id = 2,
                             AverageStarRating = 4.5,
                             CourseDuration = 8,
-                            Description = "Master the basics of HTML, CSS, and JavaScript in this beginner-friendly web development course.",
+                            Description = "Овладейте основите на HTML, CSS и JavaScript в този курс за начинаещи.",
                             DurationInMinutes = 150,
                             EndDate = new DateTime(2028, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "428bcf46-40f2-47b2-ac4a-a49f570178ad",
                             IsDeleted = false,
-                            Location = "Remote",
+                            Location = "Отдалечено",
                             Mode = 0,
-                            Name = "Web Development for Beginners",
+                            Name = "Уеб разработка за начинаещи",
                             Price = 1350m,
                             StartDate = new DateTime(2025, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -924,14 +924,14 @@ namespace PathFinder.Data.Migrations
                             Id = 3,
                             AverageStarRating = 4.7999999999999998,
                             CourseDuration = 4,
-                            Description = "Dive into the world of data science and learn machine learning algorithms using Python and R.",
+                            Description = "Запознайте се с науката за данни и научете алгоритмите на машинното обучение с Python и R.",
                             DurationInMinutes = 180,
                             EndDate = new DateTime(2029, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "3cf3fb4a-235e-4c93-b66f-c1557006e067",
                             IsDeleted = false,
-                            Location = "Remote",
+                            Location = "Отдалечено",
                             Mode = 0,
-                            Name = "Data Science and Machine Learning",
+                            Name = "Наука за данни и машинно обучение",
                             Price = 450m,
                             StartDate = new DateTime(2025, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -940,14 +940,14 @@ namespace PathFinder.Data.Migrations
                             Id = 4,
                             AverageStarRating = 4.7000000000000002,
                             CourseDuration = 7,
-                            Description = "Gain a foundational understanding of AI, its applications, and how it is changing industries.",
+                            Description = "Получете основни познания за изкуствения интелект, неговите приложения и как променя индустриите.",
                             DurationInMinutes = 150,
                             EndDate = new DateTime(2025, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "428bcf46-40f2-47b2-ac4a-a49f570178ad",
                             IsDeleted = false,
-                            Location = "Remote",
+                            Location = "Отдалечено",
                             Mode = 0,
-                            Name = "Introduction to Artificial Intelligence",
+                            Name = "Въведение в изкуствения интелект",
                             Price = 1500m,
                             StartDate = new DateTime(2022, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -956,14 +956,14 @@ namespace PathFinder.Data.Migrations
                             Id = 5,
                             AverageStarRating = 4.5999999999999996,
                             CourseDuration = 9,
-                            Description = "Master the basics of Spanish, including vocabulary, grammar, and conversational skills, in an engaging and interactive environment.",
+                            Description = "Овладейте основите на испанския език, включително лексика, граматика и разговорни умения в ангажираща и интерактивна среда.",
                             DurationInMinutes = 90,
                             EndDate = new DateTime(2030, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "fc7c5678-22b4-4650-af6e-4c5f90fa494d",
                             IsDeleted = false,
-                            Location = "Bulgaria, Burgas, ul. \"Odrin\" 2",
+                            Location = "България, Бургас, ул. \"Одрин\" 2",
                             Mode = 1,
-                            Name = "Spanish for beginners",
+                            Name = "Испански за начинаещи",
                             Price = 2000m,
                             StartDate = new DateTime(2025, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -972,14 +972,14 @@ namespace PathFinder.Data.Migrations
                             Id = 6,
                             AverageStarRating = 4.7999999999999998,
                             CourseDuration = 10,
-                            Description = "Learn the basics of cooking techniques, kitchen safety, and food presentation in this hands-on culinary course.",
+                            Description = "Научете основите на кулинарни техники, безопасност в кухнята и представяне на храна в този курс.",
                             DurationInMinutes = 120,
                             EndDate = new DateTime(2023, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "35e6291c-73f5-48ef-8f3e-5fda2c4ddee1",
                             IsDeleted = false,
-                            Location = "Bulgaria, Varna, ul. \"Oborishte\" 13A",
+                            Location = "България, Варна, ул. \"Оборище\" 13А",
                             Mode = 1,
-                            Name = "Introduction to Culinary Arts",
+                            Name = "Въведение в кулинарните изкуства",
                             Price = 2200m,
                             StartDate = new DateTime(2021, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -988,14 +988,14 @@ namespace PathFinder.Data.Migrations
                             Id = 7,
                             AverageStarRating = 4.5,
                             CourseDuration = 7,
-                            Description = "Relax, rejuvenate, and learn mindfulness practices along with beginner-friendly yoga postures in this course.",
+                            Description = "Отпуснете се, възстановете и научете практики на осъзнатост заедно с йога пози за начинаещи в този курс.",
                             DurationInMinutes = 90,
                             EndDate = new DateTime(2025, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "6a358b17-ffbe-4ac9-8d20-92544e3b739d",
                             IsDeleted = false,
-                            Location = "Bulgaria, Pazardzik, ul. \"Nayden Gerov\" 6",
+                            Location = "България, Пазарджик, ул. \"Найден Геров\" 6",
                             Mode = 1,
-                            Name = "Yoga and Mindfulness for Beginners",
+                            Name = "Йога и осъзнатост за начинаещи",
                             Price = 1000m,
                             StartDate = new DateTime(2019, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1004,14 +1004,14 @@ namespace PathFinder.Data.Migrations
                             Id = 8,
                             AverageStarRating = 4.7000000000000002,
                             CourseDuration = 4,
-                            Description = "Improve your English language skills in speaking, listening, reading, and writing through practical lessons and exercises.",
+                            Description = "Подобрете своите умения в английския език по говорене, слушане, четене и писане чрез практически уроци и упражнения.",
                             DurationInMinutes = 180,
                             EndDate = new DateTime(2025, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "fc7c5678-22b4-4650-af6e-4c5f90fa494d",
                             IsDeleted = false,
-                            Location = "Bulgaria, Kazanlak, ul. \"Ivan Vazov\" 3",
+                            Location = "България, Казанлък, ул. \"Иван Вазов\" 3",
                             Mode = 1,
-                            Name = "English Language Mastery",
+                            Name = "Майсторство в английския език",
                             Price = 900m,
                             StartDate = new DateTime(2025, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1020,14 +1020,14 @@ namespace PathFinder.Data.Migrations
                             Id = 9,
                             AverageStarRating = 4.7999999999999998,
                             CourseDuration = 17,
-                            Description = "Explore the basics of fine art, including sketching, painting, and sculpting, in a hands-on creative environment.",
+                            Description = "Изследвайте основите на изящното изкуство, включително скициране, рисуване и скулптиране, в креативна работна среда.",
                             DurationInMinutes = 240,
                             EndDate = new DateTime(2025, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "6a358b17-ffbe-4ac9-8d20-92544e3b739d",
                             IsDeleted = false,
-                            Location = "Bulgaria, Sofia, Vasil Levski Blvd 62",
+                            Location = "България, София, бул. Васил Левски 62",
                             Mode = 1,
-                            Name = "Fundamentals of Fine Art",
+                            Name = "Основи на изящното изкуство",
                             Price = 2500m,
                             StartDate = new DateTime(2022, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1036,14 +1036,14 @@ namespace PathFinder.Data.Migrations
                             Id = 10,
                             AverageStarRating = 4.7999999999999998,
                             CourseDuration = 9,
-                            Description = "Learn the principles of embedded systems design, microcontrollers, and real-time programming in this comprehensive beginner-friendly course.",
+                            Description = "Научете принципите на проектиране на вградени системи, микроконтролери и програмиране в реално време в този цялостен курс за начинаещи.",
                             DurationInMinutes = 240,
                             EndDate = new DateTime(2031, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "3cf3fb4a-235e-4c93-b66f-c1557006e067",
                             IsDeleted = false,
-                            Location = "Remote",
+                            Location = "Отдалечено",
                             Mode = 0,
-                            Name = "Introduction to Embedded Systems",
+                            Name = "Въведение в вградените системи",
                             Price = 1600m,
                             StartDate = new DateTime(2025, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1052,14 +1052,14 @@ namespace PathFinder.Data.Migrations
                             Id = 11,
                             AverageStarRating = 4.7000000000000002,
                             CourseDuration = 13,
-                            Description = "Master the principles of interior design, space planning, and color theory with hands-on projects.",
+                            Description = "Овладейте принципите на интериорния дизайн, планиране на пространство и теория на цветовете с практически проекти.",
                             DurationInMinutes = 180,
                             EndDate = new DateTime(2025, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "6a358b17-ffbe-4ac9-8d20-92544e3b739d",
                             IsDeleted = false,
-                            Location = "Bulgaria, Sofia, ul. \"Kapitan Andreev\" 29",
+                            Location = "България, София, ул. \"Капитан Андреев\" 29",
                             Mode = 1,
-                            Name = "Interior Design Masterclass",
+                            Name = "Магистърски курс по интериорен дизайн",
                             Price = 2200m,
                             StartDate = new DateTime(2025, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1068,14 +1068,14 @@ namespace PathFinder.Data.Migrations
                             Id = 12,
                             AverageStarRating = 4.7999999999999998,
                             CourseDuration = 10,
-                            Description = "Learn the essentials of music production, including recording, mixing, and mastering, with hands-on studio sessions.",
+                            Description = "Научете основите на музикалната продукция, включително запис, смесване и мастеринг, с практически сесии в студио.",
                             DurationInMinutes = 120,
                             EndDate = new DateTime(2026, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "6a358b17-ffbe-4ac9-8d20-92544e3b739d",
                             IsDeleted = false,
-                            Location = "Bulgaria, Plovdiv, ul. \"Ivan Vazov\" 23",
+                            Location = "България, Пловдив, ул. \"Иван Вазов\" 23",
                             Mode = 1,
-                            Name = "Music Production Essentials",
+                            Name = "Основи на музикалната продукция",
                             Price = 2000m,
                             StartDate = new DateTime(2023, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1084,14 +1084,14 @@ namespace PathFinder.Data.Migrations
                             Id = 13,
                             AverageStarRating = 4.9000000000000004,
                             CourseDuration = 15,
-                            Description = "Deepen your understanding of calculus concepts, including multivariable calculus, differential equations, and real-world applications.",
+                            Description = "Задълбочете своите познания по математическите концепции, включително многомерен калкулус, диференциални уравнения и реални приложения.",
                             DurationInMinutes = 45,
                             EndDate = new DateTime(2025, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "fa360a62-9355-474a-824d-aaa85d9fbd65",
                             IsDeleted = false,
-                            Location = "Bulgaria, Plovdiv, ul. \"Perushtitsa\" 15",
+                            Location = "България, Пловдив, ул. \"Перущица\" 15",
                             Mode = 1,
-                            Name = "Advanced Calculus Workshop",
+                            Name = "Работилница по напреднала математика",
                             Price = 1100m,
                             StartDate = new DateTime(2023, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1100,14 +1100,14 @@ namespace PathFinder.Data.Migrations
                             Id = 14,
                             AverageStarRating = 4.7999999999999998,
                             CourseDuration = 8,
-                            Description = "Learn essential front-end technologies like HTML, CSS, JavaScript, and React to build stunning and responsive web applications.",
+                            Description = "Научете основни технологии за фронтенд като HTML, CSS, JavaScript и React за изграждане на впечатляващи и отзивчиви уеб приложения.",
                             DurationInMinutes = 100,
                             EndDate = new DateTime(2027, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "428bcf46-40f2-47b2-ac4a-a49f570178ad",
                             IsDeleted = false,
-                            Location = "Remote",
+                            Location = "Отдалечено",
                             Mode = 0,
-                            Name = "Front-End Web Development Bootcamp",
+                            Name = "Буткемп по фронтенд уеб разработка",
                             Price = 1500m,
                             StartDate = new DateTime(2025, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1116,14 +1116,14 @@ namespace PathFinder.Data.Migrations
                             Id = 15,
                             AverageStarRating = 4.7000000000000002,
                             CourseDuration = 12,
-                            Description = "Explore the core principles of computer engineering, including hardware design, embedded systems, and software integration.",
+                            Description = "Изследвайте основните принципи на компютърното инженерство, включително проектиране на хардуер, вградени системи и софтуерна интеграция.",
                             DurationInMinutes = 160,
                             EndDate = new DateTime(2025, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "3cf3fb4a-235e-4c93-b66f-c1557006e067",
                             IsDeleted = false,
-                            Location = "Remote",
+                            Location = "Отдалечено",
                             Mode = 0,
-                            Name = "Foundations of Computer Engineering",
+                            Name = "Основи на компютърното инженерство",
                             Price = 1000m,
                             StartDate = new DateTime(2023, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1132,14 +1132,14 @@ namespace PathFinder.Data.Migrations
                             Id = 16,
                             AverageStarRating = 4.7999999999999998,
                             CourseDuration = 11,
-                            Description = "Get hands-on experience with cybersecurity protocols, encryption techniques, ethical hacking, and network security to protect digital assets.",
+                            Description = "Получете практически опит с протоколи за киберсигурност, техники за криптиране, етично хакерство и мрежова сигурност за защита на дигитални активи.",
                             DurationInMinutes = 260,
                             EndDate = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InstitutionId = "428bcf46-40f2-47b2-ac4a-a49f570178ad",
                             IsDeleted = false,
-                            Location = "Bulgaria, Plovdiv, ul. \"Zahari Zograf\" 10",
+                            Location = "България, Пловдив, ул. \"Захари Зограф\" 10",
                             Mode = 1,
-                            Name = "Cybersecurity Fundamentals",
+                            Name = "Основи на киберсигурността",
                             Price = 1399m,
                             StartDate = new DateTime(2022, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -1545,210 +1545,210 @@ namespace PathFinder.Data.Migrations
                             Id = 1,
                             AverageStarRating = 4.5,
                             CompanyId = "b3693b0c-9c11-48ee-a3be-db37d5439ab0",
-                            Description = "Develop and maintain software solutions.",
+                            Description = "Разработване и поддръжка на софтуерни решения.",
                             IsDeleted = false,
                             JobType = 0,
-                            Location = "Remote",
-                            Position = "Junior Developer",
-                            Requirement = "1+ year experience in C# and .NET",
+                            Location = "Отдалечено",
+                            Position = "Младши разработчик",
+                            Requirement = "1+ година опит с C# и .NET",
                             Salary = 12000m,
-                            Title = "Software Developer"
+                            Title = "Софтурен разработчик"
                         },
                         new
                         {
                             Id = 2,
                             AverageStarRating = 3.5,
                             CompanyId = "b3693b0c-9c11-48ee-a3be-db37d5439ab0",
-                            Description = "Create visual designs for marketing materials.",
+                            Description = "Създаване на визуални дизайни за маркетингови материали.",
                             IsDeleted = false,
                             JobType = 0,
-                            Location = "Remote",
-                            Position = "Senior Designer",
-                            Requirement = "Proficiency in Adobe Suite",
+                            Location = "Отдалечено",
+                            Position = "Старши дизайнер",
+                            Requirement = "Производителност с Adobe Suite",
                             Salary = 14500m,
-                            Title = "Graphic Designer"
+                            Title = "Графичен дизайнер"
                         },
                         new
                         {
                             Id = 3,
                             AverageStarRating = 3.2000000000000002,
                             CompanyId = "e0d6328d-f003-4bb1-8daa-21dcf49db469",
-                            Description = "Provide hair styling, cutting, and treatment services to clients.",
+                            Description = "Предоставяне на услуги по стайлинг, подстригване и лечение на коса на клиенти.",
                             IsDeleted = false,
                             JobType = 1,
-                            Location = "Bulgaria, Karlovo, ul. \"Dabensko shose\" 2",
-                            Position = "Professional Hairdresser",
-                            Requirement = "Certified cosmetologist with 2+ years of experience.",
+                            Location = "България, Карлово, ул. \"Дъбенско шосе\" 2",
+                            Position = "Професионален фризьор",
+                            Requirement = "Сертифициран козметолог с 2+ години опит.",
                             Salary = 4000m,
-                            Title = "Hairdresser"
+                            Title = "Фризьор"
                         },
                         new
                         {
                             Id = 4,
                             AverageStarRating = 4.2999999999999998,
                             CompanyId = "16226cef-b670-447e-99a9-b627cb16ae0b",
-                            Description = "Perform vehicle inspections, repairs, and routine maintenance tasks.",
+                            Description = "Извършване на инспекции, ремонти и редовна поддръжка на превозни средства.",
                             IsDeleted = false,
                             JobType = 1,
-                            Location = "Bulgaria, Plovdiv, ul. \"Dimo Hadzhidimov\" 4В",
-                            Position = "Automotive Technician",
-                            Requirement = "Basic mechanical skills and willingness to learn. No prior certification required.",
+                            Location = "България, Пловдив, ул. \"Димо Хаджидимов\" 4В",
+                            Position = "Автомобилен техник",
+                            Requirement = "Основни механични умения и желание за учене. Не се изисква предишна сертификация.",
                             Salary = 8000m,
-                            Title = "Auto Mechanic"
+                            Title = "Автомеханик"
                         },
                         new
                         {
                             Id = 5,
                             AverageStarRating = 4.0,
                             CompanyId = "17585a62-c173-4c68-9e4a-2ba93a419b21",
-                            Description = "Diagnose and treat skin conditions, provide expert advice on skincare, and perform dermatological procedures.",
+                            Description = "Диагностициране и лечение на кожни заболявания, предоставяне на експертни съвети за грижа за кожата и извършване на дерматологични процедури.",
                             IsDeleted = false,
                             JobType = 1,
-                            Location = "Bulgaria, Ruse, bul. \"Lipnik\" 8",
-                            Position = "Certified Dermatologist",
-                            Requirement = "Medical degree with specialization in dermatology. Valid state medical license required.",
+                            Location = "България, Русе, бул. \"Липник\" 8",
+                            Position = "Сертифициран дерматолог",
+                            Requirement = "Медицинска степен със специализация по дерматология. Изисква се валидна медицинска лицензия.",
                             Salary = 12000m,
-                            Title = "Dermatologist"
+                            Title = "Дерматолог"
                         },
                         new
                         {
                             Id = 6,
                             AverageStarRating = 2.6000000000000001,
                             CompanyId = "596c6add-eaae-4890-8d4d-38aa5a0671bd",
-                            Description = "Teach mathematics to students, prepare lesson plans, and assess student progress.",
+                            Description = "Преподаване на математика на ученици, подготовка на уроци и оценяване на напредъка на учениците.",
                             IsDeleted = false,
                             JobType = 1,
-                            Location = "Bulgaria, Pleven, ul. \"Ivan Vazov\"",
-                            Position = "High School Math Teacher",
-                            Requirement = "Bachelor's degree in Mathematics or Education. Teaching certification preferred.",
+                            Location = "България, Плевен, ул. \"Иван Вазов\"",
+                            Position = "Учител по математика в гимназия",
+                            Requirement = "Бакалавърска степен по математика или образование. Преподавателска сертификация се предпочита.",
                             Salary = 5000m,
-                            Title = "Math Teacher"
+                            Title = "Учител по математика"
                         },
                         new
                         {
                             Id = 7,
                             AverageStarRating = 4.0999999999999996,
                             CompanyId = "596c6add-eaae-4890-8d4d-38aa5a0671bd",
-                            Description = "Maintain cleanliness and orderliness of the school toilets by performing routine cleaning tasks such as sweeping, mopping, and sanitizing surfaces.",
+                            Description = "Поддържане на чистотата и реда в училищните тоалетни чрез извършване на рутинни почистващи задачи като метене, миене и дезинфекция на повърхности.",
                             IsDeleted = false,
                             JobType = 1,
-                            Location = "Bulgaria, Pleven, ul. \"Ivan Vazov\"",
-                            Position = "Toilet Cleaner",
-                            Requirement = "No prior experience required, but attention to detail and reliability are essential.",
+                            Location = "България, Плевен, ул. \"Иван Вазов\"",
+                            Position = "Почистващ персонал в тоалетни",
+                            Requirement = "Не се изисква опит, но внимание към детайлите и надеждност са от съществено значение.",
                             Salary = 1500m,
-                            Title = "School Cleaner"
+                            Title = "Учител по почистване на училище"
                         },
                         new
                         {
                             Id = 8,
                             AverageStarRating = 4.0999999999999996,
                             CompanyId = "eb1f5c9f-186b-4a93-a9bd-64a6055c61cd",
-                            Description = "Prepare and serve alcoholic and non-alcoholic beverages, provide excellent customer service, and maintain a clean and organized bar area to ensure a great experience for guests.",
+                            Description = "Приготвяне и сервиране на алкохолни и безалкохолни напитки, предоставяне на отлично обслужване на клиенти и поддържане на чистота и организация на бара.",
                             IsDeleted = false,
                             JobType = 1,
-                            Location = "Bulgaria, Sliven,bul. \"Tsar Osvoboditel\" 15А",
-                            Position = "Toilet Cleaner",
-                            Requirement = "No prior experience required, but attention to detail and reliability are essential.",
+                            Location = "България, Сливен, бул. \"Цар Освободител\" 15А",
+                            Position = "Барман",
+                            Requirement = "Не се изисква опит, но внимание към детайлите и надеждност са от съществено значение.",
                             Salary = 1500m,
-                            Title = "Bartender"
+                            Title = "Барман"
                         },
                         new
                         {
                             Id = 9,
                             AverageStarRating = 3.3999999999999999,
                             CompanyId = "eb1f5c9f-186b-4a93-a9bd-64a6055c61cd",
-                            Description = "Provide excellent customer service by taking orders, serving food and beverages, and ensuring customer satisfaction.",
+                            Description = "Предоставяне на отлично обслужване на клиентите чрез приемане на поръчки, сервиране на храна и напитки и осигуряване на удовлетвореността на клиентите.",
                             IsDeleted = false,
                             JobType = 1,
-                            Location = "Bulgaria, Sliven,bul. \"Tsar Osvoboditel\" 15А",
-                            Position = "Restaurant Waiter",
-                            Requirement = "Good communication skills and a friendly attitude. No prior experience required.",
+                            Location = "България, Сливен, бул. \"Цар Освободител\" 15А",
+                            Position = "Сервитьор в ресторант",
+                            Requirement = "Добри комуникационни умения и приятелско отношение. Не се изисква опит.",
                             Salary = 2000m,
-                            Title = "Waiter"
+                            Title = "Сервитьор"
                         },
                         new
                         {
                             Id = 10,
                             AverageStarRating = 4.9000000000000004,
                             CompanyId = "7dbc12c7-18ec-4af2-a5b7-877ff0df3faf",
-                            Description = "Write engaging articles, blogs, and web content for clients across various industries.",
+                            Description = "Писане на ангажиращи статии, блогове и уеб съдържание за клиенти от различни индустрии.",
                             IsDeleted = false,
                             JobType = 0,
-                            Location = "Remote",
-                            Position = "Freelance Writer",
-                            Requirement = "Excellent writing skills and creativity. Portfolio preferred.",
+                            Location = "Отдалечено",
+                            Position = "Фриланс писател",
+                            Requirement = "Отлични писателски умения и креативност. Портфолио се предпочита.",
                             Salary = 5000m,
-                            Title = "Content Writer"
+                            Title = "Копирайтър"
                         },
                         new
                         {
                             Id = 11,
                             AverageStarRating = 3.7000000000000002,
                             CompanyId = "7dbc12c7-18ec-4af2-a5b7-877ff0df3faf",
-                            Description = "Edit and enhance video content, add transitions, effects, and soundtracks to create high-quality productions.",
+                            Description = "Редактиране и подобряване на видео съдържание, добавяне на преходи, ефекти и звукови тракове за създаване на висококачествени продукции.",
                             IsDeleted = false,
                             JobType = 0,
-                            Location = "Remote",
-                            Position = "Freelance Video Editor",
-                            Requirement = "Proficiency in video editing software such as Adobe Premiere Pro, Final Cut Pro, or DaVinci Resolve. Portfolio required.",
+                            Location = "Отдалечено",
+                            Position = "Фриланс видеоредактор",
+                            Requirement = "Производителност с видео редакторски софтуер като Adobe Premiere Pro, Final Cut Pro или DaVinci Resolve. Портфолио се изисква.",
                             Salary = 6000m,
-                            Title = "Video Editor"
+                            Title = "Видеоредактор"
                         },
                         new
                         {
                             Id = 12,
                             AverageStarRating = 4.0999999999999996,
                             CompanyId = "b3693b0c-9c11-48ee-a3be-db37d5439ab0",
-                            Description = "Assist in developing, testing, and debugging software applications under the guidance of senior developers.",
+                            Description = "Помощ при разработване, тестване и отстраняване на грешки в софтуерни приложения под ръководството на старши разработчици.",
                             IsDeleted = false,
                             JobType = 2,
-                            Location = "Bulgaria, Varna, bul. \"8-mi Primorski polk\" 54",
-                            Position = "Software Developer Intern",
-                            Requirement = "Enrolled in a Computer Science or related degree program. Basic knowledge of programming languages such as Python or Java.",
+                            Location = "България, Варна, бул. \"8-ми Приморски полк\" 54",
+                            Position = "Стажант разработчик",
+                            Requirement = "Записан в програма за компютърни науки или свързана специалност. Основни познания по програмни езици като Python или Java.",
                             Salary = 500m,
-                            Title = "Software Development Intern"
+                            Title = "Стажант по софтуерно разработване"
                         },
                         new
                         {
                             Id = 13,
                             AverageStarRating = 3.7999999999999998,
                             CompanyId = "b3693b0c-9c11-48ee-a3be-db37d5439ab0",
-                            Description = "Assist the design team in creating visual assets, including social media graphics, marketing materials, and presentations.",
+                            Description = "Помощ на дизайнерския екип при създаване на визуални активи, включително графики за социални медии, маркетингови материали и презентации.",
                             IsDeleted = false,
                             JobType = 2,
-                            Location = "Bulgaria, Sofia, ul. \"Munchen\" 14",
-                            Position = "Graphic Design Intern",
-                            Requirement = "Enrolled in a Graphic Design or related program. Proficiency in design software such as Adobe Illustrator and Photoshop is preferred.",
+                            Location = "България, София, ул. \"Мюнхен\" 14",
+                            Position = "Стажант графичен дизайнер",
+                            Requirement = "Записан в програма за графичен дизайн или свързана специалност. Производителност с дизайнерски софтуер като Adobe Illustrator и Photoshop се предпочита.",
                             Salary = 700m,
-                            Title = "Graphic Design Intern"
+                            Title = "Стажант графичен дизайнер"
                         },
                         new
                         {
                             Id = 14,
                             AverageStarRating = 3.8999999999999999,
                             CompanyId = "17585a62-c173-4c68-9e4a-2ba93a419b21",
-                            Description = "Assist pharmacists with dispensing medication, preparing prescriptions, managing inventory, and providing customer service under supervision.",
+                            Description = "Помощ на фармацевти при разпределяне на лекарства, приготвяне на рецепти, управление на инвентар и предоставяне на обслужване на клиенти под наблюдение.",
                             IsDeleted = false,
                             JobType = 2,
-                            Location = "Bulgaria, Ruse, bul. \"Lipnik\" 8",
-                            Position = "Pharmacy Intern",
-                            Requirement = "Currently enrolled in a Pharmacy or Pharmaceutical Sciences program. Strong attention to detail and communication skills.",
+                            Location = "България, Русе, бул. \"Липник\" 8",
+                            Position = "Стажант фармацевт",
+                            Requirement = "Записан в програма за фармацевтика или фармацевтични науки. Добро внимание към детайлите и комуникационни умения.",
                             Salary = 900m,
-                            Title = "Pharmacy Intern"
+                            Title = "Стажант в аптека"
                         },
                         new
                         {
                             Id = 15,
                             AverageStarRating = 4.0999999999999996,
                             CompanyId = "17585a62-c173-4c68-9e4a-2ba93a419b21",
-                            Description = "Provide medical care related to women's health, including diagnosis, treatment, and prevention of reproductive health issues, as well as conducting gynecological exams and procedures.",
+                            Description = "Предоставяне на медицинска грижа, свързана с женското здраве, включително диагностика, лечение и профилактика на репродуктивни здравословни проблеми, както и извършване на гинекологични прегледи и процедури.",
                             IsDeleted = false,
                             JobType = 1,
-                            Location = "Bulgaria, Ruse, bul. \"Lipnik\" 8",
-                            Position = "Certified Gynecologist",
-                            Requirement = "Medical degree with specialization in gynecology. Valid state medical license required.",
+                            Location = "България, Русе, бул. \"Липник\" 8",
+                            Position = "Сертифициран гинеколог",
+                            Requirement = "Медицинска степен със специализация по гинекология. Изисква се валидна медицинска лицензия.",
                             Salary = 13000m,
-                            Title = "Gynecologist"
+                            Title = "Гинеколог"
                         });
                 });
 
@@ -2143,7 +2143,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Comment = "Working as a gynecologist here has been incredibly rewarding. The medical team is highly supportive, and I feel that my skills are valued. The clinic provides a great work-life balance, and there are plenty of opportunities for professional development.",
+                            Comment = "Работата като гинеколог тук беше невероятно удовлетворяваща. Медицинският екип е много подкрепящ, и чувствам, че уменията ми се ценят. Клиниката осигурява отличен баланс между работа и личен живот и има много възможности за професионално развитие.",
                             JobId = 15,
                             PublisherId = "e8d223af-7285-41c5-8c38-9e6989d4410d",
                             ReviewDate = new DateTime(2024, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2152,7 +2152,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 2,
-                            Comment = "The work environment is stressful, with a high patient load and not enough time to give each patient the attention they deserve. There is little room for advancement, and management is not supportive of new ideas or improvements.",
+                            Comment = "Работната среда е стресираща, с много пациенти и недостатъчно време, за да се обърне внимание на всеки. Няма много възможности за напредък, а управлението не подкрепя новите идеи или подобрения.",
                             JobId = 15,
                             PublisherId = "ca145762-b5db-4836-b963-85eff67fb124",
                             ReviewDate = new DateTime(2024, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2161,7 +2161,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 3,
-                            Comment = "Working as a hairdresser here has been a fantastic experience. The team is supportive, and I’ve learned so much from the senior stylists. The work environment is welcoming, and there’s plenty of opportunity for professional growth.",
+                            Comment = "Работата като фризьор тук беше фантастично изживяване. Екипът е подкрепящ, а аз научих толкова много от старшите стилисти. Работната среда е приветлива, а възможностите за професионално развитие са много.",
                             JobId = 3,
                             PublisherId = "b93fa043-cdea-4bd9-9d0b-7b16ee7c5355",
                             ReviewDate = new DateTime(2024, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2170,7 +2170,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 4,
-                            Comment = "The job can be physically demanding, and the work environment is often chaotic. There’s a lack of clear communication from management, and the hours can be long with not enough time to properly address every vehicle. The pay doesn’t reflect the workload.",
+                            Comment = "Работата може да бъде физически изтощителна и работната среда често е хаотична. Липсва ясна комуникация от управлението, а часовете могат да бъдат дълги с недостатъчно време за адекватно обслужване на всеки автомобил. Заплатата не отразява натоварването.",
                             JobId = 4,
                             PublisherId = "7d089603-dc80-415a-913b-f24b1a90b5f1",
                             ReviewDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2179,7 +2179,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 5,
-                            Comment = "Working as a software developer here has been an incredibly rewarding experience. The company fosters a collaborative work environment, and I’ve had the opportunity to work on cutting-edge technologies. There’s a great work-life balance, and management supports continuous learning.",
+                            Comment = "Работата като софтуерен разработчик тук беше изключително удовлетворяваща. Компанията насърчава сътрудничеството, а аз имах възможност да работя с иновативни технологии. Осигурен е добър баланс между работа и личен живот, а управлението подкрепя непрекъснатото учене.",
                             JobId = 1,
                             PublisherId = "b93fa043-cdea-4bd9-9d0b-7b16ee7c5355",
                             ReviewDate = new DateTime(2024, 11, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2188,7 +2188,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 6,
-                            Comment = "The job is physically demanding, and there is often a lack of support from management. The hours can be inconsistent, and the workload can sometimes feel overwhelming with little recognition. The communication about tasks and expectations could be improved.",
+                            Comment = "Работата е физически изтощителна, а често липсва подкрепа от управлението. Часовете могат да бъдат неравномерни, а натоварването понякога е непосилно с малко признание. Комуникацията за задачите и очакванията трябва да се подобри.",
                             JobId = 7,
                             PublisherId = "9e547484-9ea8-45e6-a488-d657f6f1c598",
                             ReviewDate = new DateTime(2024, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2197,7 +2197,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 7,
-                            Comment = "The English learning course is extremely well-structured. The lessons are engaging, and the instructors are knowledgeable and supportive. It has greatly improved my language skills, and I feel more confident speaking and writing in English.",
+                            Comment = "Курсът по английски език е изключително добре структуриран. Уроците са ангажиращи, а преподавателите са компетентни и подкрепящи. Курсът значително подобри езиковите ми умения, и сега се чувствам по-сигурен в говоренето и писането на английски.",
                             CourseId = 8,
                             PublisherId = "e47b8b58-2e3a-4f02-aee5-485d3e6db2b2",
                             ReviewDate = new DateTime(2024, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2206,7 +2206,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 8,
-                            Comment = "The course lacks personalized attention, and the pace can be too fast for beginners. The materials feel outdated, and there aren't enough interactive elements to keep learners engaged. It didn’t meet my expectations.",
+                            Comment = "Курсът липсва персонализирано внимание, а темпото може да е твърде бързо за начинаещи. Материалите изглеждат остарели, а няма достатъчно интерактивни елементи, за да се запази интересът на ученик. Не отговори на моите очаквания.",
                             JobId = 8,
                             PublisherId = "9e547484-9ea8-45e6-a488-d657f6f1c598",
                             ReviewDate = new DateTime(2024, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2215,7 +2215,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 9,
-                            Comment = "The web development exceeded my expectations. The curriculum is comprehensive, and the instructors are very knowledgeable. I gained practical coding skills and was able to work on real-world projects. Highly recommended!",
+                            Comment = "Курсът по уеб разработка надмина очакванията ми. Учебният план е изчерпателен, а преподавателите са много компетентни. Научих практични умения по програмиране и имах възможност да работя по реални проекти. Горещо препоръчвам!",
                             JobId = 2,
                             PublisherId = "e8d223af-7285-41c5-8c38-9e6989d4410d",
                             ReviewDate = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2224,7 +2224,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 10,
-                            Comment = "The course was too basic for my expectations. It focused a lot on introductory concepts, with very little in-depth coverage of advanced topics. I also found the pacing to be too slow, and some of the exercises were not as challenging as I had hoped.",
+                            Comment = "Курсът беше твърде базов за моите очаквания. Той се съсредоточаваше много върху въведение в концепциите, с много малко задълбочено покритие на напреднали теми. Също така темпото беше твърде бавно, а някои упражнения не бяха толкова предизвикателни, колкото очаквах.",
                             JobId = 4,
                             PublisherId = "9e547484-9ea8-45e6-a488-d657f6f1c598",
                             ReviewDate = new DateTime(2024, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2233,7 +2233,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 11,
-                            Comment = "This Fine Art course was amazing! The instructors were incredibly talented and offered personalized feedback. The course covered a variety of techniques and mediums, which really helped me improve my skills. The hands-on approach and creative atmosphere made learning fun and engaging.",
+                            Comment = "Този курс по изобразително изкуство беше невероятен! Преподавателите бяха изключително талантливи и предложиха персонализирана обратна връзка. Курсът обхвана различни техники и медии, които наистина ми помогнаха да подобря уменията си. Практическото обучение и творческата атмосфера направиха ученето забавно и ангажиращо.",
                             JobId = 9,
                             PublisherId = "ca145762-b5db-4836-b963-85eff67fb124",
                             ReviewDate = new DateTime(2024, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2242,7 +2242,7 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 12,
-                            Comment = "The Spanish class was an incredible experience! The teacher was engaging and patient, making learning enjoyable. The lessons were interactive, and the class size was perfect for personalized attention. I feel much more confident in speaking and understanding Spanish after completing the course.",
+                            Comment = "Курсът по испански език беше невероятно преживяване! Преподавателят беше ангажиращ и търпелив, което направи ученето приятно. Уроците бяха интерактивни, а размерът на класа беше идеален за персонализирано внимание. Сега се чувствам много по-сигурен в говоренето и разбирането на испански след завършването на курса.",
                             JobId = 5,
                             PublisherId = "ca145762-b5db-4836-b963-85eff67fb124",
                             ReviewDate = new DateTime(2023, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2272,337 +2272,337 @@ namespace PathFinder.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Healthcare"
+                            Name = "Здравеопазване"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Technology"
+                            Name = "Технологии"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Business & Finance"
+                            Name = "Бизнес и финанси"
                         },
                         new
                         {
                             Id = 4,
-                            Name = "Education"
+                            Name = "Образование"
                         },
                         new
                         {
                             Id = 5,
-                            Name = "Creative Arts"
+                            Name = "Творчески изкуства"
                         },
                         new
                         {
                             Id = 6,
-                            Name = "Computer Science"
+                            Name = "Компютърни науки"
                         },
                         new
                         {
                             Id = 7,
-                            Name = "Graphic Design"
+                            Name = "Графичен дизайн"
                         },
                         new
                         {
                             Id = 8,
-                            Name = "Marketing & Management"
+                            Name = "Маркетинг и управление"
                         },
                         new
                         {
                             Id = 9,
-                            Name = "Architecture"
+                            Name = "Архитектура"
                         },
                         new
                         {
                             Id = 10,
-                            Name = "Facility Management"
+                            Name = "Управление на съоръжения"
                         },
                         new
                         {
                             Id = 11,
-                            Name = "Engineering"
+                            Name = "Инженерство"
                         },
                         new
                         {
                             Id = 12,
-                            Name = "Web Development"
+                            Name = "Уеб разработка"
                         },
                         new
                         {
                             Id = 13,
-                            Name = "Back-End Programming"
+                            Name = "Back-End програмиране"
                         },
                         new
                         {
                             Id = 14,
-                            Name = "Front-End Programming"
+                            Name = "Front-End програмиране"
                         },
                         new
                         {
                             Id = 15,
-                            Name = "Adobe Designing"
+                            Name = "Adobe дизайн"
                         },
                         new
                         {
                             Id = 16,
-                            Name = "Beauty and Personal Care Industry"
+                            Name = "Индустрия за красота и лична грижа"
                         },
                         new
                         {
                             Id = 17,
-                            Name = "Service Industry"
+                            Name = "Услуги"
                         },
                         new
                         {
                             Id = 18,
-                            Name = "Health and Wellness Industry"
+                            Name = "Здраве и социални грижи"
                         },
                         new
                         {
                             Id = 19,
-                            Name = "Automotive Industry"
+                            Name = "Автомобилна индустрия"
                         },
                         new
                         {
                             Id = 20,
-                            Name = "Mechanical Engineering"
+                            Name = "Механично инженерство"
                         },
                         new
                         {
                             Id = 21,
-                            Name = "Transportation and Logistics"
+                            Name = "Транспорт и логистика"
                         },
                         new
                         {
                             Id = 22,
-                            Name = "Skilled Trades"
+                            Name = "Квалифицирани занаяти"
                         },
                         new
                         {
                             Id = 23,
-                            Name = "Sustainability and Green Technologies"
+                            Name = "Устойчивост и зелени технологии"
                         },
                         new
                         {
                             Id = 24,
-                            Name = "Medical Specialties"
+                            Name = "Медицински специалности"
                         },
                         new
                         {
                             Id = 25,
-                            Name = "Cosmetic Dermatology"
+                            Name = "Естетична дерматология"
                         },
                         new
                         {
                             Id = 26,
-                            Name = "Pharmaceutical Industry"
+                            Name = "Фармация"
                         },
                         new
                         {
                             Id = 27,
-                            Name = "STEM Education"
+                            Name = "STEM образование"
                         },
                         new
                         {
                             Id = 28,
-                            Name = "Public Sector"
+                            Name = "Публичен сектор"
                         },
                         new
                         {
                             Id = 29,
-                            Name = "Curriculum Development"
+                            Name = "Разработка на учебни програми"
                         },
                         new
                         {
                             Id = 30,
-                            Name = "Non-profit Education"
+                            Name = "Неправителствено образование"
                         },
                         new
                         {
                             Id = 31,
-                            Name = "Cleaning and Maintenance"
+                            Name = "Почистване и поддръжка"
                         },
                         new
                         {
                             Id = 32,
-                            Name = "Public Services"
+                            Name = "Обществени услуги"
                         },
                         new
                         {
                             Id = 33,
-                            Name = "Environmental Services"
+                            Name = "Екологични услуги"
                         },
                         new
                         {
                             Id = 34,
-                            Name = "Education Support Services"
+                            Name = "Образователни услуги"
                         },
                         new
                         {
                             Id = 35,
-                            Name = "Food and Beverage Services"
+                            Name = "Хранителни и напиткови услуги"
                         },
                         new
                         {
                             Id = 36,
-                            Name = "Customer Service"
+                            Name = "Обслужване на клиенти"
                         },
                         new
                         {
                             Id = 37,
-                            Name = "Event Management"
+                            Name = "Управление на събития"
                         },
                         new
                         {
                             Id = 38,
-                            Name = "Nightlife and Entertainment"
+                            Name = "Нощен живот и развлекателна индустрия"
                         },
                         new
                         {
                             Id = 39,
-                            Name = "Tourism and Leisure"
+                            Name = "Туризъм и отдих"
                         },
                         new
                         {
                             Id = 40,
-                            Name = "Media and Journalism"
+                            Name = "Медии и журналистика"
                         },
                         new
                         {
                             Id = 41,
-                            Name = "Marketing & Communications"
+                            Name = "Маркетинг и комуникации"
                         },
                         new
                         {
                             Id = 42,
-                            Name = "Digital Marketing"
+                            Name = "Цифров маркетинг"
                         },
                         new
                         {
                             Id = 43,
-                            Name = "Freelancing"
+                            Name = "Фрилансинг"
                         },
                         new
                         {
                             Id = 44,
-                            Name = "Film Production"
+                            Name = "Продукция на филми"
                         },
                         new
                         {
                             Id = 45,
-                            Name = "Media and Entertainment"
+                            Name = "Медии"
                         },
                         new
                         {
                             Id = 46,
-                            Name = "Software Development"
+                            Name = "Разработка на софтуер"
                         },
                         new
                         {
                             Id = 47,
-                            Name = "Security"
+                            Name = "Сигурност"
                         },
                         new
                         {
                             Id = 48,
-                            Name = "Visual Arts"
+                            Name = "Визуални изкуства"
                         },
                         new
                         {
                             Id = 49,
-                            Name = "Retail Pharmacy"
+                            Name = "Търговия с лекарства"
                         },
                         new
                         {
                             Id = 50,
-                            Name = "Clinical Care"
+                            Name = "Клинични грижи"
                         },
                         new
                         {
                             Id = 51,
-                            Name = "Reproductive Health"
+                            Name = "Репродуктивно здраве"
                         },
                         new
                         {
                             Id = 52,
-                            Name = "Women’s Health"
+                            Name = "Женско здраве"
                         },
                         new
                         {
                             Id = 53,
-                            Name = "Cosmetic Surgery"
+                            Name = "Козметична хирургия"
                         },
                         new
                         {
                             Id = 54,
-                            Name = "Spa and Wellness"
+                            Name = "СПА и уелнес"
                         },
                         new
                         {
                             Id = 55,
-                            Name = "Personal Grooming"
+                            Name = "Лични грижи"
                         },
                         new
                         {
                             Id = 56,
-                            Name = "Salon Management"
+                            Name = "Управление на салони"
                         },
                         new
                         {
                             Id = 57,
-                            Name = "Hairdressing and Styling"
+                            Name = "Козметика и фризьорство"
                         },
                         new
                         {
                             Id = 58,
-                            Name = "Mathematics"
+                            Name = "Математика"
                         },
                         new
                         {
                             Id = 59,
-                            Name = "Restaurant Hospitality"
+                            Name = "Хотелиерство и ресторантьорство"
                         },
                         new
                         {
                             Id = 60,
-                            Name = "Cultural Studies"
+                            Name = "Културни изследвания"
                         },
                         new
                         {
                             Id = 61,
-                            Name = "Language & Linguistics"
+                            Name = "Езици и лингвистика"
                         },
                         new
                         {
                             Id = 62,
-                            Name = "Cooking"
+                            Name = "Готварство"
                         },
                         new
                         {
                             Id = 63,
-                            Name = "Physical Education"
+                            Name = "Физическо възпитание"
                         },
                         new
                         {
                             Id = 64,
-                            Name = "Fitness and Personal Training"
+                            Name = "Фитнес и лични тренировки"
                         },
                         new
                         {
                             Id = 65,
-                            Name = "Audio Engineering"
+                            Name = "Аудио инженерство"
                         },
                         new
                         {
                             Id = 66,
-                            Name = "Music Composition"
+                            Name = "Музикална композиция"
                         },
                         new
                         {
                             Id = 67,
-                            Name = "Music Technology"
+                            Name = "Музикални технологии"
                         });
                 });
 

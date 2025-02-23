@@ -2,7 +2,7 @@
   {
     "Id": 1,
     "StarRating": 5,
-    "Comment": "Working as a gynecologist here has been incredibly rewarding. The medical team is highly supportive, and I feel that my skills are valued. The clinic provides a great work-life balance, and there are plenty of opportunities for professional development.",
+    "Comment": "Работата като гинеколог тук беше невероятно удовлетворяваща. Медицинският екип е много подкрепящ, и чувствам, че уменията ми се ценят. Клиниката осигурява отличен баланс между работа и личен живот и има много възможности за професионално развитие.",
     "ReviewDate": "2024-12-16T00:00:00",
     "PublisherId": "e8d223af-7285-41c5-8c38-9e6989d4410d",
     "JobId": 15
@@ -10,7 +10,7 @@
   {
     "Id": 2,
     "StarRating": 2,
-    "Comment": "The work environment is stressful, with a high patient load and not enough time to give each patient the attention they deserve. There is little room for advancement, and management is not supportive of new ideas or improvements.",
+    "Comment": "Работната среда е стресираща, с много пациенти и недостатъчно време, за да се обърне внимание на всеки. Няма много възможности за напредък, а управлението не подкрепя новите идеи или подобрения.",
     "ReviewDate": "2024-11-12T00:00:00",
     "PublisherId": "ca145762-b5db-4836-b963-85eff67fb124",
     "JobId": 15
@@ -18,7 +18,7 @@
   {
     "Id": 3,
     "StarRating": 5,
-    "Comment": "Working as a hairdresser here has been a fantastic experience. The team is supportive, and I’ve learned so much from the senior stylists. The work environment is welcoming, and there’s plenty of opportunity for professional growth.",
+    "Comment": "Работата като фризьор тук беше фантастично изживяване. Екипът е подкрепящ, а аз научих толкова много от старшите стилисти. Работната среда е приветлива, а възможностите за професионално развитие са много.",
     "ReviewDate": "2024-12-16T00:00:00",
     "PublisherId": "b93fa043-cdea-4bd9-9d0b-7b16ee7c5355",
     "JobId": 3
@@ -26,7 +26,7 @@
   {
     "Id": 4,
     "StarRating": 2,
-    "Comment": "The job can be physically demanding, and the work environment is often chaotic. There’s a lack of clear communication from management, and the hours can be long with not enough time to properly address every vehicle. The pay doesn’t reflect the workload.",
+    "Comment": "Работата може да бъде физически изтощителна и работната среда често е хаотична. Липсва ясна комуникация от управлението, а часовете могат да бъдат дълги с недостатъчно време за адекватно обслужване на всеки автомобил. Заплатата не отразява натоварването.",
     "ReviewDate": "2024-10-10T00:00:00",
     "PublisherId": "7d089603-dc80-415a-913b-f24b1a90b5f1",
     "JobId": 4
@@ -34,7 +34,7 @@
   {
     "Id": 5,
     "StarRating": 5,
-    "Comment": "Working as a software developer here has been an incredibly rewarding experience. The company fosters a collaborative work environment, and I’ve had the opportunity to work on cutting-edge technologies. There’s a great work-life balance, and management supports continuous learning.",
+    "Comment": "Работата като софтуерен разработчик тук беше изключително удовлетворяваща. Компанията насърчава сътрудничеството, а аз имах възможност да работя с иновативни технологии. Осигурен е добър баланс между работа и личен живот, а управлението подкрепя непрекъснатото учене.",
     "ReviewDate": "2024-11-29T00:00:00",
     "PublisherId": "b93fa043-cdea-4bd9-9d0b-7b16ee7c5355",
     "JobId": 1
@@ -42,7 +42,7 @@
   {
     "Id": 6,
     "StarRating": 2,
-    "Comment": "The job is physically demanding, and there is often a lack of support from management. The hours can be inconsistent, and the workload can sometimes feel overwhelming with little recognition. The communication about tasks and expectations could be improved.",
+    "Comment": "Работата е физически изтощителна, а често липсва подкрепа от управлението. Часовете могат да бъдат неравномерни, а натоварването понякога е непосилно с малко признание. Комуникацията за задачите и очакванията трябва да се подобри.",
     "ReviewDate": "2024-08-19T00:00:00",
     "PublisherId": "9e547484-9ea8-45e6-a488-d657f6f1c598",
     "JobId": 7
@@ -50,7 +50,7 @@
   {
     "Id": 7,
     "StarRating": 4,
-    "Comment": "The English learning course is extremely well-structured. The lessons are engaging, and the instructors are knowledgeable and supportive. It has greatly improved my language skills, and I feel more confident speaking and writing in English.",
+    "Comment": "Курсът по английски език е изключително добре структуриран. Уроците са ангажиращи, а преподавателите са компетентни и подкрепящи. Курсът значително подобри езиковите ми умения, и сега се чувствам по-сигурен в говоренето и писането на английски.",
     "ReviewDate": "2024-08-21T00:00:00",
     "PublisherId": "e47b8b58-2e3a-4f02-aee5-485d3e6db2b2",
     "CourseId": 8
@@ -58,7 +58,7 @@
   {
     "Id": 8,
     "StarRating": 4,
-    "Comment": "The course lacks personalized attention, and the pace can be too fast for beginners. The materials feel outdated, and there aren't enough interactive elements to keep learners engaged. It didn’t meet my expectations.",
+    "Comment": "Курсът липсва персонализирано внимание, а темпото може да е твърде бързо за начинаещи. Материалите изглеждат остарели, а няма достатъчно интерактивни елементи, за да се запази интересът на ученик. Не отговори на моите очаквания.",
     "ReviewDate": "2024-11-27T00:00:00",
     "PublisherId": "9e547484-9ea8-45e6-a488-d657f6f1c598",
     "JobId": 8
@@ -66,7 +66,7 @@
   {
     "Id": 9,
     "StarRating": 5,
-    "Comment": "The web development exceeded my expectations. The curriculum is comprehensive, and the instructors are very knowledgeable. I gained practical coding skills and was able to work on real-world projects. Highly recommended!",
+    "Comment": "Курсът по уеб разработка надмина очакванията ми. Учебният план е изчерпателен, а преподавателите са много компетентни. Научих практични умения по програмиране и имах възможност да работя по реални проекти. Горещо препоръчвам!",
     "ReviewDate": "2024-08-01T00:00:00",
     "PublisherId": "e8d223af-7285-41c5-8c38-9e6989d4410d",
     "JobId": 2
@@ -74,7 +74,7 @@
   {
     "Id": 10,
     "StarRating": 2,
-    "Comment": "The course was too basic for my expectations. It focused a lot on introductory concepts, with very little in-depth coverage of advanced topics. I also found the pacing to be too slow, and some of the exercises were not as challenging as I had hoped.",
+    "Comment": "Курсът беше твърде базов за моите очаквания. Той се съсредоточаваше много върху въведение в концепциите, с много малко задълбочено покритие на напреднали теми. Също така темпото беше твърде бавно, а някои упражнения не бяха толкова предизвикателни, колкото очаквах.",
     "ReviewDate": "2024-02-11T00:00:00",
     "PublisherId": "9e547484-9ea8-45e6-a488-d657f6f1c598",
     "JobId": 4
@@ -82,7 +82,7 @@
   {
     "Id": 11,
     "StarRating": 4,
-    "Comment": "This Fine Art course was amazing! The instructors were incredibly talented and offered personalized feedback. The course covered a variety of techniques and mediums, which really helped me improve my skills. The hands-on approach and creative atmosphere made learning fun and engaging.",
+    "Comment": "Този курс по изобразително изкуство беше невероятен! Преподавателите бяха изключително талантливи и предложиха персонализирана обратна връзка. Курсът обхвана различни техники и медии, които наистина ми помогнаха да подобря уменията си. Практическото обучение и творческата атмосфера направиха ученето забавно и ангажиращо.",
     "ReviewDate": "2024-06-06T00:00:00",
     "PublisherId": "ca145762-b5db-4836-b963-85eff67fb124",
     "JobId": 9
@@ -90,7 +90,7 @@
   {
     "Id": 12,
     "StarRating": 5,
-    "Comment": "The Spanish class was an incredible experience! The teacher was engaging and patient, making learning enjoyable. The lessons were interactive, and the class size was perfect for personalized attention. I feel much more confident in speaking and understanding Spanish after completing the course.",
+    "Comment": "Курсът по испански език беше невероятно преживяване! Преподавателят беше ангажиращ и търпелив, което направи ученето приятно. Уроците бяха интерактивни, а размерът на класа беше идеален за персонализирано внимание. Сега се чувствам много по-сигурен в говоренето и разбирането на испански след завършването на курса.",
     "ReviewDate": "2023-07-08T00:00:00",
     "PublisherId": "ca145762-b5db-4836-b963-85eff67fb124",
     "JobId": 5

@@ -20,8 +20,7 @@ namespace PathFinder.ViewModels.JobViewModels
         public string JobType { get; set; } = null!;
 
         [StringLength(JobLocationMaxLength, MinimumLength = JobLocationMinLength, ErrorMessage = "Location must be between 5 and 100 characters!")]
-        [Required]
-        public string Location { get; set; } = null!;
+        public string? Location { get; set; }
 
         [Required]
         [MaxLength(JobPositionMaxLength)]
@@ -34,7 +33,7 @@ namespace PathFinder.ViewModels.JobViewModels
         [Column(TypeName = "decimal(18,2)")]
         public decimal Salary { get; set; }
 
-        public List<int> SphereIds { get; set; }
+        public List<int>? SphereIds { get; set; }
             = new List<int>();
     }
 }

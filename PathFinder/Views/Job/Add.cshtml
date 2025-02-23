@@ -1,1 +1,125 @@
-﻿
+﻿@using PathFinder.Data.Models.Enums;
+@model PathFinder.ViewModels.JobViewModels.JobAddViewModel;
+
+@{
+    ViewData["Title"] = "Add Job";
+}
+
+<div id="add-course-main-container">
+    <form id="add-course-inner-container" method="post" asp-action="Add" asp-controller="Job">
+        <h2 id="add-course-title">
+            Добави обява за работа
+        </h2>
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.Title">Заглавие на обява</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Title" class="form-control" aria-required="true" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.JobType">Начин на работа</label>
+            <div class="custom-dropdown">
+                <div class="selected-option">Select mode...</div>
+                <ul class="dropdown-options">
+                    <li data-value="InPerson">Присъствено</li>
+                    <li data-value="Online">Онлайн</li>
+                    <li data-value="Internship">Стаж</li>
+                </ul>
+                <input type="hidden" id="mode-input" name="JobType" />
+                <span asp-validation-for="JobType" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="add-course-input-description-container">
+            <label id="add-course-label-container" asp-for="@Model.Description">Описание на обявата</label>
+            <div class="add-course-description-field">
+                <textarea id="add-course-textarea" asp-for="@Model.Description" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.Position">Работна позиция</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Position" class="form-control" aria-required="true" />
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.Requirement">Изисквания за работа</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Requirement" class="form-control" aria-required="true" />
+                <span asp-validation-for="Requirement" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="add-course-input-form-container" id="add-course-location-container">
+            <label id="add-course-label-container" asp-for="@Model.Location">Местоположение на работа</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Location" class="form-control" aria-required="true" />
+            </div>
+        </div>
+
+
+        <script>
+            const dropdown = document.querySelector(".custom-dropdown");
+            const selected = document.querySelector(".selected-option");
+            const options = document.querySelector(".dropdown-options");
+            const hiddenInput = document.getElementById("mode-input");
+            const locationContainer = document.getElementById('add-course-location-container');
+            let dropdownCounter = false;
+
+            dropdown.addEventListener("click", function () {
+            options.style.display = options.style.display === "block" ? "none" : "block";
+            dropdownCounter = !dropdownCounter;
+            console.log(dropdownCounter);
+            });
+
+            options.addEventListener("click", function (event) {
+            if (event.target.tagName === "LI") {
+            selected.textContent = event.target.textContent;
+            hiddenInput.value = event.target.getAttribute("data-value");
+            options.style.display = "none";
+            toggleLocationInput();
+            }
+
+            if (dropdownCounter) {
+            options.style.display = 'block';
+            }
+            else {
+            options.style.display = 'none';
+            }
+            });
+
+            function toggleLocationInput() {
+            let courseMode = hiddenInput.value;
+
+            if (courseMode === 'InPerson' || courseMode == 'Internship') {
+            locationContainer.style.display = 'flex';
+            } else {
+            locationContainer.style.display = 'none';
+            }
+            }
+
+            toggleLocationInput();
+        </script>
+
+        <div class="add-course-input-form-container" id="add-course-location-container">
+            <label id="add-course-label-container" asp-for="@Model.Salary">Заплата</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Salary" class="form-control" aria-required="true" />
+            </div>
+        </div>
+
+        <div id="add-btn-container">
+            <button id="add-course-btn" type="submit">
+                Добави
+            </button>
+        </div>
+    </form>
+</div>

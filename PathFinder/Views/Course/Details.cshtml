@@ -17,22 +17,22 @@
         </div>
 
         <div id="details-info-container">
-            <div class="details-info-box"><strong>Type:</strong> @Model.Mode</div>
-            <div class="details-info-box"><strong>Start Date:</strong> @Model.StartDate.ToString(StartDateDateTimeFormat)</div>
-            <div class="details-info-box"><strong>Location:</strong> @Model.Location</div>
-            <div class="details-info-box"><strong>End Date:</strong> @Model.EndDate.ToString(EndDateDateTimeFormat)</div>
+            <div class="details-info-box"><strong>Начин на провеждане:</strong> @Model.Mode</div>
+            <div class="details-info-box"><strong>Начало:</strong> @Model.StartDate.ToString(StartDateDateTimeFormat)</div>
+            <div class="details-info-box"><strong>Местоположение:</strong> @Model.Location</div>
+            <div class="details-info-box"><strong>Край:</strong> @Model.EndDate.ToString(EndDateDateTimeFormat)</div>
         </div>
 
         <div id="details-course-price-container">
-            <strong>Price:</strong> $@Model.Price
+            <strong>Цена:</strong> $@Model.Price
         </div>
 
-        <button id="course-details-enroll-btn">Enroll</button>
+        <button id="course-details-enroll-btn">Запиши се</button>
 
         <div id="details-description">
-            <div id="details-description-title">Description</div>
+            <div id="details-description-title">Описание</div>
             <p id="details-description-text">
-                @Model.Description This course is @Model.CourseDuration weeks in total of @Model.DurationInMinutes minutes.
+                @Model.Description Курсът продължава @Model.CourseDuration в @Model.DurationInMinutes минути общо.
             </p>
         </div>
 
@@ -40,12 +40,12 @@
 
         @if (Model.Reviews.Count == 0)
         {
-            <p id="no-reviews-text">No reviews at the moment.</p>
+            <p id="no-reviews-text">Няма публикувани ревюта.</p>
         }
         else
         {
             <h1 id="reviews-title">
-                Reviews
+                Ревюта
             </h1>
 
             <div id="reviews-main-container">

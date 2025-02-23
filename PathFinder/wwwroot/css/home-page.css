@@ -293,6 +293,7 @@
     line-height: 40px;
     font-weight: 600;
     font-size: 20px;
+    width: 35em;
 }
 
 #home-page-h2-text-description {
@@ -304,9 +305,11 @@
 #home-first-image {
     background: url("../images/teamwork-and-team-building.png") no-repeat;
     background-position: -100px 0px;
+    margin-top: 2em;
 }
 
 #home-second-image {
     background: url("../images/3d-view-map.jpg") no-repeat;
     background-size: contain;
+    margin-top: 2em;
 }
