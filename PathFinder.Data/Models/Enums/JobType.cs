@@ -2,8 +2,8 @@
 {
     public enum JobType
     {
-        Online = 0,
-        InPerson = 1,
-        Internship = 2
+        Онлайн = 0,
+        Присъствено = 1,
+        Стаж = 2
     }
 }

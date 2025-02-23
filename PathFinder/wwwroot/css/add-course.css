@@ -1,5 +1,5 @@
 ﻿#add-course-main-container {
-    height: 160vh;
+    height: 170vh;
     width: 100%;
     background-color: #1f3d66;
     display: flex;
@@ -11,7 +11,7 @@
     margin: 3em;
     padding: 3em;
     width: 80%;
-    height: 140vh;
+    height: 150vh;
     background-color: #fff0db;
     border-radius: 10px;
     display: flex;

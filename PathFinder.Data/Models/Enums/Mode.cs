@@ -2,7 +2,7 @@
 {
     public enum Mode
     {
-        Online = 0,
-        InPerson = 1
+        Онлайн = 0,
+        Присъствено = 1
     }
 }

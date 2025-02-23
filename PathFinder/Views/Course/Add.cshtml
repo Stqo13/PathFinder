@@ -8,11 +8,11 @@
 <div id="add-course-main-container">
     <form id="add-course-inner-container" method="post" asp-action="Add" asp-controller="Course">
         <h2 id="add-course-title">
-            Add Course Offer
+            Добави оферта за курс
         </h2>
 
         <div class="add-course-input-form-container">
-            <label id="add-course-label-container" asp-for="@Model.Name">Course Name</label>
+            <label id="add-course-label-container" asp-for="@Model.Name">Име на курса</label>
             <div id="add-course-input-inner-container">
                 <input id="add-course-input" asp-for="@Model.Name" class="form-control" aria-required="true" />
                 <span asp-validation-for="Name" class="text-danger"></span>
@@ -21,12 +21,12 @@
 
 
         <div class="add-course-input-form-container">
-            <label id="add-course-label-container" asp-for="@Model.Mode">Course Mode</label>
+            <label id="add-course-label-container" asp-for="@Model.Mode">Начин на провеждане на курса</label>
             <div class="custom-dropdown">
-                <div class="selected-option">Select mode...</div>
+                <div class="selected-option">Избери начин ...</div>
                 <ul class="dropdown-options">
-                    <li data-value="InPerson">InPerson</li>
-                    <li data-value="Online">Online</li>
+                    <li data-value="InPerson">Присъствено</li>
+                    <li data-value="Online">Онлайн</li>
                 </ul>
                 <input type="hidden" id="mode-input" name="Mode" />
                 <span asp-validation-for="Mode" class="text-danger"></span>
@@ -35,14 +35,14 @@
 
 
         <div class="add-course-input-description-container">
-            <label id="add-course-label-container" asp-for="@Model.Description">Course Description</label>
+            <label id="add-course-label-container" asp-for="@Model.Description">Описание на курса</label>
             <div class="add-course-description-field">
                 <textarea id="add-course-textarea" asp-for="@Model.Description" class="form-control"></textarea>
             </div>
         </div>
 
         <div class="add-course-input-form-container">
-            <label id="add-course-label-container" asp-for="@Model.CourseDuration">Course Duration in weeks</label>
+            <label id="add-course-label-container" asp-for="@Model.CourseDuration">Продължение на курса(в седмици)</label>
             <div id="add-course-input-inner-container">
                 <input id="add-course-input" asp-for="@Model.CourseDuration" class="form-control" aria-required="true" />
                 <span asp-validation-for="CourseDuration" class="text-danger"></span>
@@ -50,7 +50,7 @@
         </div>
 
         <div class="add-course-input-form-container">
-            <label id="add-course-label-container" asp-for="@Model.DurationInMinutes">Single Class Duration In Minutes</label>
+            <label id="add-course-label-container" asp-for="@Model.DurationInMinutes">Продължителност на единичен час от курса(в минути)</label>
             <div id="add-course-input-inner-container">
                 <input id="add-course-input" asp-for="@Model.DurationInMinutes" class="form-control" aria-required="true" />
                 <span asp-validation-for="DurationInMinutes" class="text-danger"></span>
@@ -58,7 +58,7 @@
         </div>
 
         <div class="add-course-input-form-container" id="add-course-location-container">
-            <label id="add-course-label-container" asp-for="@Model.Location">Course Location</label>
+            <label id="add-course-label-container" asp-for="@Model.Location">Местоположение на курса</label>
             <div id="add-course-input-inner-container">
                 <input id="add-course-input" asp-for="@Model.Location" class="form-control" aria-required="true" />
             </div>
@@ -109,14 +109,14 @@
         </script>
 
         <div class="add-course-input-form-container" id="add-course-location-container">
-            <label id="add-course-label-container" asp-for="@Model.Price">Course Monthly Price</label>
+            <label id="add-course-label-container" asp-for="@Model.Price">Месечна такса на курса</label>
             <div id="add-course-input-inner-container">
                 <input id="add-course-input" asp-for="@Model.Price" class="form-control" aria-required="true" />
             </div>
         </div>
 
         <div class="add-course-input-form-container">
-            <label id="add-course-label-container" asp-for="@Model.StartDate">Course Start Date</label>
+            <label id="add-course-label-container" asp-for="@Model.StartDate">Начало на курса</label>
             <div id="add-course-input-inner-container">
                 <input id="add-course-input" asp-for="@Model.StartDate" class="form-control" aria-required="true" />
                 <span asp-validation-for="StartDate" class="text-danger"></span>
@@ -124,7 +124,7 @@
         </div>
 
         <div class="add-course-input-form-container">
-            <label id="add-course-label-container" asp-for="@Model.EndDate">Course End Date</label>
+            <label id="add-course-label-container" asp-for="@Model.EndDate">Край на курса</label>
             <div id="add-course-input-inner-container">
                 <input id="add-course-input" asp-for="@Model.EndDate" class="form-control" aria-required="true" />
                 <span asp-validation-for="EndDate" class="text-danger"></span>
@@ -133,7 +133,7 @@
 
         <div id="add-btn-container">
             <button id="add-course-btn" type="submit">
-                Add Course Offer
+                Добави
             </button>
         </div>
     </form>

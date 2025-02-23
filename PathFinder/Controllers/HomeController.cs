@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PathFinder.ViewModels;
 using PathFinder.ViewModels.AboutUsViewModels;
 using System.Diagnostics;
@@ -24,7 +24,7 @@ namespace PathFinder.Controllers
         {
             var model = new FounderViewModel
             {
-                Name = "Teodora Nedkova Nedkova",
+                Name = "Теодора Недкова Недкова",
                 InstagramLink = "https://www.instagram.com/tedi_nedkova/",
                 GitHubLink = "https://github.com/tedi-nedkova",
                 FacebookLink = "https://www.facebook.com/profile.php?id=100048438143440",
@@ -39,7 +39,7 @@ namespace PathFinder.Controllers
         {
             var model = new FounderViewModel
             {
-                Name = "Stefan Milenov Dimitrov",
+                Name = "Стефан Миленов Димитров",
                 InstagramLink = "https://www.instagram.com/_stefan_dw/",
                 GitHubLink = "https://github.com/Stqo13",
                 FacebookLink = "https://www.facebook.com/profile.php?id=100025660580060",

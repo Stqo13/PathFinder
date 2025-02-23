@@ -220,7 +220,7 @@
 
 #clearFiltersButton {
     background-color: #fccc6d;
-    width: 8em;
+    width: 10em;
     height: 3em;
     color: black;
     border: solid 1px #fccc6d;
@@ -236,7 +236,7 @@
 
 #applyFiltersButton {
     background-color: #006d77;
-    width: 8em;
+    width: 10em;
     height: 3em;
     color: white;
     border: solid 1px #006d77;
