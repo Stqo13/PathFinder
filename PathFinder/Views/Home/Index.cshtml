@@ -1,6 +1,4 @@
-﻿@inject IViewLocalizer Localizer;
-
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -18,39 +16,39 @@
                 <div class="carousel-item active item1">
                     <div class="home-page-carousel-container">
                         <h1 id="home-first-carousel-h1">
-                            @Localizer["WelcomeMessage"] 
+                            Добре дошли в "Кариерен компас"!
                         </h1>
 
-                        <p id="carousel-subtitle" >
-                            @Localizer["FirstPageCarouselSlogan"]
+                        <p id="carousel-subtitle">
+                            Открий своя път, следвай това, което обичаш.
                         </p>
 
                         <p>
                             @if (!User.Identity.IsAuthenticated)
                             {
                                 <a asp-area="Identity" asp-page="/Account/Register" class="home-page-carousel-btn" id="sign-up-today-btn">
-                                    @Localizer["WelcomeSignUpMessage"]
+                                    Регистрирай се днес
                                 </a>
                             }
                         </p>
                     </div>
-                    
+
                 </div>
 
                 <div class="carousel-item item2">
                     <div class="container">
                         <div class="carousel-caption" id="second-page-carousel">
                             <h1 id="home-second-carousel-h1">
-                                @Localizer["WelcomeCarouselSecondPageTitle"]
+                                Открий перфектния курс.
                             </h1>
 
                             <p id="carousel-subtitle">
-                                @Localizer["WelcomeCarouselSecondPageSlogan"]
+                                Не си сигурен в следващата си стъпка? Разгледай образователни възможности, съобразени с твоите интереси.
                             </p>
 
                             <p>
                                 <a asp-area="" asp-controller="Course" asp-action="Index" class="home-page-carousel-btn" id="explore-courses-btn">
-                                    @Localizer["WelcomeCarouselSecondPageButton"]
+                                    Виж курсове
                                 </a>
                             </p>
                         </div>
@@ -61,16 +59,16 @@
                     <div class="container">
                         <div class="carousel-caption text-end" id="third-page-carousel">
                             <h1 id="home-second-carousel-h1">
-                                @Localizer["WelcomeCarouselThirdPageTitle"]
+                                Търсиш работа?
                             </h1>
 
                             <p id="carousel-subtitle">
-                                @Localizer["WelcomeCarouselThirdPageSlogan"]
+                                Намери мечтаната си работа още днес!
                             </p>
 
                             <p>
                                 <a asp-area="" asp-controller="Job" asp-action="Index" class="home-page-carousel-btn" id="browse-job-offers-btn">
-                                    @Localizer["WelcomeCarouselThirdPageButton"]                                   
+                                    Преглед на обяви за работа
                                 </a>
                             </p>
                         </div>
@@ -101,11 +99,11 @@
             <div id="home-page-description-container">
                 <div class="home-page-sumary">
                     <h2 id="home-page-h2-text-description">
-                        @Localizer["WelcomeHeading"]
+                        Какво е "Кариерен компас"?
                     </h2>
 
                     <p id="home-down-text">
-                        @Localizer["WelcomeText"]
+                        "Кариерен компас" е вашият персонализиран водач за откриване на кариера и образователни възможности, които съответстват на вашите интереси. Независимо дали изследвате възможности за работа, търсите перфектния курс или планирате следващата си стъпка, PathFinder ви помага да откриете пътища, съобразени с вашите умения, страсти и цели. Започнете да изграждате бъдеще, което ще обичате още днес!
                     </p>
                 </div>
 
@@ -120,11 +118,11 @@
             <div id="home-page-description-container">
                 <div class="home-page-sumary order-md-2">
                     <h2 id="home-page-h2-text-description">
-                        @Localizer["WelcomeMoreHeading"]
+                        Какво още?
                     </h2>
 
                     <p id="home-down-text">
-                        @Localizer["WelcomeMoreText"]
+                        "Кариерен компас" предлага функция, с която можете да зададете местоположение, за да откриете опции близо до вас, гарантирайки, че вашите варианти са не само релевантни, но и удобни. Независимо дали търсите нова работа наблизо или курсове в района, тази функция улеснява намирането на възможности, които отговарят на вашия начин на живот и амбиции.
                     </p>
                 </div>
 
@@ -137,7 +135,7 @@
             <hr class="featurette-divider">
 
             <h2 id="home-page-h2-text-description" style="color: white;">
-                @Localizer["AboutUs"]
+                За Нас
             </h2>
 
             <div id="home-page-description-container">
@@ -145,14 +143,14 @@
                     <img src="../images/profile-avatar-boy.jpg" id="home-first-person-pic" class="rounded-circle" width="140" height="140" alt="Person Picture">
 
                     <h2 class="home-names-h2">
-                        @Localizer["AboutUsStefan"]
+                        Стефан Миленов Димитров
                     </h2>
 
                     <p>
                         <form method="post" asp-action="AboutUsStefan" asp-controller="Home">
-                        <button type="submit" class="btn btn-secondary social-links-btn">
-                            @Localizer["SocialLinks"]
-                        </button>
+                            <button type="submit" class="btn btn-secondary social-links-btn">
+                                Социални мрежи  &raquo
+                            </button>
                         </form>
                     </p>
                 </div>
@@ -161,13 +159,13 @@
                     <img src="../images/profile-avatar-girl.jpg" id="home-second-person-pic" class="rounded-circle" width="140" height="140" alt="Person Picture">
 
                     <h2 class="home-names-h2">
-                        @Localizer["AboutUsTedi"]
+                        Теодора Недкова Недкова
                     </h2>
 
                     <p>
                         <form method="post" asp-action="AboutUsTedi" asp-controller="Home">
                             <button type="submit" class="btn btn-secondary social-links-btn">
-                                @Localizer["SocialLinks"]
+                                Социални мрежи  &raquo
                             </button>
                         </form>
                     </p>

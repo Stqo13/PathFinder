@@ -2,13 +2,13 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Влез";
+    ViewData["Title"] = "Влезте";
 }
 
 <div id="log-in-main-container">
 <h1 id="log-in-h1-container">@ViewData["Title"]</h1>
     <form id="log-in-account" method="post">
-        <h2 id="log-in-h2-title">Влез в своя акаунт</h2>
+        <h2 id="log-in-h2-title">Влезте в своя акаунт</h2>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
@@ -38,7 +38,7 @@
         <div class="checkbox mb-3" id="log-in-remember-me-container">
             <label asp-for="Input.RememberMe" class="form-label" id="log-in-remember-me-text">
                 <input class="form-check-input" asp-for="Input.RememberMe" />
-                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                Запомни ме
             </label>
         </div>
         <div>
