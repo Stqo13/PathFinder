@@ -147,7 +147,7 @@ body {
 }
 
 #navbar-menu-title:hover {
-    transform: scale(1.05);
+transform: scale(1.05);
 }
 
 #navbar-menu-title:hover::after {
@@ -200,4 +200,18 @@ body {
 
 #offers-navbar-dropdown-menu-item:hover {
     border-radius: 5px;
+}
+
+#pathfinder-logo {
+    background: url('/images/pathfinder-logo-final-removebg-preview.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
+}
+
+#link-index {
+    width: 70px;
+    height: 60px;
+    margin-bottom: 0.7em;
 }

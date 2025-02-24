@@ -27,8 +27,8 @@
     <header>
         <nav class="navbar navbar-expand-lg custom-navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow" id="navbar-main">
             <div class="container-fluid" id="navbar-inner-container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    PathFinder
+                <a class="navbar-brand" id="link-index" asp-area="" asp-controller="Home" asp-action="Index">
+                    <div id="pathfinder-logo" alt="Description of image" width="70" height="70"></div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -42,6 +42,13 @@
                                     Начало
                                 </a>
                             </li>
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" id="navbar-menu-title-home" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Админ панел</a>
+                                </li>
+                            }
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -62,16 +69,41 @@
                                 </ul>
                             </li>
 
-                            @if (User?.Identity?.IsAuthenticated == true)
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-dark" href="#" id="navbar-menu-title" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="18" viewBox="0 0 32 32">
+                                            <path d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 15 L 10 15 L 10 17 L 15 17 L 15 22 L 17 22 L 17 17 L 22 17 L 22 15 L 17 15 L 17 10 Z"></path>
+                                        </svg>
+                                        Оферти
+                                    </a>
+                                    <ul class="dropdown-menu" id="offers-navbar-dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li>
+                                            <a class="dropdown-item" id="offers-navbar-dropdown-menu-item" asp-area="" asp-controller="Job" asp-action="Add">
+                                                За работа
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item" id="offers-navbar-dropdown-menu-item" asp-area="" asp-controller="Course" asp-action="Add">
+                                                За курсове
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+
+                            @if (User?.Identity?.IsAuthenticated == true && !User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" id="navbar-menu-title" asp-area="" asp-controller="RoleRequest" asp-action="Index">
-                                        Изпрати заявки за роли
+                                        Изпрати заявка за роля
                                     </a>
                                 </li>
                             }
 
-                            @if (User.IsInRole("Institution") || User.IsInRole("Admin"))
+                            @if (User.IsInRole("Institution"))
                             {
 
                                 <li class="nav-item">
@@ -84,7 +116,7 @@
                                 </li>
                             }
 
-                            @if (User.IsInRole("Company") || User.IsInRole("Admin"))
+                            @if (User.IsInRole("Company"))
                             {
 
                                 <li class="nav-item">
@@ -96,8 +128,6 @@
                                     </a>
                                 </li>
                             }
-
-
 
                             @if (User.IsInRole("Institution") || User.IsInRole("Admin"))
                             {
@@ -113,13 +143,6 @@
                                     <a class="nav-link text-dark" id="navbar-menu-title" asp-area="" asp-controller="Job" asp-action="MyOffers">
                                         Моите Оферти
                                     </a>
-                                </li>
-                            }
-
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" id="navbar-menu-title" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Админ панел</a>
                                 </li>
                             }
                         </ul>
