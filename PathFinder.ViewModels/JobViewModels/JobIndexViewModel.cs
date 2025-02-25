@@ -16,5 +16,7 @@ namespace PathFinder.ViewModels.JobViewModels
         public List<int> SelectedSpheres { get; set; } = new List<int>();
 
         public string SearchKeyword { get; set; } = null!;
+
+        public string Address { get; set; } = null!;
     }
 }

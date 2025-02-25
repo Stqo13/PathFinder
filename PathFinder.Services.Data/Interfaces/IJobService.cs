@@ -7,8 +7,6 @@ namespace PathFinder.Services.Data.Interfaces
     {
         Task CreateJobOfferAsync(JobAddViewModel model, string userId);
 
-        Task<List<JobInfoViewModel>> GetClosestJobsAsync(string inputCoordinates);
-
         Task<JobDetailsViewModel> GetJobDetailsAsync(int id);
 
         Task<JobEditViewModel> GetEditJobByIdAsync(int id);
@@ -19,7 +17,7 @@ namespace PathFinder.Services.Data.Interfaces
 
         Task DeleteJobAsync(JobDeleteViewModel model);
 
-        Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null, string? searchKeyword = null);
+        Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null, string? searchKeyword = null, string? inputCoordinates = null);
 
         Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null, string? searchKeyword = null);
 

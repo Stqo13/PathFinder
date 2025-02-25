@@ -26,9 +26,9 @@
             <div class="custom-dropdown">
                 <div class="selected-option">Избери начин ...</div>
                 <ul class="dropdown-options">
-                    <li data-value="InPerson">Присъствено</li>
-                    <li data-value="Online">Онлайн</li>
-                    <li data-value="Internship">Стаж</li>
+                    <li data-value="Присъствено">Присъствено</li>
+                    <li data-value="Онлайн">Онлайн</li>
+                    <li data-value="Стаж">Стаж</li>
                 </ul>
                 <input type="hidden" id="mode-input" name="JobType" />
                 <span asp-validation-for="JobType" class="text-danger"></span>
@@ -114,7 +114,7 @@
     function toggleLocationInput() {
         let courseMode = hiddenInput.value;
 
-        if (courseMode === 'InPerson' || courseMode == 'Internship') {
+        if (courseMode === 'Присъствено' || courseMode == 'Стаж') {
             locationContainer.style.display = 'flex';
         } else {
             locationContainer.style.display = 'none';
