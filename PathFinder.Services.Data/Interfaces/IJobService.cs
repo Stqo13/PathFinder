@@ -5,7 +5,9 @@ namespace PathFinder.Services.Data.Interfaces
 {
     public interface IJobService
     {
-        Task CreateJobOfferAsync(JobAddViewModel model);
+        Task CreateJobOfferAsync(JobAddViewModel model, string userId);
+
+        Task<List<JobInfoViewModel>> GetClosestJobsAsync(string inputCoordinates);
 
         Task<JobDetailsViewModel> GetJobDetailsAsync(int id);
 

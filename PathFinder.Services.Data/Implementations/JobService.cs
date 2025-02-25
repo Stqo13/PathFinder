@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using Microsoft.EntityFrameworkCore.Storage.Json;
 using PathFinder.Data.Models;
 using PathFinder.Data.Models.Enums;
 using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Services.Data.Interfaces;
-using PathFinder.ViewModels.CourseViewModels;
 using PathFinder.ViewModels.JobViewModels;
 using PathFinder.ViewModels.Review;
 using static PathFinder.Common.ApplicationConstraints.ReviewConstraints;
@@ -17,9 +14,10 @@ namespace PathFinder.Services.Data.Implementations
         IRepository<Job, int> jobRepository,
         IRepository<JobSphere, object> jobSphereRepository,
         IRepository<Sphere, int> sphereRepository,
+        IGoogleMapsService googleMapsService,
         UserManager<ApplicationUser> userManager) : IJobService
     {
-        public async Task CreateJobOfferAsync(JobAddViewModel model)
+        public async Task CreateJobOfferAsync(JobAddViewModel model, string userId)
         {
             if (model == null)
             {
@@ -28,7 +26,6 @@ namespace PathFinder.Services.Data.Implementations
 
             var job = new Job()
             {
-                Id = model.Id,
                 Title = model.Title,
                 Description = model.Description,
                 JobType = Enum.Parse<JobType>(model.JobType),
@@ -37,6 +34,15 @@ namespace PathFinder.Services.Data.Implementations
                 Requirement = model.Requirement,
                 Salary = model.Salary,
             };
+
+            if (!string.IsNullOrEmpty(job.Location))
+            {
+                var coordinates = await googleMapsService.GetCoordinatesAsync(job.Location);
+                if (coordinates != null)
+                {
+                    job.Coordinates = $"{coordinates.Value.Latitude},{coordinates.Value.Longitude}";
+                }
+            }
 
             await jobRepository.AddAsync(job);
 
@@ -54,6 +60,62 @@ namespace PathFinder.Services.Data.Implementations
                 }
             }
         }
+
+
+        public async Task<List<JobInfoViewModel>> GetClosestJobsAsync(string inputCoordinates)
+        {
+            var allJobs = await jobRepository.GetAllAsync();
+
+            if (string.IsNullOrEmpty(inputCoordinates))
+            {
+                return new List<JobInfoViewModel>();
+            }
+
+            var inputLatLng = inputCoordinates.Split(',');
+            double inputLat = double.Parse(inputLatLng[0]);
+            double inputLng = double.Parse(inputLatLng[1]);
+
+            const double EarthRadiusKm = 6371.0;
+
+            var closestJobs = allJobs
+                .Where(j => !string.IsNullOrEmpty(j.Coordinates))
+                .Select(j =>
+                {
+                    var jobLatLng = j.Coordinates.Split(',');
+                    double jobLat = double.Parse(jobLatLng[0]);
+                    double jobLng = double.Parse(jobLatLng[1]);
+
+                    double dLat = ToRadians(jobLat - inputLat);
+                    double dLon = ToRadians(jobLng - inputLng);
+
+                    double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                               Math.Cos(ToRadians(inputLat)) * Math.Cos(ToRadians(jobLat)) *
+                               Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
+
+                    double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+                    double distance = EarthRadiusKm * c;
+
+                    return new { Job = j, Distance = distance };
+                })
+                .Where(j => j.Distance <= 30)
+                .OrderBy(j => j.Distance)
+                .Take(5)
+                .Select(j => new JobInfoViewModel
+                {
+                    Id = j.Job.Id,
+                    Title = j.Job.Title,
+                    JobType = j.Job.JobType.ToString(),
+                    Salary = j.Job.Salary,
+                    Position = j.Job.Position,
+                    Company = j.Job.Company,
+                    Spheres = j.Job.JobsSpheres?.Select(js => js.Sphere.Name).ToList() ?? new List<string>()
+                })
+                .ToList();
+
+            return closestJobs;
+        }
+
+        private double ToRadians(double angle) => Math.PI * angle / 180.0;
 
         public async Task<Job> EditJobInfoAsync(JobEditViewModel model, int id)
         {
