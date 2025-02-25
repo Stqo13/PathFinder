@@ -40,6 +40,9 @@ namespace PathFinder.Data.Models
         [MaxLength(CourseLocationMaxLength)]
         public string? Location { get; set; }
 
+        [Comment("Longtitude and Latitude for the course's location")]
+        public string? Coordinates { get; set; }
+
         [Comment("Couse's start date")]
         [Required]
         public DateTime StartDate { get; set; }

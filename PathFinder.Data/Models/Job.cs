@@ -32,6 +32,9 @@ namespace PathFinder.Data.Models
         [MaxLength(JobLocationMaxLength)]
         public string? Location { get; set; }
 
+        [Comment("Longtitude and Latitude for the job's location")]
+        public string? Coordinates { get; set; }
+
         [Comment("Company's foreign key")]
         [Required]
         public string CompanyId { get; set; } = null!;

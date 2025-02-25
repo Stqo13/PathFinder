@@ -66,7 +66,9 @@ namespace PathFinder.Controllers
 
             try
             {
-                await jobService.CreateJobOfferAsync(model);
+                string userId = GetCurrentClientId();
+                
+                await jobService.CreateJobOfferAsync(model, userId);
 
                 return RedirectToAction(nameof(Add));
             }

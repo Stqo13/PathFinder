@@ -37,6 +37,9 @@ namespace PathFinder.Extensions
             services.AddScoped<IEmailSenderService, EmailSenderService>();
             services.AddScoped<IReviewService, ReviewService>();
 
+            services.AddHttpClient<IGoogleMapsService, GoogleMapsService>();
+            services.AddScoped<IGoogleMapsService, GoogleMapsService>();
+
             return services;
         }
     }
