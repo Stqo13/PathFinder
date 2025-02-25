@@ -49,13 +49,20 @@
             <div id="no-reviews-container">
                 <p id="no-reviews-text">Няма публикувани ревюта.</p>
 
-                <button id="add-review">
+                <a onclick="openReviewPopup(@Model.Id)" class="popup-link" id="add-review" method="get" asp-controller="Review" asp-action="Add" asp-route-jobId="@Model.Id">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="18" viewBox="0 0 32 32">
                         <path d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 15 L 10 15 L 10 17 L 15 17 L 15 22 L 17 22 L 17 17 L 22 17 L 22 15 L 17 15 L 17 10 Z"></path>
                     </svg>
 
-                    Reviews
-                </button>
+                    Ревю
+                </a>
+                <div id="popupModal" class="popup-overlay">
+                    <div class="popup-content">
+                        <span class="close-btn" onclick="closePopup()">&times;</span>
+                        <div id="popupFormContainer"></div>
+                    </div>
+                </div>
+
             </div>
         }
         else
@@ -65,13 +72,21 @@
                     Ревюта
                 </h1>
 
-                <button id="add-review">
+                <a onclick="openReviewPopup(@Model.Id)" class="popup-link" id="add-review" method="get" asp-controller="Review" asp-action="Add" asp-route-jobId="@Model.Id">
                     <svg id="review-svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
                         <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="none" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(2,2)"><path d="M64,16c-26.50967,0 -48,21.49033 -48,48c0,26.50967 21.49033,48 48,48c26.50967,0 48,-21.49033 48,-48c0,-26.50967 -21.49033,-48 -48,-48z" fill="#ffffff" stroke="none" stroke-width="1" stroke-linecap="butt"></path><path d="M64,25c-21.53911,0 -39,17.46089 -39,39c0,21.53911 17.46089,39 39,39c21.53911,0 39,-17.46089 39,-39c0,-21.53911 -17.46089,-39 -39,-39z" fill="#daa06d" stroke="none" stroke-width="1" stroke-linecap="butt"></path><path d="M64,16c-26.50967,0 -48,21.49033 -48,48c0,26.50967 21.49033,48 48,48c26.50967,0 48,-21.49033 48,-48c0,-26.50967 -21.49033,-48 -48,-48z" fill="none" stroke="#797b7e" stroke-width="6" stroke-linecap="butt"></path><path d="M64,42v44M42,64h44" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"></path></g></g>
                     </svg>
 
-                    Reviews
-                </button>
+                    Ревю
+                </a>
+                <div id="popupModal" class="popup-overlay">
+                    <div class="popup-content">
+                        <span class="close-btn" onclick="closePopup()">&times;</span>
+                        <div id="popupFormContainer">
+                            <partial name="_AddReviewPartial" model="new PathFinder.ViewModels.ReviewViewModels.ReviewAddViewModel { JobId = Model.Id, PublisherId = User.Identity.Name }" />
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
@@ -91,4 +106,50 @@
         }
     </div>
 </div>
+
+<script>
+    function openReviewPopup(jobId) {
+        event.preventDefault();
+        fetch(`/Review/Add?jobId=${jobId}`)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("popupFormContainer").innerHTML = data;
+                document.getElementById("popupModal").classList.add("show");
+                attachFormSubmitHandler();
+            });
+    }
+
+    function closePopup() {
+        document.getElementById("popupModal").classList.remove("show");
+    }
+
+    function attachFormSubmitHandler() {
+        const form = document.getElementById("reviewForm");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+
+            fetch('/Review/Add', {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                if (response.ok) {
+                    closePopup();
+                    // Optionally reload reviews without refreshing the page
+                    location.reload();
+                } else {
+                    alert('Error submitting the review.');
+                }
+            });
+        });
+    }
+
+    // Close popup when clicking outside of it
+    window.onclick = function (event) {
+        let popup = document.getElementById("popupModal");
+        if (event.target === popup) {
+            closePopup();
+        }
+    }
+</script>
 

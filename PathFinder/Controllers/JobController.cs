@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.JobViewModels;
+using static PathFinder.Common.Helpers.ControllerHelper;
 using System.Security.Claims;
+using PathFinder.Common.Helpers;
 
 namespace PathFinder.Controllers
 {
@@ -136,7 +138,7 @@ namespace PathFinder.Controllers
         {
             try
             {
-                string userId = GetCurrentClientId();
+                string userId = ControllerHelper.GetCurrentClientId(User);
 
                 var job = await jobService.GetDeleteJobAsync(id, userId);
 
@@ -177,7 +179,7 @@ namespace PathFinder.Controllers
         {
             try
             {
-                string userId = GetCurrentClientId();
+                string userId = ControllerHelper.GetCurrentClientId(User);
                 var models = await jobService.GetAllJobOffersByUserIdAsync(userId);
 
                 return View(models);
@@ -189,9 +191,12 @@ namespace PathFinder.Controllers
             }
         }
 
-        private string GetCurrentClientId()
+        [HttpGet]
+        public IActionResult LoadPopup()
         {
-            return User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
+            string message = "This content is loaded from a partial view!";
+            return PartialView("_PopupContent", message);
         }
+
     }
 }
