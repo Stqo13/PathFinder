@@ -1,0 +1,24 @@
+﻿@using PathFinder.Data.Models.Enums;
+@model PathFinder.ViewModels.ReviewViewModels.ReviewAddViewModel;
+
+@{
+    ViewData["Title"] = "Добави ревю";
+}
+
+<form id="reviewForm" method="post" asp-action="Add" asp-controller="Review" onsubmit="submitReview(event)">
+    <input type="hidden" asp-for="JobId" />
+    <input type="hidden" asp-for="PublisherId" />
+
+    <div class="form-group">
+        <label asp-for="StarRating">⭐ Оценка</label>
+        <input asp-for="StarRating" type="number" min="1" max="5" required class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Comment">💬 Коментар</label>
+        <textarea asp-for="Comment" required class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Изпрати</button>
+</form>
+

@@ -3,6 +3,7 @@ using NuGet.Protocol.Plugins;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.RoleRequestViewModel;
 using System.Security.Claims;
+using PathFinder.Common.Helpers;
 
 namespace PathFinder.Controllers
 {
@@ -32,7 +33,7 @@ namespace PathFinder.Controllers
 
             try
             {
-                string userId = GetCurrentClientId();
+                string userId = ControllerHelper.GetCurrentClientId(User);
 
                 await requestService.SendComanyRoleRequest(model, userId);
             }
@@ -62,7 +63,7 @@ namespace PathFinder.Controllers
 
             try
             {
-                string userId = GetCurrentClientId();
+                string userId = ControllerHelper.GetCurrentClientId(User);
 
                 await requestService.SendInstitutionRoleRequest(model, userId);
             }
@@ -75,9 +76,6 @@ namespace PathFinder.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private string GetCurrentClientId()
-        {
-            return User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
-        }
+       
     }
 }

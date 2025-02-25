@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PathFinder.Common.Helpers;
 using PathFinder.Data.Models;
 using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Services.Data.Interfaces;
@@ -65,7 +66,7 @@ namespace PathFinder.Controllers
                 return View(model);
             }
 
-            string userId = GetCurrentClientId();
+            string userId = ControllerHelper.GetCurrentClientId(User);
 
             try
             {
@@ -127,7 +128,7 @@ namespace PathFinder.Controllers
         {
             try
             {
-                string userId = GetCurrentClientId();
+                string userId = ControllerHelper.GetCurrentClientId(User);
 
                 var course = await courseService.GetCourseDetailsAsync(id, userId);
 
@@ -146,7 +147,7 @@ namespace PathFinder.Controllers
         {
             try
             {
-                string userId = GetCurrentClientId();
+                string userId = ControllerHelper.GetCurrentClientId(User);
 
                 var course = await courseService.GetDeleteCourseAsync(id, userId);
 
@@ -188,7 +189,7 @@ namespace PathFinder.Controllers
         {
             try
             {
-                string userId = GetCurrentClientId();
+                string userId = ControllerHelper.GetCurrentClientId(User);
                 var models = await courseService.GetAllCourseOffersByUserIdAsync(userId);
 
                 return View(models);
@@ -200,9 +201,5 @@ namespace PathFinder.Controllers
             }
         }
 
-        private string GetCurrentClientId()
-        {
-            return User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
-        }
     }
 }
