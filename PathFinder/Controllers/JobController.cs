@@ -6,23 +6,36 @@ using PathFinder.ViewModels.JobViewModels;
 using static PathFinder.Common.Helpers.ControllerHelper;
 using System.Security.Claims;
 using PathFinder.Common.Helpers;
+using System.Net;
 
 namespace PathFinder.Controllers
 {
     [Authorize]    
     public class JobController(
         IJobService jobService,
+        IGoogleMapsService googleMapsService,
         ILogger<JobController> logger): Controller
     {
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> Index(int pageNumber = 1, List<int>? selectedSpheres = null, string? searchKeyword = null)
+        public async Task<IActionResult> Index(int pageNumber = 1, List<int>? selectedSpheres = null, string? searchKeyword = null, string? address = null)
         {
             try
             {
                 int pageSize = 6;
 
-                var offers = await jobService.GetAllJobOffersAsync(pageNumber, pageSize, selectedSpheres, searchKeyword);
+                string? inputCoordinates = null;
+
+                if (!string.IsNullOrEmpty(address))
+                {
+                    var geocodingResult = await googleMapsService.GetCoordinatesAsync(address);
+                    if (geocodingResult != null)
+                    {
+                        inputCoordinates = $"{geocodingResult.Value.Latitude},{geocodingResult.Value.Longitude}";
+                    }
+                }
+
+                var offers = await jobService.GetAllJobOffersAsync(pageNumber, pageSize, selectedSpheres, searchKeyword, inputCoordinates);
 
                 int totalPages = await jobService.GetTotalPagesAsync(pageSize, selectedSpheres, searchKeyword);
 
@@ -35,7 +48,8 @@ namespace PathFinder.Controllers
                     TotalPages = totalPages,
                     SelectedSpheres = selectedSpheres ?? new List<int>(),
                     AvailableSpheres = allSpheres.ToList(),
-                    SearchKeyword = searchKeyword ?? string.Empty
+                    SearchKeyword = searchKeyword ?? string.Empty,
+                    Address = address ?? string.Empty
                 };
 
                 return View(model);
@@ -66,7 +80,7 @@ namespace PathFinder.Controllers
 
             try
             {
-                string userId = GetCurrentClientId();
+                string userId = GetCurrentClientId(User);
                 
                 await jobService.CreateJobOfferAsync(model, userId);
 
@@ -199,6 +213,5 @@ namespace PathFinder.Controllers
             string message = "This content is loaded from a partial view!";
             return PartialView("_PopupContent", message);
         }
-
     }
 }

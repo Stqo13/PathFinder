@@ -33,6 +33,7 @@ namespace PathFinder.Services.Data.Implementations
                 Position = model.Position,
                 Requirement = model.Requirement,
                 Salary = model.Salary,
+                CompanyId = userId
             };
 
             if (!string.IsNullOrEmpty(job.Location))
@@ -59,60 +60,6 @@ namespace PathFinder.Services.Data.Implementations
                     await jobSphereRepository.AddAsync(jobSphere);
                 }
             }
-        }
-
-
-        public async Task<List<JobInfoViewModel>> GetClosestJobsAsync(string inputCoordinates)
-        {
-            var allJobs = await jobRepository.GetAllAsync();
-
-            if (string.IsNullOrEmpty(inputCoordinates))
-            {
-                return new List<JobInfoViewModel>();
-            }
-
-            var inputLatLng = inputCoordinates.Split(',');
-            double inputLat = double.Parse(inputLatLng[0]);
-            double inputLng = double.Parse(inputLatLng[1]);
-
-            const double EarthRadiusKm = 6371.0;
-
-            var closestJobs = allJobs
-                .Where(j => !string.IsNullOrEmpty(j.Coordinates))
-                .Select(j =>
-                {
-                    var jobLatLng = j.Coordinates.Split(',');
-                    double jobLat = double.Parse(jobLatLng[0]);
-                    double jobLng = double.Parse(jobLatLng[1]);
-
-                    double dLat = ToRadians(jobLat - inputLat);
-                    double dLon = ToRadians(jobLng - inputLng);
-
-                    double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
-                               Math.Cos(ToRadians(inputLat)) * Math.Cos(ToRadians(jobLat)) *
-                               Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
-
-                    double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
-                    double distance = EarthRadiusKm * c;
-
-                    return new { Job = j, Distance = distance };
-                })
-                .Where(j => j.Distance <= 30)
-                .OrderBy(j => j.Distance)
-                .Take(5)
-                .Select(j => new JobInfoViewModel
-                {
-                    Id = j.Job.Id,
-                    Title = j.Job.Title,
-                    JobType = j.Job.JobType.ToString(),
-                    Salary = j.Job.Salary,
-                    Position = j.Job.Position,
-                    Company = j.Job.Company,
-                    Spheres = j.Job.JobsSpheres?.Select(js => js.Sphere.Name).ToList() ?? new List<string>()
-                })
-                .ToList();
-
-            return closestJobs;
         }
 
         private double ToRadians(double angle) => Math.PI * angle / 180.0;
@@ -266,7 +213,12 @@ namespace PathFinder.Services.Data.Implementations
             }
         }
 
-        public async Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null, string? searchKeyword = null)
+        public async Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(
+            int pageNumber = 1,
+            int pageSize = 6,
+            List<int>? sphereIds = null,
+            string? searchKeyword = null,
+            string? inputCoordinates = null)
         {
             var query = jobSphereRepository.GetAllAttached();
             IQueryable<Job> jobs;
@@ -287,12 +239,48 @@ namespace PathFinder.Services.Data.Implementations
                     .Distinct();
             }
 
-            if (!String.IsNullOrEmpty(searchKeyword))
+            if (!string.IsNullOrEmpty(searchKeyword))
             {
                 jobs = jobs.Where(j => EF.Functions.Like(j.Title.ToLower(), $"%{searchKeyword.ToLower()}%"));
             }
 
-            var offers = await jobs
+            if (!string.IsNullOrEmpty(inputCoordinates))
+            {
+                var inputLatLng = inputCoordinates.Split(',');
+                double inputLat = double.Parse(inputLatLng[0]);
+                double inputLng = double.Parse(inputLatLng[1]);
+
+                const double EarthRadiusKm = 6371.0;
+
+                jobs = jobs
+                    .Where(j => !string.IsNullOrEmpty(j.Coordinates))
+                    .AsEnumerable()
+                    .Select(j =>
+                    {
+                        var jobLatLng = j.Coordinates.Split(',');
+                        double jobLat = double.Parse(jobLatLng[0]);
+                        double jobLng = double.Parse(jobLatLng[1]);
+
+                        double dLat = ToRadians(jobLat - inputLat);
+                        double dLon = ToRadians(jobLng - inputLng);
+
+                        double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                                   Math.Cos(ToRadians(inputLat)) * Math.Cos(ToRadians(jobLat)) *
+                                   Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
+
+                        double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+                        double distance = EarthRadiusKm * c;
+
+                        return new { Job = j, Distance = distance };
+                    })
+                    .Where(j => j.Distance <= 30) 
+                    .OrderBy(j => j.Distance) 
+                    .Take(5)
+                    .Select(j => j.Job)
+                    .AsQueryable();
+            }
+
+            var offers = jobs
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .Select(j => new JobInfoViewModel
@@ -305,7 +293,7 @@ namespace PathFinder.Services.Data.Implementations
                     Company = j.Company,
                     Spheres = j.JobsSpheres.Select(js => js.Sphere.Name).ToList()
                 })
-                .ToListAsync();
+                .ToList();
 
             return offers;
         }

@@ -70,7 +70,9 @@
                                 </ul>
                             </li>
 
-                            @if (User.IsInRole("Admin"))
+                            @if (User.IsInRole("Admin") ||
+                            (User.IsInRole("Institution") && User.IsInRole("Company")) ||
+                            !(User.IsInRole("Institution") || User.IsInRole("Company")))
                             {
                                 <li class="nav-item dropdown">
                                     <a class="nav-link text-dark" href="#" id="navbar-menu-title" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -94,17 +96,7 @@
                                     </ul>
                                 </li>
                             }
-
-                            @if (User?.Identity?.IsAuthenticated == true && !User.IsInRole("Admin"))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" id="navbar-menu-title" asp-area="" asp-controller="RoleRequest" asp-action="Index">
-                                        Изпрати заявка за роля
-                                    </a>
-                                </li>
-                            }
-
-                            @if (User.IsInRole("Institution"))
+                            else if (User.IsInRole("Institution"))
                             {
 
                                 <li class="nav-item">
@@ -116,8 +108,7 @@
                                     </a>
                                 </li>
                             }
-
-                            @if (User.IsInRole("Company"))
+                            else if (User.IsInRole("Company"))
                             {
 
                                 <li class="nav-item">
@@ -130,23 +121,39 @@
                                 </li>
                             }
 
-                            @if (User.IsInRole("Institution") || User.IsInRole("Admin"))
+                            @if (User?.Identity?.IsAuthenticated == true && !User.IsInRole("Admin"))
                             {
-                                <li>
-                                    <a class="nav-link text-dark" id="navbar-menu-title" asp-area="" asp-controller="Course" asp-action="MyOffers">
-                                        Моите Оферти
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" id="navbar-menu-title" asp-area="" asp-controller="RoleRequest" asp-action="Index">
+                                        Изпрати заявка за роля
                                     </a>
                                 </li>
                             }
-                            else if (User.IsInRole("Company") || User.IsInRole("Admin"))
-                            {
-                                <li>
-                                    <a class="nav-link text-dark" id="navbar-menu-title" asp-area="" asp-controller="Job" asp-action="MyOffers">
-                                        Моите Оферти
-                                    </a>
-                                </li>
-                            }
-                        </ul>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark" href="#" id="navbar-menu-title" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Моите Оферти
+                                </a>
+                                <ul class="dropdown-menu" id="offers-navbar-dropdown-menu" aria-labelledby="navbarDropdown">
+                                    @if (User.IsInRole("Institution") || User.IsInRole("Admin"))
+                                    {
+                                        <li>
+                                            <a class="dropdown-item" id="offers-navbar-dropdown-menu-item" asp-area="" asp-controller="Course" asp-action="MyOffers">
+                                                За курсове
+                                            </a>
+                                        </li>
+                                    }
+
+                                    @if (User.IsInRole("Company") || User.IsInRole("Admin"))
+                                    {
+                                        <li>
+                                            <a class="dropdown-item" id="offers-navbar-dropdown-menu-item" asp-area="" asp-controller="Job" asp-action="MyOffers">
+                                                За работа
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
                     </div>
               
                     <partial name="_LoginPartial" />
