@@ -14,6 +14,7 @@ namespace PathFinder.Services.Data.Implementations
         IRepository<Course, int> courseRepository,
         IRepository<CourseSphere, object> courseSphereRepository,
         IRepository<Sphere, int> sphereRepository,
+        IGoogleMapsService googleMapsService,
         UserManager<ApplicationUser> userManager) : ICourseService
     {
         public async Task CreateCourseOfferAsync(CourseAddViewModel model, string userId)
@@ -38,6 +39,15 @@ namespace PathFinder.Services.Data.Implementations
                 InstitutionId = userId
             };
 
+            if (!string.IsNullOrEmpty(course.Location))
+            {
+                var coordinates = await googleMapsService.GetCoordinatesAsync(course.Location);
+                if (coordinates != null)
+                {
+                    course.Coordinates = $"{coordinates.Value.Latitude},{coordinates.Value.Longitude}";
+                }
+            }
+
             await courseRepository.AddAsync(course);
 
             if (model.SphereIds != null && model.SphereIds.Any())
@@ -54,6 +64,8 @@ namespace PathFinder.Services.Data.Implementations
                 }
             }
         }
+
+        private double ToRadians(double angle) => Math.PI * angle / 180.0;
 
         public async Task DeleteCourseAsync(CourseDeleteViewModel model)
         {
@@ -215,7 +227,12 @@ namespace PathFinder.Services.Data.Implementations
             return course;
         }
 
-        public async Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null, string? searchKeyword = null)
+        public async Task<IEnumerable<CourseInfoViewModel>> GetAllCourseOffersAsync(
+            int pageNumber, 
+            int pageSize, 
+            List<int>? sphereIds = null, 
+            string? searchKeyword = null,
+            string? inputCoordinates = null)
         {
             var query = courseSphereRepository.GetAllAttached();
             IQueryable<Course> courses;
@@ -241,6 +258,36 @@ namespace PathFinder.Services.Data.Implementations
                 courses = courses.Where(c => EF.Functions.Like(c.Name.ToLower(), $"%{searchKeyword.ToLower()}%"));
             }
 
+            if (!string.IsNullOrEmpty(inputCoordinates))
+            {
+                var inputLatLng = inputCoordinates.Split(',');
+                double inputLat = double.Parse(inputLatLng[0]);
+                double inputLng = double.Parse(inputLatLng[1]);
+
+                var courseCoordinates = await courses
+                    .Where(c => !string.IsNullOrEmpty(c.Coordinates))
+                    .Select(j => new
+                    {
+                        j.Id,
+                        Coordinates = j.Coordinates
+                    })
+                    .ToListAsync();
+
+                var nearbyJobIds = courseCoordinates
+                    .Select(j => new
+                    {
+                        j.Id,
+                        Distance = CalculateHaversineDistance(inputLat, inputLng, j.Coordinates)
+                    })
+                    .Where(j => j.Distance <= 30)
+                    .OrderBy(j => j.Distance)
+                    .Take(5)
+                    .Select(j => j.Id)
+                    .ToList();
+
+                courses = courses.Where(j => nearbyJobIds.Contains(j.Id));
+            }
+
             var offers = await courses
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
@@ -260,7 +307,30 @@ namespace PathFinder.Services.Data.Implementations
             return offers;
         }
 
-        public async Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null, string? searchKeyword = null)
+        private double CalculateHaversineDistance(double inputLat, double inputLng, string courseCoordinates)
+        {
+            const double EarthRadiusKm = 6371.0;
+
+            var courseLatLng = courseCoordinates.Split(',');
+            double courseLat = double.Parse(courseLatLng[0]);
+            double courseLng = double.Parse(courseLatLng[1]);
+
+            double dLat = ToRadians(courseLat - inputLat);
+            double dLon = ToRadians(courseLng - inputLng);
+
+            double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                       Math.Cos(ToRadians(inputLat)) * Math.Cos(ToRadians(courseLat)) *
+                       Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
+
+            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            return EarthRadiusKm * c;
+        }
+
+        public async Task<int> GetTotalPagesAsync(
+            int pageSize,
+            List<int>? sphereIds = null, 
+            string? searchKeyword = null,
+            string? inputCoordinates = null)
         {
             var query = courseSphereRepository.GetAllAttached();
 
@@ -283,6 +353,36 @@ namespace PathFinder.Services.Data.Implementations
             if (!String.IsNullOrEmpty(searchKeyword))
             {
                 courses = courses.Where(c => EF.Functions.Like(c.Name.ToLower(), $"%{searchKeyword.ToLower()}%"));
+            }
+
+            if (!string.IsNullOrEmpty(inputCoordinates))
+            {
+                var inputLatLng = inputCoordinates.Split(',');
+                double inputLat = double.Parse(inputLatLng[0]);
+                double inputLng = double.Parse(inputLatLng[1]);
+
+                var courseCoordinates = await courses
+                    .Where(c => !string.IsNullOrEmpty(c.Coordinates))
+                    .Select(j => new
+                    {
+                        j.Id,
+                        Coordinates = j.Coordinates
+                    })
+                    .ToListAsync();
+
+                var nearbyJobIds = courseCoordinates
+                    .Select(j => new
+                    {
+                        j.Id,
+                        Distance = CalculateHaversineDistance(inputLat, inputLng, j.Coordinates)
+                    })
+                    .Where(j => j.Distance <= 30)
+                    .OrderBy(j => j.Distance)
+                    .Take(5)
+                    .Select(j => j.Id)
+                    .ToList();
+
+                courses = courses.Where(j => nearbyJobIds.Contains(j.Id));
             }
 
             int totalCourses = await courses.CountAsync();

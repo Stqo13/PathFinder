@@ -12,19 +12,31 @@ namespace PathFinder.Controllers
     [Authorize]
     public class CourseController(
         ICourseService courseService,
+        IGoogleMapsService googleMapsService,
         ILogger<CourseController> logger) : Controller
     {
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> Index(int pageNumber = 1, List<int>? selectedSpheres = null, string? searchKeyword = null)
+        public async Task<IActionResult> Index(int pageNumber = 1, List<int>? selectedSpheres = null, string? searchKeyword = null, string? address = null)
         {
             try
             {
                 int pageSize = 6;
 
-                var offers = await courseService.GetAllCourseOffersAsync(pageNumber, pageSize, selectedSpheres, searchKeyword);
+                string? inputCoordinates = null;
 
-                int totalPages = await courseService.GetTotalPagesAsync(pageSize, selectedSpheres, searchKeyword);
+                if (!string.IsNullOrEmpty(address))
+                {
+                    var geocodingResult = await googleMapsService.GetCoordinatesAsync(address);
+                    if (geocodingResult != null)
+                    {
+                        inputCoordinates = $"{geocodingResult.Value.Latitude},{geocodingResult.Value.Longitude}";
+                    }
+                }
+
+                var offers = await courseService.GetAllCourseOffersAsync(pageNumber, pageSize, selectedSpheres, searchKeyword, inputCoordinates);
+
+                int totalPages = await courseService.GetTotalPagesAsync(pageSize, selectedSpheres, searchKeyword, inputCoordinates);
 
                 var allSpheres = await courseService.GetAllSpheresAsync();
 
@@ -35,7 +47,8 @@ namespace PathFinder.Controllers
                     TotalPages = totalPages,
                     SelectedSpheres = selectedSpheres ?? new List<int>(),
                     AvailableSpheres = allSpheres.ToList(),
-                    SearchKeyword = searchKeyword ?? string.Empty
+                    SearchKeyword = searchKeyword ?? string.Empty,
+                    Address = address ?? string.Empty
                 };
 
                 return View(model);
