@@ -250,37 +250,31 @@ namespace PathFinder.Services.Data.Implementations
                 double inputLat = double.Parse(inputLatLng[0]);
                 double inputLng = double.Parse(inputLatLng[1]);
 
-                const double EarthRadiusKm = 6371.0;
-
-                jobs = jobs
+                var jobCoordinates = await jobs
                     .Where(j => !string.IsNullOrEmpty(j.Coordinates))
-                    .AsEnumerable()
-                    .Select(j =>
+                    .Select(j => new
                     {
-                        var jobLatLng = j.Coordinates.Split(',');
-                        double jobLat = double.Parse(jobLatLng[0]);
-                        double jobLng = double.Parse(jobLatLng[1]);
+                        j.Id,
+                        Coordinates = j.Coordinates
+                    })
+                    .ToListAsync();
 
-                        double dLat = ToRadians(jobLat - inputLat);
-                        double dLon = ToRadians(jobLng - inputLng);
-
-                        double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
-                                   Math.Cos(ToRadians(inputLat)) * Math.Cos(ToRadians(jobLat)) *
-                                   Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
-
-                        double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
-                        double distance = EarthRadiusKm * c;
-
-                        return new { Job = j, Distance = distance };
+                var nearbyJobIds = jobCoordinates
+                    .Select(j => new
+                    {
+                        j.Id,
+                        Distance = CalculateHaversineDistance(inputLat, inputLng, j.Coordinates)
                     })
                     .Where(j => j.Distance <= 30) 
                     .OrderBy(j => j.Distance) 
-                    .Take(5)
-                    .Select(j => j.Job)
-                    .AsQueryable();
+                    .Take(5) 
+                    .Select(j => j.Id)
+                    .ToList();
+
+                jobs = jobs.Where(j => nearbyJobIds.Contains(j.Id));
             }
 
-            var offers = jobs
+            var offers = await jobs
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .Select(j => new JobInfoViewModel
@@ -293,12 +287,35 @@ namespace PathFinder.Services.Data.Implementations
                     Company = j.Company,
                     Spheres = j.JobsSpheres.Select(js => js.Sphere.Name).ToList()
                 })
-                .ToList();
+                .ToListAsync();
 
             return offers;
         }
 
-        public async Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null, string? searchKeyword = null)
+        private double CalculateHaversineDistance(double inputLat, double inputLng, string jobCoordinates)
+        {
+            const double EarthRadiusKm = 6371.0;
+
+            var jobLatLng = jobCoordinates.Split(',');
+            double jobLat = double.Parse(jobLatLng[0]);
+            double jobLng = double.Parse(jobLatLng[1]);
+
+            double dLat = ToRadians(jobLat - inputLat);
+            double dLon = ToRadians(jobLng - inputLng);
+
+            double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                       Math.Cos(ToRadians(inputLat)) * Math.Cos(ToRadians(jobLat)) *
+                       Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
+
+            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            return EarthRadiusKm * c;
+        }
+
+        public async Task<int> GetTotalPagesAsync(
+            int pageSize,
+            List<int>? sphereIds = null,
+            string? searchKeyword = null,
+            string? inputCoordinates = null)
         {
             var query = jobSphereRepository.GetAllAttached();
 
@@ -323,7 +340,38 @@ namespace PathFinder.Services.Data.Implementations
                 jobs = jobs.Where(j => EF.Functions.Like(j.Title.ToLower(), $"%{searchKeyword.ToLower()}%"));
             }
 
+            if (!string.IsNullOrEmpty(inputCoordinates))
+            {
+                var inputLatLng = inputCoordinates.Split(',');
+                double inputLat = double.Parse(inputLatLng[0]);
+                double inputLng = double.Parse(inputLatLng[1]);
+
+                var jobCoordinates = await jobs
+                    .Where(j => !string.IsNullOrEmpty(j.Coordinates))
+                    .Select(j => new
+                    {
+                        j.Id,
+                        Coordinates = j.Coordinates
+                    })
+                    .ToListAsync();
+
+                var nearbyJobIds = jobCoordinates
+                    .Select(j => new
+                    {
+                        j.Id,
+                        Distance = CalculateHaversineDistance(inputLat, inputLng, j.Coordinates)
+                    })
+                    .Where(j => j.Distance <= 30)
+                    .OrderBy(j => j.Distance) 
+                    .Take(5)
+                    .Select(j => j.Id)
+                    .ToList();
+
+                jobs = jobs.Where(j => nearbyJobIds.Contains(j.Id));
+            }
+
             int totalJobs = await jobs.CountAsync();
+
             return (int)Math.Ceiling(totalJobs / (double)pageSize);
         }
 
