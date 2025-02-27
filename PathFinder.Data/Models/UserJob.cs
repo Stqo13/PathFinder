@@ -23,5 +23,8 @@ namespace PathFinder.Data.Models
         [Comment("Job's navigation property")]
         [ForeignKey(nameof(JobId))]
         public virtual Job Job { get; set; } = null!;
+
+        [Comment("File name, uuid")]
+        public string? FileName { get; set; }
     }
 }
