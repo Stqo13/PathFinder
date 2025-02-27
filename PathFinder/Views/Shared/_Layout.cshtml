@@ -16,12 +16,13 @@
     <link rel="stylesheet" href="~/css/about-us.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/login-in.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/add-course.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/add.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/my-offers.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/all-offers.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/course-details.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/job-details.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/review.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/delete.css" asp-append-version="true" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -51,28 +52,30 @@
                                 </li>
                             }
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Оферти
-                                </a>
-                                <ul class="dropdown-menu" id="offers-navbar-dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li>
-                                        <a class="dropdown-item" id="offers-navbar-dropdown-menu-item" asp-area="" asp-controller="Job" asp-action="Index">
-                                            Обяви за работа
-                                        </a>
-                                    </li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Оферти
+                                    </a>
+                                    <ul class="dropdown-menu" id="offers-navbar-dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li>
+                                            <a class="dropdown-item" id="offers-navbar-dropdown-menu-item" asp-area="" asp-controller="Job" asp-action="Index">
+                                                Обяви за работа
+                                            </a>
+                                        </li>
 
-                                    <li>
-                                        <a class="dropdown-item" id="offers-navbar-dropdown-menu-item" asp-area="" asp-controller="Course" asp-action="Index">
-                                            Обяви за курсове
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                                        <li>
+                                            <a class="dropdown-item" id="offers-navbar-dropdown-menu-item" asp-area="" asp-controller="Course" asp-action="Index">
+                                                Обяви за курсове
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
 
                             @if (User.IsInRole("Admin") ||
-                            (User.IsInRole("Institution") && User.IsInRole("Company")) ||
-                            !(User.IsInRole("Institution") || User.IsInRole("Company")))
+                            (User.IsInRole("Institution") && User.IsInRole("Company")))
                             {
                                 <li class="nav-item dropdown">
                                     <a class="nav-link text-dark" href="#" id="navbar-menu-title" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -110,7 +113,6 @@
                             }
                             else if (User.IsInRole("Company"))
                             {
-
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" id="navbar-menu-title" asp-area="" asp-controller="Job" asp-action="Add">
                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="18" viewBox="0 0 32 32">
@@ -130,32 +132,35 @@
                                 </li>
                             }
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link text-dark" href="#" id="navbar-menu-title" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Моите Оферти
-                                </a>
-                                <ul class="dropdown-menu" id="offers-navbar-dropdown-menu" aria-labelledby="navbarDropdown">
-                                    @if (User.IsInRole("Institution") || User.IsInRole("Admin"))
-                                    {
-                                        <li>
-                                            <a class="dropdown-item" id="offers-navbar-dropdown-menu-item" asp-area="" asp-controller="Course" asp-action="MyOffers">
-                                                За курсове
-                                            </a>
-                                        </li>
-                                    }
+                            @if (!User.IsInRole("PFUser") && User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-dark" href="#" id="navbar-menu-title" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Моите Оферти
+                                    </a>
+                                    <ul class="dropdown-menu" id="offers-navbar-dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @if (User.IsInRole("Institution") || User.IsInRole("Admin"))
+                                        {
+                                            <li>
+                                                <a class="dropdown-item" id="offers-navbar-dropdown-menu-item" asp-area="" asp-controller="Course" asp-action="MyOffers">
+                                                    За курсове
+                                                </a>
+                                            </li>
+                                        }
 
-                                    @if (User.IsInRole("Company") || User.IsInRole("Admin"))
-                                    {
-                                        <li>
-                                            <a class="dropdown-item" id="offers-navbar-dropdown-menu-item" asp-area="" asp-controller="Job" asp-action="MyOffers">
-                                                За работа
-                                            </a>
-                                        </li>
-                                    }
-                                </ul>
-                            </li>
+                                        @if (User.IsInRole("Company") || User.IsInRole("Admin"))
+                                        {
+                                            <li>
+                                                <a class="dropdown-item" id="offers-navbar-dropdown-menu-item" asp-area="" asp-controller="Job" asp-action="MyOffers">
+                                                    За работа
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
                     </div>
-              
+
                     <partial name="_LoginPartial" />
                 </div>
             </div>

@@ -12,10 +12,10 @@
     margin-bottom: 15px;
 }
 
-    .form-group label {
-        display: block;
-        margin-bottom: 5px;
-    }
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
 
 .form-control {
     width: 100%;
@@ -34,10 +34,10 @@
     transition: all 0.3s ease;
 }
 
-    .btn-submit:hover {
-        background-color: #218838;
-        transform: scale(1.05);
-    }
+.btn-submit:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
 
 textarea.form-control {
     resize: none;

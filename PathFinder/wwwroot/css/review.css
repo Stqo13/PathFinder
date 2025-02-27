@@ -1,30 +1,89 @@
-﻿
-
-#reviewForm {
+﻿#reviewForm {
+    height: 200px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    height: 100%;
-    width: 10em;
-    background-color: black;
-}
-
-.form-group label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.form-control {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    gap: 2em;
+    align-items: center;
 }
 
 .submit-btn {
-    background-color: #4CAF50;
+    background-color: black;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#rate-input {
+    height: 2em;
+    width: 4em;
+    margin: 0.5em;
+    border-radius: 5px;
+}
+
+#add-comment {
+    height: 100px;
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+
+#add-comment-textarea {
+    min-height: 100%;
+}
+
+#review-info-container {
+    display: flex;
+    width: 100%;
+    padding: 1em;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    padding-top: 1em;
+    margin-left: 1em;
+    height: 100px;
+}
+
+.stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.stars input {
+    display: none;
+}
+
+.stars label {
+    font-size: 50px;
+    cursor: pointer;
+    color: lightgray;
+}
+
+.stars input:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label {
+    color: gold;
+}
+
+.submit-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 50%;
+}
+
+#add-review-title {
+    font-weight: 700;
+    color: #006d77;
+    padding-left: 1em;
 }

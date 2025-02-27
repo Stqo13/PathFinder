@@ -82,7 +82,7 @@
     position: relative;
     padding: 0.5em;
     width: 200px;
-    height: 5vh; 
+    min-height: 5vh; 
     background: white;
     border: 2px solid #10233d;
     border-radius: 5px;
@@ -155,4 +155,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#add-mode-container {
+    min-height: 2em;
+    display: flex;
+    flex-direction: column;
+}
+.selected-option {
+    border: none;
 }

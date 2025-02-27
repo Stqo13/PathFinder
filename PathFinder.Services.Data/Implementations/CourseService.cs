@@ -158,9 +158,11 @@ namespace PathFinder.Services.Data.Implementations
                 Name = entity.Name,
                 Mode = entity.Mode,
                 Description = entity.Description,
+                CourseDuration =entity.CourseDuration,
                 DurationInMinutes = entity.DurationInMinutes,
                 Location = entity.Location ?? string.Empty,
                 StartDate = entity.StartDate,
+                EndDate = entity.EndDate,
                 AverageStarRating = entity.AverageStarRating,
                 Price = entity.Price,
             };

@@ -1,1 +1,152 @@
-﻿
+﻿@using PathFinder.Data.Models.Enums;
+@model PathFinder.ViewModels.JobViewModels.JobEditViewModel;
+@inject IConfiguration configuration;
+
+@{
+    ViewData["Title"] = "Редактирай работа";
+}
+
+<div id="add-course-main-container">
+    <form id="add-course-inner-container" method="post" asp-action="Edit" asp-controller="Job">
+        <h2 id="add-course-title">
+            Редактирай обявата
+        </h2>
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.Title">Заглавие на обява</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Title" class="form-control" aria-required="true" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.JobType">Начин на работа</label>
+            <div id="add-mode-container">
+                <div class="custom-dropdown">
+                    <input asp-for="@Model.JobType" class="selected-option" />
+                    <ul class="dropdown-options">
+                        <li data-value="Присъствено">Присъствено</li>
+                        <li data-value="Онлайн">Онлайн</li>
+                        <li data-value="Стаж">Стаж</li>
+                    </ul>
+                    <input type="hidden" id="mode-input" name="JobType" />
+                </div>
+                <span asp-validation-for="JobType" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="add-course-input-description-container">
+            <label id="add-course-label-container" asp-for="@Model.Description">Описание на обявата</label>
+            <div class="add-course-description-field">
+                <textarea id="add-course-textarea" asp-for="@Model.Description" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.Position">Работна позиция</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Position" class="form-control" aria-required="true" />
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.Requirement">Изисквания за работа</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Requirement" class="form-control" aria-required="true" />
+                <span asp-validation-for="Requirement" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="add-course-input-form-container" id="add-course-location-container">
+            <label id="add-course-label-container" asp-for="@Model.Location">Местоположение на работа</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Location" class="form-control" aria-required="true" />
+            </div>
+        </div>
+
+        <div class="add-course-input-form-container" id="add-course-location-container">
+            <label id="add-course-label-container" asp-for="@Model.Salary">Заплата</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Salary" class="form-control" aria-required="true" />
+            </div>
+        </div>
+
+        <div id="add-btn-container">
+            <button id="add-course-btn" type="submit">
+                Редактирай
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const dropdown = document.querySelector(".custom-dropdown");
+    const selected = document.querySelector(".selected-option");
+    const options = document.querySelector(".dropdown-options");
+    const hiddenInput = document.getElementById("mode-input");
+    const locationContainer = document.getElementById('add-course-location-container');
+    let dropdownCounter = false;
+
+    dropdown.addEventListener("click", function () {
+        options.style.display = options.style.display === "block" ? "none" : "block";
+        dropdownCounter = !dropdownCounter;
+        console.log(dropdownCounter);
+    });
+
+    options.addEventListener("click", function (event) {
+        if (event.target.tagName === "LI") {
+            selected.textContent = event.target.textContent;
+            hiddenInput.value = event.target.getAttribute("data-value");
+            options.style.display = "none";
+            toggleLocationInput();
+        }
+
+        if (dropdownCounter) {
+            options.style.display = 'block';
+        }
+        else {
+            options.style.display = 'none';
+        }
+    });
+
+    function toggleLocationInput() {
+        let courseMode = hiddenInput.value;
+
+        if (courseMode === 'Присъствено' || courseMode == 'Стаж') {
+            locationContainer.style.display = 'flex';
+        } else {
+            locationContainer.style.display = 'none';
+        }
+    }
+
+    toggleLocationInput();
+
+    document.getElementById('jobAddress').addEventListener('change', async function () {
+        let address = this.value;
+        let apiKey = @(configuration["GoogleMapsApiKey:ApiKey"]);
+
+        if (!apiKey) {
+            alert("API key is missing. Please configure it.");
+            return;
+        }
+
+        try {
+            let response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`);
+            let data = await response.json();
+
+            if (data.status === "OK") {
+                let location = data.results[0].geometry.location;
+                document.getElementById('jobCoordinates').value = `${location.lat},${location.lng}`;
+            } else {
+                alert("Failed to get coordinates. Check the address.");
+            }
+        } catch (error) {
+            console.error("Error fetching coordinates:", error);
+            alert("Error fetching coordinates. Please try again.");
+        }
+    });
+</script>

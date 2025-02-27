@@ -23,14 +23,16 @@
 
         <div class="add-course-input-form-container">
             <label id="add-course-label-container" asp-for="@Model.JobType">Начин на работа</label>
-            <div class="custom-dropdown">
-                <div class="selected-option">Избери начин ...</div>
-                <ul class="dropdown-options">
-                    <li data-value="Присъствено">Присъствено</li>
-                    <li data-value="Онлайн">Онлайн</li>
-                    <li data-value="Стаж">Стаж</li>
-                </ul>
-                <input type="hidden" id="mode-input" name="JobType" />
+            <div id="add-mode-container">
+                <div class="custom-dropdown">
+                    <div class="selected-option">Избери начин ...</div>
+                    <ul class="dropdown-options">
+                        <li data-value="Присъствено">Присъствено</li>
+                        <li data-value="Онлайн">Онлайн</li>
+                        <li data-value="Стаж">Стаж</li>
+                    </ul>
+                    <input type="hidden" id="mode-input" name="JobType" />
+                </div>
                 <span asp-validation-for="JobType" class="text-danger"></span>
             </div>
         </div>

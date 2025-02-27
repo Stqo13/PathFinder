@@ -83,11 +83,11 @@ h5 {
     }
 
     .dashboard-item {
-        width: 80%; /* Adjusts width on smaller screens */
-        height: 250px; /* Reduces height for better fit */
+        width: 80%; 
+        height: 250px;
     }
 
     h5 {
-        font-size: 1.25rem; /* Adjusts font size for mobile */
+        font-size: 1.25rem;
     }
 }

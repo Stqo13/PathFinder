@@ -4,77 +4,84 @@
 @{
     ViewData["Title"] = "Заявки за роли";
 }
+<div id="role-request-main-container">
+    <h2 id="role-requests-h2-title" class="text-center">@ViewData["Title"]</h2>
 
-<h2 class="text-center">@ViewData["Title"]</h2>
+    <div class="role-requests-container">
+        <section class="role-requests-section">
+            <h3>Заявки за "Компания"</h3>
+            <div class="role-request-list">
+                @foreach (var request in Model.CompanyRequests)
+                {
+                    <div class="role-request-card">
+                        <h4>@request.Sender</h4>
+                        <p>@request.Description</p>
+                        <p>Статус: @request.Status</p>
 
-<div class="role-requests-container">
-    <section class="role-requests-section">
-        <h3>Заявки за "Компания"</h3>
-        <div class="role-request-list">
-            @foreach (var request in Model.CompanyRequests)
-            {
-                <div class="role-request-card">
-                    <h4>@request.Sender</h4>
-                    <p>@request.Description</p>
-                    <p>Status: @request.Status</p>
-                    <form asp-action="AcceptRequest" method="post" class="role-request-form">
-                        <input type="hidden" name="requestId" value="@request.Id" />
-                        <input type="hidden" name="requestType" value="Company" />
-                        <button type="submit" class="btn btn-success">Accept</button>
-                    </form>
-                    <form asp-action="DeclineRequest" method="post" class="role-request-form">
-                        <input type="hidden" name="requestId" value="@request.Id" />
-                        <input type="hidden" name="requestType" value="Company" />
-                        <button type="submit" class="btn btn-danger">Decline</button>
-                    </form>
-                </div>
-            }
-        </div>
-        <div class="pagination-controls">
-            @if (ViewBag.CompanyPagination.HasPreviousPage)
-            {
-                <a asp-action="RoleRequests" asp-route-companyPage="@(ViewBag.CompanyPagination.PageIndex - 1)" asp-route-institutionPage="@ViewBag.InstitutionPagination.PageIndex" class="btn btn-secondary">Previous</a>
-            }
-            <span>Page @ViewBag.CompanyPagination.PageIndex of @ViewBag.CompanyPagination.TotalPages</span>
-            @if (ViewBag.CompanyPagination.HasNextPage)
-            {
-                <a asp-action="RoleRequests" asp-route-companyPage="@(ViewBag.CompanyPagination.PageIndex + 1)" asp-route-institutionPage="@ViewBag.InstitutionPagination.PageIndex" class="btn btn-secondary">Next</a>
-            }
-        </div>
-    </section>
+                        <div class="role-request-btn">
+                            <form asp-action="AcceptRequest" method="post" class="role-request-form">
+                                <input type="hidden" name="requestId" value="@request.Id" />
+                                <input type="hidden" name="requestType" value="Company" />
+                                <button id="role-request-accept" type="submit" class="btn btn-success">Приеми</button>
+                            </form>
+                            <form asp-action="DeclineRequest" method="post" class="role-request-form">
+                                <input type="hidden" name="requestId" value="@request.Id" />
+                                <input type="hidden" name="requestType" value="Company" />
+                                <button id="role-request-cancel" type="submit" class="btn btn-danger">Отхвърли</button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="pagination-controls">
+                @if (ViewBag.CompanyPagination.HasPreviousPage)
+                {
+                    <a asp-action="RoleRequests" asp-route-companyPage="@(ViewBag.CompanyPagination.PageIndex - 1)" asp-route-institutionPage="@ViewBag.InstitutionPagination.PageIndex" class="btn btn-secondary">Previous</a>
+                }
+                <span>Page @ViewBag.CompanyPagination.PageIndex of @ViewBag.CompanyPagination.TotalPages</span>
+                @if (ViewBag.CompanyPagination.HasNextPage)
+                {
+                    <a asp-action="RoleRequests" asp-route-companyPage="@(ViewBag.CompanyPagination.PageIndex + 1)" asp-route-institutionPage="@ViewBag.InstitutionPagination.PageIndex" class="btn btn-secondary">Next</a>
+                }
+            </div>
+        </section>
 
-    <section class="role-requests-section">
-        <h3>Заявки за "Институция"</h3>
-        <div class="role-request-list">
-            @foreach (var request in Model.InstitutionRequests)
-            {
-                <div class="role-request-card">
-                    <h4>@request.Sender</h4>
-                    <p>@request.Description</p>
-                    <p>Status: @request.Status</p>
-                    <form asp-action="AcceptRequest" method="post" class="role-request-form">
-                        <input type="hidden" name="requestId" value="@request.Id" />
-                        <input type="hidden" name="requestType" value="Institution" />
-                        <button type="submit" class="btn btn-success">Accept</button>
-                    </form>
-                    <form asp-action="DeclineRequest" method="post" class="role-request-form">
-                        <input type="hidden" name="requestId" value="@request.Id" />
-                        <input type="hidden" name="requestType" value="Institution" />
-                        <button type="submit" class="btn btn-danger">Decline</button>
-                    </form>
-                </div>
-            }
-        </div>
-        <div class="pagination-controls">
-            @if (ViewBag.InstitutionPagination.HasPreviousPage)
-            {
-                <a asp-action="RoleRequests" asp-route-institutionPage="@(ViewBag.InstitutionPagination.PageIndex - 1)" asp-route-companyPage="@ViewBag.CompanyPagination.PageIndex" class="btn btn-secondary">Previous</a>
-            }
-            <span>Page @ViewBag.InstitutionPagination.PageIndex of @ViewBag.InstitutionPagination.TotalPages</span>
-            @if (ViewBag.InstitutionPagination.HasNextPage)
-            {
-                <a asp-action="RoleRequests" asp-route-institutionPage="@(ViewBag.InstitutionPagination.PageIndex + 1)" asp-route-companyPage="@ViewBag.CompanyPagination.PageIndex" class="btn btn-secondary">Next</a>
-            }
-        </div>
-    </section>
+        <section class="role-requests-section">
+            <h3>Заявки за "Институция"</h3>
+            <div class="role-request-list">
+                @foreach (var request in Model.InstitutionRequests)
+                {
+                    <div class="role-request-card">
+                        <h4>@request.Sender</h4>
+                        <p>@request.Description</p>
+                        <p>Статус: @request.Status</p>
+
+                        <div class="role-request-btn">
+                            <form asp-action="AcceptRequest" method="post" class="role-request-form">
+                                <input type="hidden" name="requestId" value="@request.Id" />
+                                <input type="hidden" name="requestType" value="Institution" />
+                                <button id="role-request-accept" type="submit" class="btn btn-success">Приеми</button>
+                            </form>
+                            <form asp-action="DeclineRequest" method="post" class="role-request-form">
+                                <input type="hidden" name="requestId" value="@request.Id" />
+                                <input type="hidden" name="requestType" value="Institution" />
+                                <button id="role-request-cancel" type="submit" class="btn btn-danger">Отхвърли</button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="pagination-controls">
+                @if (ViewBag.InstitutionPagination.HasPreviousPage)
+                {
+                    <a asp-action="RoleRequests" asp-route-institutionPage="@(ViewBag.InstitutionPagination.PageIndex - 1)" asp-route-companyPage="@ViewBag.CompanyPagination.PageIndex" class="btn btn-secondary">Previous</a>
+                }
+                <span>Page @ViewBag.InstitutionPagination.PageIndex of @ViewBag.InstitutionPagination.TotalPages</span>
+                @if (ViewBag.InstitutionPagination.HasNextPage)
+                {
+                    <a asp-action="RoleRequests" asp-route-institutionPage="@(ViewBag.InstitutionPagination.PageIndex + 1)" asp-route-companyPage="@ViewBag.CompanyPagination.PageIndex" class="btn btn-secondary">Next</a>
+                }
+            </div>
+        </section>
+    </div>
 </div>
