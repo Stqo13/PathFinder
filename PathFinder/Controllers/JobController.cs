@@ -37,7 +37,7 @@ namespace PathFinder.Controllers
 
                 var offers = await jobService.GetAllJobOffersAsync(pageNumber, pageSize, selectedSpheres, searchKeyword, inputCoordinates);
 
-                int totalPages = await jobService.GetTotalPagesAsync(pageSize, selectedSpheres, searchKeyword);
+                int totalPages = await jobService.GetTotalPagesAsync(pageSize, selectedSpheres, searchKeyword, inputCoordinates);
 
                 var allSpheres = await jobService.GetAllSpheresAsync();
 

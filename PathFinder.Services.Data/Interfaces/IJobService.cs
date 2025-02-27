@@ -19,7 +19,7 @@ namespace PathFinder.Services.Data.Interfaces
 
         Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersAsync(int pageNumber, int pageSize, List<int>? sphereIds = null, string? searchKeyword = null, string? inputCoordinates = null);
 
-        Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null, string? searchKeyword = null);
+        Task<int> GetTotalPagesAsync(int pageSize, List<int>? sphereIds = null, string? searchKeyword = null, string? inputCoordinates = null);
 
         Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersByUserIdAsync(string userId);
 
