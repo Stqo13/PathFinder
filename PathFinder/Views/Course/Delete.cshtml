@@ -1,1 +1,30 @@
-﻿
+﻿﻿@using PathFinder.ViewModels.CourseViewModels;
+@model CourseDeleteViewModel;
+
+@{
+    ViewData["Title"] = " Изтрий курс";
+}
+
+<div id="delete-main-container">
+    <h2 id="delete-title-h2-container">@ViewData["Title"]</h2>
+
+    <hr id="white-hr"/>
+
+    <div id="delete-secondary">
+        <div id="delete-container-info">
+            <div class="card-body">
+                <p class="mb-0"><strong>Публикувано от:</strong> @Model.PublishedBy</p>
+                <p class="text-danger mt-3">Сигурни ли сте че искате да изтриете @(Model.Name)?</p>
+            </div>
+            <div class="card-footer">
+                <form id="delete-offer-form" asp-action="Delete" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="Name" />
+                    <input type="hidden" asp-for="PublishedBy" />
+                    <button id="delete-accept-btn" type="submit" class="btn">Да</button>
+                    <a id="delete-cancel-btn" asp-controller="WorkoutPlan" asp-action="Details" asp-route-id="@Model.Id" class="btn">Отказ</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

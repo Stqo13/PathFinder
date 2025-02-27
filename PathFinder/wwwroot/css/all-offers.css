@@ -175,11 +175,11 @@
     width: 40%;
 }
 
-#all-offers-search-by-title {
+/*#all-offers-search-by-title {
     width: 40%;
     padding-left: 0px;
     padding-right: 0px;
-}
+}*/
 
 #all-offers-search-bar {
     width: 100%;
@@ -193,6 +193,7 @@
 
 #all-offers-filter-by-spheres{
     padding: 0;
+    width: 30%;
 }
 
 .btn-check:focus + .btn, .btn:focus {
@@ -261,5 +262,11 @@
     font-weight: 700;
     font-size: 45px;
     text-shadow: -0.5px -0.5px 0 #000000, 0.5px -0.5px 0 #000000, -0.5px 0.5px 0 #000000, 0.5px 0.5px 0 #000000;
+}
+
+#all-offers-search-by-address {
+    width: 30%;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 

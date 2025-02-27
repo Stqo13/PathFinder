@@ -9,15 +9,15 @@
 
 .role-requests-section {
     padding: 20px;
-    background-color: #fff;
+    background-color: #fff0db;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-    .role-requests-section h3 {
-        margin-bottom: 20px;
-        color: #333;
-    }
+.role-requests-section h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
 
 .role-request-list {
     display: flex;
@@ -27,25 +27,25 @@
 
 .role-request-card {
     flex: 1 1 calc(33.333% - 20px);
-    background: #f8f9fa;
+    background-color: #fcf5eb;
     border-radius: 8px;
     padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-    .role-request-card h4 {
-        font-size: 1.25rem;
-        margin-bottom: 10px;
-    }
+.role-request-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
 
-    .role-request-card p {
-        margin-bottom: 15px;
-        font-size: 1rem;
-        color: #555;
-    }
+.role-request-card p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #555;
+}
 
 .role-request-form {
     margin-bottom: 10px;
@@ -77,4 +77,37 @@
     align-items: center;
     gap: 10px;
     margin-top: 20px;
+}
+
+#role-request-main-container {
+    height: 120vh;
+    background-color: #1f3d66
+}
+
+#role-requests-h2-title {
+    color: white;
+    font-weight: 700;
+    padding-top: 1em;
+}
+
+.role-request-btn {
+    display: flex;
+    gap: 1em;
+}
+
+#role-request-accept {
+    background-color: #0ba36e;
+    border: solid 1px #07734d
+}
+
+#role-request-accept:hover {
+    background-color: #07734d;
+}
+
+#role-request-cancel {
+    background-color: #ab3030;
+}
+
+#role-request-cancel:hover {
+    background-color: #752121
 }

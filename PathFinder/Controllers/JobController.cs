@@ -84,7 +84,7 @@ namespace PathFinder.Controllers
                 
                 await jobService.CreateJobOfferAsync(model, userId);
 
-                return RedirectToAction(nameof(Add));
+                return RedirectToAction(nameof(MyOffers));
             }
             catch (Exception ex)
             {
@@ -139,7 +139,7 @@ namespace PathFinder.Controllers
             {
                 await jobService.EditJobInfoAsync(model, id);
 
-                return RedirectToAction(nameof(Details));
+                return RedirectToAction(nameof(MyOffers));
             }
             catch (Exception ex)
             {
@@ -180,7 +180,7 @@ namespace PathFinder.Controllers
             {
                 await jobService.DeleteJobAsync(model);
 
-                return RedirectToAction(nameof(Details));
+                return RedirectToAction(nameof(MyOffers));
             }
             catch (Exception ex)
             {

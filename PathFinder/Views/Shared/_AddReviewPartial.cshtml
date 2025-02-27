@@ -1,0 +1,63 @@
+﻿@using PathFinder.Data.Models.Enums;
+@model PathFinder.ViewModels.ReviewViewModels.ReviewAddViewModel;
+
+@{
+    ViewData["Title"] = "Добави ревю";
+}
+
+<h2 id="add-review-title">Добави ревю</h2>
+@if (Model.CourseId.HasValue)
+{
+    <form id="reviewForm" method="post" asp-action="Add" asp-controller="Review">
+        <input type="hidden" asp-for="CourseId" />
+        <input type="hidden" asp-for="PublisherId" />
+
+        <div id="review-info-container">
+            <div id="add-comment">
+                <label asp-for="Comment">💬 Коментар</label>
+                <textarea id="add-comment-textarea" asp-for="Comment" required></textarea>
+            </div>
+
+            <div class="star-rating">
+                <label>⭐ Оценка</label>
+                <div class="stars">
+                    <input asp-for="StarRating" type="radio" name="StarRating" value="5" id="star1"><label for="star1">★</label>
+                    <input asp-for="StarRating" type="radio" name="StarRating" value="4" id="star2"><label for="star2">★</label>
+                    <input asp-for="StarRating" type="radio" name="StarRating" value="3" id="star3"><label for="star3">★</label>
+                    <input asp-for="StarRating" type="radio" name="StarRating" value="2" id="star4"><label for="star4">★</label>
+                    <input asp-for="StarRating" type="radio" name="StarRating" value="1" id="star5"><label for="star5">★</label>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Изпрати</button>
+    </form>
+}
+else if (Model.JobId.HasValue)
+{
+    <form id="reviewForm" method="post" asp-action="Add" asp-controller="Review">
+        <input type="hidden" asp-for="JobId" />
+        <input type="hidden" asp-for="PublisherId" />
+
+        <div id="review-info-container">
+            <div id="add-comment">
+                <label asp-for="Comment">💬 Коментар</label>
+                <textarea id="add-comment-textarea" asp-for="Comment" required></textarea>
+            </div>
+
+            <div class="star-rating">
+                <label>⭐ Оценка</label>
+                <div class="stars">
+                    <input asp-for="StarRating" type="radio" name="StarRating" value="5" id="star1"><label for="star1">★</label>
+                    <input asp-for="StarRating" type="radio" name="StarRating" value="4" id="star2"><label for="star2">★</label>
+                    <input asp-for="StarRating" type="radio" name="StarRating" value="3" id="star3"><label for="star3">★</label>
+                    <input asp-for="StarRating" type="radio" name="StarRating" value="2" id="star4"><label for="star4">★</label>
+                    <input asp-for="StarRating" type="radio" name="StarRating" value="1" id="star5"><label for="star5">★</label>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Изпрати</button>
+    </form>
+}
+

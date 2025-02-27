@@ -101,7 +101,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2em; 
+    gap: 2em;
     padding: 20px;
     width: 100%;
 }
@@ -110,7 +110,7 @@
     width: 24px;
     height: 24px;
     cursor: pointer;
-    fill: #00757a; 
+    fill: #00757a;
 }
 
 #add-review {
@@ -130,6 +130,7 @@
     align-items: center;
     margin-top: 1em;
     margin-right: 0.5em;
+    text-decoration: none;
 }
 
 #add-review:active {
@@ -159,7 +160,7 @@
     background: white;
     padding: 20px;
     border-radius: 10px;
-    width: 70%;
+    width: 60%;
     height: 20em;
     position: relative;
 }
@@ -175,6 +176,14 @@
     display: flex;
 }
 
+#review-submit-container {
+    height: 100%;
+    width: 40%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
 
-
-
+#add-review-submit-button {
+    width: 6em;
+}

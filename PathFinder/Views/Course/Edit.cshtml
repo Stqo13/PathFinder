@@ -1,1 +1,142 @@
-﻿
+﻿@using PathFinder.Data.Models.Enums;
+@model PathFinder.ViewModels.CourseViewModels.CourseEditViewModel;
+
+@{
+    ViewData["Title"] = "Редактирай курс";
+}
+
+<div id="add-course-main-container">
+    <form id="add-course-inner-container" method="post" asp-action="Edit" asp-controller="Course">
+        <h2 id="add-course-title">
+            Редактирай офертата
+        </h2>
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.Name">Име на курса</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Name" class="form-control" aria-required="true" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.Mode">Начин на провеждане на курса</label>
+            <div id="add-mode-container">
+                <div class="custom-dropdown">
+                    <input asp-for="@Model.Mode" class="selected-option" />
+                    <ul class="dropdown-options">
+                        <li data-value="Присъствено">Присъствено</li>
+                        <li data-value="Онлайн">Онлайн</li>
+                    </ul>
+                    <input type="hidden" id="mode-input" name="Mode" />
+                </div>
+                <span asp-validation-for="Mode" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="add-course-input-description-container">
+            <label id="add-course-label-container" asp-for="@Model.Description">Описание на курса</label>
+            <div class="add-course-description-field">
+                <textarea id="add-course-textarea" asp-for="@Model.Description" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.CourseDuration">Продължение на курса(в седмици)</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.CourseDuration" class="form-control" aria-required="true" />
+                <span asp-validation-for="CourseDuration" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.DurationInMinutes">Продължителност на единичен час от курса(в минути)</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.DurationInMinutes" class="form-control" aria-required="true" />
+                <span asp-validation-for="DurationInMinutes" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="add-course-input-form-container" id="add-course-location-container">
+            <label id="add-course-label-container" asp-for="@Model.Location">Местоположение на курса</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Location" class="form-control" aria-required="true" />
+            </div>
+        </div>
+
+
+        <script>
+            const dropdown = document.querySelector(".custom-dropdown");
+            const selected = document.querySelector(".selected-option");
+            const options = document.querySelector(".dropdown-options");
+            const hiddenInput = document.getElementById("mode-input");
+            const locationContainer = document.getElementById('add-course-location-container');
+            let dropdownCounter = false;
+
+            dropdown.addEventListener("click", function () {
+                options.style.display = options.style.display === "block" ? "none" : "block";
+                dropdownCounter = !dropdownCounter;
+                console.log(dropdownCounter);
+            });
+
+            options.addEventListener("click", function (event) {
+                if (event.target.tagName === "LI") {
+                    selected.textContent = event.target.textContent;
+                    hiddenInput.value = event.target.getAttribute("data-value");
+                    options.style.display = "none";
+                    toggleLocationInput();
+                }
+
+                if (dropdownCounter) {
+                    options.style.display = 'block';
+                }
+                else {
+                    options.style.display = 'none';
+                }
+            });
+
+            function toggleLocationInput() {
+                let courseMode = hiddenInput.value;
+
+                if (courseMode === 'Присъствено') {
+                    locationContainer.style.display = 'flex';
+                } else {
+                    locationContainer.style.display = 'none';
+                }
+            }
+
+            toggleLocationInput();
+        </script>
+
+        <div class="add-course-input-form-container" id="add-course-location-container">
+            <label id="add-course-label-container" asp-for="@Model.Price">Месечна такса на курса</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.Price" class="form-control" aria-required="true" />
+            </div>
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.StartDate">Начало на курса</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.StartDate" class="form-control" aria-required="true" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="add-course-input-form-container">
+            <label id="add-course-label-container" asp-for="@Model.EndDate">Край на курса</label>
+            <div id="add-course-input-inner-container">
+                <input id="add-course-input" asp-for="@Model.EndDate" class="form-control" aria-required="true" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div id="add-btn-container">
+            <button id="add-course-btn" type="submit">
+                Редактирай
+            </button>
+        </div>
+    </form>
+</div>

@@ -20,6 +20,9 @@ namespace PathFinder.ViewModels.CourseViewModels
         public string? Description { get; set; }
 
         [Required]
+        public int? CourseDuration { get; set; }
+
+        [Required]
         public int DurationInMinutes { get; set; }
 
         [Required]
@@ -29,6 +32,8 @@ namespace PathFinder.ViewModels.CourseViewModels
         [Required]
         public DateTime StartDate { get; set; }
 
+        [Required]
+        public DateTime EndDate { get; set; }
         public double? AverageStarRating { get; set; }
 
         [Required]

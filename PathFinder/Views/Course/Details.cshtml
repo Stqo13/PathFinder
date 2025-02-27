@@ -3,7 +3,7 @@
 @model PathFinder.ViewModels.CourseViewModels.CourseDetailsViewModel;
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Детайли";
 }
 
 <div id="details-main-container">
@@ -38,30 +38,85 @@
 
         <hr id="details-devider">
 
-        @if (Model.Reviews.Count == 0)
-        {
-            <p id="no-reviews-text">Няма публикувани ревюта.</p>
-        }
-        else
-        {
-            <h1 id="reviews-title">
-                Ревюта
-            </h1>
+            <div id="no-reviews-container">
+                <h1 id="reviews-title">
+                    Ревюта
+                </h1>
 
-            <div id="reviews-main-container">
-                @foreach (var review in Model.Reviews)
-                {
-                    <div class="review-box">
-                        <div id="reviews-publisher-and-date">
-                            <h5 id="reviews-publisher-name">@review.Publisher</h5>
-                            <h6 id="reviews-publisher-reviewDate">@review.ReviewDate</h6>
+                <a onclick="openReviewPopup(@Model.Id)" class="popup-link" id="add-review" method="get" asp-controller="Review" asp-action="Add" asp-route-courseId="@Model.Id">
+                    <svg id="review-svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
+                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="none" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(2,2)"><path d="M64,16c-26.50967,0 -48,21.49033 -48,48c0,26.50967 21.49033,48 48,48c26.50967,0 48,-21.49033 48,-48c0,-26.50967 -21.49033,-48 -48,-48z" fill="#ffffff" stroke="none" stroke-width="1" stroke-linecap="butt"></path><path d="M64,25c-21.53911,0 -39,17.46089 -39,39c0,21.53911 17.46089,39 39,39c21.53911,0 39,-17.46089 39,-39c0,-21.53911 -17.46089,-39 -39,-39z" fill="#daa06d" stroke="none" stroke-width="1" stroke-linecap="butt"></path><path d="M64,16c-26.50967,0 -48,21.49033 -48,48c0,26.50967 21.49033,48 48,48c26.50967,0 48,-21.49033 48,-48c0,-26.50967 -21.49033,-48 -48,-48z" fill="none" stroke="#797b7e" stroke-width="6" stroke-linecap="butt"></path><path d="M64,42v44M42,64h44" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"></path></g></g>
+                    </svg>
+
+                    Ревю
+                </a>
+                <div id="popupModal" class="popup-overlay">
+                    <div class="popup-content">
+                        <span class="close-btn" onclick="closePopup()">&times;</span>
+                        <div id="popupFormContainer">
+                            <partial name="_AddReviewPartial" , model="new PathFinder.ViewModels.ReviewViewModels.ReviewAddViewModel { CourseId = Model.Id, PublisherId = User.Identity.Name }" />
                         </div>
-
-                        <p id="reviews-publisher-comment">@review.Comment</p>
                     </div>
-                }
+                </div>
             </div>
-        }
+
+
+        <div id="reviews-main-container">
+            @foreach (var review in Model.Reviews)
+            {
+                <div class="review-box">
+                    <div id="reviews-publisher-and-date">
+                        <h5 id="reviews-publisher-name">@review.Publisher</h5>
+                        <h6 id="reviews-publisher-reviewDate">@review.ReviewDate</h6>
+                    </div>
+
+                    <p id="reviews-publisher-comment">@review.Comment</p>
+                </div>
+            }
+        </div>
     </div>
 </div>
 
+<script>
+    function openReviewPopup(courseId) {
+        event.preventDefault();
+        fetch(`/Review/Add?courseId=${courseId}`)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("popupFormContainer").innerHTML = data;
+                document.getElementById("popupModal").classList.add("show");
+                attachFormSubmitHandler();
+            });
+    }
+
+    function closePopup() {
+        document.getElementById("popupModal").classList.remove("show");
+    }
+
+    function attachFormSubmitHandler() {
+        const form = document.getElementById("reviewForm");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+
+            fetch('/Review/Add', {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                if (response.ok) {
+                    closePopup();
+                    location.reload();
+                } else {
+                    alert('Error submitting the review.');
+                }
+            });
+        });
+    }
+
+    window.onclick = function (event) {
+        let popup = document.getElementById("popupModal");
+        if (event.target === popup) {
+            closePopup();
+        }
+    }
+</script>

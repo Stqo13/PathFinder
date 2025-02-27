@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PathFinder.Common.Helpers;
+using PathFinder.Data.Models;
 using PathFinder.Services.Data.Implementations;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.ReviewViewModels;
@@ -31,7 +32,7 @@ namespace PathFinder.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(ReviewAddViewModel model)
+        public async Task<IActionResult> Add(ReviewAddViewModel model, int? jobId, int? courseId)
         {
             if (!ModelState.IsValid)
             {
@@ -44,7 +45,12 @@ namespace PathFinder.Controllers
             {
                 await reviewService.CreateReviewAsync(model, userId);
 
-                return RedirectToAction(nameof(Add));
+                if (jobId.HasValue)
+                {
+                    return RedirectToAction("Details", "Job", new { Id = jobId});
+                }
+
+                return RedirectToAction("Details", "Course", new { Id = courseId});
             }
             catch (Exception ex)
             {

@@ -85,7 +85,7 @@ namespace PathFinder.Controllers
             {
                 await courseService.CreateCourseOfferAsync(model, userId);
 
-                return RedirectToAction(nameof(Add));
+                return RedirectToAction(nameof(MyOffers));
             }
             catch (Exception ex)
             {
@@ -125,7 +125,7 @@ namespace PathFinder.Controllers
             {
                 await courseService.EditCourseInfoAsync(model, id);
 
-                return RedirectToAction(nameof(Details));
+                return RedirectToAction(nameof(MyOffers));
             }
             catch (Exception ex)
             {
@@ -187,7 +187,7 @@ namespace PathFinder.Controllers
             {
                 await courseService.DeleteCourseAsync(model);
 
-                return RedirectToAction(nameof(Details));
+                return RedirectToAction(nameof(MyOffers));
             }
             catch (Exception ex)
             {
@@ -214,5 +214,11 @@ namespace PathFinder.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult LoadPopup()
+        {
+            string message = "This content is loaded from a partial view!";
+            return PartialView("_PopupContent", message);
+        }
     }
 }

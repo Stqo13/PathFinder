@@ -1,9 +1,9 @@
-﻿@using PathFinder.Data.Models.Enums;
+@using PathFinder.Data.Models.Enums;
 @model PathFinder.ViewModels.CourseViewModels.CourseAddViewModel;
 @inject IConfiguration configuration;
 
 @{
-    ViewData["Title"] = "Add Course";
+    ViewData["Title"] = "Добави курс";
 }
 
 <div id="add-course-main-container">
@@ -23,13 +23,15 @@
 
         <div class="add-course-input-form-container">
             <label id="add-course-label-container" asp-for="@Model.Mode">Начин на провеждане на курса</label>
-            <div class="custom-dropdown">
-                <div class="selected-option">Избери начин ...</div>
-                <ul class="dropdown-options">
-                    <li data-value="Присъствено">Присъствено</li>
-                    <li data-value="Онлайн">Онлайн</li>
-                </ul>
-                <input type="hidden" id="mode-input" name="Mode" />
+            <div id="add-mode-container">
+                <div class="custom-dropdown">
+                    <div class="selected-option">Избери начин ...</div>
+                    <ul class="dropdown-options">
+                        <li data-value="Присъствено">Присъствено</li>
+                        <li data-value="Онлайн">Онлайн</li>
+                    </ul>
+                    <input type="hidden" id="mode-input" name="Mode" />
+                </div>
                 <span asp-validation-for="Mode" class="text-danger"></span>
             </div>
         </div>
