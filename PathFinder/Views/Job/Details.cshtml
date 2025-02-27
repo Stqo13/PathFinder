@@ -33,7 +33,19 @@
             </p>
         </div>
 
-        <button id="job-apply-btn">Кандидатствай</button>
+        <label for="apply" id="job-apply-btn">
+            <span>Кандидаствай</span>
+            <input id="apply" type="checkbox">
+        </label>
+
+        <form method="post" asp-controller="Job" asp-action="Enroll" asp-route-jobId="@Model.Id" enctype="multipart/form-data">
+            <a href="javascript:document.querySelector('#apply').checked = false">&times;</a>
+            <textarea name="motivational-letter" placeholder="Мотивационно писмо" id="letter-area"></textarea>
+            <label for="letter-area"></label>
+
+            <input type="file" name="file" accept=".pdf" />
+            <input type="submit" name="submit-cv" value="Качи CV"/>        
+         </form>
 
         <div id="details-description">
             <div id="details-description-title">Описание</div>

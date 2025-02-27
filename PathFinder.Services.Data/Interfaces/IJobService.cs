@@ -24,5 +24,7 @@ namespace PathFinder.Services.Data.Interfaces
         Task<IEnumerable<JobInfoViewModel>> GetAllJobOffersByUserIdAsync(string userId);
 
         Task<IEnumerable<Sphere>> GetAllSpheresAsync();
+
+        Task EnrollUserToJob(string userId, string fileName, int jobId);
     }
 }

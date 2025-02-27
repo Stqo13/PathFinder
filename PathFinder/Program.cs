@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Minio;
 using PathFinder.Common;
 using PathFinder.Data;
 using PathFinder.Data.Models;
@@ -31,6 +32,14 @@ namespace PathFinder
             builder.Services
                 .Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 
+            var minioSecret = builder.Configuration["Minio:Secret"];
+            var minioKey = builder.Configuration["Minio:Key"];
+            var minioHost = builder.Configuration["Minio:Host"];
+
+            builder.Services.AddMinio(configureClient => configureClient
+                .WithEndpoint(minioHost)
+                .WithCredentials(minioKey, minioSecret)
+                .Build());
 
             builder.Services.ConfigureApplicationCookie(cfg =>
             {
@@ -46,7 +55,7 @@ namespace PathFinder
 
             var app = builder.Build();
 
-            
+
 
             using (var scope = app.Services.CreateScope())
             {
