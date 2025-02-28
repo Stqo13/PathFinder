@@ -7,6 +7,9 @@ using static PathFinder.Common.Helpers.ControllerHelper;
 using System.Security.Claims;
 using PathFinder.Common.Helpers;
 using System.Net;
+using Minio;
+using Minio.DataModel.Args;
+using System.IO;
 
 namespace PathFinder.Controllers
 {
@@ -14,6 +17,7 @@ namespace PathFinder.Controllers
     public class JobController(
         IJobService jobService,
         IGoogleMapsService googleMapsService,
+        IMinioClient minioClient,
         ILogger<JobController> logger): Controller
     {
         [Authorize]
@@ -283,6 +287,36 @@ namespace PathFinder.Controllers
             catch (Exception ex)
             {
                 logger.LogError($"An error occured while fetching personal job offer. {ex.Message}");
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Enroll(IFormFile file, int jobId)
+        {
+            try
+            {
+                string userId = GetCurrentClientId(User);
+
+                string uuid = Guid.NewGuid().ToString();
+                string fileName = uuid + ".pdf";
+
+                var args = new PutObjectArgs()
+                    .WithBucket("job-cvs")
+                    .WithObject(fileName)
+                    .WithStreamData(file.OpenReadStream())
+                    .WithObjectSize(file.Length)
+                    .WithContentType("application/octet-stream");
+
+                await minioClient.PutObjectAsync(args);
+
+                await jobService.EnrollUserToJob(userId, fileName, jobId);
+
+                return RedirectToAction(nameof(Details), new { Id = jobId});   
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"An error occured while uploading file. {ex.Message}");
                 return RedirectToAction("Error", "Home");
             }
         }

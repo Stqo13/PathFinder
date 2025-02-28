@@ -14,6 +14,7 @@ namespace PathFinder.Services.Data.Implementations
         IRepository<Job, int> jobRepository,
         IRepository<JobSphere, object> jobSphereRepository,
         IRepository<Sphere, int> sphereRepository,
+        IRepository<UserJob, object> userJobRepository,
         IGoogleMapsService googleMapsService,
         UserManager<ApplicationUser> userManager) : IJobService
     {
@@ -408,6 +409,18 @@ namespace PathFinder.Services.Data.Implementations
                 .GetAllAsync();
 
             return spheres;
+        }
+
+        public async Task EnrollUserToJob(string userId, string fileName, int jobId)
+        {
+            var model = new UserJob
+            {
+                UserId = userId,
+                JobId = jobId,
+                FileName = fileName
+            };
+
+            await userJobRepository.AddAsync(model);
         }
     }
 }

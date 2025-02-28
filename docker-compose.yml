@@ -1,0 +1,30 @@
+services:
+  minio-dev:
+    image: quay.io/minio/minio:${MINIO_VERSION:-latest}
+    profiles: [ development ]
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    volumes:
+      - minio:/data
+    ports:
+      - 9000:9000
+      - 9001:9001
+
+  minio-prod:
+    hostname: minio
+    image: quay.io/minio/minio:${MINIO_VERSION:-latest}
+    profiles: [ production ]
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    volumes:
+      - minio:/data
+    ports:
+      - $MINIO_PORT:9001
+    restart: always
+
+volumes:
+  minio:
