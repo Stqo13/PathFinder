@@ -5,6 +5,8 @@ using PathFinder.Data;
 using PathFinder.Data.Models;
 using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Extensions;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
 
 namespace PathFinder
 {
@@ -14,7 +16,6 @@ namespace PathFinder
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<PathFinderDbContext>(options =>
                 options.UseSqlServer(connectionString));
@@ -27,6 +28,17 @@ namespace PathFinder
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<PathFinderDbContext>()
             .AddDefaultTokenProviders();
+
+            var clientId = builder.Configuration["Authentication:Google:Client"]!;
+            var clientSecret = builder.Configuration["Authentication:Google:ClientSecret"]!;
+            builder.Services.AddAuthentication()
+                .AddCookie()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = clientId;
+                    options.ClientSecret = clientSecret;
+                });
+
 
             builder.Services
                 .Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
@@ -46,7 +58,6 @@ namespace PathFinder
 
             var app = builder.Build();
 
-            
 
             using (var scope = app.Services.CreateScope())
             {
@@ -57,7 +68,6 @@ namespace PathFinder
                 await AssignRoles(userManager, roleManager, userRepository);
             }
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseMigrationsEndPoint();

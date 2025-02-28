@@ -16,7 +16,6 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using PathFinder.Data.Models;
 using static PathFinder.Common.ApplicationConstraints.UserConstraints;
-
 namespace PathFinder.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
@@ -168,6 +167,7 @@ namespace PathFinder.Areas.Identity.Pages.Account
                     //    return LocalRedirect(returnUrl);
                     //}
                     await _signInManager.SignInAsync(user, isPersistent: false);
+
                     return LocalRedirect(returnUrl);
                 }
                 foreach (var error in result.Errors)

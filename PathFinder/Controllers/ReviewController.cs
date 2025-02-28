@@ -52,6 +52,16 @@ namespace PathFinder.Controllers
 
                 return RedirectToAction("Details", "Course", new { Id = courseId});
             }
+            catch (NullReferenceException nex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {nex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 404 });
+            }
+            catch (InvalidOperationException iex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {iex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 500 });
+            }
             catch (Exception ex)
             {
                 logger.LogError($"An error occured while adding a review. {ex.Message}");

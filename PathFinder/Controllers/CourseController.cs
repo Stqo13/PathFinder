@@ -53,6 +53,16 @@ namespace PathFinder.Controllers
 
                 return View(model);
             }
+            catch (NullReferenceException nex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {nex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 404 });
+            }
+            catch (InvalidOperationException iex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {iex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 500 });
+            }
             catch (Exception ex)
             {
                 logger.LogError($"An error occured while fetching job offers. {ex.Message}");
@@ -87,6 +97,16 @@ namespace PathFinder.Controllers
 
                 return RedirectToAction(nameof(MyOffers));
             }
+            catch (NullReferenceException nex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {nex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 404 });
+            }
+            catch (InvalidOperationException iex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {iex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 500 });
+            }
             catch (Exception ex)
             {
                 logger.LogError($"An error occured while adding course offer. {ex.Message}");
@@ -104,6 +124,16 @@ namespace PathFinder.Controllers
                 var course = await courseService.GetEditCourseById(id);
 
                 return View(course);
+            }
+            catch (NullReferenceException nex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {nex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 404 });
+            }
+            catch (InvalidOperationException iex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {iex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 500 });
             }
             catch (Exception ex)
             {
@@ -127,6 +157,16 @@ namespace PathFinder.Controllers
 
                 return RedirectToAction(nameof(MyOffers));
             }
+            catch (NullReferenceException nex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {nex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 404 });
+            }
+            catch (InvalidOperationException iex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {iex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 500 });
+            }
             catch (Exception ex)
             {
 
@@ -147,6 +187,16 @@ namespace PathFinder.Controllers
 
                 return View(course);
             }
+            catch (NullReferenceException nex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {nex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 404 });
+            }
+            catch (InvalidOperationException iex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {iex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 500 });
+            }
             catch (Exception ex)
             {
                 logger.LogError($"An error occured while fetching course offer details. {ex.Message}");
@@ -165,6 +215,16 @@ namespace PathFinder.Controllers
                 var course = await courseService.GetDeleteCourseAsync(id, userId);
 
                 return View(course);
+            }
+            catch (NullReferenceException nex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {nex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 404 });
+            }
+            catch (InvalidOperationException iex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {iex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 500 });
             }
             catch (Exception ex)
             {
@@ -189,6 +249,16 @@ namespace PathFinder.Controllers
 
                 return RedirectToAction(nameof(MyOffers));
             }
+            catch (NullReferenceException nex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {nex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 404 });
+            }
+            catch (InvalidOperationException iex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {iex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 500 });
+            }
             catch (Exception ex)
             {
                 logger.LogError($"An error occured while deleting course offer. {ex.Message}");
@@ -206,6 +276,16 @@ namespace PathFinder.Controllers
                 var models = await courseService.GetAllCourseOffersByUserIdAsync(userId);
 
                 return View(models);
+            }
+            catch (NullReferenceException nex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {nex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 404 });
+            }
+            catch (InvalidOperationException iex)
+            {
+                logger.LogError($"An error occured while adding the membership plan to personal hall. {iex.Message}");
+                return RedirectToAction("Error", "Home", new { code = 500 });
             }
             catch (Exception ex)
             {
