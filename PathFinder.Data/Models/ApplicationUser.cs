@@ -8,14 +8,12 @@ namespace PathFinder.Data.Models
     public class ApplicationUser : IdentityUser
     {
         [Comment("User's first name")]
-        [Required]
         [MaxLength(UserFirstNameMaxLength)]
-        public string FirstName { get; set; } = null!;
+        public string? FirstName { get; set; }
 
         [Comment("User's last name")]
-        [Required]
         [MaxLength(UserLastNameMaxLength)]
-        public string LastName { get; set; } = null!;
+        public string? LastName { get; set; } 
 
         [Comment("User's date of birth")]
         [Required]

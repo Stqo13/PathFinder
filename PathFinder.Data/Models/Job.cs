@@ -60,7 +60,6 @@ namespace PathFinder.Data.Models
         [Comment("Job average star rating")]
         public double? AverageStarRating { get; set; }
 
-        //TODO: NEED TO CREATE MIGRATION(SOFT DELETE)
         public bool IsDeleted { get; set; }
 
         [Comment("Job reviews")]

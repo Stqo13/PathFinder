@@ -19,7 +19,7 @@ namespace PathFinder.Controllers
             }
             else
             {
-                return RedirectToAction("Error", "Home");
+                return RedirectToAction("Error", "Home", new { code = 404 });
             }
         }
     }

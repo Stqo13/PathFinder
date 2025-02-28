@@ -1,0 +1,59 @@
+﻿﻿@{
+    ViewData["Title"] = "Internal Server Error";
+}
+
+<div id="error-main-container">
+    <div id="error-container">
+        <h1 id="error-h1">Упс! Нещо се обърка (500)</h1>
+        <p>Нашият сървър има проблем. Моля, опитайте отново по-късно.</p>
+        <p>
+            <a id="error-go-back" href="javascript:history.back()">&#171 Върнете се на предишната страница</a> или
+            <a id="error-back-to-home" href="/">&#171 Върнете се на началната страница</a>
+        </p>
+    </div>
+</div>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+    #error-h1 {
+        color: red;
+        font-weight: 700;
+    }
+
+    #error-container {
+        background-color: #bcd8f5;
+        padding-top: 4em;
+        height: 25em;
+        width: 80%;
+        display: fles;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #error-main-container {
+        display: flex;
+        justify-content: center;
+        padding: 5em;
+    }
+
+    #error-go-back {
+        font-weight: 700;
+    }
+
+    #error-go-back:hover {
+        text-decoration: underline;
+        font-weight: 700;
+    }
+
+    #error-back-to-home {
+        font-weight: 700;
+    }
+</style>

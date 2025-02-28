@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.DotNet.Scaffolding.Shared;
 using PathFinder.Data.Models;
 
 namespace PathFinder.Areas.Identity.Pages.Account
@@ -103,7 +104,7 @@ namespace PathFinder.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync(string provider = null, string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
 
@@ -114,6 +115,13 @@ namespace PathFinder.Areas.Identity.Pages.Account
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var user = await _userManager.FindByEmailAsync(Input.Email);
+
+                if (!string.IsNullOrEmpty(provider))
+                {
+                    var redirectUrl = Url.Page("./ExternalLogin", new { ReturnUrl = returnUrl });
+                    var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+                    return new ChallengeResult(provider, properties);
+                }
 
                 if (user == null)
                     return Page();
