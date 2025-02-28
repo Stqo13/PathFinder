@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Minio" Version="6.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PathFinder.Data\PathFinder.Data.csproj" />
     <ProjectReference Include="..\PathFinder.ViewModels\PathFinder.ViewModels.csproj" />
   </ItemGroup>

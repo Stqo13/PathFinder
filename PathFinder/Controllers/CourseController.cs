@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using PathFinder.Common.Helpers;
 using PathFinder.Data.Models;
 using PathFinder.Data.Repository.Interfaces;
+using PathFinder.Services.Data.Implementations;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.CourseViewModels;
 using System.Security.Claims;
+using static PathFinder.Common.Helpers.ControllerHelper;
 
 namespace PathFinder.Controllers
 {
@@ -290,6 +292,24 @@ namespace PathFinder.Controllers
             catch (Exception ex)
             {
                 logger.LogError($"An error occured while fetching personal course offer. {ex.Message}");
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Enroll(int courseId)
+        {
+            try
+            {
+                string userId = GetCurrentClientId(User);
+
+                await courseService.EnrollUserToCourse(userId, courseId);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"An error occured while uploading file. {ex.Message}");
                 return RedirectToAction("Error", "Home");
             }
         }

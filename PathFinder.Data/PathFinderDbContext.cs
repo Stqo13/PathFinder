@@ -43,6 +43,14 @@ namespace PathFinder.Data
 
         public virtual DbSet<InstitutionRoleRequest> InstitutionRoleRequests { get; set; } = null!;
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder
+                    .UseSqlServer("Server=DESKTOP-A8P7BPS\\SQLEXPRESS;Database=PathFinder;Integrated Security=true;TrustServerCertificate=true;");
+            }
+        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
