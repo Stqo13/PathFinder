@@ -14,6 +14,7 @@ namespace PathFinder.Services.Data.Implementations
         IRepository<Course, int> courseRepository,
         IRepository<CourseSphere, object> courseSphereRepository,
         IRepository<Sphere, int> sphereRepository,
+        IRepository<UserCourse, object> userCourseRepository,
         IGoogleMapsService googleMapsService,
         UserManager<ApplicationUser> userManager) : ICourseService
     {
@@ -424,6 +425,17 @@ namespace PathFinder.Services.Data.Implementations
                 .GetAllAsync();
 
             return spheres;
+        }
+
+        public async Task EnrollUserToCourse(string userId, int courseId)
+        {
+            var model = new UserCourse
+            {
+                CourseId = courseId,
+                UserId = userId
+            };
+
+            await userCourseRepository.AddAsync(model);
         }
     }
 }

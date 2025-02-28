@@ -25,5 +25,6 @@ namespace PathFinder.Services.Data.Interfaces
 
         Task<IEnumerable<Sphere>> GetAllSpheresAsync();
 
+        Task EnrollUserToCourse(string userId,int courseId);
     }
 }

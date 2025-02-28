@@ -44,15 +44,6 @@ namespace PathFinder
             builder.Services
                 .Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 
-            var minioSecret = builder.Configuration["Minio:Secret"];
-            var minioKey = builder.Configuration["Minio:Key"];
-            var minioHost = builder.Configuration["Minio:Host"];
-
-            builder.Services.AddMinio(configureClient => configureClient
-                .WithEndpoint(minioHost)
-                .WithCredentials(minioKey, minioSecret)
-                .Build());
-
             builder.Services.ConfigureApplicationCookie(cfg =>
             {
                 cfg.LoginPath = "/Identity/Account/Login";

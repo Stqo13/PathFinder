@@ -27,7 +27,9 @@
             <strong>Цена:</strong> @Model.Price лв.
         </div>
 
-        <button id="course-details-enroll-btn">Запиши се</button>
+        <form method="post" asp-controller="Course" asp-action="Enroll" asp-route-courseId="@Model.Id">
+            <button type="submit" id="course-details-enroll-btn">Запиши се</button>
+        </form> 
 
         <div id="details-description">
             <div id="details-description-title">Описание</div>

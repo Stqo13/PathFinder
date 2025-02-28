@@ -4,12 +4,10 @@ using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Services.Data.Interfaces;
 using PathFinder.ViewModels.JobViewModels;
 using static PathFinder.Common.Helpers.ControllerHelper;
-using System.Security.Claims;
 using PathFinder.Common.Helpers;
 using System.Net;
 using Minio;
 using Minio.DataModel.Args;
-using System.IO;
 
 namespace PathFinder.Controllers
 {
@@ -17,7 +15,7 @@ namespace PathFinder.Controllers
     public class JobController(
         IJobService jobService,
         IGoogleMapsService googleMapsService,
-        IMinioClient minioClient,
+        ICVUploaderService cVUploaderService,
         ILogger<JobController> logger): Controller
     {
         [Authorize]
@@ -301,18 +299,11 @@ namespace PathFinder.Controllers
                 string uuid = Guid.NewGuid().ToString();
                 string fileName = uuid + ".pdf";
 
-                var args = new PutObjectArgs()
-                    .WithBucket("job-cvs")
-                    .WithObject(fileName)
-                    .WithStreamData(file.OpenReadStream())
-                    .WithObjectSize(file.Length)
-                    .WithContentType("application/octet-stream");
-
-                await minioClient.PutObjectAsync(args);
+                await cVUploaderService.Run(file, fileName);
 
                 await jobService.EnrollUserToJob(userId, fileName, jobId);
 
-                return RedirectToAction(nameof(Details), new { Id = jobId});   
+                return RedirectToAction(nameof(Index));   
             }
             catch (Exception ex)
             {
