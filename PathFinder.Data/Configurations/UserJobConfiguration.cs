@@ -19,7 +19,7 @@ namespace PathFinder.Data.Configurations
         {
             var workingDirectory = Environment.CurrentDirectory;
             var projectDirectory = Directory.GetParent(workingDirectory);
-            var json = File.ReadAllText($"{projectDirectory}\\PathFinder.Data\\Data\\userJobs.json");
+            var json = File.ReadAllText($"{projectDirectory}/PathFinder.Data/Data/userJobs.json");
 
             var usersJobs = JsonConvert.DeserializeObject<List<UserJob>>(json)
                 ?? throw new Exception("Invalid json file path");

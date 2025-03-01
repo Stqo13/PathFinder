@@ -1,30 +1,64 @@
 services:
-  minio-dev:
-    image: quay.io/minio/minio:${MINIO_VERSION:-latest}
-    profiles: [ development ]
-    command: server /data --console-address ":9001"
-    environment:
-      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
-      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
-    volumes:
-      - minio:/data
-    ports:
-      - 9000:9000
-      - 9001:9001
+  # minio-dev:
+  #   image: quay.io/minio/minio:${MINIO_VERSION:-latest}
+  #   profiles: [ development ]
+  #   command: server /data --console-address ":9001"
+  #   environment:
+  #     MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+  #     MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+  #   volumes:
+  #     - minio:/data
+  #   ports:
+  #     - 9000:9000
+  #     - 9001:9001
 
-  minio-prod:
-    hostname: minio
-    image: quay.io/minio/minio:${MINIO_VERSION:-latest}
-    profiles: [ production ]
-    command: server /data --console-address ":9001"
+  sql-server-dev:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    profiles: [ development ]
     environment:
-      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
-      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: PathFinderdb_123
+      MSSQL_COLLATION: Latin1_General_100_CI_AS_KS_WS_SC_UTF8
     volumes:
-      - minio:/data
+      - sql-server:/var/opt/mssql
     ports:
-      - $MINIO_PORT:9001
+      - 1433:1433
+
+  # minio-prod:
+  #   hostname: minio
+  #   image: quay.io/minio/minio:${MINIO_VERSION:-latest}
+  #   profiles: [ production ]
+  #   command: server /data --console-address ":9001"
+  #   environment:
+  #     MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+  #     MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+  #   volumes:
+  #     - minio:/data
+  #   ports:
+  #     - $MINIO_PORT:9001
+  #   restart: always
+
+  sql-server-prod:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    profiles: [ production ]
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: PathFinderdb_123
+      MSSQL_COLLATION: Latin1_General_100_CI_AS_KS_WS_SC_UTF8
+    volumes:
+      - sql-server:/var/opt/mssql
+    restart: always
+
+  web:
+    build: .
+    profiles: [ production ]
+    links:
+      # - minio-prod:minio
+      - sql-server-prod:sql-server
+    ports:
+      - ${WEB_PORT:-5000}:5000
     restart: always
 
 volumes:
   minio:
+  sql-server:

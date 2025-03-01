@@ -17,7 +17,7 @@ namespace PathFinder.Data.Configurations
         {
             var workingDirectory = Environment.CurrentDirectory;
             var projectDirectory = Directory.GetParent(workingDirectory);
-            var json = File.ReadAllText($"{projectDirectory}\\PathFinder.Data\\Data\\spheres.json");
+            var json = File.ReadAllText($"{projectDirectory}/PathFinder.Data/Data/spheres.json");
 
             var spheres = JsonConvert.DeserializeObject<List<Sphere>>(json)
                 ?? throw new Exception("Invalid json file path");
