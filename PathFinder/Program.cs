@@ -61,7 +61,8 @@ namespace PathFinder
 
             builder.Services.AddRazorPages();
             builder.Services
-                .AddControllersWithViews();
+                .AddControllersWithViews()
+                .AddRazorRuntimeCompilation();
 
             var app = builder.Build();
 

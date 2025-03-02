@@ -27,6 +27,5 @@ WORKDIR /app
 
 COPY --from=build /app ./
 COPY PathFinder.Data/Data/* /PathFinder.Data/Data/
-COPY PathFinder/Views /
 
 ENTRYPOINT ["dotnet", "PathFinder.dll"]
