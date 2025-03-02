@@ -10,7 +10,9 @@ namespace PathFinder.Services.Data.Implementations
         IConfiguration configuration
         ) : IGoogleMapsService
     {
-        private readonly string apiKey = configuration["GoogleMapsApiKey:ApiKey"] ?? throw new NullReferenceException("Api key not found");
+        private readonly string apiKey = Environment.GetEnvironmentVariable("GMAPS_API_KEY")
+            ?? configuration["GoogleMapsApiKey:ApiKey"]
+            ?? throw new NullReferenceException("Api key not found");
 
         public async Task<(double Latitude, double Longitude)?> GetCoordinatesAsync(string address)
         {

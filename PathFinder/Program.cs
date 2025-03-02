@@ -30,8 +30,15 @@ namespace PathFinder
             .AddEntityFrameworkStores<PathFinderDbContext>()
             .AddDefaultTokenProviders();
 
-            var clientId = builder.Configuration["Authentication:Google:Client"]!;
-            var clientSecret = builder.Configuration["Authentication:Google:ClientSecret"]!;
+            var clientId = Environment.GetEnvironmentVariable("GMAPS_CLIENT");
+            var clientSecret = Environment.GetEnvironmentVariable("GMAPS_CLIENT_SECRET");
+
+            if (clientId == null || clientSecret == null)
+            {
+                clientId = builder.Configuration["Authentication:Google:Client"]!;
+                clientSecret = builder.Configuration["Authentication:Google:ClientSecret"]!;
+            }
+            
             builder.Services.AddAuthentication()
                 .AddCookie()
                 .AddGoogle(options =>
@@ -39,7 +46,6 @@ namespace PathFinder
                     options.ClientId = clientId;
                     options.ClientSecret = clientSecret;
                 });
-
 
             builder.Services
                 .Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
