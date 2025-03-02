@@ -29,5 +29,6 @@ COPY --from=build /app ./
 COPY PathFinder.Data/Data/* /PathFinder.Data/Data/
 COPY PathFinder/Views ./Views
 COPY PathFinder/wwwroot ./wwwroot
+COPY PathFinder/Areas ./Areas
 
 ENTRYPOINT ["dotnet", "PathFinder.dll"]
