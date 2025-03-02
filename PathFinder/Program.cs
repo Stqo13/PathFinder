@@ -60,7 +60,8 @@ namespace PathFinder
                 .RegisterRepositories();
 
             builder.Services.AddRazorPages();
-            builder.Services.AddControllersWithViews();
+            builder.Services
+                .AddControllersWithViews();
 
             var app = builder.Build();
 
