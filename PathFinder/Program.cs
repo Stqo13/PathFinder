@@ -61,6 +61,17 @@ namespace PathFinder
             using (var scope = app.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
+                var dbContext = services.GetRequiredService<PathFinderDbContext>();
+
+                try
+                {
+                    dbContext.Database.Migrate();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred while migrating the database: {ex.Message}");
+                }
+
                 var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                 var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
                 var userRepository = services.GetRequiredService<IRepository<ApplicationUser, string>>();
