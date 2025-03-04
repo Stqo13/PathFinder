@@ -1,6 +1,5 @@
 @using PathFinder.Data.Models.Enums;
 @model PathFinder.ViewModels.CourseViewModels.CourseAddViewModel;
-@inject IConfiguration configuration;
 
 @{
     ViewData["Title"] = "Добави курс";
@@ -142,7 +141,7 @@
 
     document.getElementById('jobAddress').addEventListener('change', async function () {
         let address = this.value;
-        let apiKey = @(configuration["GoogleMapsApiKey:ApiKey"]);
+        let apiKey = @(ViewData["GoogleMapsApiKey"]);
 
         if (!apiKey) {
             alert("API key is missing. Please configure it.");

@@ -16,6 +16,7 @@ namespace PathFinder.Controllers
         IJobService jobService,
         IGoogleMapsService googleMapsService,
         ICVUploaderService cVUploaderService,
+        IConfiguration configuration,
         ILogger<JobController> logger): Controller
     {
         [Authorize]
@@ -77,6 +78,17 @@ namespace PathFinder.Controllers
         public IActionResult Add()
         {
             var jobOffer = new JobAddViewModel();
+
+            var apiKey = Environment.GetEnvironmentVariable("GMAPS_API_KEY");
+
+            if (apiKey != null)
+            {
+                ViewData["GoogleMapsApiKey"] = apiKey;  
+            }
+            else
+            {
+                ViewData["GoogleMapsApiKey"] = configuration["GoogleMapsApiKey:ApiKey"];
+            }
 
             return View(jobOffer);
         }

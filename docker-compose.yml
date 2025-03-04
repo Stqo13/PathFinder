@@ -56,6 +56,7 @@ services:
       # - minio-prod:minio
       - sql-server-prod:sql-server
     environment:
+      ASPNETCORE_ENVIRONMENT: production
       GMAPS_API_KEY:
       GMAPS_CLIENT_SECRET:
       GMAPS_CLIENT:

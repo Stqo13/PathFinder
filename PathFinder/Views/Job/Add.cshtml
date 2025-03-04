@@ -1,6 +1,5 @@
 ﻿@using PathFinder.Data.Models.Enums;
 @model PathFinder.ViewModels.JobViewModels.JobAddViewModel;
-@inject IConfiguration configuration;
 
 @{
     ViewData["Title"] = "Add Job";
@@ -127,7 +126,7 @@
 
     document.getElementById('jobAddress').addEventListener('change', async function () {
         let address = this.value;
-        let apiKey = @(configuration["GoogleMapsApiKey:ApiKey"]);
+        let apiKey = @(ViewData["GoogleMapsApiKey"]);
 
         if (!apiKey) {
             alert("API key is missing. Please configure it.");

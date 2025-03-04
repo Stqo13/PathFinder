@@ -15,6 +15,7 @@ namespace PathFinder.Controllers
     public class CourseController(
         ICourseService courseService,
         IGoogleMapsService googleMapsService,
+        IConfiguration configuration,
         ILogger<CourseController> logger) : Controller
     {
         [Authorize]
@@ -78,6 +79,17 @@ namespace PathFinder.Controllers
             var courseOffer = new CourseAddViewModel();
 
             ViewData["Spheres"] = await courseService.GetAllSpheresAsync();
+
+            var apiKey = Environment.GetEnvironmentVariable("GMAPS_API_KEY");
+
+            if (apiKey != null)
+            {
+                ViewData["GoogleMapsApiKey"] = apiKey;
+            }
+            else
+            {
+                ViewData["GoogleMapsApiKey"] = configuration["GoogleMapsApiKey:ApiKey"];
+            }
 
             return View(courseOffer);
         }
