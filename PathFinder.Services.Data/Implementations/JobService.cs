@@ -48,9 +48,9 @@ namespace PathFinder.Services.Data.Implementations
 
             await jobRepository.AddAsync(job);
 
-            if (model.SphereIds != null && model.SphereIds.Any())
+            if (model.SelectedSpheres != null && model.SelectedSpheres.Any())
             {
-                foreach (var sphereId in model.SphereIds)
+                foreach (var sphereId in model.SelectedSpheres)
                 {
                     var jobSphere = new JobSphere()
                     {
@@ -86,6 +86,15 @@ namespace PathFinder.Services.Data.Implementations
             job.Position = model.Position;
             job.Requirement = model.Requirement;
             job.Salary = model.Salary;
+
+            if (!string.IsNullOrEmpty(job.Location))
+            {
+                var coordinates = await googleMapsService.GetCoordinatesAsync(job.Location);
+                if (coordinates != null)
+                {
+                    job.Coordinates = $"{coordinates.Value.Latitude},{coordinates.Value.Longitude}";
+                }
+            }
 
             await jobRepository.UpdateAsync(job);
 

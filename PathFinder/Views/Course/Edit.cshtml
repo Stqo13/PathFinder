@@ -66,50 +66,6 @@
             </div>
         </div>
 
-
-        <script>
-            const dropdown = document.querySelector(".custom-dropdown");
-            const selected = document.querySelector(".selected-option");
-            const options = document.querySelector(".dropdown-options");
-            const hiddenInput = document.getElementById("mode-input");
-            const locationContainer = document.getElementById('add-course-location-container');
-            let dropdownCounter = false;
-
-            dropdown.addEventListener("click", function () {
-                options.style.display = options.style.display === "block" ? "none" : "block";
-                dropdownCounter = !dropdownCounter;
-                console.log(dropdownCounter);
-            });
-
-            options.addEventListener("click", function (event) {
-                if (event.target.tagName === "LI") {
-                    selected.textContent = event.target.textContent;
-                    hiddenInput.value = event.target.getAttribute("data-value");
-                    options.style.display = "none";
-                    toggleLocationInput();
-                }
-
-                if (dropdownCounter) {
-                    options.style.display = 'block';
-                }
-                else {
-                    options.style.display = 'none';
-                }
-            });
-
-            function toggleLocationInput() {
-                let courseMode = hiddenInput.value;
-
-                if (courseMode === 'Присъствено') {
-                    locationContainer.style.display = 'flex';
-                } else {
-                    locationContainer.style.display = 'none';
-                }
-            }
-
-            toggleLocationInput();
-        </script>
-
         <div class="add-course-input-form-container" id="add-course-location-container">
             <label id="add-course-label-container" asp-for="@Model.Price">Месечна такса на курса</label>
             <div id="add-course-input-inner-container">
@@ -140,3 +96,71 @@
         </div>
     </form>
 </div>
+
+<script>
+    const dropdown = document.querySelector(".custom-dropdown");
+    const selected = document.querySelector(".selected-option");
+    const options = document.querySelector(".dropdown-options");
+    const hiddenInput = document.getElementById("mode-input");
+    const locationContainer = document.getElementById('add-course-location-container');
+    let dropdownCounter = false;
+
+    dropdown.addEventListener("click", function () {
+        options.style.display = options.style.display === "block" ? "none" : "block";
+        dropdownCounter = !dropdownCounter;
+        console.log(dropdownCounter);
+    });
+
+    options.addEventListener("click", function (event) {
+        if (event.target.tagName === "LI") {
+            selected.textContent = event.target.textContent;
+            hiddenInput.value = event.target.getAttribute("data-value");
+            options.style.display = "none";
+            toggleLocationInput();
+        }
+
+        if (dropdownCounter) {
+            options.style.display = 'block';
+        }
+        else {
+            options.style.display = 'none';
+        }
+    });
+
+    function toggleLocationInput() {
+        let courseMode = hiddenInput.value;
+
+        if (courseMode === 'Присъствено') {
+            locationContainer.style.display = 'flex';
+        } else {
+            locationContainer.style.display = 'none';
+        }
+    }
+
+    toggleLocationInput();
+
+    document.getElementById('jobAddress').addEventListener('change', async function () {
+        let address = this.value;
+        let apiKey = @(ViewData["GoogleMapsApiKey"]);
+
+        if (!apiKey) {
+            alert("API key is missing. Please configure it.");
+            return;
+        }
+
+        try {
+            let response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`);
+            let data = await response.json();
+
+            if (data.status === "OK") {
+                let location = data.results[0].geometry.location;
+                document.getElementById('jobCoordinates').value = `${location.lat},${location.lng}`;
+            } else {
+                alert("Failed to get coordinates. Check the address.");
+            }
+        } catch (error) {
+            console.error("Error fetching coordinates:", error);
+            alert("Error fetching coordinates. Please try again.");
+        }
+    });
+</script>

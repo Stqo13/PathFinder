@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PathFinder.Data.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static PathFinder.Common.ApplicationConstraints.JobConstraints;
 
@@ -32,8 +33,7 @@ namespace PathFinder.ViewModels.JobViewModels
         [Required]
         [Column(TypeName = "decimal(18,2)")]
         public decimal Salary { get; set; }
-
-        public List<int>? SphereIds { get; set; }
-            = new List<int>();
+        public IEnumerable<Sphere> AvailableSpheres { get; set; } = new List<Sphere>(); 
+        public List<int> SelectedSpheres { get; set; } = new List<int>();
     }
 }

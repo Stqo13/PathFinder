@@ -76,7 +76,10 @@ namespace PathFinder.Controllers
         [HttpGet]
         public async Task<IActionResult> Add()
         {
-            var courseOffer = new CourseAddViewModel();
+            var courseOffer = new CourseAddViewModel()
+            {
+                AvailableSpheres = await courseService.GetAllSpheresAsync()
+            };
 
             ViewData["Spheres"] = await courseService.GetAllSpheresAsync();
 
@@ -100,13 +103,15 @@ namespace PathFinder.Controllers
         {
             if (!ModelState.IsValid)
             {
+                model.AvailableSpheres = await courseService.GetAllSpheresAsync();
+
                 return View(model);
             }
-
-            string userId = ControllerHelper.GetCurrentClientId(User);
-
+            
             try
             {
+                string userId = ControllerHelper.GetCurrentClientId(User);
+
                 await courseService.CreateCourseOfferAsync(model, userId);
 
                 return RedirectToAction(nameof(MyOffers));
@@ -135,6 +140,17 @@ namespace PathFinder.Controllers
         {
             try
             {
+                var apiKey = Environment.GetEnvironmentVariable("GMAPS_API_KEY");
+
+                if (apiKey != null)
+                {
+                    ViewData["GoogleMapsApiKey"] = apiKey;
+                }
+                else
+                {
+                    ViewData["GoogleMapsApiKey"] = configuration["GoogleMapsApiKey:ApiKey"];
+                }
+
                 var course = await courseService.GetEditCourseById(id);
 
                 return View(course);

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PathFinder.Data.Models;
 using PathFinder.Data.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using static PathFinder.Common.ApplicationConstraints.CourseConstraints;
@@ -37,7 +38,7 @@ namespace PathFinder.ViewModels.CourseViewModels
         [Required]
         public decimal? Price { get; set; }
 
-        public List<int> SphereIds { get; set; }
-            = new List<int>();
+        public IEnumerable<Sphere> AvailableSpheres { get; set; } = new List<Sphere>();
+        public List<int> SelectedSpheres { get; set; } = new List<int>();
     }
 }

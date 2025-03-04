@@ -75,9 +75,12 @@ namespace PathFinder.Controllers
         }
 
         [HttpGet]
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
-            var jobOffer = new JobAddViewModel();
+            var jobOffer = new JobAddViewModel()
+            {
+                AvailableSpheres = await jobService.GetAllSpheresAsync()
+            };
 
             var apiKey = Environment.GetEnvironmentVariable("GMAPS_API_KEY");
 
@@ -99,6 +102,8 @@ namespace PathFinder.Controllers
         {
             if (!ModelState.IsValid)
             {
+                model.AvailableSpheres = await jobService.GetAllSpheresAsync();
+
                 return View(model);
             }
 
@@ -159,6 +164,17 @@ namespace PathFinder.Controllers
         {
             try
             {
+                var apiKey = Environment.GetEnvironmentVariable("GMAPS_API_KEY");
+
+                if (apiKey != null)
+                {
+                    ViewData["GoogleMapsApiKey"] = apiKey;
+                }
+                else
+                {
+                    ViewData["GoogleMapsApiKey"] = configuration["GoogleMapsApiKey:ApiKey"];
+                }
+
                 var job = await jobService.GetEditJobByIdAsync(id);
 
                 return View(job);
