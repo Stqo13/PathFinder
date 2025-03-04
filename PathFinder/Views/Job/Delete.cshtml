@@ -22,7 +22,7 @@
                     <input type="hidden" asp-for="Title" />
                     <input type="hidden" asp-for="PublishedBy" />
                     <button id="delete-accept-btn" type="submit" class="btn btn-danger">Да</button>
-                    <a id="delete-cancel-btn" asp-controller="Job" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-warning">Отказ</a>
+                    <a id="delete-cancel-btn" asp-controller="Job" asp-action="MyOffers" asp-route-id="@Model.Id" class="btn btn-warning">Отказ</a>
                 </form>
             </div>
         </div>
