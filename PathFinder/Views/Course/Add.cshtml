@@ -89,6 +89,27 @@
             </div>
         </div>
 
+        <div id="all-offers-filter-by-spheres">
+            <label class="form-label"><strong id="filter-text">Добави сфери:</strong></label>
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                    Избери сфери
+                </button>
+                <ul class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton" style="max-height: 300px; overflow-y: auto;">
+                    @foreach (var sphere in Model.AvailableSpheres)
+                    {
+                        <li class="form-check">
+                            <input type="checkbox" name="selectedSpheres" value="@sphere.Id"
+                                   class="form-check-input" id="sphere_@sphere.Id"
+                            @(Model.SelectedSpheres.Contains(sphere.Id) ? "checked" : "") />
+                            <label class="form-check-label" for="sphere_@sphere.Id">@sphere.Name</label>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
         <div id="add-btn-container">
             <button id="add-course-btn" type="submit">
                 Добави

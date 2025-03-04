@@ -51,9 +51,9 @@ namespace PathFinder.Services.Data.Implementations
 
             await courseRepository.AddAsync(course);
 
-            if (model.SphereIds != null && model.SphereIds.Any())
+            if (model.SelectedSpheres != null && model.SelectedSpheres.Any())
             {
-                foreach (var sphereId in model.SphereIds)
+                foreach (var sphereId in model.SelectedSpheres)
                 {
                     var courseSphere = new CourseSphere()
                     {
@@ -112,6 +112,15 @@ namespace PathFinder.Services.Data.Implementations
             course.StartDate = model.StartDate;
             course.AverageStarRating = model.AverageStarRating;
             course.Price = model.Price;
+
+            if (!string.IsNullOrEmpty(course.Location))
+            {
+                var coordinates = await googleMapsService.GetCoordinatesAsync(course.Location);
+                if (coordinates != null)
+                {
+                    course.Coordinates = $"{coordinates.Value.Latitude},{coordinates.Value.Longitude}";
+                }
+            }
 
             await courseRepository.UpdateAsync(course);
             
