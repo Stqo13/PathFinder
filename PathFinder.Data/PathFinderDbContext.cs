@@ -48,7 +48,7 @@ namespace PathFinder.Data
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-                    .UseSqlServer("Server=DESKTOP-A8P7BPS\\SQLEXPRESS;Database=PathFinder;Integrated Security=true;TrustServerCertificate=true;");
+                    .UseSqlServer("Server=DESKTOP-6VQ6QDR\\SQLEXPRESS;Database=PathFinder;Integrated Security=true;TrustServerCertificate=true;");
             }
         }
         protected override void OnModelCreating(ModelBuilder builder)
