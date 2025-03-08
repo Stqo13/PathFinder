@@ -24,7 +24,7 @@ namespace PathFinder.Data.Models
         [ForeignKey(nameof(JobId))]
         public virtual Job Job { get; set; } = null!;
 
-        [Comment("File name, uuid")]
-        public string? FileName { get; set; }
+        //[Comment("File name, uuid")]
+        //public string? FileName { get; set; }
     }
 }

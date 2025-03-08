@@ -107,7 +107,7 @@ namespace PathFinder.Controllers
 
                 return View(model);
             }
-            
+
             try
             {
                 string userId = ControllerHelper.GetCurrentClientId(User);
@@ -270,7 +270,7 @@ namespace PathFinder.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model); 
+                return View(model);
             }
 
             try
@@ -331,9 +331,19 @@ namespace PathFinder.Controllers
             {
                 string userId = GetCurrentClientId(User);
 
-                await courseService.EnrollUserToCourse(userId, courseId);
+                bool isEnrolled = await courseService.IsUserEnrolled(userId, courseId);
 
-                return RedirectToAction(nameof(Index));
+                if (isEnrolled)
+                {
+                    TempData["EnrollmentStatus"] = "AlreadyEnrolled";
+                }
+                else
+                {
+                    await courseService.EnrollUserToCourse(userId, courseId);
+                    TempData["EnrollmentStatus"] = "Success";
+                }
+
+                return RedirectToAction(nameof(Details), new { id = courseId });
             }
             catch (Exception ex)
             {

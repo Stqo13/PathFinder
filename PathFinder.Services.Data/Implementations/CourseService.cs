@@ -446,5 +446,13 @@ namespace PathFinder.Services.Data.Implementations
 
             await userCourseRepository.AddAsync(model);
         }
+
+        public async Task<bool> IsUserEnrolled(string userId, int courseId)
+        {
+            var userCourse = await userCourseRepository.GetAllAttached()
+                .FirstOrDefaultAsync(uj => uj.UserId == userId && uj.CourseId == courseId);
+
+            return userCourse != null;
+        }
     }
 }
