@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PathFinder.Data;
 
@@ -11,9 +12,11 @@ using PathFinder.Data;
 namespace PathFinder.Data.Migrations
 {
     [DbContext(typeof(PathFinderDbContext))]
-    partial class PathFinderDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250308191056_ColumnRemovedFromUserJob")]
+    partial class ColumnRemovedFromUserJob
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

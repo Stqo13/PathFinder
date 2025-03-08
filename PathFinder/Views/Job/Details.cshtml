@@ -33,19 +33,27 @@
             </p>
         </div>
 
-        <label for="apply" id="job-apply-btn">
+        <form method="post" asp-controller="Job" asp-action="Enroll" asp-route-jobId="@Model.Id">
+            <button type="submit" id="course-details-enroll-btn">Кандидатствай</button>
+        </form>
+
+        <div id="popup-message" class="hidden">
+            <span id="popup-text"></span>
+        </div>
+
+        @* <label for="apply" id="job-apply-btn">
             <span>Кандидаствай</span>
             <input id="apply" type="checkbox">
         </label>
 
-        <form method="post" asp-controller="Job" asp-action="Enroll" asp-route-jobId="@Model.Id" enctype="multipart/form-data">
+         <form method="post" asp-controller="Job" asp-action="Enroll" asp-route-jobId="@Model.Id" enctype="multipart/form-data">
             <a href="javascript:document.querySelector('#apply').checked = false">&times;</a>
             <textarea name="motivational-letter" placeholder="Мотивационно писмо" id="letter-area"></textarea>
             <label for="letter-area"></label>
 
             <input type="file" name="file" accept=".pdf" />
             <input type="submit" name="submit-cv" value="Качи CV"/>        
-         </form>
+         </form> *@
 
         <div id="details-description">
             <div id="details-description-title">Описание</div>
@@ -95,6 +103,34 @@
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const enrollmentStatus = "@TempData["EnrollmentStatus"]";
+        const popupMessage = document.getElementById("popup-message");
+        const popupText = document.getElementById("popup-text");
+
+        if (enrollmentStatus === "Success" || enrollmentStatus === "AlreadyEnrolled") {
+            if (enrollmentStatus === "Success") {
+                popupText.textContent = "Успешно записване!";
+                popupMessage.classList.add("success");
+            } else if (enrollmentStatus === "AlreadyEnrolled") {
+                popupText.textContent = "Вече сте записани!";
+                popupMessage.classList.add("error");
+            }
+
+            popupMessage.classList.add("show");
+
+            setTimeout(function () {
+                popupMessage.classList.remove("show");
+                popupMessage.classList.add("hide");
+
+                setTimeout(function () {
+                    popupMessage.style.display = "none";
+                    popupMessage.classList.remove("hide");
+                }, 500);
+            }, 3000);
+        }
+    });
+
     function openReviewPopup(jobId) {
         event.preventDefault();
         fetch(`/Review/Add?jobId=${jobId}`)

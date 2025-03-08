@@ -31,6 +31,10 @@
             <button type="submit" id="course-details-enroll-btn">Запиши се</button>
         </form> 
 
+        <div id="popup-message" class="hidden">
+            <span id="popup-text"></span>
+        </div>
+
         <div id="details-description">
             <div id="details-description-title">Описание</div>
             <p id="details-description-text">
@@ -80,6 +84,34 @@
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const enrollmentStatus = "@TempData["EnrollmentStatus"]";
+        const popupMessage = document.getElementById("popup-message");
+        const popupText = document.getElementById("popup-text");
+
+        if (enrollmentStatus === "Success" || enrollmentStatus === "AlreadyEnrolled") {
+            if (enrollmentStatus === "Success") {
+                popupText.textContent = "Успешно записване!";
+                popupMessage.classList.add("success");
+            } else if (enrollmentStatus === "AlreadyEnrolled") {
+                popupText.textContent = "Вече сте записани!";
+                popupMessage.classList.add("error");
+            }
+
+            popupMessage.classList.add("show");
+
+            setTimeout(function () {
+                popupMessage.classList.remove("show");
+                popupMessage.classList.add("hide");
+
+                setTimeout(function () {
+                    popupMessage.style.display = "none";
+                    popupMessage.classList.remove("hide");
+                }, 500);
+            }, 3000);
+        }
+    });
+
     function openReviewPopup(courseId) {
         event.preventDefault();
         fetch(`/Review/Add?courseId=${courseId}`)

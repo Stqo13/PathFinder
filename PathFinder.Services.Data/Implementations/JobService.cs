@@ -420,16 +420,23 @@ namespace PathFinder.Services.Data.Implementations
             return spheres;
         }
 
-        public async Task EnrollUserToJob(string userId, string fileName, int jobId)
+        public async Task EnrollUserToJob(string userId, /*string fileName,*/ int jobId)
         {
             var model = new UserJob
             {
                 UserId = userId,
                 JobId = jobId,
-                FileName = fileName
             };
 
             await userJobRepository.AddAsync(model);
+        }
+
+        public async Task<bool> IsUserEnrolled(string userId, int jobId)
+        {
+            var userJob = await userJobRepository.GetAllAttached()
+                .FirstOrDefaultAsync(uj => uj.UserId == userId && uj.JobId == jobId);
+
+            return userJob != null;
         }
     }
 }

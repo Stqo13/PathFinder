@@ -319,20 +319,30 @@ namespace PathFinder.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Enroll(IFormFile file, int jobId)
+        public async Task<IActionResult> Enroll(/*IFormFile file,*/ int jobId)
         {
             try
             {
                 string userId = GetCurrentClientId(User);
 
-                string uuid = Guid.NewGuid().ToString();
-                string fileName = uuid + ".pdf";
+                //string uuid = Guid.NewGuid().ToString();
+                //string fileName = uuid + ".pdf";
 
-                await cVUploaderService.Run(file, fileName);
+                //await cVUploaderService.Run(file, fileName);
 
-                await jobService.EnrollUserToJob(userId, fileName, jobId);
+                bool isEnrolled = await jobService.IsUserEnrolled(userId, jobId);
 
-                return RedirectToAction(nameof(Index));   
+                if (isEnrolled)
+                {
+                    TempData["EnrollmentStatus"] = "AlreadyEnrolled";
+                }
+                else
+                {
+                    await jobService.EnrollUserToJob(userId, /*fileName,*/ jobId);
+                    TempData["EnrollmentStatus"] = "Success";
+                }
+
+                return RedirectToAction(nameof(Details), new { id = jobId });
             }
             catch (Exception ex)
             {
@@ -343,7 +353,14 @@ namespace PathFinder.Controllers
 
         public async Task<IActionResult> ViewStatistics()
         {
-            var aPIAuthentication = new APIAuthentication(configuration["API"]);
+            var apiKey = Environment.GetEnvironmentVariable("OPENAI_API");
+
+            if (apiKey == null)
+            {
+                apiKey = configuration["API"];
+            }
+
+            var aPIAuthentication = new APIAuthentication(apiKey);
             var openAIAPI = new OpenAIAPI(aPIAuthentication);
             var conversation = openAIAPI.Chat.CreateConversation();
             conversation.AppendUserInput("Give me a list of the top 10 most searched job positions and their average salary, formatted as: '{nameOfJobPosition} {averageSalaryForThisJobPosition}' without anything but this top10 list");

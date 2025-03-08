@@ -25,6 +25,8 @@ namespace PathFinder.Services.Data.Interfaces
 
         Task<IEnumerable<Sphere>> GetAllSpheresAsync();
 
-        Task EnrollUserToJob(string userId, string fileName, int jobId);
+        Task EnrollUserToJob(string userId, /*string fileName,*/ int jobId);
+
+        Task<bool> IsUserEnrolled(string userId, int jobId);
     }
 }
