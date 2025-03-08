@@ -1,0 +1,137 @@
+﻿@model List<(string, double)> 
+
+
+@{
+    ViewData["Title"] = "Top 10 Most Searched Job Positions";
+    var jobPositionsJson = Newtonsoft.Json.JsonConvert.SerializeObject(
+        Model.Select(j => new { name = j.Item1, salary = j.Item2 })
+    );
+}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    .chart-container {
+        width: 80%;
+        margin: 40px auto;
+    }
+
+    .actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .actions button {
+            margin: 0 5px;
+        }
+</style>
+
+<div class="chart-container">
+    <h1>@ViewData["Title"]</h1>
+    <canvas id="jobChart"></canvas>
+</div>
+
+<div class="actions" id="chartActions"></div>
+
+<script>
+    // Parse job positions data passed from the server.
+    var jobPositions = @Html.Raw(jobPositionsJson);
+
+    // Extract labels (job names) and salary values.
+    const labels = jobPositions.map(function(job) { return job.name; });
+    const salaries = jobPositions.map(function(job) { return job.salary; });
+
+    // Instead of the Utils functions, we define basic versions here.
+    const CHART_COLORS = {
+      red: 'rgb(255, 99, 132)',
+      blue: 'rgb(54, 162, 235)'
+    };
+
+    function transparentize(color, opacity) {
+      // Assumes color in format "rgb(r, g, b)"
+      var rgb = color.match(/\d+/g);
+      return 'rgba(' + rgb.join(',') + ',' + opacity + ')';
+    }
+
+    // Set up the data object for Chart.js using your snippet structure.
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Average Salary',
+          data: salaries,
+          borderColor: CHART_COLORS.red,
+          backgroundColor: transparentize(CHART_COLORS.red, 0.5),
+        }
+      ]
+    };
+
+    // Use your provided Chart.js configuration
+    const config = {
+      type: 'bar',
+      data: data,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Top 10 Most Searched Job Positions'
+          }
+        }
+      },
+    };
+
+    // Create the chart
+    const ctx = document.getElementById('jobChart').getContext('2d');
+    const jobChart = new Chart(ctx, config);
+
+    // Optional actions similar to your provided code snippet.
+    const actions = [
+      {
+        name: 'Randomize',
+        handler(chart) {
+          // For each dataset, assign random salary values.
+          chart.data.datasets.forEach(dataset => {
+            dataset.data = labels.map(() => Math.floor(Math.random() * 200000) - 50000);
+          });
+          chart.update();
+        }
+      },
+      {
+        name: 'Add Data',
+        handler(chart) {
+          // Add a new "job" with a random salary.
+          const newLabel = 'Job ' + (chart.data.labels.length + 1);
+          chart.data.labels.push(newLabel);
+          chart.data.datasets.forEach(dataset => {
+            dataset.data.push(Math.floor(Math.random() * 200000) - 50000);
+          });
+          chart.update();
+        }
+      },
+      {
+        name: 'Remove Data',
+        handler(chart) {
+          // Remove the last data point.
+          chart.data.labels.splice(-1, 1);
+          chart.data.datasets.forEach(dataset => {
+            dataset.data.pop();
+          });
+          chart.update();
+        }
+      }
+    ];
+
+    // Render action buttons.
+    const actionsContainer = document.getElementById('chartActions');
+    actions.forEach(action => {
+      const btn = document.createElement('button');
+      btn.textContent = action.name;
+      btn.addEventListener('click', () => action.handler(jobChart));
+      actionsContainer.appendChild(btn);
+    });
+</script>
+
