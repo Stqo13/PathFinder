@@ -8,6 +8,7 @@ using PathFinder.Common.Helpers;
 using System.Net;
 using Minio;
 using Minio.DataModel.Args;
+using OpenAI_API;
 
 namespace PathFinder.Controllers
 {
@@ -338,6 +339,26 @@ namespace PathFinder.Controllers
                 logger.LogError($"An error occured while uploading file. {ex.Message}");
                 return RedirectToAction("Error", "Home");
             }
+        }
+
+        public async Task<IActionResult> ViewStatistics()
+        {
+            var aPIAuthentication = new APIAuthentication(configuration["API"]);
+            var openAIAPI = new OpenAIAPI(aPIAuthentication);
+            var conversation = openAIAPI.Chat.CreateConversation();
+            conversation.AppendUserInput("Give me a list of the top 10 most searched job positions and their average salary, formatted as: '{nameOfJobPosition} {averageSalaryForThisJobPosition}' without anything but this top10 list");
+            var response = await conversation.GetResponseFromChatbotAsync();
+            if (!string.IsNullOrEmpty(response))
+            {
+                List<(string, double)> values = [];
+                response.Split("\n").Select(x => x.Split(". ").Skip(1).First().Split(" $")).ToList().ForEach(x => {
+                    values.Add((x[0], double.Parse(x[1])));
+                });
+
+                return View(values);
+            }
+
+            return RedirectToAction("Error", "Home");
         }
 
         [HttpGet]
