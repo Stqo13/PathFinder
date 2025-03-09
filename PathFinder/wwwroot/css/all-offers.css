@@ -175,12 +175,6 @@
     width: 40%;
 }
 
-/*#all-offers-search-by-title {
-    width: 40%;
-    padding-left: 0px;
-    padding-right: 0px;
-}*/
-
 #all-offers-search-bar {
     width: 100%;
     border: solid 2px white;
@@ -237,7 +231,6 @@
 
 #applyFiltersButton {
     background-color: #006d77;
-    width: 10em;
     height: 3em;
     color: white;
     border: solid 1px #006d77;
@@ -270,3 +263,26 @@
     padding-right: 0px;
 }
 
+#ai-job-positions-stats {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 0.4em;
+    margin-right: 0.5em;
+}
+
+#view-statistics-link {
+    position: absolute;
+    left: 10px;
+    top: 100px;
+    text-decoration: none;
+    color: #023166;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+#view-statistics-link:hover {
+    text-decoration: underline;
+}

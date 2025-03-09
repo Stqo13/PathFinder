@@ -90,13 +90,13 @@ namespace PathFinder.Data
                 .HasOne(uc => uc.User)
                 .WithMany()
                 .HasForeignKey(uc => uc.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.ClientCascade);
 
             builder.Entity<UserCourse>()
                 .HasOne(uc => uc.Course)
                 .WithMany()
                 .HasForeignKey(uc => uc.CourseId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.ClientCascade);
             #endregion
 
             #region UserJob Delete Behavior
@@ -104,13 +104,13 @@ namespace PathFinder.Data
                 .HasOne(uj => uj.User)
                 .WithMany()
                 .HasForeignKey(uj => uj.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.ClientCascade);
 
             builder.Entity<UserJob>()
                 .HasOne(uj => uj.Job)
                 .WithMany()
                 .HasForeignKey(uj => uj.JobId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.ClientCascade);
             #endregion
 
             #region UserSphere Delete Behavior

@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Излез";
+}
+
+<div id="pop-up-logOut-container">
+    <h3 id="logOutQuestion">Сигурни ли сте, че искате да излезете от акаунта си?</h3>
+
+    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+        <button type="submit" class="nav-link btn btn-link" id="popUp-logOut-btn">Излез</button>
+    </form>
+</div>
+
+
+
