@@ -6,6 +6,11 @@
 }
 
 <div id="offers-index-main-container">
+    <a id="view-statistics-link" asp-area=""  asp-controller="Job" asp-action="ViewStatistics">
+        <img id="ai-job-positions-stats" src="../images/bar-chart.png" />
+        AI-Generated Job Stats
+    </a>
+
     <h2 id="offers-index-title">Обяви за работа</h2>
 
     @if (Model.JobOffers.Any())

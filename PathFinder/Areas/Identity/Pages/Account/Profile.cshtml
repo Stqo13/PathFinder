@@ -1,0 +1,161 @@
+﻿@page
+@using PathFinder.Areas.Identity.Pages.Account;
+@{
+    Layout = null;
+}
+@model ProfileModel
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+<link rel="stylesheet" href="~/css/my-profile.css" asp-append-version="true" />
+<a href="/Home/Index" id="close-myProfile">&times;</a>
+
+<div class="sidebar">
+    <h2>PathFinder</h2>
+
+    <a id="sidebar-options" asp-area="Identity" asp-page="/Account/Profile">Моят профил</a>
+
+    <form id="edit-profile-container" method="post">
+        <button id="sidebar-options" type="submit" asp-page-handler="ChangeMode" class="unstyled-button">
+            Редактирай профил
+        </button>
+    </form>
+
+    <a id="sidebar-options" onclick="openLogOutPopup()">Излез</a>
+    <div id="myPopupOverlay" class="popup-overlay">
+        <div id="myPopupContent" class="popup-content">
+            <span id="myCloseBtn" class="close-btn" onclick="closePopup()">&times;</span>
+            <div id="myPopupFormContainer">
+                <partial name="_LogOutPartial" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="profile-card">
+        @if (Model.IsEditModeOn)
+        {
+            <form method="post" asp-page-handler="Edit">
+                <input type="hidden" asp-for="CurrentUser.Id" />
+
+                <div id="edit-info-container">
+                    <div class="edit-info-input">
+                        <label asp-for="CurrentUser.FirstName"></label>
+                        <input id="edit-input-field" asp-for="CurrentUser.FirstName" value="@Model.CurrentUser.FirstName" class="form-control" />
+                        <span asp-validation-for="CurrentUser.FirstName" class="text-danger"></span>
+                    </div>
+
+                    <div class="edit-info-input">
+                        <label asp-for="CurrentUser.LastName"></label>
+                        <input id="edit-input-field" asp-for="CurrentUser.LastName" class="form-control" />
+                        <span asp-validation-for="CurrentUser.LastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="edit-info-input">
+                        <label asp-for="CurrentUser.Email"></label>
+                        <input id="edit-input-field" asp-for="CurrentUser.Email" class="form-control" />
+                        <span asp-validation-for="CurrentUser.Email" class="text-danger"></span>
+                    </div>
+                    <button id="edit-profile-btn" type="submit" class="btn btn-primary">Запази промените</button>
+                </div>
+            </form>
+        }
+        else
+        {
+            <div id="profile-personal-info">
+                <div id="profile-info-container">
+                    <h1 id="user-name">@Model.CurrentUser.FirstName @Model.CurrentUser.LastName</h1>
+
+                    <div id="user-roles">
+                        <h4 id="user-info-h4-title">
+                            Роли:
+                        </h4>
+                        @foreach (var role in Model.Roles)
+                        {
+                            <h4 id="user-role">
+                                @role
+                            </h4>
+                        }
+                    </div>
+                </div>
+
+                <div class="profile-info">
+                    <div id="user-info-container">
+                        <h5 id="user-info-h5-title">
+                            Потребителско име:
+                        </h5>
+                        @Model.CurrentUser.UserName
+                    </div>
+
+                    <div id="user-info-container">
+                        <h5 id="user-info-h5-title">
+                            Имейл:
+                        </h5>
+                        @Model.CurrentUser.Email
+                    </div>
+
+                    <div id="user-info-container">
+                        <h5 id="user-info-h5-title">
+                            Телефонен номер:
+                        </h5>
+                        @Model.CurrentUser.PhoneNumber
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            @if (Model.CoursesEnrolled.Count == 0 && Model.JobsEnrolled.Count == 0)
+            {
+                <h3>
+                    Все още не сте се записали никъде!
+                </h3>
+            }
+            else
+            {
+                <div id="users-offers">
+                    @foreach (var courseOffer in Model.CoursesEnrolled)
+                    {
+                        <div class="offers-box">
+                            <div id="reviews-publisher-and-date">
+                                <h5>@courseOffer.Name</h5>
+
+                                <hr />
+
+                                <h6>@courseOffer.StartDate.ToString("yyyy-MM-dd") / @courseOffer.EndDate.ToString("yyyy-MM-dd")</h6>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+
+            <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Сигурни ли сте, че искате да изтриете профила си?');">
+                <button type="submit" id="delete-profile-btn" class="btn btn-danger">Изтрийте профила си</button>
+            </form>
+        }
+
+    </div>
+</div>
+
+<script>
+    function openLogOutPopup() {
+        document.getElementById("myPopupOverlay").style.display = "flex";
+    }
+
+    function closePopup() {
+        document.getElementById("myPopupOverlay").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        var modal = document.getElementById("myPopupOverlay");
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+
+

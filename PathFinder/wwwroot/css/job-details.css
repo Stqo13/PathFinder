@@ -82,22 +82,22 @@
     margin-top: 1em;
 }
 
-    #apply, #job-apply-btn + form, #job-apply-btn:has(:checked) {
-        display: none;
-    }
+#apply, #job-apply-btn + form, #job-apply-btn:has(:checked) {
+    display: none;
+}
 
-        #job-apply-btn:has(:checked) + form {
-            display: block;
-        }
+#job-apply-btn:has(:checked) + form {
+    display: block;
+}
 
-    #job-apply-btn:active {
-        transform: translateX(0.1em) translateY(0.1em);
-        box-shadow: 0 0 0 4px rgb(255, 240, 219), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
-    }
+#job-apply-btn:active {
+    transform: translateX(0.1em) translateY(0.1em);
+    box-shadow: 0 0 0 4px rgb(255, 240, 219), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
+}
 
-    #job-apply-btn:hover {
-        transform: scale(1.02);
-    }
+#job-apply-btn:hover {
+    transform: scale(1.02);
+}
 
 #no-reviews-text {
     font-weight: 500;
@@ -141,10 +141,10 @@
     text-decoration: none;
 }
 
-    #add-review:active {
-        transform: translateX(0.1em) translateY(0.1em);
-        box-shadow: 0 0 0 4px rgb(255, 240, 219), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
-    }
+#add-review:active {
+    transform: translateX(0.1em) translateY(0.1em);
+    box-shadow: 0 0 0 4px rgb(255, 240, 219), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
+}
 
 #review-svg {
     height: 30px;
@@ -206,67 +206,67 @@
     width: 100%;
 }
 
-    #job-apply-btn + form textarea {
-        width: 100%;
-        height: 150px;
-        padding: 0.5em;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-bottom: 1em;
-        resize: vertical;
-    }
+#job-apply-btn + form textarea {
+    width: 100%;
+    height: 150px;
+    padding: 0.5em;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    resize: vertical;
+}
 
-    #job-apply-btn + form input[type=file] {
-        margin-bottom: 1em;
-        font-size: 16px;
-    }
+#job-apply-btn + form input[type=file] {
+    margin-bottom: 1em;
+    font-size: 16px;
+}
 
-    #job-apply-btn + form input[type=submit] {
-        background-color: #006d77;
-        color: white;
-        font-size: 18px;
-        font-weight: 700;
-        padding: 0.5em 1em;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
+#job-apply-btn + form input[type=submit] {
+    background-color: #006d77;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-        #job-apply-btn + form input[type=submit]:hover {
-            background-color: #00565e;
-        }
+#job-apply-btn + form input[type=submit]:hover {
+    background-color: #00565e;
+}
 
-    #job-apply-btn + form a {
-        display: inline-block;
-        margin-bottom: 1em;
-        font-size: 16px;
-        color: #006d77;
-        text-decoration: none;
-        cursor: pointer;
-    }
+#job-apply-btn + form a {
+    display: inline-block;
+    margin-bottom: 1em;
+    font-size: 16px;
+    color: #006d77;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-        #job-apply-btn + form a:hover {
-            text-decoration: underline;
-        }
+#job-apply-btn + form a:hover {
+    text-decoration: underline;
+}
 
-    #job-apply-btn + form label {
-        display: block;
-        font-size: 16px;
-        margin-bottom: 0.5em;
-        color: #006d77;
-    }
+#job-apply-btn + form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 0.5em;
+    color: #006d77;
+}
 
-    #job-apply-btn + form .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        cursor: pointer;
-        font-size: 24px;
-        color: #006d77;
-    }
+#job-apply-btn + form .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #006d77;
+}
 
-        #job-apply-btn + form .close-btn:hover {
-            color: #00565e;
-        }
+#job-apply-btn + form .close-btn:hover {
+    color: #00565e;
+}

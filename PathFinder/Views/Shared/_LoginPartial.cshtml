@@ -10,7 +10,7 @@
     string fullName = $"{applicationUser.FirstName} {applicationUser.LastName}";
 
     <li class="nav-item">
-            <a id="navbar-main-text" class="nav-link btn btn-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Здравейте, @fullName!</a>
+            <a id="navbar-main-text" class="nav-link btn btn-link" asp-area="Identity" asp-page="/Account/Profile">Здравейте, @fullName!</a>
     </li>
     <li class="nav-item">
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
