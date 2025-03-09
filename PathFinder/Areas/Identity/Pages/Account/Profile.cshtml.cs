@@ -78,38 +78,6 @@ namespace PathFinder.Areas.Identity.Pages.Account
             return Page();
         }
 
-        public async Task<IActionResult> OnPostDeleteAsync()
-        {
-            string? userId = userManager.GetUserId(User);
-
-            if (string.IsNullOrEmpty(userId))
-            {
-                logger.LogError("User ID is null or empty");
-                ViewData["ErrorMessage"] = "User ID not found";
-                return NotFound();
-            }
-
-            var user = await userManager.FindByIdAsync(userId);
-            if (user == null)
-            {
-                logger.LogError("User not found");
-                ViewData["ErrorMessage"] = "User not found";
-                return NotFound();
-            }
-
-            var result = await userManager.DeleteAsync(user);
-            if (!result.Succeeded)
-            {
-                logger.LogError("Failed to delete user: {Errors}", string.Join(", ", result.Errors));
-                ViewData["ErrorMessage"] = "Failed to delete user";
-                return Page();
-            }
-
-            await signInManager.SignOutAsync();
-
-            return RedirectToAction("Index", "Home", new { area = "" });
-        }
-
         public async Task<IActionResult> OnGetEditAsync(string userId)
         {
             var user = await userManager.FindByIdAsync(userId);
