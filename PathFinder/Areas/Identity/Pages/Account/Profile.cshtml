@@ -95,13 +95,6 @@
                         </h5>
                         @Model.CurrentUser.Email
                     </div>
-
-                    <div id="user-info-container">
-                        <h5 id="user-info-h5-title">
-                            Телефонен номер:
-                        </h5>
-                        @Model.CurrentUser.PhoneNumber
-                    </div>
                 </div>
             </div>
 
@@ -125,6 +118,19 @@
                                 <hr />
 
                                 <h6>@courseOffer.StartDate.ToString("yyyy-MM-dd") / @courseOffer.EndDate.ToString("yyyy-MM-dd")</h6>
+                            </div>
+                        </div>
+                    }
+                    @foreach (var jobOffer in Model.JobsEnrolled)
+                    {
+                        <div class="offers-box">
+                            <div id="reviews-publisher-and-date">
+                                <h5>@jobOffer.Title</h5>
+
+                                <hr />
+
+                                <h6>@jobOffer.JobType</h6>
+                                <h6>@jobOffer.Position</h6>
                             </div>
                         </div>
                     }

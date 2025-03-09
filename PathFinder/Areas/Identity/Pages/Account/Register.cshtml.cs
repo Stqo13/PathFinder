@@ -145,6 +145,11 @@ namespace PathFinder.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
+                    IdentityResult userResult = await _userManager.AddToRoleAsync(user, "PFUser");
+                    if (!userResult.Succeeded)
+                    {
+                        throw new InvalidOperationException($"Error occurred while adding the user {user.UserName} to the PFUser role!");
+                    }
                     //var userId = await _userManager.GetUserIdAsync(user);
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
