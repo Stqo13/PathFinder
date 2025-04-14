@@ -68,5 +68,10 @@
             public const int DescriptionMinLength = 10;
             public const int DescriptionMaxLength = 450;
         }
+
+        public static class MessageConstraints
+        {
+            public const int ContentMaxLength = 3000;
+        }
     }
 }

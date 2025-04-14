@@ -8,7 +8,6 @@ using PathFinder.Data.Repository.Interfaces;
 using PathFinder.Extensions;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
-using PathFinder.Hubs;
 
 namespace PathFinder
 {
@@ -107,10 +106,7 @@ namespace PathFinder
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapHub<ChatHub>("/chat");
-            });
+            app.MapHub<ChatHub>("/chat");
 
             app.MapControllerRoute(
                 name: "areas",

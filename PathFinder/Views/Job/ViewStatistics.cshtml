@@ -2,7 +2,7 @@
 
 
 @{
-    ViewData["Title"] = "Top 10 Most Searched Job Positions";
+    ViewData["Title"] = "Топ 10 най-търсени работни позиции";
     var jobPositionsJson = Newtonsoft.Json.JsonConvert.SerializeObject(
         Model.Select(j => new { name = j.Item1, salary = j.Item2 })
     );
@@ -49,7 +49,7 @@
       labels: labels,
       datasets: [
         {
-          label: 'Average Salary',
+          label: 'Средна заплата',
           data: salaries,
           borderColor: CHART_COLORS.red,
           backgroundColor: transparentize(CHART_COLORS.red, 0.5),
@@ -66,10 +66,10 @@
           legend: {
             position: 'top',
           },
-          title: {
-            display: true,
-            text: 'Top 10 Most Searched Job Positions'
-          }
+          // title: {
+          //   display: true,
+          //   text: 'Top 10 Most Searched Job Positions'
+          // }
         }
       },
     };

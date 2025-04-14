@@ -1,0 +1,181 @@
+﻿@using System.Security.Claims
+@model PathFinder.ViewModels.ChatViewModel;
+
+@{
+    ViewData["Title"] = "Chat";
+}
+
+<div class="chat-container">
+    <div class="chat-header">
+        <h4>Chat with <span id="receiverName">@Model.ReceiverId</span></h4>
+        <input type="hidden" id="currentUserId" value="@Model.SenderId" />
+        <input type="hidden" id="receiverId" value="@Model.ReceiverId" />
+    </div>
+
+    <div class="message-container">
+        <ul id="discussion" class="message-list">
+        </ul>
+    </div>
+
+    <div class="message-input">
+        <div class="input-group">
+            <input type="text" id="message" class="form-control" placeholder="Type your message..." autocomplete="off" />
+            <div class="input-group-append">
+                <button id="sendmessage" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .chat-container {
+        max-width: 800px;
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chat-header {
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .message-container {
+        flex: 1;
+        overflow-y: auto;
+        padding: 15px;
+        background-color: #fff;
+    }
+
+    .message-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .message-list li {
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: 18px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+            .message-list li:nth-child(odd) {
+                background-color: #e3f2fd;
+                margin-right: auto;
+            }
+
+            .message-list li:nth-child(even) {
+                background-color: #f1f1f1;
+                margin-left: auto;
+            }
+
+    .message-input {
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-top: 1px solid #ddd;
+    }
+
+    #message {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    #sendmessage {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@@microsoft/signalr@8.0.7/dist/browser/signalr.min.js"></script>
+
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chat")
+        .withAutomaticReconnect()
+        .build();
+
+    const currentUserId = document.getElementById("currentUserId").value;
+    const receiverId = document.getElementById("receiverId").value;
+
+    async function startConnection() {
+        if (connection.state === signalR.HubConnectionState.Disconnected) {
+            try {
+                await connection.start();
+                console.log("✅ Connection started. State:", connection.state);
+
+                // Join the conversation group and load messages
+                await connection.invoke("JoinConversation", currentUserId, receiverId);
+                await connection.invoke("LoadMessages", receiverId);
+
+                document.getElementById("message").focus();
+            } catch (err) {
+                console.error("❌ Connection start error:", err);
+                setTimeout(startConnection, 5000);
+            }
+        }
+    }
+    startConnection();
+
+    // SEND MESSAGE HANDLER
+    function sendMessage() {
+        const messageInput = document.getElementById("message");
+        const message = messageInput.value.trim();
+
+        if (message) {
+            console.log("📤 Sending message to:", receiverId);
+            // Now only pass receiverId and message.
+            connection.invoke("SendMessage", receiverId, message)
+                .catch(err => console.error("❌ SendMessage Error:", err));
+            messageInput.value = '';
+        }
+    }
+
+    document.getElementById("sendmessage").addEventListener("click", sendMessage);
+    document.getElementById("message").addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            sendMessage();
+        }
+    });
+
+    connection.on("ReceiveMessage", function (senderId, message) {
+        addMessageToChat(senderId, message);
+        scrollToBottom();
+    });
+
+    connection.on("LoadMessages", function (messages) {
+        const discussion = document.getElementById("discussion");
+        discussion.innerHTML = '';
+        messages.forEach(function (msg) {
+            addMessageToChat(msg.senderId, msg.content);
+        });
+        scrollToBottom();
+    });
+
+    function addMessageToChat(senderId, message) {
+        const li = document.createElement("li");
+        li.textContent = senderId === currentUserId ? "You: " + message : "Them: " + message;
+        if (senderId === currentUserId) {
+            li.style.backgroundColor = "#d1e7dd";
+            li.style.marginLeft = "auto";
+        } else {
+            li.style.backgroundColor = "#f8d7da";
+            li.style.marginRight = "auto";
+        }
+        document.getElementById("discussion").appendChild(li);
+    }
+
+    function scrollToBottom() {
+        const messageContainer = document.querySelector(".message-container");
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+    }
+</script>
+
+</script>

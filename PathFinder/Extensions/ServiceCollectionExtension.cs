@@ -23,6 +23,7 @@ namespace PathFinder.Extensions
             services.AddScoped<IRepository<ApplicationUser, string>, Repository<ApplicationUser, string>>();
             services.AddScoped<IRepository<CompanyRoleRequest, int>, Repository<CompanyRoleRequest, int>>();
             services.AddScoped<IRepository<InstitutionRoleRequest, int>, Repository<InstitutionRoleRequest, int>>();
+            services.AddScoped<IRepository<Message, int>, Repository<Message, int>>();
 
             return services;
         }
@@ -37,6 +38,7 @@ namespace PathFinder.Extensions
             services.AddScoped<IEmailSenderService, EmailSenderService>();
             services.AddScoped<IReviewService, ReviewService>();
             services.AddScoped<ICVUploaderService, CVUploaderService>();
+            services.AddScoped<IChatService, ChatService>();
 
             services.AddHttpClient<IGoogleMapsService, GoogleMapsService>();
             services.AddScoped<IGoogleMapsService, GoogleMapsService>();

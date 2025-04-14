@@ -43,6 +43,8 @@ namespace PathFinder.Data
 
         public virtual DbSet<InstitutionRoleRequest> InstitutionRoleRequests { get; set; } = null!;
 
+        public virtual DbSet<Message> Messages { get; set; } = null!;
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

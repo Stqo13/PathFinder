@@ -228,6 +228,7 @@ namespace PathFinder.Services.Data.Implementations
                         })
                         .ToList(),
                     Price = c.Price,
+                    Publisher = c.InstitutionId
                 })
                 .FirstOrDefaultAsync();
 

@@ -28,6 +28,8 @@ namespace PathFinder.ViewModels.CourseViewModels
 
         public required decimal Price { get; set; }
 
+        public required string Publisher { get; set; }
+
         public List<ReviewInfoViewModel> Reviews { get; set; }
            = new List<ReviewInfoViewModel>();
     }
