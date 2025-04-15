@@ -50,8 +50,11 @@ public class ChatHub : Hub
 
     private string GetChatGroupName(string userId1, string userId2)
     {
-        return string.Compare(userId1, userId2, StringComparison.Ordinal) < 0
-            ? $"{userId1}_{userId2}"
-            : $"{userId2}_{userId1}";
+        if (userId1.CompareTo(userId2) < 0)
+        {
+            return $"{userId1}_{userId2}";
+        }
+
+        return $"{userId2}_{userId1}";
     }
 }

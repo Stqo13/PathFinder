@@ -17,7 +17,7 @@ public class ChatService(
             IsRead = false
         };
 
-        messageRepository.AddAsync(newMessage);
+        await messageRepository.AddAsync(newMessage);
     }
 
     public async Task<List<Message>> GetConversationHistoryAsync(string userId1, string userId2)
@@ -39,6 +39,5 @@ public class ChatService(
         {
             msg.IsRead = true;
         }
-
     }
 }

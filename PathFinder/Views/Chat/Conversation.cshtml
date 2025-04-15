@@ -108,19 +108,18 @@
         if (connection.state === signalR.HubConnectionState.Disconnected) {
             try {
                 await connection.start();
-                console.log("✅ Connection started. State:", connection.state);
 
-                // Join the conversation group and load messages
                 await connection.invoke("JoinConversation", currentUserId, receiverId);
                 await connection.invoke("LoadMessages", receiverId);
 
+                console.log('testovoe suobshtenie mraza te')
                 document.getElementById("message").focus();
             } catch (err) {
                 console.error("❌ Connection start error:", err);
-                setTimeout(startConnection, 5000);
             }
         }
     }
+
     startConnection();
 
     // SEND MESSAGE HANDLER
@@ -176,6 +175,4 @@
         const messageContainer = document.querySelector(".message-container");
         messageContainer.scrollTop = messageContainer.scrollHeight;
     }
-</script>
-
 </script>
